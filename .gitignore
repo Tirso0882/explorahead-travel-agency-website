@@ -59,3 +59,7 @@ ENV/
 # Logs
 logs/
 *.log
+
+# Folders
+.github/
+docs/

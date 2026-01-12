@@ -1,0 +1,545 @@
+/* Google Fonts Import - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@import "tailwindcss";
+
+/* ============================================
+   GOLDEN HOUR EXPLORER - Design System
+   Theme: Warm, cinematic, luxury travel
+   ============================================ */
+
+:root {
+  /* Primary Colors */
+  --color-sand: #F5E6D3;
+  --color-sand-light: #FBF7F2;
+  --color-sand-dark: #E5D4BF;
+  
+  --color-ocean: #1A365D;
+  --color-ocean-light: #2D4A6F;
+  --color-ocean-dark: #0F2744;
+  
+  --color-gold: #D4A574;
+  --color-gold-light: #E4C4A4;
+  --color-gold-dark: #B88B5A;
+  
+  --color-white: #FAFAF8;
+  --color-cream: #F8F5F0;
+  
+  /* Accent Colors */
+  --color-terracotta: #C4785A;
+  --color-terracotta-light: #D99B82;
+  --color-forest: #2D5A45;
+  --color-forest-light: #3D7A5D;
+  
+  /* Neutral Colors */
+  --color-charcoal: #2C2C2C;
+  --color-gray-dark: #4A4A4A;
+  --color-gray: #7A7A7A;
+  --color-gray-light: #B5B5B5;
+  --color-gray-lighter: #E5E5E5;
+  
+  /* Semantic Colors */
+  --color-success: #2D5A45;
+  --color-error: #C4785A;
+  --color-warning: #D4A574;
+  --color-info: #1A365D;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  --radius-button: 20px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(26, 54, 93, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(26, 54, 93, 0.07), 0 2px 4px -1px rgba(26, 54, 93, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(26, 54, 93, 0.08), 0 4px 6px -2px rgba(26, 54, 93, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(26, 54, 93, 0.1), 0 10px 10px -5px rgba(26, 54, 93, 0.04);
+  --shadow-gold: 0 4px 14px -3px rgba(212, 165, 116, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-slower: 600ms ease;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* Tailwind Theme Extension */
+@theme inline {
+  --color-sand: var(--color-sand);
+  --color-sand-light: var(--color-sand-light);
+  --color-sand-dark: var(--color-sand-dark);
+  --color-ocean: var(--color-ocean);
+  --color-ocean-light: var(--color-ocean-light);
+  --color-ocean-dark: var(--color-ocean-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-cream: var(--color-cream);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-light: var(--color-terracotta-light);
+  --color-forest: var(--color-forest);
+  --color-forest-light: var(--color-forest-light);
+  --color-charcoal: var(--color-charcoal);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.015;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ocean);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.text-display {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.text-lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-gray-dark);
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-tiny {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SECTION HEADER CENTERING
+   Automatically center h2 and p elements within text-center containers
+   ============================================ */
+
+.text-center h2,
+.text-center p {
+  text-align: center;
+}
+
+/* How It Works Section - CTA text color for better readability */
+section.bg-sand-light div.bg-gradient-to-br h3 {
+  color: var(--color-gold) !important;
+}
+
+/* How It Works Section - Card headings: use global responsive sizing, wrap on small screens */
+section.bg-sand-light .grid .bg-white.rounded-2xl h3 {
+  /* Use the same responsive sizing as other h3 elements: clamp(1.5rem, 3vw, 2rem) from global CSS */
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+/* Keep titles on one line only on larger screens (md and up) */
+@media (min-width: 768px) {
+  section.bg-sand-light .grid .bg-white.rounded-2xl h3 {
+    white-space: nowrap;
+  }
+}
+
+/* Ensure cards have equal width and proper alignment */
+section.bg-sand-light .grid > div {
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section.bg-sand-light .grid .bg-white.rounded-2xl {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================
+   LINKS & BUTTONS
+   ============================================ */
+
+a {
+  color: var(--color-ocean);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold);
+}
+
+/* Footer links override - ensure white text on dark background */
+footer a,
+footer a:link,
+footer a:visited {
+  color: #ffffff !important;
+}
+
+footer a:hover {
+  color: var(--color-gold) !important;
+}
+
+/* Footer container spacing - increase horizontal padding */
+/* footer .container-wide {
+padding-left: var(--space-2xl);
+padding-right: var(--space-2xl);
+} */
+
+/* Footer container spacing - increase vertical padding */
+footer .container-wide {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  footer .container-wide {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  footer .container-wide {
+    padding-left: var(--space-3xl);
+    padding-right: var(--space-3xl);
+  }
+}
+
+button {
+  box-sizing: border-box;
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: all 200ms ease-out;
+  overflow: hidden;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ocean-dark);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section-sm {
+  padding: var(--space-2xl) 0;
+}
+
+/* Section Header - Standardized alignment for section titles and descriptions */
+.section-header {
+  text-align: center;
+  max-width: 72rem; /* max-w-6xl equivalent */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem; /* mb-20 equivalent */
+}
+
+/* Gradient Overlays */
+.gradient-ocean {
+  background: linear-gradient(135deg, var(--color-ocean) 0%, var(--color-ocean-light) 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-terracotta) 100%);
+}
+
+.gradient-warm {
+  background: linear-gradient(180deg, var(--color-sand-light) 0%, var(--color-cream) 100%);
+}
+
+.gradient-hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 54, 93, 0.3) 0%,
+    rgba(26, 54, 93, 0.5) 50%,
+    rgba(26, 54, 93, 0.7) 100%
+  );
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-dark {
+  background: rgba(26, 54, 93, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Focus Styles */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-gold-light);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--transition-slow) ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--transition-slow) ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--transition-base) ease forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-gray);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container,
+  .container-wide,
+  .container-narrow {
+    padding: 0 var(--space-md);
+  }
+}

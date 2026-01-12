@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "title": {
+      "default": "ExplorAhead | Your Journey Begins Here",
+      "template": "%s | ExplorAhead"
+    },
+    "description": "Experience personalized luxury travel planning with our AI-powered travel specialist. Discover curated destinations, bespoke itineraries, and unforgettable adventures tailored just for you."
+  },
+  "common": {
+    "appName": "ExplorAhead",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "yes": "Yes",
+    "no": "No",
+    "error": "Error",
+    "success": "Success"
+  },
+  "navigation": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "chat": "Travel Chat",
+    "settings": "Settings",
+    "logout": "Sign Out",
+    "toggleMenu": "Toggle menu"
+  },
+  "hero": {
+    "badge": "Your Journey Begins Here",
+    "title": "Discover the World,",
+    "titleHighlight": "Your Way",
+    "subtitle": "Craving a seamless travel experience?",
+    "subtitleLine2": "Share your vision, and leave the details to us.",
+    "ctaPrimary": "Start Planning",
+    "ctaSecondary": "Explore Destinations",
+    "stats": {
+      "destinations": "Destinations",
+      "experience": "Years Experience",
+      "support": "Support"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "emailPlaceholder": "you@youragency.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "noAccount": "Don't have an account?",
+      "needAccess": "Need access?",
+      "contactUs": "Contact us",
+      "contactMessage": "to request an agency account.",
+      "errors": {
+        "credentialsSignin": "Invalid email or password",
+        "oauthSignin": "Error signing in with provider",
+        "oauthCallback": "Error completing authentication",
+        "emailSignin": "Error sending magic link",
+        "default": "An error occurred during sign in"
+      }
+    },
+    "invite": {
+      "title": "You're Invited!",
+      "subtitle": "Join {agencyName} on ExplorAhead",
+      "accept": "Accept Invitation",
+      "decline": "Decline",
+      "expired": "This invitation has expired",
+      "invalid": "This invitation is invalid",
+      "alreadyAccepted": "This invitation has already been accepted"
+    }
+  },
+  "chat": {
+    "title": "AI Travel Specialist",
+    "newConversation": "New Conversation",
+    "deleteConversation": "Delete Conversation",
+    "conversationHistory": "Conversation History",
+    "messagePlaceholder": "Ask about your dream destination...",
+    "send": "Send",
+    "typing": "Typing...",
+    "error": "Failed to send message",
+    "welcome": "Welcome! How can I help plan your perfect trip today?",
+    "suggestedPrompts": {
+      "title": "Suggested Prompts",
+      "prompts": [
+        "Plan a 10-day honeymoon to Bali",
+        "What are the best beaches in Thailand?",
+        "Create a luxury European tour itinerary",
+        "Family-friendly activities in Japan"
+      ]
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "agency": "Agency",
+      "language": "Preferred Language",
+      "languageDescription": "Choose your preferred language for the interface"
+    },
+    "account": {
+      "title": "Account",
+      "changePassword": "Change Password",
+      "deleteAccount": "Delete Account",
+      "deleteAccountWarning": "This action cannot be undone"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "notifications": "Email Notifications",
+      "newsletter": "Newsletter",
+      "marketing": "Marketing Emails"
+    },
+    "success": "Settings saved successfully",
+    "error": "Failed to save settings"
+  },
+  "footer": {
+    "tagline": "Crafting unforgettable journeys tailored to your dreams. Let us guide you to the world's most extraordinary destinations.",
+    "explore": "Explore",
+    "services": "Services",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved",
+    "social": {
+      "title": "Follow Our Journey",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "twitter": "Twitter"
+    },
+    "links": {
+      "aboutUs": "About Us",
+      "luxury": "Luxury Travel",
+      "adventure": "Adventure Tours",
+      "honeymoon": "Honeymoons",
+      "group": "Group Travel",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "contact": {
+      "email": "info@explorahead.com",
+      "phone": "+48 503 801 994",
+      "address": "Wroclaw, Poland"
+    }
+  },
+  "marketing": {
+    "services": {
+      "title": "Tailored Travel Services",
+      "subtitle": "From luxury escapes to adventure tours, we craft experiences that match your unique style",
+      "luxury": {
+        "title": "Luxury Travel",
+        "description": "Experience the world in style with our premium travel packages"
+      },
+      "adventure": {
+        "title": "Adventure Tours",
+        "description": "Thrilling experiences for the adventurous spirit"
+      },
+      "honeymoon": {
+        "title": "Honeymoons",
+        "description": "Romantic getaways to celebrate your love story"
+      },
+      "group": {
+        "title": "Group Travel",
+        "description": "Perfectly coordinated trips for families and groups"
+      }
+    },
+    "servicesPreview": {
+      "badge": "What We Offer",
+      "title": "How Exactly Can We Help You?",
+      "subtitle": "We handle every detail of your journey—from flights to accommodations, daily plans to 24/7 support—so you can focus on creating unforgettable memories.",
+      "exploreAll": "Explore All Services",
+      "items": {
+        "transport": {
+          "title": "Transport",
+          "description": "We arrange flights, trains, car rentals—with attention to comfort and your budget."
+        },
+        "accommodation": {
+          "title": "Accommodation",
+          "description": "Hotels, apartments, guest houses with character—perfectly matched to your lifestyle."
+        },
+        "dailyPlanning": {
+          "title": "Daily Planning",
+          "description": "Flexible itineraries with time for relaxation, culture, dining... or simply unwinding at your own pace."
+        },
+        "experiences": {
+          "title": "Attractions & Experiences",
+          "description": "From hidden cafes to private guided tours—no tourist traps, only authentic moments."
+        },
+        "support": {
+          "title": "24/7 Support",
+          "description": "From your first email to your return home—if something changes, we're here thinking of you."
+        }
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Travel With Me Instead of Someone Else?",
+      "items": {
+        "zeroStress": {
+          "title": "Zero Stress",
+          "description": "I take care of everything—I handle every detail. You just need to show up with your suitcase and enjoy the journey with me."
+        },
+        "authenticity": {
+          "title": "Authenticity",
+          "description": "I avoid tourist traps; I find genuine places and experiences that will stay with you forever."
+        },
+        "supportReturn": {
+          "title": "Support Upon Return",
+          "description": "I'm here for you from the moment you book until you safely return home."
+        },
+        "personalized": {
+          "title": "Personalized 1:1 Service",
+          "description": "Your trip is tailored exclusively for you—not for a group. I get to know your lifestyle and create the perfect plan."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "How It Works",
+      "title": "Start Your Journey in 3 Simple Steps",
+      "subtitle": "No forms. No waiting. No obligations. Just a conversation about your dream trip.",
+      "trust": {
+        "noObligation": "No obligation",
+        "freeConsultation": "Free consultation",
+        "instantResponse": "Instant response"
+      },
+      "steps": {
+        "connect": {
+          "title": "Message Me",
+          "description": "Send a quick message via WhatsApp or book a 15-min call. Tell me where you want to go.",
+          "detail": "Response in minutes • Choose your way"
+        },
+        "plan": {
+          "title": "We Create Your Plan",
+          "description": "Within 3-7 days, I'll prepare your complete personalized itinerary with all the details.",
+          "detail": "Flights • Hotels • Activities • Hidden gems"
+        },
+        "travel": {
+          "title": "Travel With Confidence",
+          "description": "Everything is handled. Just pack your bags and enjoy.",
+          "detail": "24/7 support • Zero stress • Pure adventure"
+        }
+      },
+      "cta": {
+        "title": "Ready to Start Planning?",
+        "subtitle": "Choose your preferred way to connect—no forms, no hassle.",
+        "chatNow": "Chat With Me Now",
+        "bookCall": "Book a Quick Call",
+        "socialProof": "Join 100+ travelers who trusted us with their dream trips"
+      }
+    },
+    "servicesPage": {
+      "badge": "Our Services",
+      "title": "Crafting Your Perfect Journey",
+      "subtitle": "From dream to destination, we provide comprehensive travel services designed to exceed your expectations at every turn.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More",
+      "process": {
+        "badge": "How It Works",
+        "title": "Your Journey With Us",
+        "subtitle": "A seamless process designed to turn your travel dreams into reality, with personalized attention at every step.",
+        "steps": {
+          "discovery": {
+            "title": "Discovery",
+            "description": "Share your travel dreams, preferences, and must-have experiences."
+          },
+          "design": {
+            "title": "Design",
+            "description": "We craft a personalized itinerary tailored to your vision."
+          },
+          "refine": {
+            "title": "Refine",
+            "description": "Review, adjust, and perfect every detail together."
+          },
+          "experience": {
+            "title": "Experience",
+            "description": "Embark on your journey with 24/7 support along the way."
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to Begin?",
+        "subtitle": "Whether you have a destination in mind or need inspiration, we're here to help craft your perfect journey.",
+        "chatWithAI": "Chat With AI",
+        "talkToExpert": "Talk to Expert"
+      },
+      "items": {
+        "tripPlanning": {
+          "title": "Personalized Trip Planning",
+          "description": "Every journey begins with understanding your dreams. We craft bespoke itineraries that reflect your unique travel style, preferences, and bucket list destinations.",
+          "features": {
+            "consultation": "In-depth consultation to understand your travel vision",
+            "itinerary": "Custom-tailored itineraries with day-by-day planning",
+            "recommendations": "Restaurant and activity recommendations",
+            "insiderTips": "Local insider tips and hidden gems",
+            "flexibleBooking": "Flexible booking with modification support"
+          }
+        },
+        "luxury": {
+          "title": "Luxury Concierge",
+          "description": "Experience travel at its finest with VIP treatment, exclusive access, and world-class accommodations that transform ordinary trips into extraordinary experiences.",
+          "features": {
+            "exclusiveHotels": "Access to exclusive hotels and private villas",
+            "vipServices": "VIP airport services and private transfers",
+            "restaurants": "Priority reservations at Michelin-starred restaurants",
+            "privateTours": "Private tours with expert guides",
+            "concierge": "24/7 dedicated concierge support"
+          }
+        },
+        "group": {
+          "title": "Group Travel",
+          "description": "From corporate retreats to family reunions, we specialize in coordinating seamless group experiences that bring people together in remarkable destinations.",
+          "features": {
+            "coordination": "Group coordination and logistics management",
+            "groupRates": "Negotiated group rates and exclusive deals",
+            "teamBuilding": "Team-building activities and experiences",
+            "customItineraries": "Customized group itineraries",
+            "onsiteSupport": "On-site support and coordination"
+          }
+        },
+        "honeymoon": {
+          "title": "Honeymoon Packages",
+          "description": "Begin your forever with a romantic escape designed to celebrate your love. From overwater bungalows to candlelit dinners, we create magical moments.",
+          "features": {
+            "expertise": "Romantic destination expertise",
+            "amenities": "Special honeymoon amenities and upgrades",
+            "privateExperiences": "Private experiences and couples activities",
+            "surprises": "Surprise arrangements and celebrations",
+            "registry": "Registry and gifting options"
+          }
+        },
+        "adventure": {
+          "title": "Adventure Tours",
+          "description": "For the bold and curious, we curate heart-pumping adventures that push boundaries while ensuring safety and creating lifelong memories.",
+          "features": {
+            "expertGuides": "Expert adventure guides and safety protocols",
+            "uniqueExperiences": "Unique experiences off the beaten path",
+            "equipment": "Equipment and gear coordination",
+            "preparation": "Physical preparation guidance",
+            "insurance": "Adventure travel insurance assistance"
+          }
+        },
+        "aiAssistant": {
+          "title": "AI Travel Assistant",
+          "description": "Experience the future of travel planning with our AI-powered specialist that provides instant recommendations, real-time assistance, and personalized suggestions 24/7.",
+          "features": {
+            "recommendations": "Instant destination recommendations",
+            "itineraryGeneration": "Real-time itinerary generation",
+            "budgetOptimization": "Smart budget optimization",
+            "naturalLanguage": "Natural language trip planning",
+            "continuousLearning": "Continuous learning from your preferences"
+          }
+        }
+      }
+    },
+    "cta": {
+      "badge": "AI-Powered Planning",
+      "title": "Ready to Explore",
+      "titleHighlight": "Your Dream Destination?",
+      "subtitle": "Experience personalized travel planning with our AI-powered tools. Get instant recommendations, custom itineraries, and expert guidance—all tailored to your unique style.",
+      "requestAccess": "Get Started",
+      "talkToExpert": "Talk to an Expert",
+      "trustIndicator": "Trusted by thousands of travelers worldwide"
+    },
+    "destinations": {
+      "title": "Featured Destinations",
+      "subtitle": "Explore our handpicked selection of breathtaking locations",
+      "viewAll": "View All Destinations"
+    },
+    "testimonials": {
+      "title": "What Our Travelers Say",
+      "subtitle": "Real stories from real adventures"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "unauthorized": "You must be logged in",
+    "forbidden": "You don't have permission to access this",
+    "notFound": "Page not found",
+    "serverError": "Server error. Please try again later",
+    "networkError": "Network error. Please check your connection",
+    "validation": "Please check your input",
+    "tryAgain": "Try Again",
+    "goHome": "Go Home"
+  },
+  "agency": {
+    "status": {
+      "trial": "Trial",
+      "active": "Active",
+      "suspended": "Suspended",
+      "cancelled": "Cancelled"
+    },
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "agent": "Agent",
+      "viewer": "Viewer"
+    },
+    "subscription": {
+      "title": "Subscription",
+      "plan": "Plan",
+      "status": "Status",
+      "trialEnds": "Trial ends",
+      "subscriptionEnds": "Subscription ends",
+      "upgrade": "Upgrade",
+      "manage": "Manage Subscription"
+    },
+    "invitations": {
+      "title": "Team Invitations",
+      "invite": "Invite Team Member",
+      "email": "Email Address",
+      "role": "Role",
+      "send": "Send Invitation",
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "expired": "Expired",
+      "revoke": "Revoke"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "pl": "Polski"
+  },
+  "about": {
+    "hero": {
+      "badge": "Our Story",
+      "title": "About ExplorAhead",
+      "subtitle": "We believe every journey should be as unique as the traveler taking it. For over 15 years, we've been crafting unforgettable experiences."
+    },
+    "story": {
+      "badge": "Our Beginning",
+      "title": "Born From a Love of Discovery",
+      "paragraph1": "ExplorAhead was founded in 2009 with a simple belief: that travel should be transformative, not transactional. What started as a small boutique agency has grown into a trusted name in personalized luxury travel.",
+      "paragraph2": "Our founder, Alexandra Chen, spent years as a diplomat, experiencing firsthand how travel can bridge cultures and change perspectives. She envisioned a company where every trip would be crafted with the same care and attention she gave to understanding new cultures.",
+      "paragraph3": "Today, we combine that founding vision with cutting-edge technology, including our AI Travel Specialist, to offer an unparalleled planning experience. But at our core, we remain a team of passionate travelers dedicated to making your dreams come true."
+    },
+    "stats": {
+      "happyTravelers": "Happy Travelers",
+      "satisfactionRate": "Satisfaction Rate",
+      "destinations": "Destinations"
+    },
+    "values": {
+      "badge": "What We Stand For",
+      "title": "Our Values",
+      "subtitle": "These principles guide everything we do, from the destinations we recommend to the experiences we create.",
+      "items": {
+        "passion": {
+          "title": "Passion for Travel",
+          "description": "We don't just plan trips—we live and breathe travel. Our team has collectively visited over 100 countries."
+        },
+        "expertise": {
+          "title": "Global Expertise",
+          "description": "Deep local knowledge combined with worldwide connections ensures authentic, insider experiences."
+        },
+        "personal": {
+          "title": "Personal Touch",
+          "description": "Every traveler is unique. We take time to understand your dreams and craft journeys that reflect you."
+        },
+        "trust": {
+          "title": "Trust & Safety",
+          "description": "Your well-being is our priority. We partner only with vetted suppliers and provide 24/7 support."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Embracing AI and technology to enhance—not replace—the human touch in travel planning."
+        },
+        "excellence": {
+          "title": "Excellence",
+          "description": "Award-winning service backed by thousands of five-star reviews and loyal returning travelers."
+        }
+      }
+    },
+    "team": {
+      "badge": "Meet the Experts",
+      "title": "Our Team",
+      "subtitle": "Passionate travelers and industry experts dedicated to making your journey extraordinary.",
+      "members": {
+        "alexandra": {
+          "name": "Alexandra Chen",
+          "role": "Founder & CEO",
+          "bio": "Former diplomat turned travel entrepreneur with a passion for connecting cultures."
+        },
+        "marcus": {
+          "name": "Marcus Williams",
+          "role": "Head of Luxury Travel",
+          "bio": "15 years in luxury hospitality, specializing in ultra-exclusive experiences."
+        },
+        "sofia": {
+          "name": "Sofia Rodriguez",
+          "role": "Adventure Specialist",
+          "bio": "Professional mountaineer and expedition leader with a love for the extraordinary."
+        },
+        "james": {
+          "name": "James Nakamura",
+          "role": "Technology Director",
+          "bio": "AI and travel tech expert, pioneering the future of personalized travel."
+        }
+      }
+    },
+    "partners": {
+      "text": "Trusted by industry leaders and accredited by"
+    },
+    "cta": {
+      "title": "Let's Create Something Amazing",
+      "subtitle": "Ready to experience the ExplorAhead difference? Start planning your next adventure today.",
+      "startPlanning": "Start Planning",
+      "contactUs": "Contact Us"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Get In Touch",
+      "title": "Contact Us",
+      "subtitle": "Have questions or ready to start planning? We'd love to hear from you. Reach out and let's create your perfect journey together."
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. We'll review your request and contact you shortly.",
+      "typeOfRequest": "Type of Request",
+      "companyName": "Company Name (optional)",
+      "companyPlaceholder": "Your Company",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone (Optional)",
+      "phonePlaceholder": "+1 (234) 567-890",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your needs...",
+      "sendButton": "Send Message",
+      "requestTypes": {
+        "select": "Select a reason...",
+        "general": "General Inquiry",
+        "support": "Support",
+        "partnership": "Partnership Opportunity"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "subtitle": "Prefer to reach us directly? Here's how you can get in touch.",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Hours",
+      "hoursValue": "Mon-Fri: 9AM-6PM | Sat: 10AM-4PM",
+      "followUs": "Follow Us",
+      "socialLabels": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "Twitter"
+      }
+    },
+    "map": {
+      "placeholder": "Interactive map would be displayed here"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our services, booking process, and travel planning.",
+      "button": "View FAQs"
+    }
+  }
+}
+
+
+
