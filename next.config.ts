@@ -4,13 +4,14 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./lib/i18n/request.ts');
 
 const nextConfig: NextConfig = {
-  // Enable static export for GitHub Pages
-  output: "export",
+  // Enable static export for GitHub Pages (only in production builds)
+  // In dev mode, we need middleware for i18n routing
+  ...(process.env.NODE_ENV === 'production' && { output: "export" }),
 
   // Image optimization settings
   // Note: Static export requires unoptimized images
   images: {
-    unoptimized: true,
+    unoptimized: process.env.NODE_ENV === 'production',
     remotePatterns: [
       {
         protocol: "https",

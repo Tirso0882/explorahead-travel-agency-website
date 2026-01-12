@@ -62,7 +62,7 @@ npm install
 
 ```bash
 # Create .env.local file
-NEXT_PUBLIC_APP_NAME=ExplorAhead
+NEXT_PUBLIC_APP_NAME=<app_name>
 NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
 ```
 

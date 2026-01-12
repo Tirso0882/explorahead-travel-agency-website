@@ -27,11 +27,45 @@ export function LanguageSwitcher() {
       return;
     }
 
-    // Use next-intl's router which handles locale switching automatically
-    startTransition(() => {
-      router.replace(pathname, { locale: newLocale });
-      setIsOpen(false);
-    });
+    setIsOpen(false);
+
+    // For static export, we need to construct the path manually from the current URL
+    // because middleware doesn't run in static export
+    const currentUrl = typeof window !== 'undefined' ? window.location.pathname : pathname;
+    
+    // Remove any existing locale prefix from the current path
+    let cleanPath = currentUrl;
+    if (cleanPath.startsWith('/pl/')) {
+      cleanPath = cleanPath.substring(3); // Remove '/pl'
+    } else if (cleanPath === '/pl') {
+      cleanPath = '/';
+    }
+    // If path starts with /en/, remove it (though this shouldn't happen with 'as-needed')
+    if (cleanPath.startsWith('/en/')) {
+      cleanPath = cleanPath.substring(3);
+    } else if (cleanPath === '/en') {
+      cleanPath = '/';
+    }
+    
+    // Ensure path starts with /
+    if (!cleanPath.startsWith('/')) {
+      cleanPath = '/' + cleanPath;
+    }
+    
+    // Build the new path with correct locale prefix
+    // With 'as-needed': en (default) has no prefix, pl has /pl prefix
+    let targetPath: string;
+    if (newLocale === 'pl') {
+      // Add /pl prefix for Polish
+      targetPath = cleanPath === '/' ? '/pl' : `/pl${cleanPath}`;
+    } else {
+      // English is default, no prefix needed
+      targetPath = cleanPath;
+    }
+    
+    // Use window.location.href to force full page load for static export
+    // This ensures the correct locale HTML file is loaded
+    window.location.href = targetPath;
   };
 
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
@@ -108,6 +142,5 @@ export function LanguageSwitcher() {
 }
 
 export default LanguageSwitcher;
-
 
 

@@ -155,7 +155,7 @@
     "contact": {
       "email": "info@explorahead.com",
       "phone": "+48 503 801 994",
-      "address": "ul. Podróżnicza 123\n00-123 Warszawa"
+      "address": "Wroclaw, Poland"
     }
   },
   "marketing": {
@@ -181,13 +181,13 @@
     },
     "servicesPreview": {
       "badge": "Co Oferujemy",
-      "title": "Jak Dokładnie Ci Pomagam?",
-      "subtitle": "Zajmuję się każdym szczegółem Twojej podróży—od lotów po zakwaterowanie, plany dnia po wsparcie 24/7—abyś mógł skupić się na tworzeniu niezapomnianych wspomnień.",
+      "title": "Jak Dokładnie Możemy Ci Pomóc?",
+      "subtitle": "Zajmujemy się każdym szczegółem Twojej podróży—od lotów po zakwaterowanie, plany dnia po wsparcie 24/7—abyś mógł skupić się na tworzeniu niezapomnianych wspomnień.",
       "exploreAll": "Odkryj Wszystkie Usługi",
       "items": {
         "transport": {
           "title": "Transport",
-          "description": "Dobieram loty, pociągi, wynajem auta—z uwzględnieniem komfortu i Twojego budżetu."
+          "description": "Dobieramy loty, pociągi, wynajem auta—z uwzględnieniem komfortu i Twojego budżetu."
         },
         "accommodation": {
           "title": "Zakwaterowanie",
@@ -199,11 +199,11 @@
         },
         "experiences": {
           "title": "Atrakcje i Doświadczenia",
-          "description": "Od tajnych kawiarenек po prywatne przewodnictwo—bez tłumów turystów."
+          "description": "Od ukrytych kawiarni po prywatne przewodnictwo—bez pułapek turystycznych, tylko autentyczne chwile."
         },
         "support": {
           "title": "Wsparcie 24/7",
-          "description": "Od pierwszego maila aż do powrotu—jeśli coś się zmieni, myślę o Tym za Ciebie."
+          "description": "Od pierwszego maila aż do powrotu do domu—jeśli coś się zmieni, jesteśmy tutaj, myśląc o Tobie."
         }
       }
     },
@@ -240,7 +240,7 @@
       "steps": {
         "connect": {
           "title": "Napisz do Mnie",
-          "description": "Wyślij szybką wiadomość przez WhatsApp, czat lub zarezerwuj 15-minutową rozmowę. Powiedz mi, dokąd chcesz pojechać.",
+          "description": "Wyślij szybką wiadomość przez WhatsApp lub zarezerwuj 15-minutową rozmowę. Powiedz mi, dokąd chcesz pojechać.",
           "detail": "Odpowiedź w minuty • Wybierz preferowany sposób"
         },
         "plan": {
@@ -250,7 +250,7 @@
         },
         "travel": {
           "title": "Podróżuj z Pewnością",
-          "description": "Wszystko jest załatwione. Po prostu spakuj walizkę i ciesz się—jestem dostępny 24/7, jeśli czegoś potrzebujesz.",
+          "description": "Wszystko jest załatwione. Po prostu spakuj walizkę i ciesz się.",
           "detail": "Wsparcie 24/7 • Zero stresu • Czysta przygoda"
         }
       },
@@ -259,7 +259,7 @@
         "subtitle": "Wybierz preferowany sposób kontaktu—bez formularzy, bez problemów.",
         "chatNow": "Czat Ze Mną Teraz",
         "bookCall": "Zarezerwuj Szybką Rozmowę",
-        "socialProof": "Dołącz do 500+ podróżników, którzy zaufali nam swoje wymarzone podróże"
+        "socialProof": "Dołącz do 100+ podróżników, którzy zaufali nam swoje wymarzone podróże"
       }
     },
     "servicesPage": {
