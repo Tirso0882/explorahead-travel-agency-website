@@ -20,7 +20,6 @@
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
-    "@swc/helpers": "^0.5.18",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.27",
     "@types/react": "^19",
