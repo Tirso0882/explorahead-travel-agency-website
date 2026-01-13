@@ -61,5 +61,7 @@ logs/
 *.log
 
 # Folders
-.github/
 docs/
+
+# Files
+notes.txt
