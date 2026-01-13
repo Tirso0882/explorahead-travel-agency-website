@@ -3,10 +3,18 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./lib/i18n/request.ts');
 
+// GitHub Pages repository name for basePath
+const isProduction = process.env.NODE_ENV === 'production';
+const repoName = 'explorahead-travel-agency-website';
+
 const nextConfig: NextConfig = {
   // Enable static export for GitHub Pages (only in production builds)
   // In dev mode, we need middleware for i18n routing
-  ...(process.env.NODE_ENV === 'production' && { output: "export" }),
+  ...(isProduction && { 
+    output: "export",
+    basePath: `/${repoName}`,
+    assetPrefix: `/${repoName}/`,
+  }),
 
   // Image optimization settings
   // Note: Static export requires unoptimized images

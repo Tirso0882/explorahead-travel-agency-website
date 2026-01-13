@@ -27,10 +27,17 @@ export function LanguageSwitcher() {
 
     setIsOpen(false);
 
+    // Get basePath from environment or detect from current URL
+    // In production (GitHub Pages), the basePath is /explorahead-travel-agency-website
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+    const basePath = currentPath.startsWith('/explorahead-travel-agency-website') 
+      ? '/explorahead-travel-agency-website' 
+      : '';
+
     // With localePrefix: 'always', both locales have prefixes: /en and /pl
     // pathname from usePathname() returns the path WITHOUT locale prefix
-    // We need to construct: /{newLocale}{pathname}
-    const targetPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
+    // We need to construct: {basePath}/{newLocale}{pathname}
+    const targetPath = `${basePath}/${newLocale}${pathname === '/' ? '' : pathname}`;
     
     // Use window.location for navigation - this works in both dev and static export
     window.location.href = targetPath;
