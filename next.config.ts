@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   // No basePath needed when using a custom domain (explorahead.com)
   ...(isProduction && { 
     output: "export",
+    // Generate trailing slashes for GitHub Pages compatibility
+    trailingSlash: true,
   }),
 
   // Image optimization settings
