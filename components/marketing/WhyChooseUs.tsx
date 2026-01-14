@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
   Shield,
@@ -12,8 +11,6 @@ import {
 
 export function WhyChooseUs() {
   const t = useTranslations('marketing.whyChooseUs');
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const benefits = [
     {
@@ -43,12 +40,13 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section ref={sectionRef} className="section bg-white">
+    <section className="section bg-white">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="section-header"
           style={{ maxWidth: '64rem', marginBottom: '4rem' }} /* max-w-5xl to match grid below, mb-16 */
@@ -65,7 +63,8 @@ export function WhyChooseUs() {
               <motion.div
                 key={benefit.titleKey}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group flex gap-6"
               >

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input, Select, Textarea } from "@/components/ui/Input";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
     CheckCircle,
@@ -26,8 +26,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const contactInfo = [
     {
@@ -149,13 +147,14 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section ref={sectionRef} className="section">
+      <section className="section">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-ocean mb-2">{t('form.title')}</h2>
@@ -246,7 +245,8 @@ export default function ContactPage() {
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-ocean mb-2">{t('info.title')}</h2>

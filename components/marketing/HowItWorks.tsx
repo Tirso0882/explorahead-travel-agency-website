@@ -1,15 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { MessageCircle, Map, Luggage, Phone } from "lucide-react";
 import { contact } from "@/config/contact";
 
 export function HowItWorks() {
   const t = useTranslations('marketing.howItWorks');
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   // WhatsApp link: https://wa.me/[country code][number without + or spaces]
   const whatsappNumber = contact.phone.replace(/[\s+]/g, '');
@@ -46,12 +43,13 @@ export function HowItWorks() {
   ];
 
   return (
-    <section ref={sectionRef} className="section bg-sand-light">
+    <section className="section bg-sand-light">
       <div className="container max-w-7xl mx-auto px-5 py-20">
         {/* Section Header - Explicitly centered */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center justify-center mb-12"
         >
@@ -70,7 +68,8 @@ export function HowItWorks() {
         {/* Trust Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-ocean/5 rounded-2xl py-4 px-6"
         >
@@ -95,7 +94,8 @@ export function HowItWorks() {
             <motion.div
               key={step.titleKey}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               className="relative flex flex-col items-center"
             >
@@ -146,7 +146,8 @@ export function HowItWorks() {
         {/* CTA Section - With clear vertical spacing and consistent padding */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="bg-gradient-to-br from-ocean via-ocean to-ocean-dark rounded-3xl shadow-2xl text-white text-center"
           style={{ padding: '20px 40px' }}

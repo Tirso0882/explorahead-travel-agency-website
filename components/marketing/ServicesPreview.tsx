@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { 
   Plane, 
@@ -14,8 +13,6 @@ import {
 
 export function ServicesPreview() {
   const t = useTranslations('marketing.servicesPreview');
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const services = [
     {
@@ -51,12 +48,13 @@ export function ServicesPreview() {
   ];
 
   return (
-    <section ref={sectionRef} className="section bg-gradient-to-b from-white to-sand-light/30">
+    <section className="section bg-gradient-to-b from-white to-sand-light/30">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="section-header"
         >
@@ -76,7 +74,8 @@ export function ServicesPreview() {
               <motion.div
                 key={service.titleKey}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
@@ -106,7 +105,8 @@ export function ServicesPreview() {
               <motion.div
                 key={service.titleKey}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
                 className="group w-full md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]"
               >

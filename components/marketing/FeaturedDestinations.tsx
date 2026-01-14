@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
@@ -59,8 +59,6 @@ const destinations = [
 
 export function FeaturedDestinations() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const scroll = (direction: "left" | "right") => {
     if (containerRef.current) {
@@ -73,12 +71,13 @@ export function FeaturedDestinations() {
   };
 
   return (
-    <section ref={sectionRef} className="section bg-sand-light overflow-hidden">
+    <section className="section bg-sand-light overflow-hidden">
       <div className="container-wide">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between mb-12"
         >
@@ -122,7 +121,8 @@ export function FeaturedDestinations() {
             <motion.div
               key={destination.id}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="flex-shrink-0 w-[320px] md:w-[380px] snap-start"
             >
@@ -164,7 +164,8 @@ export function FeaturedDestinations() {
         {/* View All Link */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-10"
         >

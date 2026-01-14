@@ -1,20 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useRef } from "react";
 
 export function CTASection() {
   const t = useTranslations('marketing.cta');
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
     <section
-      ref={sectionRef}
       className="relative py-24 md:py-32 overflow-hidden"
     >
       {/* Background */}
@@ -56,14 +52,16 @@ export function CTASection() {
       <div className="relative z-20 container text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
           {/* Badge */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
-            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-flex items-center gap-2 px-6 py-2.5 mb-8 bg-gold/20 rounded-full border border-gold/30"
           >
@@ -82,7 +80,8 @@ export function CTASection() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
@@ -110,7 +109,8 @@ export function CTASection() {
           {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-12 pt-12 border-t border-white/10"
           >
