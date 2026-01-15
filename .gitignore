@@ -52,6 +52,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
+.venv/
 venv/
 env/
 ENV/
@@ -62,6 +63,11 @@ logs/
 
 # Folders
 docs/
+__tests__/
+.github/
 
 # Files
 notes.txt
+playwright.config.ts
+vitest.config.ts
+.github/sentry.instructions.md

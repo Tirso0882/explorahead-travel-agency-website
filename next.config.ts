@@ -1,23 +1,18 @@
+import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./lib/i18n/request.ts');
-
-const isProduction = process.env.NODE_ENV === 'production';
+const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  // Enable static export for GitHub Pages (only in production builds)
-  // No basePath needed when using a custom domain (explorahead.com)
-  ...(isProduction && { 
-    output: "export",
-    // Generate trailing slashes for GitHub Pages compatibility
-    trailingSlash: true,
-  }),
+  // Vercel deployment - no static export needed
+  // Enables full SSR, ISR, and Edge Runtime capabilities
 
-  // Image optimization settings
-  // Note: Static export requires unoptimized images
+  // Image optimization settings - fully enabled on Vercel
   images: {
-    unoptimized: process.env.NODE_ENV === 'production',
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: "https",
@@ -38,4 +33,24 @@ const nextConfig: NextConfig = {
   turbopack: {},
 };
 
-export default withNextIntl(nextConfig);
+// Sentry configuration options
+const sentryWebpackPluginOptions = {
+  // Organization and project from environment variables
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+
+  // Only upload source maps in production
+  silent: process.env.NODE_ENV !== "production",
+
+  // Upload source maps for better error tracking
+  widenClientFileUpload: true,
+
+  // Hide source maps from browser devtools in production
+  hideSourceMaps: true,
+
+  // Telemetry (set to false to disable sending data to Sentry)
+  telemetry: true,
+};
+
+// Wrap config with next-intl and Sentry
+export default withSentryConfig(withNextIntl(nextConfig), sentryWebpackPluginOptions);
