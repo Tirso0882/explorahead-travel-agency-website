@@ -158,6 +158,33 @@
       "address": "Wroclaw, Poland"
     }
   },
+  "cookies": {
+    "consent": {
+      "title": "Szanujemy Twoją prywatność",
+      "description": "Używamy plików cookie, aby poprawić Twoje wrażenia z przeglądania, dostarczać spersonalizowane treści i analizować nasz ruch. Klikając \"Zaakceptuj wszystkie\", wyrażasz zgodę na używanie przez nas plików cookie.",
+      "acceptAll": "Zaakceptuj wszystkie",
+      "declineAll": "Odrzuć wszystkie",
+      "customize": "Dostosuj",
+      "savePreferences": "Zapisz preferencje",
+      "close": "Zamknij",
+      "back": "Wstecz",
+      "preferences": {
+        "title": "Preferencje plików cookie",
+        "necessary": {
+          "title": "Niezbędne pliki cookie",
+          "description": "Te pliki cookie są niezbędne do prawidłowego działania strony. Nie można ich wyłączyć."
+        },
+        "analytics": {
+          "title": "Analityczne pliki cookie",
+          "description": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający korzystają z naszej strony, zbierając anonimowe informacje."
+        },
+        "marketing": {
+          "title": "Marketingowe pliki cookie",
+          "description": "Te pliki cookie są używane do śledzenia odwiedzających na różnych stronach w celu wyświetlania odpowiednich reklam."
+        }
+      }
+    }
+  },
   "marketing": {
     "services": {
       "title": "Dostosowane Usługi Podróżne",
@@ -577,6 +604,3 @@
     }
   }
 }
-
-
-
