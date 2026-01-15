@@ -1,5 +1,8 @@
-/* Google Fonts Import - must be first */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* ============================================
+   NOTE: Google Fonts are loaded via next/font in app/[locale]/layout.tsx
+   This provides better performance with font subsetting and preloading.
+   The CSS variables are set via className on the <html> element.
+   ============================================ */
 
 @import "tailwindcss";
 
@@ -10,44 +13,44 @@
 
 :root {
   /* Primary Colors */
-  --color-sand: #F5E6D3;
-  --color-sand-light: #FBF7F2;
-  --color-sand-dark: #E5D4BF;
-  
-  --color-ocean: #1A365D;
-  --color-ocean-light: #2D4A6F;
-  --color-ocean-dark: #0F2744;
-  
-  --color-gold: #D4A574;
-  --color-gold-light: #E4C4A4;
-  --color-gold-dark: #B88B5A;
-  
-  --color-white: #FAFAF8;
-  --color-cream: #F8F5F0;
-  
+  --color-sand: #f5e6d3;
+  --color-sand-light: #fbf7f2;
+  --color-sand-dark: #e5d4bf;
+
+  --color-ocean: #1a365d;
+  --color-ocean-light: #2d4a6f;
+  --color-ocean-dark: #0f2744;
+
+  --color-gold: #d4a574;
+  --color-gold-light: #e4c4a4;
+  --color-gold-dark: #b88b5a;
+
+  --color-white: #fafaf8;
+  --color-cream: #f8f5f0;
+
   /* Accent Colors */
-  --color-terracotta: #C4785A;
-  --color-terracotta-light: #D99B82;
-  --color-forest: #2D5A45;
-  --color-forest-light: #3D7A5D;
-  
+  --color-terracotta: #c4785a;
+  --color-terracotta-light: #d99b82;
+  --color-forest: #2d5a45;
+  --color-forest-light: #3d7a5d;
+
   /* Neutral Colors */
-  --color-charcoal: #2C2C2C;
-  --color-gray-dark: #4A4A4A;
-  --color-gray: #7A7A7A;
-  --color-gray-light: #B5B5B5;
-  --color-gray-lighter: #E5E5E5;
-  
+  --color-charcoal: #2c2c2c;
+  --color-gray-dark: #4a4a4a;
+  --color-gray: #7a7a7a;
+  --color-gray-light: #b5b5b5;
+  --color-gray-lighter: #e5e5e5;
+
   /* Semantic Colors */
-  --color-success: #2D5A45;
-  --color-error: #C4785A;
-  --color-warning: #D4A574;
-  --color-info: #1A365D;
-  
-  /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+  --color-success: #2d5a45;
+  --color-error: #c4785a;
+  --color-warning: #d4a574;
+  --color-info: #1a365d;
+
+  /* Typography - CSS variables are set by next/font via className */
+  --font-heading: var(--font-heading, "Playfair Display", Georgia, serif);
+  --font-body: var(--font-body, "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif);
+
   /* Spacing Scale */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -57,7 +60,7 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 5rem;
-  
+
   /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -65,20 +68,20 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
   --radius-button: 20px;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(26, 54, 93, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(26, 54, 93, 0.07), 0 2px 4px -1px rgba(26, 54, 93, 0.04);
   --shadow-lg: 0 10px 15px -3px rgba(26, 54, 93, 0.08), 0 4px 6px -2px rgba(26, 54, 93, 0.04);
   --shadow-xl: 0 20px 25px -5px rgba(26, 54, 93, 0.1), 0 10px 10px -5px rgba(26, 54, 93, 0.04);
   --shadow-gold: 0 4px 14px -3px rgba(212, 165, 116, 0.4);
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
   --transition-slower: 600ms ease;
-  
+
   /* Z-Index Scale */
   --z-dropdown: 100;
   --z-sticky: 200;
@@ -135,7 +138,7 @@ body {
 
 /* Subtle grain texture overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -151,7 +154,12 @@ body::before {
    TYPOGRAPHY
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.2;
@@ -467,7 +475,8 @@ button {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -505,20 +514,38 @@ button {
 }
 
 /* Staggered Animation Delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-600 {
+  animation-delay: 600ms;
+}
+.delay-700 {
+  animation-delay: 700ms;
+}
+.delay-800 {
+  animation-delay: 800ms;
+}
 
 /* ============================================
    FORM ELEMENTS
    ============================================ */
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: var(--font-body);
   font-size: 1rem;
 }
@@ -536,10 +563,53 @@ textarea::placeholder {
   .section {
     padding: var(--space-2xl) 0;
   }
-  
+
   .container,
   .container-wide,
   .container-narrow {
     padding: 0 var(--space-md);
   }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   Respects user's motion preferences
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-scale-in,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-ocean);
+  outline-offset: 2px;
+}
+
+/* Skip link styling */
+.sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: nowrap;
 }
