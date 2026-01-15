@@ -1,16 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
-import {
-  Shield,
-  Compass,
-  HeartHandshake,
-  User,
-} from "lucide-react";
+import { Shield, Compass, HeartHandshake, User } from "lucide-react";
 
 export function WhyChooseUs() {
-  const t = useTranslations('marketing.whyChooseUs');
+  const t = useTranslations("marketing.whyChooseUs");
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const benefits = [
     {
@@ -40,38 +38,37 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="section bg-white">
+    <section ref={sectionRef} className="section bg-white">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="section-header"
-          style={{ maxWidth: '64rem', marginBottom: '4rem' }} /* max-w-5xl to match grid below, mb-16 */
+          style={{
+            maxWidth: "64rem",
+            marginBottom: "4rem",
+          }} /* max-w-5xl to match grid below, mb-16 */
         >
-          <h2 className="text-ocean mb-6 text-4xl md:text-5xl font-heading">
-            {t('title')}
-          </h2>
+          <h2 className="text-ocean font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.titleKey}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group flex gap-6"
               >
                 {/* Icon */}
                 <div className="flex-shrink-0">
                   <div
-                    className={`w-14 h-14 rounded-xl ${benefit.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    className={`h-14 w-14 rounded-xl ${benefit.color} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}
                   >
                     <benefit.icon size={28} className="text-white" strokeWidth={2} />
                   </div>
@@ -79,12 +76,10 @@ export function WhyChooseUs() {
 
                 {/* Content */}
                 <div className="flex-1 pt-1">
-                  <h3 className="text-xl font-heading text-ocean mb-2 group-hover:text-gold transition-colors">
+                  <h3 className="font-heading text-ocean group-hover:text-gold mb-2 text-xl transition-colors">
                     {t(benefit.titleKey)}
                   </h3>
-                  <p className="text-gray-dark leading-relaxed">
-                    {t(benefit.descriptionKey)}
-                  </p>
+                  <p className="text-gray-dark leading-relaxed">{t(benefit.descriptionKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -96,4 +91,3 @@ export function WhyChooseUs() {
 }
 
 export default WhyChooseUs;
-

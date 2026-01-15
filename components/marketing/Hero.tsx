@@ -1,12 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { isFeatureEnabled } from "@/config/features";
 import { media } from "@/config/media";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { isFeatureEnabled } from "@/config/features";
+import Image from "next/image";
+import Link from "next/link";
 
 // Pre-defined particle positions for deterministic rendering
 const particlePositions = [
@@ -33,11 +34,11 @@ const particlePositions = [
 ];
 
 export function Hero() {
-  const t = useTranslations('hero');
-  const tCommon = useTranslations('common');
-  
+  const t = useTranslations("hero");
+  const tCommon = useTranslations("common");
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background Video/Image */}
       <div className="absolute inset-0 z-0">
         {media.hero.video ? (
@@ -46,32 +47,40 @@ export function Hero() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             poster={media.hero.default}
           >
             <source src={media.hero.video} type="video/mp4" />
             {/* Fallback image if video fails to load */}
-            <img
+            <Image
               src={media.hero.default}
               alt="Tropical beach paradise"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
             />
           </video>
         ) : (
-          <img
+          <Image
             src={media.hero.default}
             alt="Tropical beach paradise"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBgcTMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQADAQEBAAAAAAAAAAAAAAABAgMAETH/2gAMAwEAAhEDEEA/AM2x"
           />
         )}
-        <div className="absolute inset-0 gradient-hero-overlay" />
+        <div className="gradient-hero-overlay absolute inset-0" />
       </div>
       {/* Animated Particles/Dots */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
         {particlePositions.map((particle, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-gold/30 rounded-full"
+            className="bg-gold/30 absolute h-1 w-1 rounded-full"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
@@ -96,8 +105,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-6 py-2.5 mb-6 text-sm font-medium tracking-wider uppercase bg-gold/20 backdrop-blur-sm rounded-full border border-gold/30">
-            {t('badge')}
+          <span className="bg-gold/20 border-gold/30 mb-6 inline-block rounded-full border px-6 py-2.5 text-sm font-medium tracking-wider uppercase backdrop-blur-sm">
+            {t("badge")}
           </span>
         </motion.div>
 
@@ -105,20 +114,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-display mb-6 max-w-4xl mx-auto whitespace-nowrap"
+          className="text-display mx-auto mb-6 max-w-4xl whitespace-nowrap"
         >
-          {t('title')}{" "}
-          <span className="text-gold italic">{t('titleHighlight')}</span>
+          {t("title")} <span className="text-gold italic">{t("titleHighlight")}</span>
         </motion.h1>
 
-        <div className="flex justify-center w-full mb-10">
+        <div className="mb-10 flex w-full justify-center">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-white/80 leading-relaxed whitespace-nowrap text-center"
+            className="text-center text-xl leading-relaxed whitespace-nowrap text-white/80 md:text-2xl"
           >
-            {t('subtitle')} {t('subtitleLine2')}
+            {t("subtitle")} {t("subtitleLine2")}
           </motion.p>
         </div>
 
@@ -126,17 +134,21 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Link href="/contact">
             <Button variant="gold" size="lg" rightIcon={<ArrowRight size={20} />}>
-              {t('ctaPrimary')}
+              {t("ctaPrimary")}
             </Button>
           </Link>
           {isFeatureEnabled("destinations") && (
             <Link href="/destinations">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-ocean bg-white/10 backdrop-blur-sm shadow-lg hover:bg-white/20">
-                {t('ctaSecondary')}
+              <Button
+                variant="outline"
+                size="lg"
+                className="hover:text-ocean border-white bg-white/10 text-white shadow-lg backdrop-blur-sm hover:bg-white hover:bg-white/20"
+              >
+                {t("ctaSecondary")}
               </Button>
             </Link>
           )}
@@ -147,20 +159,18 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
+          className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-8 md:grid-cols-4"
         >
           {[
-            ...(isFeatureEnabled("destinations") ? [{ value: "50+", label: t('stats.destinations') }] : []),
-            { value: "5+", label: t('stats.experience') },
-            { value: "24/7", label: t('stats.support') },
+            ...(isFeatureEnabled("destinations")
+              ? [{ value: "50+", label: t("stats.destinations") }]
+              : []),
+            { value: "5+", label: t("stats.experience") },
+            { value: "24/7", label: t("stats.support") },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-heading text-gold mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-white/60 uppercase tracking-wider">
-                {stat.label}
-              </div>
+              <div className="font-heading text-gold mb-1 text-3xl md:text-4xl">{stat.value}</div>
+              <div className="text-sm tracking-wider text-white/60 uppercase">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -171,17 +181,17 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
+          className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/30 p-2"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-gold rounded-full"
+            className="bg-gold h-1.5 w-1.5 rounded-full"
           />
         </motion.div>
       </motion.div>
@@ -190,4 +200,3 @@ export function Hero() {
 }
 
 export default Hero;
-
