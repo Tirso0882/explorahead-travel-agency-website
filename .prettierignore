@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+build
+dist
+coverage
+playwright-report
+.env
+.env.local
+*.md
+pnpm-lock.yaml
+package-lock.json
