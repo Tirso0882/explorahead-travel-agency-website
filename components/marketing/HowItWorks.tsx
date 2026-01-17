@@ -1,19 +1,18 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { MessageCircle, Map, Luggage, Phone } from "lucide-react";
 import { contact } from "@/config/contact";
+import { getWhatsAppLink } from "@/lib/whatsapp";
+import { motion, useInView } from "framer-motion";
+import { Luggage, Map, MessageCircle, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 export function HowItWorks() {
   const t = useTranslations("marketing.howItWorks");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // WhatsApp link: https://wa.me/[country code][number without + or spaces]
-  const whatsappNumber = contact.phone.replace(/[\s+]/g, "");
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+  const whatsappLink = getWhatsAppLink(contact.phone);
 
   const steps = [
     {

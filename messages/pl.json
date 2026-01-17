@@ -136,6 +136,7 @@
     "services": "Usługi",
     "contactUs": "Kontakt",
     "rights": "Wszelkie prawa zastrzeżone",
+    "developedBy": "Stworzone przez",
     "social": {
       "title": "Śledź Naszą Podróż",
       "instagram": "Instagram",
@@ -470,9 +471,9 @@
     "story": {
       "badge": "Nasze Początki",
       "title": "Zrodzone z Miłości do Odkrywania",
-      "paragraph1": "ExplorAhead został założony w 2009 roku z prostym przekonaniem: że podróże powinny być transformujące, a nie transakcyjne. To, co zaczęło się jako mała butikowa agencja, rozrosło się w zaufaną nazwę w spersonalizowanych luksusowych podróżach.",
-      "paragraph2": "Nasza założycielka, Alexandra Chen, spędziła lata jako dyplomata, doświadczając z pierwszej ręki, jak podróże mogą łączyć kultury i zmieniać perspektywy. Wyobraziła sobie firmę, w której każda wycieczka będzie tworzona z taką samą troską i uwagą, jaką poświęcała poznawaniu nowych kultur.",
-      "paragraph3": "Dziś łączymy tę wizję założycielską z najnowocześniejszą technologią, w tym naszym Specjalistą Podróży AI, aby zaoferować niezrównane doświadczenie planowania. Ale w naszym rdzeniu pozostajemy zespołem pasjonatów podróży, którzy poświęcają się spełnianiu Twoich marzeń."
+      "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
+      "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
+      "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację—ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
     },
     "stats": {
       "happyTravelers": "Szczęśliwi Podróżnicy",
@@ -486,27 +487,27 @@
       "items": {
         "passion": {
           "title": "Pasja do Podróży",
-          "description": "Nie tylko planujemy podróże—żyjemy i oddychamy podróżami. Nasz zespół odwiedził łącznie ponad 100 krajów."
+          "description": "Każda destynacja opowiada historię. Dzięki latom osobistych podróży i doświadczenia w branży, przekształcamy miejsca w znaczące doświadczenia, które pozostaną z Tobą na długo po powrocie do domu."
         },
         "expertise": {
           "title": "Globalna Ekspertyza",
-          "description": "Głęboka znajomość lokalnych realiów połączona ze światowymi kontaktami zapewnia autentyczne, insiderskie doświadczenia."
+          "description": "Od nawigacji po złożonych systemach rezerwacyjnych po odkrywanie ukrytych perł, nasza głęboka wiedza branżowa i światowe koneksje zapewniają płynne, autentyczne podróże dopasowane do Ciebie."
         },
         "personal": {
           "title": "Osobiste Podejście",
-          "description": "Każdy podróżnik jest wyjątkowy. Poświęcamy czas, aby zrozumieć Twoje marzenia i tworzyć podróże, które Cię odzwierciedlają."
+          "description": "Czy luksusowe, przygodowe czy przyjazne budżetowi, tworzymy itineraria dla wszystkich podróżników i preferencji, idealnie dostosowane do Twojego stylu życia."
         },
         "trust": {
           "title": "Zaufanie i Bezpieczeństwo",
           "description": "Twoje dobro jest naszym priorytetem. Współpracujemy tylko ze zweryfikowanymi dostawcami i zapewniamy wsparcie 24/7."
         },
-        "innovation": {
-          "title": "Innowacja",
-          "description": "Wykorzystujemy AI i technologię, aby wzbogacić—a nie zastąpić—ludzki wymiar w planowaniu podróży."
+        "flexibility": {
+          "title": "Elastyczne Planowanie",
+          "description": "Plany się zmieniają, a my się dostosowujemy. Czy potrzebujesz zmian w ostatniej chwili, czy chcesz spontanicznie odkrywać, sprawiamy, że wszystko działa płynnie."
         },
-        "excellence": {
-          "title": "Doskonałość",
-          "description": "Nagradzana obsługa poparta tysiącami pięciogwiazdkowych recenzji i lojalnymi powracającymi podróżnikami."
+        "value": {
+          "title": "Wartość dla Każdego Budżetu",
+          "description": "Od przygód przyjaznych budżetowi po luksusowe wypady, maksymalizujemy wartość w każdym przedziale cenowym bez kompromisów w jakości."
         }
       }
     },
@@ -542,7 +543,8 @@
     },
     "cta": {
       "title": "Stwórzmy Coś Niesamowitego",
-      "subtitle": "Gotowy doświadczyć różnicy ExplorAhead? Zacznij planować swoją następną przygodę już dziś.",
+      "subtitle": "Gotowy doświadczyć różnicy ExplorAhead?",
+      "subtitleLine2": "Zacznij planować swoją następną przygodę już dziś.",
       "startPlanning": "Zacznij Planować",
       "contactUs": "Skontaktuj Się Z Nami"
     }

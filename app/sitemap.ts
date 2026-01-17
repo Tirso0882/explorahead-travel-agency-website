@@ -1,39 +1,35 @@
+import { getPublishedPages } from "@/config/pages";
 import { MetadataRoute } from "next";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://explorahead.com";
 
 /**
  * Dynamic sitemap generation for SEO
- * Automatically generates sitemap.xml with all routes
+ * Automatically generates sitemap.xml based on published pages from config
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ["en", "pl"];
   const currentDate = new Date().toISOString();
 
-  // Marketing pages with their priorities and change frequencies
-  const marketingPages = [
-    { path: "", priority: 1.0, changeFrequency: "weekly" as const },
-    { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
-    { path: "/contact", priority: 0.9, changeFrequency: "monthly" as const },
-    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
-    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
-    { path: "/cookies", priority: 0.3, changeFrequency: "yearly" as const },
-  ];
+  // Get only published pages from config
+  const publishedPages = getPublishedPages();
 
-  // Generate sitemap entries for all locales and pages
+  // Generate sitemap entries for all locales and published pages
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
-  for (const page of marketingPages) {
+  for (const page of publishedPages) {
+    const path = page.slug === "" ? "" : `/${page.slug}`;
+
     for (const locale of locales) {
       sitemapEntries.push({
-        url: `${BASE_URL}/${locale}${page.path}`,
+        url: `${BASE_URL}/${locale}${path}`,
         lastModified: currentDate,
         changeFrequency: page.changeFrequency,
         priority: page.priority,
         alternates: {
           languages: {
-            en: `${BASE_URL}/en${page.path}`,
-            pl: `${BASE_URL}/pl${page.path}`,
+            en: `${BASE_URL}/en${path}`,
+            pl: `${BASE_URL}/pl${path}`,
           },
         },
       });

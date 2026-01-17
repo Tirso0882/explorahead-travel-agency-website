@@ -1,6 +1,7 @@
+import { getUnpublishedSlugs } from "@/config/pages";
 import { routing } from "@/lib/i18n/routing";
 import createIntlMiddleware from "next-intl/middleware";
-import { type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 // Create the next-intl middleware for internationalization
 const intlMiddleware = createIntlMiddleware(routing);
@@ -81,7 +82,23 @@ const securityHeaders = {
 };
 
 export default async function middleware(request: NextRequest) {
-  // Run the next-intl middleware first
+  const { pathname } = request.nextUrl;
+
+  // Check if the request is for an unpublished page
+  const unpublishedSlugs = getUnpublishedSlugs();
+
+  // Extract the page slug from the pathname (remove locale prefix)
+  // Pathname format: /en/about or /pl/contact
+  const pathParts = pathname.split("/").filter(Boolean);
+  const pageSlug = pathParts.length > 1 ? pathParts[1] : "";
+
+  // If accessing an unpublished page, redirect to 404
+  if (unpublishedSlugs.includes(pageSlug)) {
+    const locale = pathParts[0] || routing.defaultLocale;
+    return NextResponse.rewrite(new URL(`/${locale}/not-found`, request.url));
+  }
+
+  // Run the next-intl middleware
   const response = await intlMiddleware(request);
 
   // Add security headers to the response

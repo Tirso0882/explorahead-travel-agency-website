@@ -1,66 +1,48 @@
 "use client";
 
-import Link from "next/link";
+import { getFooterPages } from "@/config/pages";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 import { Logo } from "./Logo";
-import { isFeatureEnabled } from "@/config/features";
-
-// TikTok icon component (custom SVG)
-const TikTokIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-);
-
-const socialLinks = [
-  { 
-    href: "https://www.instagram.com/explorahead?igsh=MWJ0c3Z3OWsxODJyaQ%3D%3D&utm_source=qr", 
-    icon: Instagram, 
-    label: "Instagram",
-    handle: "@explorahead"
-  },
-  { 
-    href: "https://www.facebook.com/share/16ZTZYYuyR/?mibextid=wwXIfr", 
-    icon: Facebook, 
-    label: "Facebook",
-    handle: "ExplorAhead"
-  },
-  { 
-    href: "https://www.tiktok.com/@explorahead", 
-    icon: TikTokIcon, 
-    label: "TikTok",
-    handle: "@explorahead"
-  },
-];
+import { SocialIcons } from "./SocialIcons";
 
 export function Footer() {
-  const t = useTranslations('footer');
-  const tNav = useTranslations('navigation');
-  const tCommon = useTranslations('common');
+  const t = useTranslations("footer");
+  const tNav = useTranslations("navigation");
+  const tCommon = useTranslations("common");
   const currentYear = new Date().getFullYear();
-  
+
+  // Get published footer pages from config
+  const publishedFooterPages = getFooterPages();
+
+  // Separate main pages from legal pages
+  const mainPages = publishedFooterPages.filter(
+    (p) => !["privacy", "terms", "cookies"].includes(p.slug) && p.slug !== ""
+  );
+  const legalPages = publishedFooterPages.filter((p) =>
+    ["privacy", "terms", "cookies"].includes(p.slug)
+  );
+
   const footerLinks = {
-    explore: [
-      { href: "/destinations", label: tNav('destinations'), featureFlag: "destinations" as const },
-      { href: "/about", label: t('links.aboutUs') },
-      { href: "/contact", label: tNav('contact') },
-    ].filter((link) => !link.featureFlag || isFeatureEnabled(link.featureFlag)),
-    legal: [
-      { href: "/privacy", label: t('links.privacy') },
-      { href: "/terms", label: t('links.terms') },
-      { href: "/cookies", label: t('links.cookies') },
-    ],
+    explore: mainPages.map((page) => ({
+      href: `/${page.slug}`,
+      label: page.slug === "about" ? t("links.aboutUs") : tNav(page.slug),
+    })),
+    legal: legalPages.map((page) => ({
+      href: `/${page.slug}`,
+      label: t(`links.${page.slug}`),
+    })),
   };
 
   return (
-    <footer className="bg-gradient-to-b from-ocean to-ocean-dark text-white">
+    <footer className="from-ocean to-ocean-dark bg-gradient-to-b text-white">
       {/* Main Footer */}
       <div className="container-wide py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-start mb-6 group">
+            <Link href="/" className="group mb-6 inline-flex items-start">
               <Logo
                 width={240}
                 height={60}
@@ -68,40 +50,32 @@ export function Footer() {
                 className="transition-opacity group-hover:opacity-80"
               />
             </Link>
-            <p className="text-white mb-8 leading-relaxed text-lg max-w-md">
-              {t('tagline')}
-            </p>
-            
+            <p className="mb-8 max-w-md text-lg leading-relaxed text-white">{t("tagline")}</p>
+
             {/* Social Media */}
             <div>
-              <h4 className="font-heading text-2xl mb-8 font-bold tracking-tight" style={{ color: '#D4A574' }}>{t('social.title')}</h4>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 hover:bg-gold hover:text-ocean transition-all duration-300 hover:scale-110 shadow-lg"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={24} className="text-white group-hover:text-ocean" />
-                  </a>
-                ))}
-              </div>
+              <h4
+                className="font-heading mb-8 text-2xl font-bold tracking-tight"
+                style={{ color: "#D4A574" }}
+              >
+                {t("social.title")}
+              </h4>
+              <SocialIcons variant="footer" iconSize={24} />
             </div>
           </div>
 
           {/* Explore Links */}
           <div>
-            <h4 className="font-heading text-xl mb-6 font-semibold" style={{ color: '#D4A574' }}>{t('explore')}</h4>
+            <h4 className="font-heading mb-6 text-xl font-semibold" style={{ color: "#D4A574" }}>
+              {t("explore")}
+            </h4>
             <ul className="space-y-3">
               {footerLinks.explore.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white !text-white hover:!text-gold hover:translate-x-1 transition-all inline-block"
-                    style={{ color: '#ffffff' }}
+                    className="hover:!text-gold inline-block !text-white text-white transition-all hover:translate-x-1"
+                    style={{ color: "#ffffff" }}
                   >
                     {link.label}
                   </Link>
@@ -112,33 +86,47 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading text-xl mb-6 font-semibold" style={{ color: '#D4A574' }}>{t('contactUs')}</h4>
+            <h4 className="font-heading mb-6 text-xl font-semibold" style={{ color: "#D4A574" }}>
+              {t("contactUs")}
+            </h4>
             <ul className="space-y-5">
               <li>
                 <a
-                  href={`mailto:${t('contact.email')}`}
-                  className="group flex items-center gap-3 hover:text-gold transition-colors"
-                  style={{ color: '#ffffff' }}
+                  href={`mailto:${t("contact.email")}`}
+                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  style={{ color: "#ffffff" }}
                 >
-                  <Mail size={16} className="flex-shrink-0 text-white group-hover:text-gold transition-colors" />
-                  <span className="break-all text-white">{t('contact.email')}</span>
+                  <Mail
+                    size={16}
+                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                  />
+                  <span className="break-all text-white">{t("contact.email")}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={`tel:${t('contact.phone')}`}
-                  className="group flex items-center gap-3 hover:text-gold transition-colors"
-                  style={{ color: '#ffffff' }}
+                  href={`tel:${t("contact.phone")}`}
+                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  style={{ color: "#ffffff" }}
                 >
-                  <Phone size={16} className="flex-shrink-0 text-white group-hover:text-gold transition-colors" />
-                  <span className="text-white">{t('contact.phone')}</span>
+                  <Phone
+                    size={16}
+                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                  />
+                  <span className="text-white">{t("contact.phone")}</span>
                 </a>
               </li>
               <li>
-                <div className="group flex items-center gap-3 hover:text-gold transition-colors" style={{ color: '#ffffff' }}>
-                  <MapPin size={16} className="flex-shrink-0 text-white group-hover:text-gold transition-colors" />
-                  <span style={{ whiteSpace: 'pre-line', color: '#ffffff' }}>
-                    {t('contact.address')}
+                <div
+                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  style={{ color: "#ffffff" }}
+                >
+                  <MapPin
+                    size={16}
+                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                  />
+                  <span style={{ whiteSpace: "pre-line", color: "#ffffff" }}>
+                    {t("contact.address")}
                   </span>
                 </div>
               </li>
@@ -150,16 +138,30 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container-wide py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/80 text-sm">
-              © {currentYear} {tCommon('appName')}. {t('rights')}
-            </p>
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div className="flex flex-col items-baseline gap-2 sm:flex-row sm:gap-4">
+              <p className="text-sm text-white/80">
+                © {currentYear} {tCommon("appName")}. {t("rights")}
+              </p>
+              <span className="hidden text-sm text-white/40 sm:inline">|</span>
+              <p className="text-sm text-white/60">
+                {t("developedBy")}{" "}
+                <a
+                  href="https://redkraken.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold font-medium transition-colors hover:text-white"
+                >
+                  RedKraken
+                </a>
+              </p>
+            </div>
             <div className="flex flex-wrap justify-center gap-6">
               {footerLinks.legal.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-white/80 text-sm hover:text-gold transition-colors"
+                  className="hover:text-gold text-sm text-white/80 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -173,4 +175,3 @@ export function Footer() {
 }
 
 export default Footer;
-

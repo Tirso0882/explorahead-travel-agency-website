@@ -1,29 +1,30 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { getNavPages } from "@/config/pages";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { Button } from "./Button";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { isFeatureEnabled } from "@/config/features";
 
 export function Navigation() {
-  const t = useTranslations('navigation');
+  const t = useTranslations("navigation");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const prevPathnameRef = useRef(pathname);
-  
-  const navLinks = [
-    { href: "/", label: t('home') },
-    { href: "/destinations", label: t('destinations'), featureFlag: "destinations" as const },
-    { href: "/about", label: t('about') },
-    { href: "/contact", label: t('contact') },
-  ].filter((link) => !link.featureFlag || isFeatureEnabled(link.featureFlag));
+
+  // Get published navigation pages from config
+  const publishedNavPages = getNavPages();
+
+  // Map page config to nav links with translations
+  const navLinks = publishedNavPages.map((page) => ({
+    href: page.slug === "" ? "/" : `/${page.slug}`,
+    label: t(page.slug === "" ? "home" : page.slug),
+  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +40,7 @@ export function Navigation() {
   useEffect(() => {
     if (prevPathnameRef.current !== pathname) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: responding to route change
-    setIsMobileMenuOpen(false);
+      setIsMobileMenuOpen(false);
       prevPathnameRef.current = pathname;
     }
   }, [pathname]);
@@ -52,20 +53,14 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`
-          fixed top-0 left-0 right-0 z-[var(--z-sticky)]
-          transition-all duration-300
-          ${
-            isScrolled || !isHomePage
-              ? "bg-white/95 backdrop-blur-md shadow-md"
-              : "bg-transparent"
-          }
-        `}
+        className={`fixed top-0 right-0 left-0 z-[var(--z-sticky)] transition-all duration-300 ${
+          isScrolled || !isHomePage ? "bg-white/95 shadow-md backdrop-blur-md" : "bg-transparent"
+        } `}
       >
         <nav className="container-wide">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center group">
+            <Link href="/" className="group flex items-center">
               <Logo
                 width={180}
                 height={40}
@@ -75,29 +70,22 @@ export function Navigation() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden items-center gap-8 md:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`
-                    relative font-medium transition-colors
-                    ${
-                      isScrolled || !isHomePage
-                        ? "text-ocean hover:text-gold"
-                        : "text-white/90 hover:text-white"
-                    }
-                    ${pathname === link.href ? "font-semibold" : ""}
-                  `}
+                  className={`relative font-medium transition-colors ${
+                    isScrolled || !isHomePage
+                      ? "text-ocean hover:text-gold"
+                      : "text-white/90 hover:text-white"
+                  } ${pathname === link.href ? "font-semibold" : ""} `}
                 >
                   {link.label}
                   {pathname === link.href && (
                     <motion.div
                       layoutId="activeNav"
-                      className={`
-                        absolute -bottom-1 left-0 right-0 h-0.5 rounded-full
-                        ${isScrolled || !isHomePage ? "bg-gold" : "bg-white"}
-                      `}
+                      className={`absolute right-0 -bottom-1 left-0 h-0.5 rounded-full ${isScrolled || !isHomePage ? "bg-gold" : "bg-white"} `}
                     />
                   )}
                 </Link>
@@ -105,22 +93,19 @@ export function Navigation() {
             </div>
 
             {/* Language Switcher */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden items-center gap-2 md:flex">
               <LanguageSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`
-                md:hidden p-2 rounded-lg transition-colors
-                ${
-                  isScrolled || !isHomePage
-                    ? "text-ocean hover:bg-sand-light"
-                    : "text-white hover:bg-white/10"
-                }
-              `}
-              aria-label={t('toggleMenu')}
+              className={`rounded-lg p-2 transition-colors md:hidden ${
+                isScrolled || !isHomePage
+                  ? "text-ocean hover:bg-sand-light"
+                  : "text-white hover:bg-white/10"
+              } `}
+              aria-label={t("toggleMenu")}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -138,21 +123,18 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-20 z-[var(--z-dropdown)] md:hidden"
           >
-            <div className="bg-white shadow-xl border-t border-gray-lighter">
+            <div className="border-gray-lighter border-t bg-white shadow-xl">
               <div className="container py-6">
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`
-                        py-3 px-4 rounded-lg font-medium transition-colors
-                        ${
-                          pathname === link.href
-                            ? "bg-sand text-ocean"
-                            : "text-ocean hover:bg-sand-light"
-                        }
-                      `}
+                      className={`rounded-lg px-4 py-3 font-medium transition-colors ${
+                        pathname === link.href
+                          ? "bg-sand text-ocean"
+                          : "text-ocean hover:bg-sand-light"
+                      } `}
                     >
                       {link.label}
                     </Link>
@@ -172,4 +154,3 @@ export function Navigation() {
 }
 
 export default Navigation;
-

@@ -136,6 +136,7 @@
     "services": "Services",
     "contactUs": "Contact Us",
     "rights": "All rights reserved",
+    "developedBy": "Developed by",
     "social": {
       "title": "Follow Our Journey",
       "instagram": "Instagram",
@@ -465,18 +466,19 @@
     "hero": {
       "badge": "Our Story",
       "title": "About ExplorAhead",
-      "subtitle": "We believe every journey should be as unique as the traveler taking it. For over 15 years, we've been crafting unforgettable experiences."
+      "subtitle": "We believe every journey should be as unique as the traveler taking it. For over 5 years, we've been crafting unforgettable experiences."
     },
     "story": {
       "badge": "Our Beginning",
       "title": "Born From a Love of Discovery",
-      "paragraph1": "ExplorAhead was founded in 2009 with a simple belief: that travel should be transformative, not transactional. What started as a small boutique agency has grown into a trusted name in personalized luxury travel.",
-      "paragraph2": "Our founder, Alexandra Chen, spent years as a diplomat, experiencing firsthand how travel can bridge cultures and change perspectives. She envisioned a company where every trip would be crafted with the same care and attention she gave to understanding new cultures.",
-      "paragraph3": "Today, we combine that founding vision with cutting-edge technology, including our AI Travel Specialist, to offer an unparalleled planning experience. But at our core, we remain a team of passionate travelers dedicated to making your dreams come true."
+      "paragraph1": "My journey to creating ExplorAhead led me through master's studies at the University of Wrocław and years of hands-on experience in the travel industry. That's where I gained deep practical knowledge of reservation systems, logistics coordination, and the intricate details that transform a good trip into an extraordinary one.",
+      "paragraph2": "I watched countless travelers struggle with the overwhelming complexity of planning—comparing flights, researching hotels, coordinating transfers, finding authentic experiences. I knew there had to be a better way. So I decided to build a space where planning a trip becomes pure joy, not a stressful to-do list.",
+      "paragraph3": "Today, I design personalized itineraries for people like you: curious travelers who want to experience unforgettable adventures but don't have the time to piece together complex travel puzzles on their own. You choose the destination—I take care of everything else, from the first booking to your safe return home."
     },
     "stats": {
       "happyTravelers": "Happy Travelers",
       "satisfactionRate": "Satisfaction Rate",
+      "yearsOfExperience": "Years of Experience",
       "destinations": "Destinations"
     },
     "values": {
@@ -486,27 +488,27 @@
       "items": {
         "passion": {
           "title": "Passion for Travel",
-          "description": "We don't just plan trips—we live and breathe travel. Our team has collectively visited over 100 countries."
+          "description": "Every destination tells a story. With years of personal travel and industry expertise, we transform locations into meaningful experiences that stay with you long after you return home."
         },
         "expertise": {
           "title": "Global Expertise",
-          "description": "Deep local knowledge combined with worldwide connections ensures authentic, insider experiences."
+          "description": "From navigating complex booking systems to uncovering hidden gems, our deep industry knowledge and worldwide connections ensure seamless, authentic journeys tailored to you."
         },
         "personal": {
           "title": "Personal Touch",
-          "description": "Every traveler is unique. We take time to understand your dreams and craft journeys that reflect you."
+          "description": "Whether luxury, adventure, or budget-friendly, we craft itineraries for all travelers and preferences, perfectly tailored to your unique lifestyle."
         },
         "trust": {
           "title": "Trust & Safety",
           "description": "Your well-being is our priority. We partner only with vetted suppliers and provide 24/7 support."
         },
-        "innovation": {
-          "title": "Innovation",
-          "description": "Embracing AI and technology to enhance—not replace—the human touch in travel planning."
+        "flexibility": {
+          "title": "Flexible Planning",
+          "description": "Plans change, and we adapt. Whether you need last-minute adjustments or want to explore spontaneously, we make it work seamlessly."
         },
-        "excellence": {
-          "title": "Excellence",
-          "description": "Award-winning service backed by thousands of five-star reviews and loyal returning travelers."
+        "value": {
+          "title": "Value for Every Budget",
+          "description": "From budget-friendly adventures to luxury escapes, we maximize value at every price point without compromising on quality."
         }
       }
     },
@@ -542,7 +544,8 @@
     },
     "cta": {
       "title": "Let's Create Something Amazing",
-      "subtitle": "Ready to experience the ExplorAhead difference? Start planning your next adventure today.",
+      "subtitle": "Ready to experience the ExplorAhead difference?",
+      "subtitleLine2": "Start planning your next adventure today.",
       "startPlanning": "Start Planning",
       "contactUs": "Contact Us"
     }
@@ -555,7 +558,7 @@
     },
     "form": {
       "title": "Send Us a Message",
-      "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+      "subtitle": "Fill out the form below and we'll get back to you within hours—not days!",
       "successTitle": "Message Sent!",
       "successMessage": "Thank you for reaching out. We'll review your request and contact you shortly.",
       "typeOfRequest": "Type of Request",

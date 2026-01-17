@@ -2,20 +2,11 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input, Select, Textarea } from "@/components/ui/Input";
+import { SocialIcons } from "@/components/ui/SocialIcons";
 import { motion, useInView } from "framer-motion";
+import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {
-  CheckCircle,
-  Clock,
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Twitter,
-} from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -247,76 +238,37 @@ export default function ContactPage() {
               <h2 className="text-ocean mb-2">{t("info.title")}</h2>
               <p className="text-gray-dark mb-8">{t("info.subtitle")}</p>
 
-              <div className="mb-12 space-y-6">
-                {contactInfo.map((info) => (
-                  <div key={info.labelKey} className="flex items-start gap-4">
+              <div style={{ marginBottom: "4rem" }}>
+                {contactInfo.map((info, index) => (
+                  <div
+                    key={info.labelKey}
+                    className="flex items-center gap-4"
+                    style={{ marginBottom: index < contactInfo.length - 1 ? "1rem" : "0" }}
+                  >
                     <div className="bg-sand flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
                       <info.icon size={24} className="text-ocean" />
                     </div>
-                    <div>
-                      <p className="text-gray text-sm font-medium">{t(info.labelKey)}</p>
-                      {info.href ? (
-                        <a
-                          href={info.href}
-                          className="text-ocean hover:text-gold font-medium transition-colors"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-charcoal">{info.value}</p>
-                      )}
-                    </div>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        className="text-ocean hover:text-gold text-lg font-medium transition-colors"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-charcoal text-lg font-medium">{info.value}</p>
+                    )}
                   </div>
                 ))}
               </div>
 
               {/* Social Links */}
-              <div className="mb-16">
+              <div style={{ marginTop: "2rem", marginBottom: "4rem" }}>
                 <h3 className="font-heading text-ocean mb-4">{t("info.followUs")}</h3>
-                <div className="flex gap-4">
-                  {[
-                    { icon: Instagram, href: "#", labelKey: "info.socialLabels.instagram" },
-                    { icon: Facebook, href: "#", labelKey: "info.socialLabels.facebook" },
-                    { icon: Twitter, href: "#", labelKey: "info.socialLabels.twitter" },
-                  ].map((social) => (
-                    <a
-                      key={social.labelKey}
-                      href={social.href}
-                      className="bg-ocean hover:bg-gold group flex h-12 w-12 items-center justify-center rounded-xl transition-colors"
-                      aria-label={t(social.labelKey)}
-                    >
-                      <social.icon size={20} className="group-hover:text-ocean text-white" />
-                    </a>
-                  ))}
-                </div>
+                <SocialIcons variant="contact" iconSize={20} />
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Map Section (Placeholder) */}
-      <section className="bg-sand-light relative h-96 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="text-ocean mx-auto mb-4 opacity-50" />
-            <p className="text-gray">{t("map.placeholder")}</p>
-          </div>
-        </div>
-        {/* You would integrate Google Maps or Mapbox here */}
-      </section>
-
-      {/* FAQ Teaser */}
-      <section className="section bg-ocean">
-        <div className="container text-center">
-          <h2 className="mb-4 text-white">{t("faq.title")}</h2>
-          <p className="mx-auto mb-8 max-w-xl text-white/80">{t("faq.subtitle")}</p>
-          <Button
-            variant="outline"
-            className="hover:text-ocean border-white bg-white/10 text-white shadow-lg backdrop-blur-sm hover:bg-white hover:bg-white/20"
-          >
-            {t("faq.button")}
-          </Button>
         </div>
       </section>
     </>

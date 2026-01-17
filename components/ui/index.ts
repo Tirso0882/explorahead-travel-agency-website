@@ -6,3 +6,4 @@ export { Input, Select, Textarea } from "./Input";
 export { Logo } from "./Logo";
 export { Modal, ModalBody, ModalFooter } from "./Modal";
 export { Navigation } from "./Navigation";
+export { SocialIcons } from "./SocialIcons";

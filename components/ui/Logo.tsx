@@ -1,20 +1,13 @@
-import React from 'react';
-
 interface LogoProps {
   className?: string;
   width?: number;
   height?: number;
-  variant?: 'default' | 'white';
+  variant?: "default" | "white";
 }
 
-export function Logo({ 
-  className = '', 
-  width = 280, 
-  height = 80,
-  variant = 'default' 
-}: LogoProps) {
-  const textColor = variant === 'white' ? '#FFFFFF' : '#1B3B5F';
-  const arrowColor = variant === 'white' ? '#FFFFFF' : '#D4A574';
+export function Logo({ className = "", width = 280, height = 80, variant = "default" }: LogoProps) {
+  const textColor = variant === "white" ? "#FFFFFF" : "#1B3B5F";
+  const arrowColor = variant === "white" ? "#FFFFFF" : "#D4A574";
 
   return (
     <svg
@@ -25,7 +18,7 @@ export function Logo({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="ExplorAhead Logo"
-      style={{ display: 'block' }}
+      style={{ display: "block" }}
       preserveAspectRatio="xMinYMid"
     >
       <defs>
@@ -54,7 +47,7 @@ export function Logo({
       </text>
 
       {/* Compass needle arrow (replacing "A" in "Ahead") */}
-      <g transform="translate(270, 20)">
+      <g transform="translate(232, 20)">
         {/* Right half - solid gold fill */}
         <path
           d="M 45 0 L 90 120 L 45 100 Z"
@@ -77,7 +70,7 @@ export function Logo({
 
       {/* "head" text - positioned right after arrow */}
       <text
-        x="360"
+        x="318"
         y="115"
         fontFamily="system-ui, -apple-system, 'Segoe UI', sans-serif"
         fontSize="90"

@@ -1,31 +1,23 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
+import { contact } from "@/config/contact";
+import { isFeatureEnabled } from "@/config/features";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
+import { Globe, Heart, Mail, RefreshCw, Shield, Star, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
-import {
-    ArrowRight,
-    Award,
-    Compass,
-    Globe,
-    Heart,
-    Shield,
-    Sparkles,
-    Users,
-} from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
-import { isFeatureEnabled } from "@/config/features";
 
 export default function AboutPage() {
-  const t = useTranslations('about');
+  const t = useTranslations("about");
   const storyRef = useRef<HTMLElement>(null);
   const valuesRef = useRef<HTMLElement>(null);
-  const teamRef = useRef<HTMLElement>(null);
   const isStoryInView = useInView(storyRef, { once: true, margin: "-100px" });
   const isValuesInView = useInView(valuesRef, { once: true, margin: "-100px" });
-  const isTeamInView = useInView(teamRef, { once: true, margin: "-100px" });
-  
+
+  const whatsappLink = getWhatsAppLink(contact.phone);
+
   const values = [
     {
       icon: Heart,
@@ -48,70 +40,44 @@ export default function AboutPage() {
       descriptionKey: "values.items.trust.description",
     },
     {
-      icon: Sparkles,
-      titleKey: "values.items.innovation.title",
-      descriptionKey: "values.items.innovation.description",
+      icon: RefreshCw,
+      titleKey: "values.items.flexibility.title",
+      descriptionKey: "values.items.flexibility.description",
     },
     {
-      icon: Award,
-      titleKey: "values.items.excellence.title",
-      descriptionKey: "values.items.excellence.description",
+      icon: Star,
+      titleKey: "values.items.value.title",
+      descriptionKey: "values.items.value.description",
     },
   ];
 
   const getStats = () => {
     const baseStats = [
-      { value: "50K+", labelKey: "stats.happyTravelers" },
-      { value: "98%", labelKey: "stats.satisfactionRate" },
+      { value: "100+", labelKey: "stats.happyTravelers" },
+      { value: "96%", labelKey: "stats.satisfactionRate" },
+      { value: "5+", labelKey: "stats.yearsOfExperience" },
     ];
-    
+
     if (isFeatureEnabled("destinations")) {
       baseStats.splice(2, 0, { value: "100+", labelKey: "stats.destinations" });
     }
-    
+
     return baseStats;
   };
 
-  const team = [
-    {
-      nameKey: "team.members.alexandra.name",
-      roleKey: "team.members.alexandra.role",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-      bioKey: "team.members.alexandra.bio",
-    },
-    {
-      nameKey: "team.members.marcus.name",
-      roleKey: "team.members.marcus.role",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-      bioKey: "team.members.marcus.bio",
-    },
-    {
-      nameKey: "team.members.sofia.name",
-      roleKey: "team.members.sofia.role",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-      bioKey: "team.members.sofia.bio",
-    },
-    {
-      nameKey: "team.members.james.name",
-      roleKey: "team.members.james.role",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
-      bioKey: "team.members.james.bio",
-    },
-  ];
-  
   const stats = getStats();
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
             alt="Road trip through mountains"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-ocean/80" />
+          <div className="bg-ocean/80 absolute inset-0" />
         </div>
 
         <div className="relative z-10 container text-center">
@@ -119,27 +85,27 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block px-6 py-2.5 mb-6 text-sm font-medium tracking-wider uppercase bg-gold/20 backdrop-blur-sm rounded-full border border-gold/30 text-gold"
+            className="bg-gold/20 border-gold/30 text-gold mb-6 inline-block rounded-full border px-6 py-2.5 text-sm font-medium tracking-wider uppercase backdrop-blur-sm"
           >
-            {t('hero.badge')}
+            {t("hero.badge")}
           </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-white text-4xl md:text-5xl lg:text-6xl font-heading mb-6"
+            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
           >
-            {t('hero.title')}
+            {t("hero.title")}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto"
+            className="mx-auto max-w-2xl text-lg text-white/80 md:text-xl"
           >
-            {t('hero.subtitle')}
+            {t("hero.subtitle")}
           </motion.p>
         </div>
       </section>
@@ -147,28 +113,20 @@ export default function AboutPage() {
       {/* Story Section */}
       <section ref={storyRef} className="section">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={isStoryInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-tiny text-gold font-semibold mb-2 block">
-                {t('story.badge')}
+              <span className="text-tiny text-gold mb-2 block font-semibold">
+                {t("story.badge")}
               </span>
-              <h2 className="text-ocean mb-6">
-                {t('story.title')}
-              </h2>
-              <div className="space-y-4 text-gray-dark leading-relaxed">
-                <p>
-                  {t('story.paragraph1')}
-                </p>
-                <p>
-                  {t('story.paragraph2')}
-                </p>
-                <p>
-                  {t('story.paragraph3')}
-                </p>
+              <h2 className="text-ocean mb-6">{t("story.title")}</h2>
+              <div className="text-gray-dark space-y-4 leading-relaxed">
+                <p>{t("story.paragraph1")}</p>
+                <p>{t("story.paragraph2")}</p>
+                <p>{t("story.paragraph3")}</p>
               </div>
             </motion.div>
 
@@ -178,22 +136,22 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden">
+              <div className="relative overflow-hidden rounded-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop"
-                  alt="Beautiful travel destination"
-                  className="w-full aspect-[4/3] object-cover"
+                  src="/images/about/story/spider-web-palawan-el-nido-philipines.webp"
+                  alt="Spider web bridge adventure in Bohol, Philippines"
+                  className="aspect-[4/3] w-full object-cover"
                 />
               </div>
               {/* Stats Overlay */}
-              <div className="absolute -bottom-8 -left-8 right-8 bg-white rounded-xl shadow-xl p-6">
+              <div className="absolute right-8 -bottom-8 -left-8 rounded-xl bg-white p-6 shadow-xl">
                 <div className={`grid gap-4 ${stats.length === 4 ? "grid-cols-2" : "grid-cols-3"}`}>
                   {stats.map((stat) => (
                     <div key={stat.labelKey} className="text-center">
-                      <div className="text-2xl md:text-3xl font-heading text-gold">
+                      <div className="font-heading text-gold text-2xl md:text-3xl">
                         {stat.value}
                       </div>
-                      <div className="text-sm text-gray">{t(stat.labelKey)}</div>
+                      <div className="text-gray text-sm">{t(stat.labelKey)}</div>
                     </div>
                   ))}
                 </div>
@@ -210,33 +168,31 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <span className="text-tiny text-gold font-semibold mb-2 block">
-              {t('values.badge')}
+            <span className="text-tiny text-gold mb-2 block font-semibold">
+              {t("values.badge")}
             </span>
-            <h2 className="text-ocean mb-4">{t('values.title')}</h2>
-            <p className="text-gray-dark text-lg max-w-2xl mx-auto">
-              {t('values.subtitle')}
+            <h2 className="text-ocean mb-4">{t("values.title")}</h2>
+            <p className="text-gray-dark mx-auto px-4 text-base md:text-lg">
+              {t("values.subtitle")}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
               <motion.div
                 key={value.titleKey}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
-                style={{ padding: '20px' }}
+                className="rounded-2xl bg-white shadow-md transition-shadow hover:shadow-lg"
+                style={{ padding: "20px" }}
               >
-                <div className="w-14 h-14 rounded-xl bg-ocean flex items-center justify-center mb-6">
+                <div className="bg-ocean mb-6 flex h-14 w-14 items-center justify-center rounded-xl">
                   <value.icon size={28} className="text-gold" />
                 </div>
-                <h3 className="text-xl font-heading text-ocean mb-3">
-                  {t(value.titleKey)}
-                </h3>
+                <h3 className="font-heading text-ocean mb-3 text-xl">{t(value.titleKey)}</h3>
                 <p className="text-gray-dark">{t(value.descriptionKey)}</p>
               </motion.div>
             ))}
@@ -244,98 +200,58 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section ref={teamRef} className="section">
-        <div className="container">
+      {/* CTA Section - styled like HowItWorks but within constrained width */}
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
+            style={{ padding: "40px" }}
           >
-            <span className="text-tiny text-gold font-semibold mb-2 block">
-              {t('team.badge')}
-            </span>
-            <h2 className="text-ocean mb-4">{t('team.title')}</h2>
-            <p className="text-gray-dark text-lg max-w-2xl mx-auto">
-              {t('team.subtitle')}
-            </p>
+            <h3
+              className="font-heading text-center text-3xl md:text-4xl"
+              style={{ color: "#d4a574", marginBottom: "0.3em" }}
+            >
+              {t("cta.title")}
+            </h3>
+
+            <div className="flex justify-center" style={{ marginBottom: "1rem" }}>
+              <div className="max-w-xl text-center text-lg text-white/80">
+                <p style={{ margin: 0, padding: 0, lineHeight: "1.2" }}>{t("cta.subtitle")}</p>
+                <p style={{ margin: 0, padding: 0, lineHeight: "1.2", marginTop: "1px" }}>
+                  {t("cta.subtitleLine2")}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-4 rounded-full text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+                style={{ backgroundColor: "#25D366", color: "white", padding: "16px 48px" }}
+              >
+                <svg viewBox="0 0 24 24" className="h-10 w-10" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                {t("cta.startPlanning")}
+              </a>
+
+              <Link
+                href="/contact"
+                className="bg-ocean-light hover:bg-ocean-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-white/30 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+                style={{ padding: "16px 48px" }}
+              >
+                <Mail size={40} />
+                {t("cta.contactUs")}
+              </Link>
+            </div>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.nameKey}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="relative rounded-2xl overflow-hidden mb-4">
-                  <img
-                    src={member.image}
-                    alt={t(member.nameKey)}
-                    className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ocean/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <h3 className="text-xl font-heading text-ocean">{t(member.nameKey)}</h3>
-                <p className="text-gold font-medium mb-2">{t(member.roleKey)}</p>
-                <p className="text-gray-dark text-sm">{t(member.bioKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="section-sm bg-sand-light">
-        <div className="container">
-          <p className="text-center text-gray mb-8">
-            {t('partners.text')}
-          </p>
-          <div className="flex items-center justify-center gap-12 flex-wrap opacity-50">
-            {["IATA", "ASTA", "Virtuoso", "Condé Nast", "Travel + Leisure"].map(
-              (partner) => (
-                <span
-                  key={partner}
-                  className="text-xl font-medium text-ocean tracking-wide"
-                >
-                  {partner}
-                </span>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section bg-ocean">
-        <div className="container text-center">
-          <Compass size={48} className="text-gold mx-auto mb-6" />
-          <h2 className="text-white mb-4">{t('cta.title')}</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-            {t('cta.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/chat">
-              <Button variant="gold" size="lg" rightIcon={<ArrowRight size={20} />}>
-                {t('cta.startPlanning')}
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-ocean bg-white/10 backdrop-blur-sm shadow-lg hover:bg-white/20"
-              >
-                {t('cta.contactUs')}
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
     </>
   );
 }
-
