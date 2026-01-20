@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Plane, Home, Calendar, Sparkles, Phone, Heart } from "lucide-react";
+import { useRef } from "react";
+import { ThreeDServiceIcon } from "./3d/ThreeDServiceIcon";
 
 export function ServicesPreview() {
   const t = useTranslations("marketing.servicesPreview");
@@ -12,34 +12,29 @@ export function ServicesPreview() {
 
   const services = [
     {
-      icon: Calendar,
+      iconVariant: "dailyPlanning" as const,
       titleKey: "items.dailyPlanning.title",
       descriptionKey: "items.dailyPlanning.description",
-      color: "bg-forest",
     },
     {
-      icon: Plane,
+      iconVariant: "transport" as const,
       titleKey: "items.transport.title",
       descriptionKey: "items.transport.description",
-      color: "bg-ocean",
     },
     {
-      icon: Home,
+      iconVariant: "accommodation" as const,
       titleKey: "items.accommodation.title",
       descriptionKey: "items.accommodation.description",
-      color: "bg-gold",
     },
     {
-      icon: Heart,
+      iconVariant: "experiences" as const,
       titleKey: "items.experiences.title",
       descriptionKey: "items.experiences.description",
-      color: "bg-terracotta",
     },
     {
-      icon: Phone,
+      iconVariant: "support" as const,
       titleKey: "items.support.title",
       descriptionKey: "items.support.description",
-      color: "bg-ocean-light",
     },
   ];
 
@@ -74,10 +69,12 @@ export function ServicesPreview() {
                   style={{ padding: "20px" }}
                 >
                   {/* Icon */}
-                  <div
-                    className={`h-16 w-16 rounded-2xl ${service.color} mb-6 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105`}
-                  >
-                    <service.icon size={32} className="text-white" strokeWidth={2} />
+                  <div className="mb-6 flex items-center justify-center">
+                    <ThreeDServiceIcon
+                      variant={service.iconVariant}
+                      animated={true}
+                      className="h-16 w-16"
+                    />
                   </div>
 
                   {/* Content */}
@@ -107,10 +104,12 @@ export function ServicesPreview() {
                   style={{ padding: "20px" }}
                 >
                   {/* Icon */}
-                  <div
-                    className={`h-16 w-16 rounded-2xl ${service.color} mb-6 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105`}
-                  >
-                    <service.icon size={32} className="text-white" strokeWidth={2} />
+                  <div className="mb-6 flex items-center justify-center">
+                    <ThreeDServiceIcon
+                      variant={service.iconVariant}
+                      animated={true}
+                      className="h-16 w-16"
+                    />
                   </div>
 
                   {/* Content */}

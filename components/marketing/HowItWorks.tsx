@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { Luggage, Map, MessageCircle, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
+import { ThreeDCharacter } from "./3d/ThreeDCharacter";
 
 export function HowItWorks() {
   const t = useTranslations("marketing.howItWorks");
@@ -17,6 +18,7 @@ export function HowItWorks() {
   const steps = [
     {
       icon: MessageCircle,
+      characterVariant: "chat" as const,
       stepNumber: 1,
       titleKey: "steps.connect.title",
       descriptionKey: "steps.connect.description",
@@ -24,6 +26,7 @@ export function HowItWorks() {
     },
     {
       icon: Map,
+      characterVariant: "planning" as const,
       stepNumber: 2,
       titleKey: "steps.plan.title",
       descriptionKey: "steps.plan.description",
@@ -31,6 +34,7 @@ export function HowItWorks() {
     },
     {
       icon: Luggage,
+      characterVariant: "travel" as const,
       stepNumber: 3,
       titleKey: "steps.travel.title",
       descriptionKey: "steps.travel.description",
@@ -96,15 +100,19 @@ export function HowItWorks() {
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               className="relative flex flex-col items-center"
             >
-              {/* Card Container - Icon center is at card top edge (0px). Icon is 80px tall, so:
-                  - Icon top: -40px (above card)
-                  - Icon bottom: 40px (inside card, 40px overlap)
-                  - Card padding-top: 72px (40px overlap + 32px clear space) */}
-              <div
-                className="w-full min-w-0 rounded-2xl bg-white px-4 pb-8 text-center shadow-md"
-                style={{ paddingTop: "72px" }}
-              >
-                {/* Title - with clear spacing below icon, no overlap */}
+              {/* 3D Character - Positioned above card */}
+              <div className="mb-6">
+                <ThreeDCharacter
+                  variant={step.characterVariant}
+                  animated={true}
+                  className="h-40 w-40 md:h-48 md:w-48"
+                  delay={0.3 + index * 0.1}
+                />
+              </div>
+
+              {/* Card Container */}
+              <div className="w-full min-w-0 rounded-2xl bg-white px-4 py-6 text-center shadow-md">
+                {/* Title */}
                 <h3 className="font-heading text-ocean mb-4 font-semibold">{t(step.titleKey)}</h3>
 
                 {/* Description */}
@@ -122,16 +130,10 @@ export function HowItWorks() {
                 </div>
               </div>
 
-              {/* Icon - positioned so center aligns with card top edge (half in, half out) */}
-              <div className="absolute top-0 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative">
-                  <div className="bg-ocean flex h-20 w-20 items-center justify-center rounded-full shadow-lg">
-                    <step.icon size={36} className="text-white" strokeWidth={1.5} />
-                  </div>
-                  {/* Step Number Badge */}
-                  <div className="bg-gold absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full shadow-md">
-                    <span className="text-sm font-bold text-white">{step.stepNumber}</span>
-                  </div>
+              {/* Step Number Badge - Positioned at top center */}
+              <div className="absolute -top-12 left-1/2 z-20 -translate-x-1/2">
+                <div className="bg-gold flex h-8 w-8 items-center justify-center rounded-full shadow-lg">
+                  <span className="text-sm font-bold text-white">{step.stepNumber}</span>
                 </div>
               </div>
             </motion.div>
