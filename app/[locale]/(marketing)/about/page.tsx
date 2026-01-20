@@ -138,8 +138,8 @@ export default function AboutPage() {
             >
               <div className="relative overflow-hidden rounded-2xl">
                 <img
-                  src="/images/about/story/spider-web-palawan-el-nido-philipines.webp"
-                  alt="Spider web bridge adventure in Bohol, Philippines"
+                  src="/images/about/story/chocolate-hills-bohol-philipines.webp"
+                  alt="Chocolate hills in Bohol, Philippines"
                   className="aspect-[4/3] w-full object-cover"
                 />
               </div>
