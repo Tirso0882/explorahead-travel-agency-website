@@ -30,6 +30,7 @@
     "destinations": "Destinations",
     "services": "Services",
     "about": "About",
+    "pricing": "Pricing",
     "contact": "Contact",
     "chat": "Travel Chat",
     "settings": "Settings",
@@ -578,8 +579,7 @@
       "requestTypes": {
         "select": "Select a reason...",
         "general": "General Inquiry",
-        "support": "Support",
-        "partnership": "Partnership Opportunity"
+        "support": "Support"
       }
     },
     "info": {
@@ -604,6 +604,132 @@
       "title": "Frequently Asked Questions",
       "subtitle": "Find answers to common questions about our services, booking process, and travel planning.",
       "button": "View FAQs"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "badge": "Transparent Pricing",
+      "title": "Simple & Fair Pricing",
+      "subtitle": "Professional travel planning tailored to your needs. No hidden fees, just honest service.",
+      "icons": {
+        "flights": "Flights",
+        "hotels": "Hotels",
+        "attractions": "Attractions"
+      }
+    },
+    "valueProposition": {
+      "title": "What You're Paying For",
+      "description": "The service price does not include the cost of flights, accommodation, or attractions. My work is professional planning and logistics of your time—crafting the perfect itinerary so you can focus on enjoying your journey."
+    },
+    "dreamFinder": {
+      "title": "Dream Finder",
+      "subtitle": "Don't know where to go?",
+      "tagline": "Let's discover your perfect destination together!",
+      "question": "\"I want to go somewhere, but I don't know where...\"",
+      "answer": "This is the perfect service for you! During a 60-minute consultation, we'll help you find your dream destination.",
+      "whatYouGet": "WHAT YOU GET:",
+      "features": {
+        "consultation": "60-minute video or phone consultation",
+        "conversation": "Discussion about your interests, budget, and expectations",
+        "recommendations": "3-5 personalized destination recommendations",
+        "descriptions": "Brief description of each place tailored to your preferences",
+        "selection": "Help choosing the best option at the end of the call",
+        "summary": "Written summary after the consultation"
+      },
+      "topicsTitle": "What we'll discuss:",
+      "topics": {
+        "vacation": "What type of vacation do you prefer?",
+        "type": "Beach, mountains, or city exploration?",
+        "budget": "What's your budget?",
+        "duration": "How much time do you have?",
+        "companions": "Who are you traveling with? (solo, couple, family)",
+        "cultures": "What climates and cultures fascinate you?",
+        "priorities": "What's most important to you in a trip?"
+      },
+      "priceLabel": "Consultation price:",
+      "bonusLabel": "BONUS:",
+      "bonusText": "If you order a Dream Plan after the consultation - 149 PLN will be deducted from the price!",
+      "freeNote": "This means the consultation is FREE when ordering a plan!"
+    },
+    "packages": {
+      "badge": "Choose Your Plan",
+      "title": "Our Service Packages"
+    },
+    "common": {
+      "days": "days"
+    },
+    "dreamPlan": {
+      "title": "Dream Plan",
+      "subtitle": "Complete travel planning",
+      "whatYouGet": "What You Get",
+      "features": {
+        "itinerary": "Detailed day-by-day itinerary",
+        "flights": "Flight and hotel recommendations",
+        "revisions": "2 free revisions before departure",
+        "emailSupport": "Email support for any questions"
+      },
+      "priceFor4": "Price for up to 4 people",
+      "tiers": {
+        "short": "Short trip",
+        "standard": "Standard trip",
+        "long": "Long trip"
+      },
+      "longerTrips": "*Trips 14+ days: individual quote"
+    },
+    "travelCompanion": {
+      "title": "Travel Companion",
+      "subtitle": "Real-time support",
+      "tagline": "Your personal assistant throughout your entire trip!",
+      "popularBadge": "POPULAR",
+      "whatYouGet": "What You Get",
+      "features": {
+        "whatsapp": "Access to expert via WhatsApp/SMS during your trip",
+        "changes": "Help with sudden plan changes",
+        "recommendations": "Restaurant and attraction recommendations \"on the spot\"",
+        "emergencies": "Quick response to unexpected situations",
+        "basicPlan": "Basic travel plan included"
+      },
+      "priceLabel": "Package price:",
+      "duration": "Support throughout your trip (up to 14 days)",
+      "payOnce": "Pay once, use without limits",
+      "noLimits": "No need to worry about extra costs - ask as much as you want!"
+    },
+    "express": {
+      "title": "Express Service",
+      "subtitle": "Rescue 24/48h",
+      "urgentBadge": "URGENT",
+      "urgentMessage": "Need help right now? We're here—even after 6 PM Polish time!",
+      "whatYouGet": "What You Get",
+      "features": {
+        "quickPlan": "Quick 1-3 day plan in urgent mode",
+        "recommendations": "Accommodation and transport recommendations \"right now\"",
+        "support": "SMS/WhatsApp support for the first 24h of your trip"
+      },
+      "priceLabel": "Price:"
+    },
+    "premiumPackage": {
+      "title": "Premium Package",
+      "subtitle": "Dream Plan + Travel Companion",
+      "bestValueBadge": "BEST VALUE",
+      "whatYouGet": "What You Get",
+      "features": {
+        "dreamPlan": "Complete Dream Plan (5-10 days)",
+        "companion": "Full Travel Companion support",
+        "priority": "Priority response during your trip"
+      },
+      "standardPrice": "Standard price",
+      "packagePrice": "Package price (5-10 days)",
+      "savings": "You save 99 PLN!",
+      "benefit": "Peace of mind throughout your trip - ask anything without worrying about extra costs!"
+    },
+    "disclaimer": {
+      "text": "The service price does not include the cost of flights, accommodation, or attractions. My work is professional planning and logistics of your time."
+    },
+    "cta": {
+      "title": "Ready to Start Planning?",
+      "subtitle": "Get in touch today and let's create your perfect travel experience together.",
+      "whatsapp": "Message on WhatsApp",
+      "contact": "Contact Us"
     }
   }
 }

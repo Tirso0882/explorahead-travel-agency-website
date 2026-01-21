@@ -50,7 +50,6 @@ export default function ContactPage() {
     { value: "", label: t("form.requestTypes.select") },
     { value: "GENERAL", label: t("form.requestTypes.general") },
     { value: "SUPPORT", label: t("form.requestTypes.support") },
-    { value: "PARTNERSHIP", label: t("form.requestTypes.partnership") },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -30,6 +30,7 @@
     "destinations": "Destynacje",
     "services": "Usługi",
     "about": "O Nas",
+    "pricing": "Cennik",
     "contact": "Kontakt",
     "chat": "Czat Podróżny",
     "settings": "Ustawienia",
@@ -577,8 +578,7 @@
       "requestTypes": {
         "select": "Wybierz powód...",
         "general": "Ogólne Zapytanie",
-        "support": "Wsparcie",
-        "partnership": "Możliwość Partnerstwa"
+        "support": "Wsparcie"
       }
     },
     "info": {
@@ -603,6 +603,132 @@
       "title": "Najczęściej Zadawane Pytania",
       "subtitle": "Znajdź odpowiedzi na najczęstsze pytania dotyczące naszych usług, procesu rezerwacji i planowania podróży.",
       "button": "Zobacz FAQ"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "badge": "Przejrzyste Ceny",
+      "title": "Prosty i Uczciwy Cennik",
+      "subtitle": "Profesjonalne planowanie podróży dostosowane do Twoich potrzeb. Bez ukrytych opłat, tylko uczciwa usługa.",
+      "icons": {
+        "flights": "Loty",
+        "hotels": "Hotele",
+        "attractions": "Atrakcje"
+      }
+    },
+    "valueProposition": {
+      "title": "Za Co Płacisz",
+      "description": "Cena usługi nie obejmuje kosztu lotów, noclegów ani atrakcji. Moja praca to profesjonalne planowanie i logistyka Twojego czasu—tworzenie idealnego planu podróży, abyś mógł skupić się na cieszeniu się podróżą."
+    },
+    "dreamFinder": {
+      "title": "Dream Finder",
+      "subtitle": "Nie wiesz dokąd pojechać?",
+      "tagline": "Odkryjmy razem Twoje idealne miejsce!",
+      "question": "\"Chcę gdzieś pojechać, ale nie wiem gdzie...\"",
+      "answer": "To idealna usługa dla Ciebie! Podczas 60-minutowej rozmowy pomożemy Ci znaleźć wymarzoną destynację.",
+      "whatYouGet": "CO OTRZYMUJESZ:",
+      "features": {
+        "consultation": "60-minutową konsultację wideo lub telefoniczną",
+        "conversation": "Rozmowę o Twoich zainteresowaniach, budżecie i oczekiwaniach",
+        "recommendations": "3-5 spersonalizowanych rekomendacji destynacji",
+        "descriptions": "Krótki opis każdego miejsca z uwzględnieniem Twoich preferencji",
+        "selection": "Pomoc w wyborze najlepszej opcji na koniec rozmowy",
+        "summary": "Pisemne podsumowanie po rozmowie"
+      },
+      "topicsTitle": "Co omówimy:",
+      "topics": {
+        "vacation": "Jaki rodzaj wakacji preferujesz?",
+        "type": "Plaża, góry, czy miejskie zwiedzanie?",
+        "budget": "Jaki jest Twój budżet?",
+        "duration": "Ile czasu masz na wyjazd?",
+        "companions": "Z kim jedziesz? (solo, para, rodzina)",
+        "cultures": "Jakie klimaty i kultury Cię fascynują?",
+        "priorities": "Co jest dla Ciebie najważniejsze w podróży?"
+      },
+      "priceLabel": "Cena konsultacji:",
+      "bonusLabel": "BONUS:",
+      "bonusText": "Jeśli zamówisz Dream Plan po konsultacji - 149 PLN zostanie odliczone od ceny!",
+      "freeNote": "To znaczy, że konsultacja jest DARMOWA przy zamówieniu planu!"
+    },
+    "packages": {
+      "badge": "Wybierz Swój Plan",
+      "title": "Nasze Pakiety Usług"
+    },
+    "common": {
+      "days": "dni"
+    },
+    "dreamPlan": {
+      "title": "Dream Plan",
+      "subtitle": "Kompleksowe planowanie",
+      "whatYouGet": "Co Otrzymujesz",
+      "features": {
+        "itinerary": "Szczegółowy plan dzień po dniu",
+        "flights": "Rekomendacje lotów i hoteli",
+        "revisions": "2 bezpłatne poprawki przed wyjazdem",
+        "emailSupport": "Wsparcie mailowe na każde pytanie"
+      },
+      "priceFor4": "Cena dla maksymalnie 4 osób",
+      "tiers": {
+        "short": "Krótki wyjazd",
+        "standard": "Standardowy wyjazd",
+        "long": "Długi wyjazd"
+      },
+      "longerTrips": "*Wyjazdy 14+ dni: indywidualna wycena"
+    },
+    "travelCompanion": {
+      "title": "Travel Companion",
+      "subtitle": "Wsparcie w czasie rzeczywistym",
+      "tagline": "Twój osobisty asystent podczas całej podróży!",
+      "popularBadge": "POPULARNE",
+      "whatYouGet": "Co Otrzymujesz",
+      "features": {
+        "whatsapp": "Dostęp do eksperta przez WhatsApp/SMS podczas podróży",
+        "changes": "Pomoc w nagłych zmianach planów",
+        "recommendations": "Rekomendacje restauracji i atrakcji \"na miejscu\"",
+        "emergencies": "Szybka reakcja na nieprzewidziane sytuacje",
+        "basicPlan": "Podstawowy plan podróży w zestawie"
+      },
+      "priceLabel": "Cena pakietu:",
+      "duration": "Wsparcie przez cały wyjazd (do 14 dni)",
+      "payOnce": "Płacisz raz, korzystasz bez limitu",
+      "noLimits": "Nie musisz martwić się o dodatkowe koszty - pytaj ile chcesz!"
+    },
+    "express": {
+      "title": "Express Service",
+      "subtitle": "Ratunek 24/48h",
+      "urgentBadge": "PILNE",
+      "urgentMessage": "Potrzebujesz pomocy teraz? Jesteśmy tu—nawet po 18:00 czasu polskiego!",
+      "whatYouGet": "Co Otrzymujesz",
+      "features": {
+        "quickPlan": "Szybki plan 1-3 dni w trybie pilnym",
+        "recommendations": "Rekomendacje noclegów i transportu \"na już\"",
+        "support": "Wsparcie SMS/WhatsApp przez pierwsze 24h podróży"
+      },
+      "priceLabel": "Cena:"
+    },
+    "premiumPackage": {
+      "title": "Pakiet Premium",
+      "subtitle": "Dream Plan + Travel Companion",
+      "bestValueBadge": "NAJLEPSZA OFERTA",
+      "whatYouGet": "Co Otrzymujesz",
+      "features": {
+        "dreamPlan": "Kompletny Dream Plan (5-10 dni)",
+        "companion": "Pełne wsparcie Travel Companion",
+        "priority": "Priorytetowa odpowiedź podczas podróży"
+      },
+      "standardPrice": "Standardowa cena",
+      "packagePrice": "Cena pakietu (5-10 dni)",
+      "savings": "Oszczędzasz 99 PLN!",
+      "benefit": "Masz spokój głowy przez całą podróż - pytaj o wszystko bez obaw o dodatkowe koszty!"
+    },
+    "disclaimer": {
+      "text": "Cena usługi nie obejmuje kosztu lotów, noclegów ani atrakcji. Moja praca to profesjonalne planowanie i logistyka Twojego czasu."
+    },
+    "cta": {
+      "title": "Gotowy na Planowanie?",
+      "subtitle": "Skontaktuj się już dziś i stwórzmy razem Twoje wymarzone doświadczenie podróżnicze.",
+      "whatsapp": "Napisz na WhatsApp",
+      "contact": "Kontakt"
     }
   }
 }
