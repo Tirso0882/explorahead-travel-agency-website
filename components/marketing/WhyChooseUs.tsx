@@ -15,19 +15,19 @@ export function WhyChooseUs() {
       icon: Shield,
       titleKey: "items.zeroStress.title",
       descriptionKey: "items.zeroStress.description",
-      color: "bg-ocean",
+      color: "bg-forest",
     },
     {
       icon: Compass,
       titleKey: "items.authenticity.title",
       descriptionKey: "items.authenticity.description",
-      color: "bg-gold",
+      color: "bg-lime",
     },
     {
       icon: HeartHandshake,
       titleKey: "items.supportReturn.title",
       descriptionKey: "items.supportReturn.description",
-      color: "bg-forest",
+      color: "bg-forest-light",
     },
     {
       icon: User,
@@ -51,7 +51,7 @@ export function WhyChooseUs() {
             marginBottom: "4rem",
           }} /* max-w-5xl to match grid below, mb-16 */
         >
-          <h2 className="text-ocean font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
+          <h2 className="text-forest font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
         </motion.div>
 
         {/* Benefits Grid */}
@@ -68,15 +68,15 @@ export function WhyChooseUs() {
                 {/* Icon */}
                 <div className="flex-shrink-0">
                   <div
-                    className={`h-14 w-14 rounded-xl ${benefit.color} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                    className={`h-14 w-14 rounded-xl ${benefit.color} flex items-center justify-center shadow-sticker transition-transform duration-300 group-hover:scale-110 border-2 border-black`}
                   >
-                    <benefit.icon size={28} className="text-white" strokeWidth={2} />
+                    <benefit.icon size={28} className={benefit.color === 'bg-lime' ? 'text-forest' : 'text-white'} strokeWidth={2} />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 pt-1">
-                  <h3 className="font-heading text-ocean group-hover:text-gold mb-2 text-xl transition-colors">
+                  <h3 className="font-heading text-forest group-hover:text-lime-dark mb-2 text-xl transition-colors uppercase">
                     {t(benefit.titleKey)}
                   </h3>
                   <p className="text-gray-dark leading-relaxed">{t(benefit.descriptionKey)}</p>

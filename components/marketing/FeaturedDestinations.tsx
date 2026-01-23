@@ -80,7 +80,7 @@ export function FeaturedDestinations() {
   };
 
   return (
-    <section ref={sectionRef} className="section bg-sand-light overflow-hidden">
+    <section ref={sectionRef} className="section bg-off-white overflow-hidden">
       <div className="container-wide">
         {/* Section Header */}
         <motion.div
@@ -90,10 +90,10 @@ export function FeaturedDestinations() {
           className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <span className="text-tiny text-gold mb-2 block font-semibold">
+            <span className="text-tiny text-lime-dark mb-2 block font-bold">
               Featured Destinations
             </span>
-            <h2 className="text-ocean mb-4">Explore Our Top Picks</h2>
+            <h2 className="text-forest mb-4">Explore Our Top Picks</h2>
             <p className="text-gray-dark max-w-xl">
               Hand-selected destinations that promise unforgettable experiences. From tropical
               paradises to cultural treasures.
@@ -102,14 +102,14 @@ export function FeaturedDestinations() {
           <div className="mt-6 flex gap-3 md:mt-0">
             <button
               onClick={() => scroll("left")}
-              className="hover:bg-ocean rounded-full bg-white p-3 shadow-md transition-all hover:text-white hover:shadow-lg"
+              className="hover:bg-forest rounded-full bg-white p-3 shadow-sticker transition-all hover:text-lime border-2 border-black"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="hover:bg-ocean rounded-full bg-white p-3 shadow-md transition-all hover:text-white hover:shadow-lg"
+              className="hover:bg-forest rounded-full bg-white p-3 shadow-sticker transition-all hover:text-lime border-2 border-black"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} />
@@ -132,7 +132,7 @@ export function FeaturedDestinations() {
               className="w-[320px] flex-shrink-0 snap-start md:w-[380px]"
             >
               <Link href={`/destinations/${destination.id}`} className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-black shadow-sticker">
                   <Image
                     src={destination.image}
                     alt={destination.name}
@@ -141,24 +141,24 @@ export function FeaturedDestinations() {
                     sizes="(max-width: 768px) 320px, 380px"
                     loading="lazy"
                   />
-                  <div className="from-ocean/80 via-ocean/20 absolute inset-0 bg-gradient-to-t to-transparent" />
+                  <div className="from-forest/80 via-forest/20 absolute inset-0 bg-gradient-to-t to-transparent" />
 
                   {/* Tag */}
                   <div className="absolute top-6 left-6">
-                    <span className="bg-gold text-ocean-dark rounded-full px-6 py-2.5 text-sm font-medium">
+                    <span className="bg-lime text-forest rounded-full px-6 py-2.5 text-sm font-bold uppercase border-2 border-black shadow-sticker">
                       {destination.tag}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="absolute right-2 bottom-0 left-6 pt-6 pr-6 pb-10 pl-8">
-                    <p className="mb-1 text-sm text-white/70">{destination.country}</p>
-                    <h3 className="font-heading mb-2 text-2xl text-white">{destination.name}</h3>
+                    <p className="mb-1 text-sm text-white/70 font-medium">{destination.country}</p>
+                    <h3 className="font-heading mb-2 text-2xl text-white uppercase">{destination.name}</h3>
                     <div className="flex items-center justify-between">
-                      <span className="bg-gold/20 text-gold rounded-full px-5 py-2.5 text-sm font-semibold">
+                      <span className="bg-lime/20 text-lime rounded-full px-5 py-2.5 text-sm font-bold border border-lime/50">
                         {destination.price}
                       </span>
-                      <span className="group-hover:bg-gold group-hover:text-ocean flex h-10 w-10 items-center justify-center rounded-full bg-white/20 transition-all">
+                      <span className="group-hover:bg-lime group-hover:text-forest flex h-10 w-10 items-center justify-center rounded-full bg-white/20 transition-all border border-white/30">
                         <ArrowRight
                           size={18}
                           className="transition-transform group-hover:translate-x-0.5"

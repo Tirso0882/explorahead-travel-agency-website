@@ -64,7 +64,7 @@ export function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section ref={sectionRef} className="section bg-ocean overflow-hidden">
+    <section ref={sectionRef} className="section bg-forest overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <span className="text-tiny text-gold mb-2 block font-semibold">Testimonials</span>
+          <span className="text-tiny text-lime mb-2 block font-bold">Testimonials</span>
           <h2 className="mb-4 text-white">Stories From Our Travelers</h2>
         </motion.div>
 
@@ -85,7 +85,7 @@ export function Testimonials() {
           <div className="relative">
             {/* Quote Icon */}
             <div className="absolute -top-6 -left-4 opacity-20 md:-left-8">
-              <Quote size={80} className="text-gold" />
+              <Quote size={80} className="text-lime" />
             </div>
 
             {/* Testimonial Content */}
@@ -96,12 +96,12 @@ export function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.4 }}
-                className="bg-ocean-light/50 rounded-3xl p-8 backdrop-blur-sm md:p-12"
+                className="bg-forest-light/50 rounded-3xl p-8 backdrop-blur-sm md:p-12 border-2 border-lime/20"
               >
                 {/* Rating */}
                 <div className="mb-6 flex gap-1">
                   {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <Star key={i} size={20} className="text-gold fill-gold" />
+                    <Star key={i} size={20} className="text-lime fill-lime" />
                   ))}
                 </div>
 
@@ -117,12 +117,12 @@ export function Testimonials() {
                       src={currentTestimonial.avatar}
                       alt={currentTestimonial.name}
                       fill
-                      className="border-gold rounded-full border-2 object-cover"
+                      className="border-lime rounded-full border-2 object-cover"
                       sizes="64px"
                     />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-white">{currentTestimonial.name}</h4>
+                    <h4 className="text-lg font-bold text-white">{currentTestimonial.name}</h4>
                     <p className="text-white/60">
                       {currentTestimonial.role} • {currentTestimonial.destination}
                     </p>
@@ -135,7 +135,7 @@ export function Testimonials() {
             <div className="mt-8 flex items-center justify-center gap-4">
               <button
                 onClick={prev}
-                className="hover:bg-gold hover:text-ocean rounded-full bg-white/10 p-3 text-white transition-all"
+                className="hover:bg-lime hover:text-forest rounded-full bg-white/10 p-3 text-white transition-all border border-lime/30"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={24} />
@@ -148,7 +148,7 @@ export function Testimonials() {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`h-2 w-2 rounded-full transition-all ${
-                      index === currentIndex ? "bg-gold w-8" : "bg-white/30 hover:bg-white/50"
+                      index === currentIndex ? "bg-lime w-8" : "bg-white/30 hover:bg-lime/50"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -157,7 +157,7 @@ export function Testimonials() {
 
               <button
                 onClick={next}
-                className="hover:bg-gold hover:text-ocean rounded-full bg-white/10 p-3 text-white transition-all"
+                className="hover:bg-lime hover:text-forest rounded-full bg-white/10 p-3 text-white transition-all border border-lime/30"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={24} />

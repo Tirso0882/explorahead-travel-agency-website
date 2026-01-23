@@ -18,30 +18,37 @@ interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onA
 
 const variants: Record<ButtonVariant, string> = {
   primary: `
-    bg-ocean text-white
-    hover:bg-ocean-light
-    active:bg-ocean-dark
-    shadow-md hover:shadow-lg
+    bg-forest text-white
+    hover:bg-forest-light
+    active:bg-forest-dark
+    shadow-sticker hover:shadow-sticker-lime
+    border-2 border-black
   `,
   secondary: `
-    bg-sand text-ocean
-    hover:bg-sand-dark
-    active:bg-sand
+    bg-lime text-forest
+    hover:bg-lime-dark
+    active:bg-lime-light
+    shadow-sticker hover:shadow-sticker
+    border-2 border-black
   `,
   outline: `
-    bg-transparent text-ocean
-    border-2 border-ocean
-    hover:bg-ocean hover:text-white
+    bg-transparent text-forest
+    border-2 border-forest
+    hover:bg-forest hover:text-lime
+    shadow-sticker hover:shadow-sticker-lime
   `,
   ghost: `
-    bg-transparent text-ocean
-    hover:bg-sand-light
+    bg-transparent text-forest
+    hover:bg-lime/20
+    border-2 border-transparent hover:border-forest
   `,
   gold: `
-    bg-gold text-ocean-dark
-    hover:bg-gold-dark
-    active:bg-gold
-    shadow-md hover:shadow-gold
+    bg-lime text-forest
+    hover:bg-lime-dark
+    active:bg-lime-light
+    shadow-sticker-lime hover:shadow-sticker-lime-md
+    border-2 border-forest
+    font-bold uppercase tracking-wide
   `,
 };
 
@@ -108,9 +115,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const baseStyles = `
       flex items-center justify-center gap-2
-      font-medium rounded-[20px]
+      font-bold rounded-full uppercase tracking-wide
       transition-all duration-200 ease-out
-      focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2
+      focus:outline-none focus:ring-2 focus:ring-lime focus:ring-offset-2
       disabled:opacity-50 disabled:cursor-not-allowed
       whitespace-nowrap
       box-border

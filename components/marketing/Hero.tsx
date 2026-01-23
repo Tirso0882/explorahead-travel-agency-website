@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
-// Pre-defined particle positions for deterministic rendering
+// Pre-defined particle positions for deterministic rendering - using lime color
 const particlePositions = [
   { left: 12, top: 23, duration: 3.5, delay: 0.2 },
   { left: 45, top: 67, duration: 4.2, delay: 1.1 },
@@ -75,19 +75,20 @@ export function Hero() {
         )}
         <div className="gradient-hero-overlay absolute inset-0" />
       </div>
-      {/* Animated Particles/Dots */}
+      {/* Animated Particles/Dots - Neon Lime */}
       <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
         {particlePositions.map((particle, i) => (
           <motion.div
             key={i}
-            className="bg-gold/30 absolute h-1 w-1 rounded-full"
+            className="bg-lime/40 absolute h-2 w-2 rounded-full"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
             }}
             animate={{
               y: [0, -30, 0],
-              opacity: [0.3, 0.8, 0.3],
+              opacity: [0.4, 1, 0.4],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: particle.duration,
@@ -105,7 +106,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="bg-gold/20 border-gold/30 mb-6 inline-block rounded-full border px-6 py-2.5 text-sm font-medium tracking-wider uppercase backdrop-blur-sm">
+          <span className="bg-lime text-forest mb-6 inline-block rounded-full border-2 border-black px-6 py-2.5 text-sm font-bold tracking-wider uppercase shadow-sticker">
             {t("badge")}
           </span>
         </motion.div>
@@ -114,9 +115,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-display mx-auto mb-6 max-w-4xl whitespace-nowrap"
+          className="text-display mx-auto mb-6 max-w-5xl"
         >
-          {t("title")} <span className="text-gold italic">{t("titleHighlight")}</span>
+          {t("title")} <span className="text-lime text-glow-lime">{t("titleHighlight")}</span>
         </motion.h1>
 
         <div className="mb-10 flex w-full justify-center">
@@ -124,7 +125,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center text-xl leading-relaxed whitespace-nowrap text-white/80 md:text-2xl"
+            className="text-center text-xl leading-relaxed text-white/90 md:text-2xl font-medium"
           >
             {t("subtitle")} {t("subtitleLine2")}
           </motion.p>
@@ -146,7 +147,7 @@ export function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="hover:text-ocean border-white bg-white/10 text-white shadow-lg backdrop-blur-sm hover:bg-white hover:bg-white/20"
+                className="hover:text-forest border-2 border-white bg-white/10 text-white shadow-sticker backdrop-blur-sm hover:bg-lime hover:border-black"
               >
                 {t("ctaSecondary")}
               </Button>
@@ -154,7 +155,7 @@ export function Hero() {
           )}
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats - Gen-Z Style with Sticker badges */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -169,8 +170,8 @@ export function Hero() {
             { value: "24/7", label: t("stats.support") },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-heading text-gold mb-1 text-3xl md:text-4xl">{stat.value}</div>
-              <div className="text-sm tracking-wider text-white/60 uppercase">{stat.label}</div>
+              <div className="font-display text-lime text-glow-lime mb-1 text-3xl md:text-4xl font-bold">{stat.value}</div>
+              <div className="text-sm tracking-wider text-white/70 uppercase font-medium">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -186,12 +187,12 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/30 p-2"
+          className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-lime/50 p-2"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="bg-gold h-1.5 w-1.5 rounded-full"
+            className="bg-lime h-1.5 w-1.5 rounded-full"
           />
         </motion.div>
       </motion.div>

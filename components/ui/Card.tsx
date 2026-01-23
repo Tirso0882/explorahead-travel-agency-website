@@ -12,8 +12,8 @@ interface CardProps extends Omit<HTMLMotionProps<"div">, "children"> {
 
 const cardVariants = {
   default: "bg-white",
-  elevated: "bg-white shadow-lg",
-  outlined: "bg-white border border-gray-lighter",
+  elevated: "bg-white shadow-sticker border-2 border-black",
+  outlined: "bg-white border-2 border-forest/20",
   glass: "glass",
 };
 
@@ -80,7 +80,7 @@ export function CardImage({
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-ocean/70 via-ocean/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/20 to-transparent" />
       )}
       {children && (
         <div className="absolute inset-0 flex items-end p-4">{children}</div>
@@ -106,7 +106,7 @@ interface CardTitleProps {
 
 export function CardTitle({ children, as: Tag = "h3", className = "" }: CardTitleProps) {
   return (
-    <Tag className={`font-heading text-ocean mb-2 ${className}`}>{children}</Tag>
+    <Tag className={`font-heading text-forest mb-2 uppercase ${className}`}>{children}</Tag>
   );
 }
 

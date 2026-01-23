@@ -36,7 +36,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="from-ocean to-ocean-dark bg-gradient-to-b text-white">
+    <footer className="from-forest to-forest-dark bg-gradient-to-b text-white">
       {/* Main Footer */}
       <div className="container-wide py-16">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -55,8 +55,8 @@ export function Footer() {
             {/* Social Media */}
             <div>
               <h4
-                className="font-heading mb-8 text-2xl font-bold tracking-tight"
-                style={{ color: "#D4A574" }}
+                className="font-heading mb-8 text-2xl font-bold tracking-tight uppercase"
+                style={{ color: "#BFFF00" }}
               >
                 {t("social.title")}
               </h4>
@@ -66,7 +66,7 @@ export function Footer() {
 
           {/* Explore Links */}
           <div>
-            <h4 className="font-heading mb-6 text-xl font-semibold" style={{ color: "#D4A574" }}>
+            <h4 className="font-heading mb-6 text-xl font-bold uppercase" style={{ color: "#BFFF00" }}>
               {t("explore")}
             </h4>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:!text-gold inline-block !text-white text-white transition-all hover:translate-x-1"
+                    className="hover:!text-lime inline-block !text-white text-white transition-all hover:translate-x-1 font-medium"
                     style={{ color: "#ffffff" }}
                   >
                     {link.label}
@@ -86,19 +86,19 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading mb-6 text-xl font-semibold" style={{ color: "#D4A574" }}>
+            <h4 className="font-heading mb-6 text-xl font-bold uppercase" style={{ color: "#BFFF00" }}>
               {t("contactUs")}
             </h4>
             <ul className="space-y-5">
               <li>
                 <a
                   href={`mailto:${t("contact.email")}`}
-                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  className="group hover:text-lime flex items-center gap-3 transition-colors"
                   style={{ color: "#ffffff" }}
                 >
                   <Mail
                     size={16}
-                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                    className="group-hover:text-lime flex-shrink-0 text-white transition-colors"
                   />
                   <span className="break-all text-white">{t("contact.email")}</span>
                 </a>
@@ -106,24 +106,24 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${t("contact.phone")}`}
-                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  className="group hover:text-lime flex items-center gap-3 transition-colors"
                   style={{ color: "#ffffff" }}
                 >
                   <Phone
                     size={16}
-                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                    className="group-hover:text-lime flex-shrink-0 text-white transition-colors"
                   />
                   <span className="text-white">{t("contact.phone")}</span>
                 </a>
               </li>
               <li>
                 <div
-                  className="group hover:text-gold flex items-center gap-3 transition-colors"
+                  className="group hover:text-lime flex items-center gap-3 transition-colors"
                   style={{ color: "#ffffff" }}
                 >
                   <MapPin
                     size={16}
-                    className="group-hover:text-gold flex-shrink-0 text-white transition-colors"
+                    className="group-hover:text-lime flex-shrink-0 text-white transition-colors"
                   />
                   <span style={{ whiteSpace: "pre-line", color: "#ffffff" }}>
                     {t("contact.address")}
@@ -136,7 +136,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-lime/20">
         <div className="container-wide py-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex flex-col items-baseline gap-2 sm:flex-row sm:gap-4">
@@ -150,7 +150,7 @@ export function Footer() {
                   href="https://redkraken.tech"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold font-medium transition-colors hover:text-white"
+                  className="text-lime font-bold transition-colors hover:text-white"
                 >
                   RedKraken
                 </a>
@@ -161,7 +161,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="hover:text-gold text-sm text-white/80 transition-colors"
+                  className="hover:text-lime text-sm text-white/80 transition-colors"
                 >
                   {link.label}
                 </Link>

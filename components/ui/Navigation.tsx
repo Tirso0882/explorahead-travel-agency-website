@@ -54,7 +54,7 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 right-0 left-0 z-[var(--z-sticky)] transition-all duration-300 ${
-          isScrolled || !isHomePage ? "bg-white/95 shadow-md backdrop-blur-md" : "bg-transparent"
+          isScrolled || !isHomePage ? "bg-white/95 shadow-md backdrop-blur-md border-b-2 border-forest/10" : "bg-transparent"
         } `}
       >
         <nav className="container-wide">
@@ -75,17 +75,17 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative font-medium transition-colors ${
+                  className={`relative font-bold uppercase tracking-wide text-sm transition-colors ${
                     isScrolled || !isHomePage
-                      ? "text-ocean hover:text-gold"
-                      : "text-white/90 hover:text-white"
-                  } ${pathname === link.href ? "font-semibold" : ""} `}
+                      ? "text-forest hover:text-lime-dark"
+                      : "text-white/90 hover:text-lime"
+                  } ${pathname === link.href ? "font-extrabold" : ""} `}
                 >
                   {link.label}
                   {pathname === link.href && (
                     <motion.div
                       layoutId="activeNav"
-                      className={`absolute right-0 -bottom-1 left-0 h-0.5 rounded-full ${isScrolled || !isHomePage ? "bg-gold" : "bg-white"} `}
+                      className={`absolute right-0 -bottom-1 left-0 h-1 rounded-full ${isScrolled || !isHomePage ? "bg-lime" : "bg-lime"} `}
                     />
                   )}
                 </Link>
@@ -102,7 +102,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`rounded-lg p-2 transition-colors md:hidden ${
                 isScrolled || !isHomePage
-                  ? "text-ocean hover:bg-sand-light"
+                  ? "text-forest hover:bg-lime/20"
                   : "text-white hover:bg-white/10"
               } `}
               aria-label={t("toggleMenu")}
@@ -123,23 +123,23 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-20 z-[var(--z-dropdown)] md:hidden"
           >
-            <div className="border-gray-lighter border-t bg-white shadow-xl">
+            <div className="border-forest/10 border-t-2 bg-white shadow-xl">
               <div className="container py-6">
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`rounded-lg px-4 py-3 font-medium transition-colors ${
+                      className={`rounded-lg px-4 py-3 font-bold uppercase tracking-wide text-sm transition-colors ${
                         pathname === link.href
-                          ? "bg-sand text-ocean"
-                          : "text-ocean hover:bg-sand-light"
+                          ? "bg-lime text-forest"
+                          : "text-forest hover:bg-lime/20"
                       } `}
                     >
                       {link.label}
                     </Link>
                   ))}
-                  <hr className="border-gray-lighter my-2" />
+                  <hr className="border-forest/10 my-2" />
                   <div>
                     <LanguageSwitcher />
                   </div>

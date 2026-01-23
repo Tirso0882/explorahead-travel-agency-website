@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="text-ocean mb-2 block text-sm font-medium">
+          <label htmlFor={inputId} className="text-forest mb-2 block text-sm font-bold uppercase tracking-wide">
             {label}
           </label>
         )}
@@ -30,7 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             id={inputId}
-            className={`border-gray-lighter text-charcoal placeholder:text-gray focus:border-gold focus:ring-gold/20 disabled:bg-sand-light w-full rounded-lg border bg-white !py-3 transition-all duration-200 focus:ring-2 focus:outline-none disabled:cursor-not-allowed ${leftIcon ? "!pl-[3.25rem]" : "!pl-6"} ${rightIcon ? "!pr-[3.25rem]" : "!pr-6"} ${error ? "border-terracotta focus:border-terracotta focus:ring-terracotta/20" : ""} ${className} `}
+            className={`border-forest/20 text-charcoal placeholder:text-gray focus:border-lime focus:ring-lime/20 disabled:bg-off-white w-full rounded-xl border-2 bg-white !py-3 transition-all duration-200 focus:ring-2 focus:outline-none disabled:cursor-not-allowed ${leftIcon ? "!pl-[3.25rem]" : "!pl-6"} ${rightIcon ? "!pr-[3.25rem]" : "!pr-6"} ${error ? "border-terracotta focus:border-terracotta focus:ring-terracotta/20" : ""} ${className} `}
             {...props}
           />
           {rightIcon && (
@@ -61,14 +61,14 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={textareaId} className="text-ocean mb-2 block text-sm font-medium">
+          <label htmlFor={textareaId} className="text-forest mb-2 block text-sm font-bold uppercase tracking-wide">
             {label}
           </label>
         )}
         <textarea
           ref={ref}
           id={textareaId}
-          className={`border-gray-lighter text-charcoal placeholder:text-gray focus:border-gold focus:ring-gold/20 disabled:bg-sand-light min-h-[120px] w-full resize-y rounded-lg border bg-white !px-6 !py-3 transition-all duration-200 focus:ring-2 focus:outline-none disabled:cursor-not-allowed ${error ? "border-terracotta focus:border-terracotta focus:ring-terracotta/20" : ""} ${className} `}
+          className={`border-forest/20 text-charcoal placeholder:text-gray focus:border-lime focus:ring-lime/20 disabled:bg-off-white min-h-[120px] w-full resize-y rounded-xl border-2 bg-white !px-6 !py-3 transition-all duration-200 focus:ring-2 focus:outline-none disabled:cursor-not-allowed ${error ? "border-terracotta focus:border-terracotta focus:ring-terracotta/20" : ""} ${className} `}
           {...props}
         />
         {error && <p className="text-terracotta mt-1 text-sm">{error}</p>}
@@ -94,7 +94,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={selectId} className="text-ocean mb-2 block text-sm font-medium">
+          <label htmlFor={selectId} className="text-forest mb-2 block text-sm font-bold uppercase tracking-wide">
             {label}
           </label>
         )}

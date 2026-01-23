@@ -21,13 +21,13 @@ export function ServicesPreview() {
       icon: Plane,
       titleKey: "items.transport.title",
       descriptionKey: "items.transport.description",
-      color: "bg-ocean",
+      color: "bg-lime",
     },
     {
       icon: Home,
       titleKey: "items.accommodation.title",
       descriptionKey: "items.accommodation.description",
-      color: "bg-gold",
+      color: "bg-forest-light",
     },
     {
       icon: Heart,
@@ -39,12 +39,12 @@ export function ServicesPreview() {
       icon: Phone,
       titleKey: "items.support.title",
       descriptionKey: "items.support.description",
-      color: "bg-ocean-light",
+      color: "bg-electric-blue",
     },
   ];
 
   return (
-    <section ref={sectionRef} className="section to-sand-light/30 bg-gradient-to-b from-white">
+    <section ref={sectionRef} className="section to-off-white/30 bg-gradient-to-b from-white">
       <div className="container">
         {/* Section Header */}
         <motion.div
@@ -53,7 +53,7 @@ export function ServicesPreview() {
           transition={{ duration: 0.6 }}
           className="section-header"
         >
-          <h2 className="text-ocean font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
+          <h2 className="text-forest font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
           <p className="text-gray-dark text-lg leading-relaxed md:text-xl">{t("subtitle")}</p>
         </motion.div>
 
@@ -70,18 +70,18 @@ export function ServicesPreview() {
                 className="group"
               >
                 <div
-                  className="border-sand-dark/10 hover:border-ocean/20 h-full rounded-2xl border bg-white p-8 transition-all duration-300 hover:shadow-2xl"
+                  className="border-2 border-forest/10 hover:border-lime h-full rounded-2xl bg-white p-8 transition-all duration-300 hover:shadow-sticker-lime"
                   style={{ padding: "20px" }}
                 >
                   {/* Icon */}
                   <div
-                    className={`h-16 w-16 rounded-2xl ${service.color} mb-6 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105`}
+                    className={`h-16 w-16 rounded-xl ${service.color} mb-6 flex items-center justify-center shadow-sticker transition-transform duration-300 group-hover:scale-105 border-2 border-black`}
                   >
-                    <service.icon size={32} className="text-white" strokeWidth={2} />
+                    <service.icon size={32} className={service.color === 'bg-lime' ? 'text-forest' : 'text-white'} strokeWidth={2} />
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-heading text-ocean group-hover:text-gold mb-4 text-2xl transition-colors">
+                  <h3 className="font-heading text-forest group-hover:text-lime-dark mb-4 text-2xl transition-colors uppercase">
                     {t(service.titleKey)}
                   </h3>
                   <p className="text-gray-dark text-base leading-relaxed">
@@ -103,18 +103,18 @@ export function ServicesPreview() {
                 className="group w-full md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]"
               >
                 <div
-                  className="border-sand-dark/10 hover:border-ocean/20 h-full rounded-2xl border bg-white p-8 transition-all duration-300 hover:shadow-2xl"
+                  className="border-2 border-forest/10 hover:border-lime h-full rounded-2xl bg-white p-8 transition-all duration-300 hover:shadow-sticker-lime"
                   style={{ padding: "20px" }}
                 >
                   {/* Icon */}
                   <div
-                    className={`h-16 w-16 rounded-2xl ${service.color} mb-6 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105`}
+                    className={`h-16 w-16 rounded-xl ${service.color} mb-6 flex items-center justify-center shadow-sticker transition-transform duration-300 group-hover:scale-105 border-2 border-black`}
                   >
-                    <service.icon size={32} className="text-white" strokeWidth={2} />
+                    <service.icon size={32} className={service.color === 'bg-lime' ? 'text-forest' : 'text-white'} strokeWidth={2} />
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-heading text-ocean group-hover:text-gold mb-4 text-2xl transition-colors">
+                  <h3 className="font-heading text-forest group-hover:text-lime-dark mb-4 text-2xl transition-colors uppercase">
                     {t(service.titleKey)}
                   </h3>
                   <p className="text-gray-dark text-base leading-relaxed">

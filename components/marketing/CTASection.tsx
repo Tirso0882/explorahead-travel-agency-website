@@ -21,10 +21,10 @@ export function CTASection() {
           alt="Mountain lake landscape"
           className="h-full w-full object-cover"
         />
-        <div className="from-ocean/90 via-ocean/80 to-ocean/70 absolute inset-0 bg-gradient-to-r" />
+        <div className="from-forest/90 via-forest/80 to-forest/70 absolute inset-0 bg-gradient-to-r" />
       </div>
 
-      {/* Decorative Elements */}
+      {/* Decorative Elements - Neon lime accents */}
       <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
         <motion.div
           animate={{
@@ -35,7 +35,7 @@ export function CTASection() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="border-gold/10 absolute -top-1/4 -right-1/4 h-1/2 w-1/2 rounded-full border"
+          className="border-lime/20 absolute -top-1/4 -right-1/4 h-1/2 w-1/2 rounded-full border-2"
         />
         <motion.div
           animate={{
@@ -46,7 +46,7 @@ export function CTASection() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="border-gold/10 absolute -bottom-1/4 -left-1/4 h-3/4 w-3/4 rounded-full border"
+          className="border-lime/20 absolute -bottom-1/4 -left-1/4 h-3/4 w-3/4 rounded-full border-2"
         />
       </div>
 
@@ -62,14 +62,14 @@ export function CTASection() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-gold/20 border-gold/30 mb-8 inline-flex items-center gap-2 rounded-full border px-6 py-2.5"
+            className="bg-lime text-forest mb-8 inline-flex items-center gap-2 rounded-full border-2 border-black px-6 py-2.5 shadow-sticker"
           >
-            <Sparkles size={18} className="text-gold" />
-            <span className="text-gold text-sm font-medium">{t("badge")}</span>
+            <Sparkles size={18} className="text-forest" />
+            <span className="text-sm font-bold uppercase tracking-wide">{t("badge")}</span>
           </motion.div>
 
-          <h2 className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl">
-            {t("title")} <span className="text-gold">{t("titleHighlight")}</span>
+          <h2 className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl uppercase">
+            {t("title")} <span className="text-lime text-glow-lime">{t("titleHighlight")}</span>
           </h2>
 
           <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80 md:text-xl">
@@ -96,7 +96,7 @@ export function CTASection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="hover:text-ocean border-white bg-white/10 text-white shadow-lg backdrop-blur-sm hover:bg-white hover:bg-white/20"
+                className="hover:text-forest border-2 border-white bg-white/10 text-white shadow-sticker backdrop-blur-sm hover:bg-lime hover:border-black"
               >
                 {t("talkToExpert")}
               </Button>
@@ -108,12 +108,12 @@ export function CTASection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-12 border-t border-white/10 pt-12"
+            className="mt-12 border-t border-lime/20 pt-12"
           >
-            <p className="mb-4 text-sm text-white/50">{t("trustIndicator")}</p>
+            <p className="mb-4 text-sm text-white/50 uppercase tracking-wide">{t("trustIndicator")}</p>
             <div className="flex flex-wrap items-center justify-center gap-8">
               {["TripAdvisor", "Trustpilot", "Google", "Forbes Travel"].map((brand) => (
-                <span key={brand} className="text-lg font-medium tracking-wide text-white/40">
+                <span key={brand} className="text-lg font-bold tracking-wide text-white/40">
                   {brand}
                 </span>
               ))}

@@ -7,49 +7,63 @@
 @import "tailwindcss";
 
 /* ============================================
-   GOLDEN HOUR EXPLORER - Design System
-   Theme: Warm, cinematic, luxury travel
+   EXPLORAHEAD - Gen-Z Travel Rewards Design System
+   Theme: Modern, energetic, reward-centric
+   Inspired by: TripAdvisor Rewards + Digital Streetwear
    ============================================ */
 
 :root {
-  /* Primary Colors */
-  --color-sand: #f5e6d3;
-  --color-sand-light: #fbf7f2;
-  --color-sand-dark: #e5d4bf;
+  /* Primary Colors - Neon Green Focus */
+  --color-lime: #BFFF00;
+  --color-lime-light: #D4FF4D;
+  --color-lime-dark: #99CC00;
+  --color-lime-glow: rgba(191, 255, 0, 0.4);
 
-  --color-ocean: #1a365d;
-  --color-ocean-light: #2d4a6f;
-  --color-ocean-dark: #0f2744;
+  /* Dark Green for Text & CTAs */
+  --color-forest: #003300;
+  --color-forest-light: #004D00;
+  --color-forest-dark: #002200;
 
-  --color-gold: #d4a574;
-  --color-gold-light: #e4c4a4;
-  --color-gold-dark: #b88b5a;
+  /* Clean Backgrounds */
+  --color-white: #FFFFFF;
+  --color-off-white: #F8FAF8;
+  --color-cream: #F0F4F0;
 
-  --color-white: #fafaf8;
-  --color-cream: #f8f5f0;
+  /* Legacy color aliases for compatibility */
+  --color-sand: #F0F4F0;
+  --color-sand-light: #F8FAF8;
+  --color-sand-dark: #E0E8E0;
+  --color-ocean: #003300;
+  --color-ocean-light: #004D00;
+  --color-ocean-dark: #002200;
+  --color-gold: #BFFF00;
+  --color-gold-light: #D4FF4D;
+  --color-gold-dark: #99CC00;
 
   /* Accent Colors */
-  --color-terracotta: #c4785a;
-  --color-terracotta-light: #d99b82;
-  --color-forest: #2d5a45;
-  --color-forest-light: #3d7a5d;
+  --color-terracotta: #FF6B35;
+  --color-terracotta-light: #FF8A5C;
+  --color-electric-blue: #00D4FF;
+  --color-hot-pink: #FF1493;
 
   /* Neutral Colors */
-  --color-charcoal: #2c2c2c;
-  --color-gray-dark: #4a4a4a;
-  --color-gray: #7a7a7a;
-  --color-gray-light: #b5b5b5;
-  --color-gray-lighter: #e5e5e5;
+  --color-charcoal: #1A1A1A;
+  --color-gray-dark: #333333;
+  --color-gray: #666666;
+  --color-gray-light: #999999;
+  --color-gray-lighter: #E5E5E5;
+  --color-black: #000000;
 
   /* Semantic Colors */
-  --color-success: #2d5a45;
-  --color-error: #c4785a;
-  --color-warning: #d4a574;
-  --color-info: #1a365d;
+  --color-success: #00CC66;
+  --color-error: #FF3B30;
+  --color-warning: #FFCC00;
+  --color-info: #00D4FF;
 
-  /* Typography - CSS variables are set by next/font via className */
-  --font-heading: var(--font-heading, "Playfair Display", Georgia, serif);
-  --font-body: var(--font-body, "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif);
+  /* Typography - Bold, condensed sans-serif for Gen-Z appeal */
+  --font-heading: var(--font-heading, "Clash Display", "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-body: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-display: var(--font-display, "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif);
 
   /* Spacing Scale */
   --space-xs: 0.25rem;
@@ -61,26 +75,31 @@
   --space-3xl: 4rem;
   --space-4xl: 5rem;
 
-  /* Border Radius */
+  /* Border Radius - Mix of sharp and rounded for sticker effect */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
-  --radius-button: 20px;
+  --radius-button: 9999px;
+  --radius-sticker: 1rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(26, 54, 93, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(26, 54, 93, 0.07), 0 2px 4px -1px rgba(26, 54, 93, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(26, 54, 93, 0.08), 0 4px 6px -2px rgba(26, 54, 93, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(26, 54, 93, 0.1), 0 10px 10px -5px rgba(26, 54, 93, 0.04);
-  --shadow-gold: 0 4px 14px -3px rgba(212, 165, 116, 0.4);
+  /* Shadows - Bold sticker-style shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 51, 0, 0.05);
+  --shadow-md: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-lg: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-xl: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-lime: 4px 4px 0px 0px #BFFF00;
+  --shadow-lime-lg: 6px 6px 0px 0px #BFFF00;
+  --shadow-glow-lime: 0 0 20px rgba(191, 255, 0, 0.5);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
 
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
   --transition-slower: 600ms ease;
+  --transition-bounce: 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   /* Z-Index Scale */
   --z-dropdown: 100;
@@ -107,8 +126,16 @@
   --color-forest: var(--color-forest);
   --color-forest-light: var(--color-forest-light);
   --color-charcoal: var(--color-charcoal);
+  --color-lime: var(--color-lime);
+  --color-lime-light: var(--color-lime-light);
+  --color-lime-dark: var(--color-lime-dark);
+  --color-off-white: var(--color-off-white);
+  --color-black: var(--color-black);
+  --color-electric-blue: var(--color-electric-blue);
+  --color-hot-pink: var(--color-hot-pink);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 /* ============================================
@@ -136,22 +163,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle grain texture overlay */
+/* Remove grain texture for cleaner Gen-Z look */
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.015;
-  z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  display: none;
 }
 
 /* ============================================
-   TYPOGRAPHY
+   TYPOGRAPHY - Bold, Modern, Gen-Z Energy
    ============================================ */
 
 h1,
@@ -161,19 +179,21 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--color-ocean);
-}
-
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-forest);
+  text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.03em;
+}
+
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
 }
 
 h3 {
@@ -189,11 +209,12 @@ p {
 }
 
 .text-display {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .text-lead {
@@ -208,8 +229,9 @@ p {
 
 .text-tiny {
   font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 /* ============================================
@@ -262,13 +284,13 @@ section.bg-sand-light .grid .bg-white.rounded-2xl {
    ============================================ */
 
 a {
-  color: var(--color-ocean);
+  color: var(--color-forest);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-gold);
+  color: var(--color-lime-dark);
 }
 
 /* Footer links override - ensure white text on dark background */
@@ -279,7 +301,7 @@ footer a:visited {
 }
 
 footer a:hover {
-  color: var(--color-gold) !important;
+  color: var(--color-lime) !important;
 }
 
 /* Footer container spacing - increase horizontal padding */
@@ -318,16 +340,16 @@ button {
 }
 
 /* ============================================
-   SELECTION
+   SELECTION & SCROLLBAR - Neon Green Theme
    ============================================ */
 
 ::selection {
-  background-color: var(--color-gold);
-  color: var(--color-ocean-dark);
+  background-color: var(--color-lime);
+  color: var(--color-forest);
 }
 
 /* ============================================
-   SCROLLBAR
+   SCROLLBAR - Dark with Lime accent
    ============================================ */
 
 ::-webkit-scrollbar {
@@ -336,16 +358,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-sand-light);
+  background: var(--color-forest);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
+  background: var(--color-lime);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-dark);
+  background: var(--color-lime-dark);
 }
 
 /* ============================================
@@ -387,25 +409,25 @@ button {
   margin-bottom: 2rem; /* mb-20 equivalent */
 }
 
-/* Gradient Overlays */
+/* Gradient Overlays - Bold, Modern */
 .gradient-ocean {
-  background: linear-gradient(135deg, var(--color-ocean) 0%, var(--color-ocean-light) 100%);
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-light) 100%);
 }
 
 .gradient-gold {
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-terracotta) 100%);
+  background: linear-gradient(135deg, var(--color-lime) 0%, var(--color-lime-dark) 100%);
 }
 
 .gradient-warm {
-  background: linear-gradient(180deg, var(--color-sand-light) 0%, var(--color-cream) 100%);
+  background: linear-gradient(180deg, var(--color-off-white) 0%, var(--color-cream) 100%);
 }
 
 .gradient-hero-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(26, 54, 93, 0.3) 0%,
-    rgba(26, 54, 93, 0.5) 50%,
-    rgba(26, 54, 93, 0.7) 100%
+    rgba(0, 51, 0, 0.4) 0%,
+    rgba(0, 51, 0, 0.6) 50%,
+    rgba(0, 51, 0, 0.85) 100%
   );
 }
 
@@ -425,7 +447,7 @@ button {
 /* Focus Styles */
 .focus-ring:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-gold-light);
+  box-shadow: 0 0 0 3px var(--color-lime);
 }
 
 /* ============================================
@@ -598,7 +620,7 @@ textarea::placeholder {
 
 /* Focus visible for keyboard navigation */
 :focus-visible {
-  outline: 2px solid var(--color-ocean);
+  outline: 2px solid var(--color-lime);
   outline-offset: 2px;
 }
 
@@ -612,4 +634,234 @@ textarea::placeholder {
   overflow: visible;
   clip: auto;
   white-space: nowrap;
+}
+
+/* ============================================
+   GEN-Z / TRIPADVISOR STYLE - Global Utilities
+   ============================================ */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Lime/Neon accent color utilities */
+.bg-lime {
+  background-color: var(--color-lime);
+}
+
+.text-lime {
+  color: var(--color-lime);
+}
+
+.border-lime {
+  border-color: var(--color-lime);
+}
+
+/* Sticker shadow effects - Bold, playful, streetwear-inspired */
+.shadow-sticker {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.shadow-sticker-md {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.shadow-sticker-lg {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.shadow-sticker-lime {
+  box-shadow: 4px 4px 0px 0px var(--color-lime);
+}
+
+.shadow-sticker-lime-md {
+  box-shadow: 6px 6px 0px 0px var(--color-lime);
+}
+
+.shadow-sticker-lime-lg {
+  box-shadow: 8px 8px 0px 0px var(--color-lime);
+}
+
+.shadow-sticker-hover:hover {
+  box-shadow: 6px 6px 0px 0px var(--color-lime);
+  transform: translate(-2px, -2px);
+}
+
+/* Neon glow effects */
+.glow-lime {
+  box-shadow: 0 0 20px rgba(191, 255, 0, 0.5);
+}
+
+.glow-lime-intense {
+  box-shadow: 0 0 30px rgba(191, 255, 0, 0.7), 0 0 60px rgba(191, 255, 0, 0.3);
+}
+
+.text-glow-lime {
+  text-shadow: 0 0 10px rgba(191, 255, 0, 0.5);
+}
+
+/* Sticker/Badge styles */
+.badge-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  background: var(--color-lime);
+  color: var(--color-forest);
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+  transition: all 0.2s ease;
+}
+
+.badge-sticker:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.badge-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--color-forest);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-forest);
+}
+
+/* Reward/discount badge */
+.badge-reward {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: var(--color-lime);
+  color: var(--color-forest);
+  border-radius: 9999px;
+  border: 2px solid var(--color-forest);
+}
+
+/* Playful tag styles */
+.tag-playful {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-forest);
+  color: var(--color-lime);
+  border-radius: 0.25rem;
+  transform: rotate(-2deg);
+}
+
+/* Button shimmer effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Energetic underline */
+.underline-lime {
+  position: relative;
+}
+
+.underline-lime::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--color-lime);
+  border-radius: 2px;
+}
+
+/* Highlight marker effect */
+.highlight-lime {
+  background: linear-gradient(to top, var(--color-lime) 40%, transparent 40%);
+  padding: 0 0.25rem;
+}
+
+/* Icon badge container */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-lime);
+  color: var(--color-forest);
+  border: 2px solid var(--color-forest);
+  border-radius: 0.75rem;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Reward card style */
+.card-reward {
+  background: var(--color-white);
+  border: 3px solid var(--color-forest);
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0px 0px var(--color-lime);
+  transition: all 0.2s ease;
+}
+
+.card-reward:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px var(--color-lime);
+}
+
+/* Floating animation for badges */
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+.animate-float-badge {
+  animation: float-badge 3s ease-in-out infinite;
+}
+
+/* Pulse glow for CTAs */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(191, 255, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(191, 255, 0, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

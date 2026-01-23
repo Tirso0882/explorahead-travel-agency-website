@@ -45,7 +45,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section ref={sectionRef} className="section bg-sand-light">
+    <section ref={sectionRef} className="section bg-off-white">
       <div className="container mx-auto max-w-7xl px-5 py-20">
         {/* Section Header - Explicitly centered */}
         <motion.div
@@ -54,10 +54,10 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="mb-12 flex flex-col items-center justify-center"
         >
-          <span className="text-gold mb-6 inline-block px-6 py-2.5 text-center text-sm font-medium tracking-wider uppercase">
+          <span className="bg-lime text-forest mb-6 inline-block px-6 py-2.5 text-center text-sm font-bold tracking-wider uppercase rounded-full border-2 border-black shadow-sticker">
             {t("badge")}
           </span>
-          <h2 className="text-ocean font-heading mb-8 max-w-3xl text-center text-4xl md:text-5xl">
+          <h2 className="text-forest font-heading mb-8 max-w-3xl text-center text-4xl md:text-5xl">
             {t("title")}
           </h2>
           {/* Subtitle - Centered horizontally and vertically balanced with title, one line */}
@@ -71,13 +71,13 @@ export function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-ocean/5 rounded-2xl px-6 py-4"
+          className="bg-lime/10 border-2 border-lime/30 rounded-2xl px-6 py-4"
         >
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {trustItems.map((item) => (
               <div key={item.key} className="flex items-center gap-2">
-                <span className="bg-gold h-2 w-2 rounded-full" />
-                <span className="text-ocean text-sm font-medium md:text-base">{t(item.key)}</span>
+                <span className="bg-lime h-3 w-3 rounded-full border border-black" />
+                <span className="text-forest text-sm font-bold md:text-base">{t(item.key)}</span>
               </div>
             ))}
           </div>
@@ -96,16 +96,13 @@ export function HowItWorks() {
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               className="relative flex flex-col items-center"
             >
-              {/* Card Container - Icon center is at card top edge (0px). Icon is 80px tall, so:
-                  - Icon top: -40px (above card)
-                  - Icon bottom: 40px (inside card, 40px overlap)
-                  - Card padding-top: 72px (40px overlap + 32px clear space) */}
+              {/* Card Container */}
               <div
-                className="w-full min-w-0 rounded-2xl bg-white px-4 pb-8 text-center shadow-md"
+                className="w-full min-w-0 rounded-2xl bg-white px-4 pb-8 text-center shadow-sticker border-2 border-black"
                 style={{ paddingTop: "72px" }}
               >
                 {/* Title - with clear spacing below icon, no overlap */}
-                <h3 className="font-heading text-ocean mb-4 font-semibold">{t(step.titleKey)}</h3>
+                <h3 className="font-heading text-forest mb-4 font-bold uppercase">{t(step.titleKey)}</h3>
 
                 {/* Description */}
                 <p className="text-gray-dark mb-5 text-base leading-relaxed">
@@ -113,9 +110,9 @@ export function HowItWorks() {
                 </p>
 
                 {/* Tags */}
-                <div className="text-gold space-y-1 text-sm">
+                <div className="text-lime-dark space-y-1 text-sm">
                   {step.tags.map((tag, tagIndex) => (
-                    <p key={tagIndex} className="font-medium">
+                    <p key={tagIndex} className="font-bold">
                       {tag}
                     </p>
                   ))}
@@ -125,12 +122,12 @@ export function HowItWorks() {
               {/* Icon - positioned so center aligns with card top edge (half in, half out) */}
               <div className="absolute top-0 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
                 <div className="relative">
-                  <div className="bg-ocean flex h-20 w-20 items-center justify-center rounded-full shadow-lg">
-                    <step.icon size={36} className="text-white" strokeWidth={1.5} />
+                  <div className="bg-forest flex h-20 w-20 items-center justify-center rounded-full shadow-sticker-lime border-2 border-black">
+                    <step.icon size={36} className="text-lime" strokeWidth={1.5} />
                   </div>
                   {/* Step Number Badge */}
-                  <div className="bg-gold absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full shadow-md">
-                    <span className="text-sm font-bold text-white">{step.stepNumber}</span>
+                  <div className="bg-lime absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full shadow-md border-2 border-black">
+                    <span className="text-sm font-bold text-forest">{step.stepNumber}</span>
                   </div>
                 </div>
               </div>
@@ -146,11 +143,11 @@ export function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
+          className="from-forest via-forest to-forest-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-sticker-lime-md border-2 border-black"
           style={{ padding: "20px 40px" }}
         >
           {/* Title - Centered */}
-          <h3 className="font-heading text-gold mb-6 text-center text-3xl md:text-4xl">
+          <h3 className="font-heading text-lime mb-6 text-center text-3xl md:text-4xl uppercase">
             {t("cta.title")}
           </h3>
 
@@ -166,7 +163,7 @@ export function HowItWorks() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-4 rounded-full text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+              className="inline-flex w-full items-center justify-center gap-4 rounded-full text-lg font-bold uppercase tracking-wide text-white shadow-sticker transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl border-2 border-black"
               style={{
                 backgroundColor: "#25D366",
                 color: "white",
@@ -188,7 +185,7 @@ export function HowItWorks() {
             {/* Book a Quick Call Button */}
             <a
               href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-              className="bg-ocean-light hover:bg-ocean-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-white/30 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+              className="bg-forest-light hover:bg-forest-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-lime text-lg font-bold uppercase tracking-wide text-white shadow-sticker transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
               style={{ padding: "16px 48px" }}
             >
               <Phone size={40} />

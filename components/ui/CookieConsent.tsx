@@ -95,43 +95,43 @@ export function CookieConsent() {
         aria-describedby="cookie-consent-description"
       >
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-white rounded-2xl shadow-2xl border border-sand-200 overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-sticker border-2 border-black overflow-hidden">
             {/* Main Banner */}
             {!showPreferences && (
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-ocean/10 rounded-xl flex items-center justify-center">
-                    <Cookie className="w-6 h-6 text-ocean" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-lime rounded-xl flex items-center justify-center border-2 border-black">
+                    <Cookie className="w-6 h-6 text-forest" />
                   </div>
                   <div className="flex-1">
                     <h2
                       id="cookie-consent-title"
-                      className="text-lg font-heading font-semibold text-ocean mb-2"
+                      className="text-lg font-heading font-bold text-forest mb-2 uppercase"
                     >
                       {t("title")}
                     </h2>
                     <p
                       id="cookie-consent-description"
-                      className="text-sand-700 text-sm md:text-base mb-4"
+                      className="text-gray-dark text-sm md:text-base mb-4"
                     >
                       {t("description")}
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <button
                         onClick={handleAcceptAll}
-                        className="px-6 py-2.5 bg-ocean text-white rounded-lg font-medium hover:bg-ocean-600 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                        className="px-6 py-2.5 bg-lime text-forest rounded-full font-bold uppercase tracking-wide border-2 border-black shadow-sticker hover:shadow-sticker-lime transition-all focus:outline-none focus:ring-2 focus:ring-lime focus:ring-offset-2"
                       >
                         {t("acceptAll")}
                       </button>
                       <button
                         onClick={handleDeclineAll}
-                        className="px-6 py-2.5 bg-sand-100 text-sand-700 rounded-lg font-medium hover:bg-sand-200 transition-colors focus:outline-none focus:ring-2 focus:ring-sand-400 focus:ring-offset-2"
+                        className="px-6 py-2.5 bg-white text-forest rounded-full font-bold uppercase tracking-wide border-2 border-forest hover:bg-forest hover:text-lime transition-all focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2"
                       >
                         {t("declineAll")}
                       </button>
                       <button
                         onClick={() => setShowPreferences(true)}
-                        className="px-6 py-2.5 text-ocean hover:text-ocean-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 rounded-lg flex items-center gap-2"
+                        className="px-6 py-2.5 text-forest hover:text-lime-dark font-bold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-lime focus:ring-offset-2 rounded-full flex items-center gap-2"
                       >
                         <Settings className="w-4 h-4" />
                         {t("customize")}

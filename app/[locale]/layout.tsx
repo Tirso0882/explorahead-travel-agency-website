@@ -4,20 +4,31 @@ import { routing } from "@/lib/i18n/routing";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Inter, Montserrat, Space_Grotesk } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Toaster } from "react-hot-toast";
 
-const playfair = Playfair_Display({
+// Bold condensed sans-serif for headlines - Gen-Z appeal
+const montserrat = Montserrat({
   variable: "--font-heading",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700", "800", "900"],
+});
+
+// Clean, readable body text
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-body",
+// Display font for hero elements
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export async function generateMetadata({
@@ -122,7 +133,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang={locale} className={`${montserrat.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <script
           type="application/ld+json"
