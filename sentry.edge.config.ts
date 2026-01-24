@@ -4,8 +4,10 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
+// Skip Sentry initialization in development for faster startup
+if (process.env.NODE_ENV !== "development") {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
 
   // Performance Monitoring
   // Lower sample rate for edge to reduce costs
@@ -24,4 +26,5 @@ Sentry.init({
 
   // Edge-specific settings
   // Note: Some integrations are not available in Edge runtime
-});
+  });
+}

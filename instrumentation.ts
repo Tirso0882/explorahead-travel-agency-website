@@ -3,6 +3,11 @@
 // Runs once when the Next.js server starts
 
 export async function register() {
+  // Skip Sentry in development for faster startup
+  if (process.env.NODE_ENV === "development") {
+    return;
+  }
+  
   // Initialize Sentry based on runtime environment
   if (process.env.NEXT_RUNTIME === "nodejs") {
     // Server-side Sentry initialization

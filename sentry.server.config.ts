@@ -4,8 +4,10 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
+// Skip Sentry initialization in development for faster startup
+if (process.env.NODE_ENV !== "development") {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
 
   // Performance Monitoring
   // Capture 100% of transactions in development, 10% in production
@@ -41,4 +43,5 @@ Sentry.init({
     // HTTP integration for tracing requests
     Sentry.httpIntegration(),
   ],
-});
+  });
+}
