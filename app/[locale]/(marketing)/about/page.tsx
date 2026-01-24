@@ -211,8 +211,8 @@ export default function AboutPage() {
             style={{ padding: "40px" }}
           >
             <h3
-              className="font-heading text-center text-3xl md:text-4xl"
-              style={{ color: "#d4a574", marginBottom: "0.3em" }}
+              className="font-heading text-center text-3xl text-white md:text-4xl"
+              style={{ marginBottom: "0.3em" }}
             >
               {t("cta.title")}
             </h3>

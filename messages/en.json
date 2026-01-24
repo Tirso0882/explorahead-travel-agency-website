@@ -471,7 +471,7 @@
     },
     "story": {
       "badge": "Our Beginning",
-      "title": "Born From a Love of Discovery",
+      "title": "From Chaos to Joy: Why I Built ExplorAhead",
       "paragraph1": "My journey to creating ExplorAhead led me through master's studies at the University of Wrocław and years of hands-on experience in the travel industry. That's where I gained deep practical knowledge of reservation systems, logistics coordination, and the intricate details that transform a good trip into an extraordinary one.",
       "paragraph2": "I watched countless travelers struggle with the overwhelming complexity of planning—comparing flights, researching hotels, coordinating transfers, finding authentic experiences. I knew there had to be a better way. So I decided to build a space where planning a trip becomes pure joy, not a stressful to-do list.",
       "paragraph3": "Today, I design personalized itineraries for people like you: curious travelers who want to experience unforgettable adventures but don't have the time to piece together complex travel puzzles on their own. You choose the destination—I take care of everything else, from the first booking to your safe return home."
@@ -610,7 +610,7 @@
     "hero": {
       "badge": "Transparent Pricing",
       "title": "Simple & Fair Pricing",
-      "subtitle": "Professional travel planning tailored to your needs. No hidden fees, just honest service.",
+      "subtitle": "Professional travel planning tailored to your needs.\nNo hidden fees, just honest service.",
       "icons": {
         "flights": "Flights",
         "hotels": "Hotels",

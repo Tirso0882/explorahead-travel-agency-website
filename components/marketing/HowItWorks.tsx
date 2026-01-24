@@ -150,7 +150,7 @@ export function HowItWorks() {
           style={{ padding: "20px 40px" }}
         >
           {/* Title - Centered */}
-          <h3 className="font-heading text-gold mb-6 text-center text-3xl md:text-4xl">
+          <h3 className="font-heading mb-6 text-center text-3xl text-white md:text-4xl">
             {t("cta.title")}
           </h3>
 

@@ -471,7 +471,7 @@
     },
     "story": {
       "badge": "Nasze Początki",
-      "title": "Zrodzone z Miłości do Odkrywania",
+      "title": "Od Chaosu do Radości: Dlaczego Stworzyłam ExplorAhead",
       "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
       "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
       "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację—ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
@@ -609,7 +609,7 @@
     "hero": {
       "badge": "Przejrzyste Ceny",
       "title": "Prosty i Uczciwy Cennik",
-      "subtitle": "Profesjonalne planowanie podróży dostosowane do Twoich potrzeb. Bez ukrytych opłat, tylko uczciwa usługa.",
+      "subtitle": "Profesjonalne planowanie podróży dostosowane do Twoich potrzeb.\nBez ukrytych opłat, tylko uczciwa usługa.",
       "icons": {
         "flights": "Loty",
         "hotels": "Hotele",

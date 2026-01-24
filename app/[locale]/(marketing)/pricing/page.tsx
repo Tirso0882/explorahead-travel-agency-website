@@ -77,7 +77,7 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative overflow-hidden pt-40 pb-16 md:pt-48 md:pb-24">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop"
@@ -110,7 +110,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mb-8 max-w-2xl text-lg text-white/90 md:text-xl"
+            className="mx-auto mb-8 max-w-2xl text-lg text-white/90 md:text-xl whitespace-pre-line"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -138,14 +138,14 @@ export default function PricingPage() {
       </section>
 
       {/* Value Proposition */}
-      <section className="bg-sand-light py-16 md:py-20">
-        <div className="container text-center">
+      <section className="section bg-sand-light">
+        <div className="container flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mx-auto max-w-3xl"
+            className="max-w-3xl text-center"
           >
             <h2 className="font-heading text-ocean mb-6 text-3xl md:text-4xl">
               {t("valueProposition.title")}
@@ -158,13 +158,13 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards Section */}
-      <section ref={pricingRef} className="bg-cream py-20 md:py-28">
+      <section ref={pricingRef} className="section bg-cream">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="mb-16 text-center"
+            className="section-header"
           >
             <span className="bg-gold/10 text-gold mb-4 inline-block rounded-full px-4 py-1.5 text-sm font-medium">
               {t("packages.badge")}
@@ -172,50 +172,55 @@ export default function PricingPage() {
             <h2 className="font-heading text-ocean text-3xl md:text-4xl">{t("packages.title")}</h2>
           </motion.div>
 
-          <div className="mx-auto grid gap-6 lg:grid-cols-5">
+          <div className="mx-auto grid gap-6 md:gap-8 lg:grid-cols-5 max-w-[1600px]">
             {/* Dream Finder Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className={`group relative overflow-hidden rounded-2xl border-2 border-amber-300 bg-white shadow-lg transition-all duration-300 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "finder" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("finder")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
+              {/* New Badge */}
+              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-lime-400 to-green-400 px-3 py-1 text-xs font-bold text-slate-800">
+                NEW
+              </div>
+
               {/* Header */}
-              <div className="bg-gradient-to-br from-amber-400 via-orange-400 to-pink-400 p-6 text-center text-white">
+              <div className="bg-gradient-to-br from-gold via-gold-dark to-terracotta p-8 text-center text-white">
                 <Compass className="mx-auto mb-4 h-12 w-12 opacity-90" />
                 <h3 className="font-heading mb-2 text-2xl">{t("dreamFinder.title")}</h3>
-                <p className="text-sm text-amber-100">{t("dreamFinder.subtitle")}</p>
+                <p className="text-sm text-white/90">{t("dreamFinder.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="p-6">
-                <h4 className="text-ocean mb-4 text-lg font-semibold">
-                  {t("dreamFinder.whatYouGet")}
-                </h4>
-                <ul className="mb-6 space-y-3">
+              <div className="flex flex-1 flex-col p-8">
+                <ul className="mb-auto space-y-3 flex-1">
                   {dreamFinderFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-500" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
                       <span className="text-gray-dark text-sm">{t(key)}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Price */}
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="mb-3 rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 p-4 text-center">
-                    <p className="mb-1 text-xs text-slate-600">{t("dreamFinder.priceLabel")}</p>
-                    <p className="text-3xl font-bold text-amber-600">149 PLN</p>
+                {/* Price - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
+                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Price</p>
+                    <p className="text-4xl font-bold text-gold">149 PLN</p>
                   </div>
-                  <div className="rounded-lg border border-green-200 bg-green-50 p-3">
-                    <p className="mb-1 text-xs font-semibold text-green-800">
-                      🎁 {t("dreamFinder.bonusLabel")}
+                  <button className="w-full rounded-lg bg-gold py-3.5 text-sm font-semibold text-white transition-all hover:bg-gold-dark">
+                    Book Now
+                  </button>
+                  <div className="mt-4 rounded-lg border border-gold/30 bg-gold/10 p-3">
+                    <p className="mb-1 text-xs font-semibold text-gold-dark">
+                      💡 Bonus
                     </p>
-                    <p className="text-xs text-green-700">{t("dreamFinder.bonusText")}</p>
+                    <p className="text-xs text-gray-dark">{t("dreamFinder.bonusText")}</p>
                   </div>
                 </div>
               </div>
@@ -226,52 +231,53 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className={`group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "dream" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("dream")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Header */}
-              <div className="bg-gradient-to-br from-teal-400 to-teal-600 p-6 text-center text-white">
+              <div className="bg-gradient-to-br from-ocean via-ocean-light to-ocean-dark p-8 text-center text-white">
                 <Calendar className="mx-auto mb-4 h-12 w-12 opacity-90" />
                 <h3 className="font-heading mb-2 text-2xl">{t("dreamPlan.title")}</h3>
-                <p className="text-sm text-teal-100">{t("dreamPlan.subtitle")}</p>
+                <p className="text-sm text-white/90">{t("dreamPlan.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="p-6">
-                <h4 className="text-ocean mb-4 text-lg font-semibold">
-                  {t("dreamPlan.whatYouGet")}
-                </h4>
-                <ul className="mb-6 space-y-3">
+              <div className="flex flex-1 flex-col p-8">
+                <ul className="mb-auto space-y-3 flex-1">
                   {dreamPlanFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-500" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-ocean" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Pricing Tiers */}
-                <div className="border-t border-gray-200 pt-4">
-                  <h4 className="text-ocean mb-3 text-center text-sm font-semibold">
-                    {t("dreamPlan.priceFor4")}
-                  </h4>
-                  <div className="space-y-2">
-                    {pricingTiers.map((tier, index) => (
-                      <div
-                        key={index}
-                        className="bg-sand-light flex items-center justify-between rounded-lg px-3 py-2"
-                      >
-                        <span className="text-gray-dark text-xs">
-                          {tier.duration} {t("common.days")}:
-                        </span>
-                        <span className="text-xl font-bold text-teal-600">{tier.price} PLN</span>
-                      </div>
-                    ))}
+                {/* Pricing Tiers - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 h-24 flex flex-col justify-center">
+                    <h4 className="text-ocean mb-3 text-center text-xs font-semibold uppercase tracking-wide">
+                      Price (up to 4 people)
+                    </h4>
+                    <div className="space-y-1.5">
+                      {pricingTiers.map((tier, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between rounded-lg bg-sand-light px-3 py-1.5"
+                        >
+                          <span className="text-gray-dark text-xs">
+                            {tier.duration} days:
+                          </span>
+                          <span className="text-lg font-bold text-ocean">{tier.price} PLN</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-gray mt-3 text-center text-xs">{t("dreamPlan.longerTrips")}</p>
+                  <button className="w-full rounded-lg bg-ocean py-3.5 text-sm font-semibold text-white transition-all hover:bg-ocean-dark">
+                    Book Now
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -281,57 +287,49 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className={`group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "companion" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("companion")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Popular Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-slate-800">
-                {t("travelCompanion.popularBadge")}
+              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-3 py-1 text-xs font-bold text-slate-800">
+                POPULAR
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-6 text-center text-white">
+              <div className="bg-gradient-to-br from-terracotta via-terracotta-light to-gold p-8 text-center text-white">
                 <HeadphonesIcon className="mx-auto mb-4 h-12 w-12 opacity-90" />
                 <h3 className="font-heading mb-2 text-2xl">{t("travelCompanion.title")}</h3>
-                <p className="text-sm text-purple-100">{t("travelCompanion.subtitle")}</p>
-              </div>
-
-              {/* Message */}
-              <div className="border-b border-purple-100 bg-purple-50 px-6 py-3">
-                <p className="text-center text-sm font-medium text-purple-800">
-                  {t("travelCompanion.tagline")}
-                </p>
+                <p className="text-sm text-white/90">{t("travelCompanion.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="p-6">
-                <h4 className="text-ocean mb-4 text-lg font-semibold">
-                  {t("travelCompanion.whatYouGet")}
-                </h4>
-                <ul className="mb-6 space-y-3">
+              <div className="flex flex-1 flex-col p-8">
+                <ul className="mb-auto space-y-3 flex-1">
                   {travelCompanionFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <feature.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-purple-500" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-terracotta" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Price */}
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="mb-3 rounded-xl bg-gradient-to-r from-purple-50 to-purple-100 p-4 text-center">
-                    <p className="mb-1 text-xs text-slate-600">{t("travelCompanion.priceLabel")}</p>
-                    <p className="mb-1 text-3xl font-bold text-purple-600">199 PLN</p>
-                    <p className="text-xs text-slate-500">{t("travelCompanion.duration")}</p>
+                {/* Price - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
+                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Package Price</p>
+                    <p className="mb-1 text-4xl font-bold text-terracotta">199 PLN</p>
+                    <p className="text-xs text-slate-500">Support up to 14 days</p>
                   </div>
-                  <div className="rounded-lg border border-green-200 bg-green-50 p-3">
-                    <p className="mb-1 text-xs font-semibold text-green-800">
-                      ✓ {t("travelCompanion.payOnce")}
+                  <button className="w-full rounded-lg bg-terracotta py-3.5 text-sm font-semibold text-white transition-all hover:bg-terracotta-light">
+                    Book Now
+                  </button>
+                  <div className="mt-4 rounded-lg border border-terracotta/30 bg-terracotta/10 p-3">
+                    <p className="text-center text-xs font-medium text-terracotta">
+                      ⭐ Pay once, ask unlimited questions
                     </p>
-                    <p className="text-xs text-green-700">{t("travelCompanion.noLimits")}</p>
                   </div>
                 </div>
               </div>
@@ -342,49 +340,44 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "express" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("express")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Urgent Badge */}
-              <div className="bg-terracotta absolute top-4 right-4 z-10 rounded-full px-3 py-1 text-xs font-semibold text-white">
-                {t("express.urgentBadge")}
+              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-red-500 to-orange-500 px-3 py-1 text-xs font-bold text-white">
+                URGENT
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-6 text-center text-white">
+              <div className="bg-gradient-to-br from-ocean-dark via-ocean to-ocean-light p-8 text-center text-white">
                 <Clock className="mx-auto mb-4 h-12 w-12 opacity-90" />
                 <h3 className="font-heading mb-2 text-2xl">{t("express.title")}</h3>
-                <p className="text-sm text-blue-100">{t("express.subtitle")}</p>
-              </div>
-
-              {/* Message */}
-              <div className="border-b border-blue-100 bg-blue-50 px-6 py-3">
-                <p className="text-center text-sm font-medium text-blue-800">
-                  {t("express.urgentMessage")}
-                </p>
+                <p className="text-sm text-white/90">{t("express.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="p-6">
-                <h4 className="text-ocean mb-4 text-lg font-semibold">{t("express.whatYouGet")}</h4>
-                <ul className="mb-6 space-y-3">
+              <div className="flex flex-1 flex-col p-8">
+                <ul className="mb-auto space-y-3 flex-1">
                   {expressFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <feature.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-500" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-ocean" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Price */}
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="rounded-xl bg-gradient-to-r from-blue-50 to-blue-100 p-4 text-center">
-                    <p className="mb-1 text-xs text-slate-600">{t("express.priceLabel")}</p>
-                    <p className="text-3xl font-bold text-blue-600">299 PLN</p>
+                {/* Price - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
+                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Price</p>
+                    <p className="text-4xl font-bold text-ocean">299 PLN</p>
                   </div>
+                  <button className="w-full rounded-lg bg-ocean py-3.5 text-sm font-semibold text-white transition-all hover:bg-ocean-dark">
+                    Book Now
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -394,52 +387,52 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className={`group relative overflow-hidden rounded-2xl border-2 border-indigo-300 bg-white shadow-lg transition-all duration-300 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "premium" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("premium")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Best Value Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-3 py-1 text-xs font-bold text-white">
-                {t("premiumPackage.bestValueBadge")}
+              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 px-3 py-1 text-xs font-bold text-white">
+                BEST VALUE
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-6 text-center text-white">
+              <div className="bg-gradient-to-br from-forest via-forest-light to-gold p-8 text-center text-white">
                 <Sparkles className="mx-auto mb-4 h-12 w-12 opacity-90" />
                 <h3 className="font-heading mb-2 text-2xl">{t("premiumPackage.title")}</h3>
-                <p className="text-sm text-indigo-100">{t("premiumPackage.subtitle")}</p>
+                <p className="text-sm text-white/90">{t("premiumPackage.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="p-6">
-                <h4 className="text-ocean mb-4 text-lg font-semibold">
-                  {t("premiumPackage.whatYouGet")}
-                </h4>
-                <ul className="mb-6 space-y-3">
+              <div className="flex flex-1 flex-col p-8">
+                <ul className="mb-auto space-y-3 flex-1">
                   {premiumFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-indigo-500" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest" />
                       <span className="text-gray-dark text-sm">{t(key)}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Price */}
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="mb-3 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 p-4 text-center">
+                {/* Price - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
+                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">
+                      Package Price (5-10 days)
+                    </p>
                     <p className="mb-1 text-sm text-slate-400 line-through">598 PLN</p>
-                    <p className="text-3xl font-bold text-indigo-600">499 PLN</p>
-                    <p className="mt-1 text-xs text-slate-500">
-                      {t("premiumPackage.packagePrice")}
+                    <p className="text-4xl font-bold text-forest">499 PLN</p>
+                  </div>
+                  <div className="mb-4 rounded-lg border border-forest/30 bg-forest/10 p-2 text-center">
+                    <p className="text-xs font-semibold text-forest">
+                      🎉 Save 99 PLN!
                     </p>
                   </div>
-                  <div className="rounded-lg border border-green-200 bg-green-50 p-3 text-center">
-                    <p className="text-sm font-semibold text-green-700">
-                      {t("premiumPackage.savings")}
-                    </p>
-                  </div>
+                  <button className="w-full rounded-lg bg-forest py-3.5 text-sm font-semibold text-white transition-all hover:bg-forest-light">
+                    Book Now
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -448,7 +441,7 @@ export default function PricingPage() {
       </section>
 
       {/* Disclaimer */}
-      <section className="bg-sand py-12">
+      <section className="section-sm bg-sand">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -464,34 +457,58 @@ export default function PricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-ocean py-20 md:py-28">
-        <div className="container text-center">
+      <section className="section bg-sand-light">
+        <div className="container mx-auto max-w-7xl px-5 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
+            style={{ padding: "20px 40px" }}
           >
-            <h2 className="font-heading mb-6 text-3xl text-white md:text-4xl lg:text-5xl">
+            {/* Title */}
+            <h2 className="font-heading mb-6 text-center text-3xl text-white md:text-4xl lg:text-5xl">
               {t("cta.title")}
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">{t("cta.subtitle")}</p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  <MessageCircle className="h-5 w-5" />
-                  {t("cta.whatsapp")}
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10"
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  {t("cta.contact")}
-                </Button>
+
+            {/* Subtitle */}
+            <div className="mb-12 flex justify-center">
+              <p className="max-w-xl text-center text-lg text-white/80">{t("cta.subtitle")}</p>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
+              {/* WhatsApp Button */}
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-4 rounded-full text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+                style={{
+                  backgroundColor: "#25D366",
+                  color: "white",
+                  padding: "16px 48px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#20BA5A";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#25D366";
+                }}
+              >
+                <MessageCircle className="h-10 w-10" />
+                {t("cta.whatsapp")}
+              </a>
+
+              {/* Contact Button */}
+              <Link
+                href="/contact"
+                className="bg-ocean-light hover:bg-ocean-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-white/30 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
+                style={{ padding: "16px 48px" }}
+              >
+                <Mail className="h-10 w-10" />
+                {t("cta.contact")}
               </Link>
             </div>
           </motion.div>
