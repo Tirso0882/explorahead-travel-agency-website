@@ -202,6 +202,141 @@ p {
   color: var(--color-gray-dark);
 }
 
+/* ============================================
+   PRICING BADGES (NEW, POPULAR, URGENT, BEST VALUE)
+   Modify padding and font-size here to change all pricing pill badges
+   ============================================ */
+
+/* Container for the badge - sits above the header */
+.pricing-badge-container {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  min-height: 2.5rem;           /* Ensures consistent height even when no badge */
+}
+
+.pricing-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;     /* Change these to adjust size: (top/bottom) (left/right) */
+  font-size: 0.875rem;          /* Change this for text size: 0.75rem=small, 0.875rem=medium, 1rem=large */
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+/* Pricing card header - consistent height */
+.pricing-header {
+  padding: 1.5rem 2rem 2rem 2rem;  /* top right bottom left - extra top space for badges */
+  text-align: center;
+  min-height: 140px;            /* Increased to match taller cards like Express Service */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Pricing header titles - gold color only for navy/ocean cards */
+.pricing-header.from-ocean h3,
+.pricing-header.bg-gradient-to-br.from-ocean h3 {
+  color: #d4a574 !important;
+}
+
+/* Pricing header subtitle - keep on one line */
+.pricing-header p {
+  white-space: nowrap;
+}
+
+/* Pricing card features section */
+.pricing-features {
+  padding: 1rem 0.5rem 0.5rem 0.5rem;  /* Extra top padding for spacing from header */
+}
+
+/* ============================================
+   PRICING INFO BOX (Bonus, Pay once, Save 99 PLN, etc.)
+   Colored boxes with special messages - centered content
+   ============================================ */
+
+.pricing-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.5rem;         /* Change for box size: (top/bottom) (left/right) */
+  font-size: 0.7rem;           /* Change for text size */
+  font-weight: 600;
+  min-height: 6px;             /* Ensures consistent box height for centering */
+}
+
+/* Center all content inside info box and make text navy blue */
+.pricing-info-box p {
+  margin: 0;
+  text-align: center;
+  color: #1a365d !important;      /* Navy blue color for all info box text */
+}
+
+/* ============================================
+   PRICING LEGEND TEXT (Price for up to 4 people, etc.)
+   Small centered text below price
+   ============================================ */
+
+.pricing-legend {
+  display: block;
+  text-align: center;
+  margin-bottom: 0rem;
+  padding: 0.5rem 0.5rem;      /* Change for spacing around text */
+  font-size: 0.7rem;           /* Change for text size */
+  color: var(--color-gray-dark);
+}
+
+/* ============================================
+   PRICING BOOK NOW BUTTON
+   Modify padding and font-size here to change all Book Now buttons
+   ============================================ */
+
+.pricing-book-btn {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1.25rem 2rem;        /* 3x bigger: was py-3.5 (0.875rem) */
+  text-align: center;
+  font-size: 1.0rem;           /* 3x bigger: was text-sm (0.875rem) */
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Gold text only for ocean/navy background buttons */
+.pricing-book-btn.bg-ocean {
+  color: #d4a574 !important;
+}
+
+/* ============================================
+   PRICING CARDS
+   Modify width, min-width, max-width here to control card dimensions
+   ============================================ */
+
+.pricing-card {
+  min-width: 220px;             /* Minimum card width */
+  max-width: 350px;             /* Maximum card width */
+  width: 50%;                  /* Full width within grid */
+}
+
+/* Pricing cards grid container */
+.pricing-grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  /* Responsive columns */
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(5, 1fr);  /* 5 equal columns on large screens */
+  }
+}
+
 .text-small {
   font-size: 0.875rem;
 }
@@ -250,13 +385,13 @@ section.bg-cream .grid > div:nth-child(2) .bg-white.rounded-2xl h3.font-heading.
 }
 
 /* Pricing Page - Equal card dimensions and alignment */
-section.bg-cream .grid.lg\\:grid-cols-5 > div {
+section.bg-cream .grid > div {
   display: flex;
   flex-direction: column;
 }
 
 /* Fixed height for all card headers to ensure alignment */
-section.bg-cream .grid.lg\\:grid-cols-5 .bg-gradient-to-br {
+section.bg-cream .grid .bg-gradient-to-br {
   min-height: 190px;
   display: flex;
   flex-direction: column;
@@ -265,7 +400,7 @@ section.bg-cream .grid.lg\\:grid-cols-5 .bg-gradient-to-br {
 }
 
 /* Ensure all cards stretch to equal height */
-section.bg-cream .grid.lg\\:grid-cols-5 .bg-white.rounded-2xl {
+section.bg-cream .grid .bg-white.rounded-2xl {
   display: flex;
   flex-direction: column;
   height: 100%;

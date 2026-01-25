@@ -42,11 +42,15 @@ export const contact = {
  * Helper function to get mailto link
  */
 export function getMailtoLink(subject?: string, body?: string): string {
-  const params = new URLSearchParams();
-  if (subject) params.append('subject', subject);
-  if (body) params.append('body', body);
+  let query = '';
   
-  const query = params.toString();
+  if (subject || body) {
+    const parts: string[] = [];
+    if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
+    if (body) parts.push(`body=${encodeURIComponent(body)}`);
+    query = parts.join('&');
+  }
+  
   return query ? `mailto:${contact.email}?${query}` : `mailto:${contact.email}`;
 }
 

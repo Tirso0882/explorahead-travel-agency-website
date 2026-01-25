@@ -23,7 +23,8 @@
     "yes": "Tak",
     "no": "Nie",
     "error": "Błąd",
-    "success": "Sukces"
+    "success": "Sukces",
+    "bookNow": "Zarezerwuj Teraz"
   },
   "navigation": {
     "home": "Strona Główna",
@@ -471,7 +472,8 @@
     },
     "story": {
       "badge": "Nasze Początki",
-      "title": "Od Chaosu do Radości: Dlaczego Stworzyłam ExplorAhead",
+      "titleLine1": "Od Chaosu do Radości:",
+      "titleLine2": "Dlaczego Stworzyłam ExplorAhead",
       "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
       "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
       "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację—ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
@@ -479,6 +481,7 @@
     "stats": {
       "happyTravelers": "Szczęśliwi Podróżnicy",
       "satisfactionRate": "Wskaźnik Zadowolenia",
+      "yearsOfExperience": "Lat Doświadczenia",
       "destinations": "Destynacje"
     },
     "values": {
@@ -558,7 +561,7 @@
     },
     "form": {
       "title": "Wyślij Nam Wiadomość",
-      "subtitle": "Wypełnij poniższy formularz, a skontaktujemy się z Tobą w ciągu 24 godzin.",
+      "subtitle": "Wypełnij poniższy formularz, a odpowiemy w ciągu kilku godzin—nie dni!",
       "successTitle": "Wiadomość Wysłana!",
       "successMessage": "Dziękujemy za kontakt. Przejrzymy Twoje zapytanie i wkrótce się z Tobą skontaktujemy.",
       "typeOfRequest": "Typ Zapytania",
@@ -625,10 +628,10 @@
       "subtitle": "Nie wiesz dokąd pojechać?",
       "tagline": "Odkryjmy razem Twoje idealne miejsce!",
       "question": "\"Chcę gdzieś pojechać, ale nie wiem gdzie...\"",
-      "answer": "To idealna usługa dla Ciebie! Podczas 60-minutowej rozmowy pomożemy Ci znaleźć wymarzoną destynację.",
+      "answer": "To idealna usługa dla Ciebie! Podczas 45-minutowej rozmowy pomożemy Ci znaleźć wymarzoną destynację.",
       "whatYouGet": "CO OTRZYMUJESZ:",
       "features": {
-        "consultation": "60-minutową konsultację wideo lub telefoniczną",
+        "consultation": "45-minutową konsultację wideo lub telefoniczną",
         "conversation": "Rozmowę o Twoich zainteresowaniach, budżecie i oczekiwaniach",
         "recommendations": "3-5 spersonalizowanych rekomendacji destynacji",
         "descriptions": "Krótki opis każdego miejsca z uwzględnieniem Twoich preferencji",
@@ -665,7 +668,8 @@
         "itinerary": "Szczegółowy plan dzień po dniu",
         "flights": "Rekomendacje lotów i hoteli",
         "revisions": "2 bezpłatne poprawki przed wyjazdem",
-        "emailSupport": "Wsparcie mailowe na każde pytanie"
+        "emailSupport": "Wsparcie mailowe na każde pytanie",
+        "rules": "Cena dla maksymalnie 4 osób"
       },
       "priceFor4": "Cena dla maksymalnie 4 osób",
       "tiers": {
@@ -675,8 +679,8 @@
       },
       "longerTrips": "*Wyjazdy 14+ dni: indywidualna wycena"
     },
-    "travelCompanion": {
-      "title": "Travel Companion",
+    "tripSupport": {
+      "title": "Trip Support",
       "subtitle": "Wsparcie w czasie rzeczywistym",
       "tagline": "Twój osobisty asystent podczas całej podróży!",
       "popularBadge": "POPULARNE",
@@ -708,12 +712,12 @@
     },
     "premiumPackage": {
       "title": "Pakiet Premium",
-      "subtitle": "Dream Plan + Travel Companion",
+      "subtitle": "Dream Plan + Trip Support",
       "bestValueBadge": "NAJLEPSZA OFERTA",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
         "dreamPlan": "Kompletny Dream Plan (5-10 dni)",
-        "companion": "Pełne wsparcie Travel Companion",
+        "companion": "Pełne wsparcie Trip Support",
         "priority": "Priorytetowa odpowiedź podczas podróży"
       },
       "standardPrice": "Standardowa cena",

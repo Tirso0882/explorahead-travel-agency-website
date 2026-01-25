@@ -1,14 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import { contact } from "@/config/contact";
-import { getWhatsAppLink } from "@/lib/whatsapp";
+import { getWhatsAppLink, getWhatsAppLinkWithMessage } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
 import {
-  Calendar,
   CheckCircle,
-  Clock,
-  Compass,
   FileText,
   HeadphonesIcon,
   Hotel,
@@ -17,8 +13,7 @@ import {
   MessageCircle,
   Plane,
   RefreshCw,
-  Sparkles,
-  Zap,
+  Zap
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -54,12 +49,12 @@ export default function PricingPage() {
     { icon: Mail, key: "dreamPlan.features.emailSupport" },
   ];
 
-  const travelCompanionFeatures = [
-    { icon: HeadphonesIcon, key: "travelCompanion.features.whatsapp" },
-    { icon: RefreshCw, key: "travelCompanion.features.changes" },
-    { icon: MapPin, key: "travelCompanion.features.recommendations" },
-    { icon: Zap, key: "travelCompanion.features.emergencies" },
-    { icon: FileText, key: "travelCompanion.features.basicPlan" },
+  const tripSupportFeatures = [
+    { icon: HeadphonesIcon, key: "tripSupport.features.whatsapp" },
+    { icon: RefreshCw, key: "tripSupport.features.changes" },
+    { icon: MapPin, key: "tripSupport.features.recommendations" },
+    { icon: Zap, key: "tripSupport.features.emergencies" },
+    { icon: FileText, key: "tripSupport.features.basicPlan" },
   ];
 
   const expressFeatures = [
@@ -172,32 +167,33 @@ export default function PricingPage() {
             <h2 className="font-heading text-ocean text-3xl md:text-4xl">{t("packages.title")}</h2>
           </motion.div>
 
-          <div className="mx-auto grid gap-6 md:gap-8 lg:grid-cols-5 max-w-[1600px]">
+          <div className="pricing-grid">
             {/* Dream Finder Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "finder" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("finder")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
-              {/* New Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-lime-400 to-green-400 px-3 py-1 text-xs font-bold text-slate-800">
-                NEW
+              {/* Badge Container */}
+              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <span className="pricing-badge bg-gradient-to-r from-lime-400 to-green-400 text-slate-800">
+                  NEW
+                </span>
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-gold via-gold-dark to-terracotta p-8 text-center text-white">
-                <Compass className="mx-auto mb-4 h-12 w-12 opacity-90" />
-                <h3 className="font-heading mb-2 text-2xl">{t("dreamFinder.title")}</h3>
-                <p className="text-sm text-white/90">{t("dreamFinder.subtitle")}</p>
+              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <h3 className="font-heading mb-2 text-2xl text-gold">{t("dreamFinder.title")}</h3>
+                <p className="text-sm text-white">{t("dreamFinder.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="flex flex-1 flex-col p-8">
+              <div className="pricing-features flex flex-1 flex-col">
                 <ul className="mb-auto space-y-3 flex-1">
                   {dreamFinderFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -209,19 +205,87 @@ export default function PricingPage() {
 
                 {/* Price - Fixed Height Section */}
                 <div className="border-t border-gray-200 pt-6 mt-6">
-                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
-                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Price</p>
+                  <div className="mb-4 text-center">
                     <p className="text-4xl font-bold text-gold">149 PLN</p>
                   </div>
-                  <button className="w-full rounded-lg bg-gold py-3.5 text-sm font-semibold text-white transition-all hover:bg-gold-dark">
-                    Book Now
-                  </button>
-                  <div className="mt-4 rounded-lg border border-gold/30 bg-gold/10 p-3">
-                    <p className="mb-1 text-xs font-semibold text-gold-dark">
+                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
+                    <p className="mb-1 font-semibold text-gold-dark">
                       💡 Bonus
                     </p>
-                    <p className="text-xs text-gray-dark">{t("dreamFinder.bonusText")}</p>
+                    <p className="text-gray-dark">{t("dreamFinder.bonusText")}</p>
                   </div>
+                  <a
+                    href={getWhatsAppLinkWithMessage(
+                      contact.phone,
+                      "Hi! I'm interested in the Dream Finder package (149 PLN). Please provide more information about how to proceed. Thank you!"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Journey Concierge Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+                hoveredPlan === "companion" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
+              }`}
+              onMouseEnter={() => setHoveredPlan("companion")}
+              onMouseLeave={() => setHoveredPlan(null)}
+            >
+              {/* Badge Container */}
+              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <span className="pricing-badge bg-gradient-to-r from-yellow-400 to-amber-400 text-slate-800">
+                  POPULAR
+                </span>
+              </div>
+
+              {/* Header */}
+              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <h3 className="font-heading mb-2 text-2xl text-gold">{t("tripSupport.title")}</h3>
+                <p className="text-sm text-white">{t("tripSupport.subtitle")}</p>
+              </div>
+
+              {/* Features */}
+              <div className="pricing-features flex flex-1 flex-col">
+                <ul className="mb-auto space-y-3 flex-1">
+                  {tripSupportFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <span className="text-gray-dark text-sm">{t(feature.key)}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Price - Fixed Height Section */}
+                <div className="border-t border-gray-200 pt-6 mt-6">
+                  <div className="mb-4 text-center">
+                    <p className="text-4xl font-bold text-gold">199 PLN</p>
+                  </div>
+                  <p className="pricing-legend">Support up to 14 days</p>
+                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
+                    <p className="font-medium text-gold-dark">
+                      ⭐ Pay once, ask unlimited questions during your trip!
+                    </p>
+                  </div>
+                  <a
+                    href={getWhatsAppLinkWithMessage(
+                      contact.phone,
+                      "Hi! I'm interested in the Trip Support package (199 PLN) for real-time travel support. Please provide more information about how to proceed. Thank you!"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
+                  >
+                    Book Now
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -230,26 +294,30 @@ export default function PricingPage() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "dream" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("dream")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
+              {/* Badge Container - invisible placeholder for consistent spacing */}
+              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <span className="pricing-badge opacity-0">PLACEHOLDER</span>
+              </div>
+
               {/* Header */}
-              <div className="bg-gradient-to-br from-ocean via-ocean-light to-ocean-dark p-8 text-center text-white">
-                <Calendar className="mx-auto mb-4 h-12 w-12 opacity-90" />
-                <h3 className="font-heading mb-2 text-2xl">{t("dreamPlan.title")}</h3>
-                <p className="text-sm text-white/90">{t("dreamPlan.subtitle")}</p>
+              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <h3 className="font-heading mb-2 text-2xl text-gold">{t("dreamPlan.title")}</h3>
+                <p className="text-sm text-white">{t("dreamPlan.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="flex flex-1 flex-col p-8">
+              <div className="pricing-features flex flex-1 flex-col">
                 <ul className="mb-auto space-y-3 flex-1">
                   {dreamPlanFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-ocean" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
@@ -257,10 +325,7 @@ export default function PricingPage() {
 
                 {/* Pricing Tiers - Fixed Height Section */}
                 <div className="border-t border-gray-200 pt-6 mt-6">
-                  <div className="mb-4 h-24 flex flex-col justify-center">
-                    <h4 className="text-ocean mb-3 text-center text-xs font-semibold uppercase tracking-wide">
-                      Price (up to 4 people)
-                    </h4>
+                  <div className="mb-4">
                     <div className="space-y-1.5">
                       {pricingTiers.map((tier, index) => (
                         <div
@@ -270,67 +335,27 @@ export default function PricingPage() {
                           <span className="text-gray-dark text-xs">
                             {tier.duration} days:
                           </span>
-                          <span className="text-lg font-bold text-ocean">{tier.price} PLN</span>
+                          <span className="text-lg font-bold text-gold">{tier.price} PLN</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <button className="w-full rounded-lg bg-ocean py-3.5 text-sm font-semibold text-white transition-all hover:bg-ocean-dark">
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Travel Companion Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
-                hoveredPlan === "companion" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
-              }`}
-              onMouseEnter={() => setHoveredPlan("companion")}
-              onMouseLeave={() => setHoveredPlan(null)}
-            >
-              {/* Popular Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-3 py-1 text-xs font-bold text-slate-800">
-                POPULAR
-              </div>
-
-              {/* Header */}
-              <div className="bg-gradient-to-br from-terracotta via-terracotta-light to-gold p-8 text-center text-white">
-                <HeadphonesIcon className="mx-auto mb-4 h-12 w-12 opacity-90" />
-                <h3 className="font-heading mb-2 text-2xl">{t("travelCompanion.title")}</h3>
-                <p className="text-sm text-white/90">{t("travelCompanion.subtitle")}</p>
-              </div>
-
-              {/* Features */}
-              <div className="flex flex-1 flex-col p-8">
-                <ul className="mb-auto space-y-3 flex-1">
-                  {travelCompanionFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-terracotta" />
-                      <span className="text-gray-dark text-sm">{t(feature.key)}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Price - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
-                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
-                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Package Price</p>
-                    <p className="mb-1 text-4xl font-bold text-terracotta">199 PLN</p>
-                    <p className="text-xs text-slate-500">Support up to 14 days</p>
-                  </div>
-                  <button className="w-full rounded-lg bg-terracotta py-3.5 text-sm font-semibold text-white transition-all hover:bg-terracotta-light">
-                    Book Now
-                  </button>
-                  <div className="mt-4 rounded-lg border border-terracotta/30 bg-terracotta/10 p-3">
-                    <p className="text-center text-xs font-medium text-terracotta">
-                      ⭐ Pay once, ask unlimited questions
+                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
+                    <p className="font-medium text-gold-dark">
+                      Over 14 days or more people: Price quoted individually - contact us!
                     </p>
                   </div>
+                  <a
+                    href={getWhatsAppLinkWithMessage(
+                      contact.phone,
+                      "Hi! I'm interested in the Dream Plan package. Please provide more information about how to proceed. Thank you!"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
+                  >
+                    Book Now
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -340,30 +365,31 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "express" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("express")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
-              {/* Urgent Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-red-500 to-orange-500 px-3 py-1 text-xs font-bold text-white">
-                URGENT
+              {/* Badge Container */}
+              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <span className="pricing-badge bg-gradient-to-r from-red-500 to-orange-500 text-white">
+                  URGENT
+                </span>
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-ocean-dark via-ocean to-ocean-light p-8 text-center text-white">
-                <Clock className="mx-auto mb-4 h-12 w-12 opacity-90" />
-                <h3 className="font-heading mb-2 text-2xl">{t("express.title")}</h3>
-                <p className="text-sm text-white/90">{t("express.subtitle")}</p>
+              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+                <h3 className="font-heading mb-2 text-2xl text-gold">{t("express.title")}</h3>
+                <p className="text-sm text-white">{t("express.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="flex flex-1 flex-col p-8">
+              <div className="pricing-features flex flex-1 flex-col">
                 <ul className="mb-auto space-y-3 flex-1">
                   {expressFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-ocean" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
@@ -371,13 +397,22 @@ export default function PricingPage() {
 
                 {/* Price - Fixed Height Section */}
                 <div className="border-t border-gray-200 pt-6 mt-6">
-                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
-                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">Price</p>
-                    <p className="text-4xl font-bold text-ocean">299 PLN</p>
+                  <div className="mb-4 text-center">
+                    <p className="text-4xl font-bold text-gold">299 PLN</p>
                   </div>
-                  <button className="w-full rounded-lg bg-ocean py-3.5 text-sm font-semibold text-white transition-all hover:bg-ocean-dark">
+                  <p className="pricing-legend">
+                  </p>
+                  <a
+                    href={getWhatsAppLinkWithMessage(
+                      contact.phone,
+                      "Hi! I need URGENT help with my travel plans! I'm interested in the Express Service package (299 PLN) for quick 24-48h assistance. Please respond as soon as possible. Thank you!"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
+                  >
                     Book Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -387,30 +422,31 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isPricingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
+              className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 ${
                 hoveredPlan === "premium" ? "scale-105 shadow-2xl" : "hover:shadow-xl"
               }`}
               onMouseEnter={() => setHoveredPlan("premium")}
               onMouseLeave={() => setHoveredPlan(null)}
             >
-              {/* Best Value Badge */}
-              <div className="absolute top-4 right-4 z-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 px-3 py-1 text-xs font-bold text-white">
-                BEST VALUE
+              {/* Badge Container */}
+              <div className="pricing-badge-container bg-gradient-to-br from-gold via-gold-dark to-terracotta">
+                <span className="pricing-badge bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+                  BEST VALUE
+                </span>
               </div>
 
               {/* Header */}
-              <div className="bg-gradient-to-br from-forest via-forest-light to-gold p-8 text-center text-white">
-                <Sparkles className="mx-auto mb-4 h-12 w-12 opacity-90" />
-                <h3 className="font-heading mb-2 text-2xl">{t("premiumPackage.title")}</h3>
+              <div className="pricing-header bg-gradient-to-br from-gold via-gold-dark to-terracotta">
+                <h3 className="font-heading mb-2 text-2xl text-ocean">{t("premiumPackage.title")}</h3>
                 <p className="text-sm text-white/90">{t("premiumPackage.subtitle")}</p>
               </div>
 
               {/* Features */}
-              <div className="flex flex-1 flex-col p-8">
+              <div className="pricing-features flex flex-1 flex-col">
                 <ul className="mb-auto space-y-3 flex-1">
                   {premiumFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest" />
+                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
                       <span className="text-gray-dark text-sm">{t(key)}</span>
                     </li>
                   ))}
@@ -418,41 +454,33 @@ export default function PricingPage() {
 
                 {/* Price - Fixed Height Section */}
                 <div className="border-t border-gray-200 pt-6 mt-6">
-                  <div className="mb-4 text-center h-24 flex flex-col justify-center">
-                    <p className="mb-2 text-xs uppercase tracking-wide text-slate-500">
-                      Package Price (5-10 days)
-                    </p>
-                    <p className="mb-1 text-sm text-slate-400 line-through">598 PLN</p>
-                    <p className="text-4xl font-bold text-forest">499 PLN</p>
+                  <div className="mb-2 text-center">
+                    <p className="text-sm text-slate-400 line-through">598 PLN</p>
+                    <p className="text-4xl font-bold text-gold">499 PLN</p>
                   </div>
-                  <div className="mb-4 rounded-lg border border-forest/30 bg-forest/10 p-2 text-center">
-                    <p className="text-xs font-semibold text-forest">
+                  <p className="pricing-legend">
+                    Package for 5-10 days
+                  </p>
+                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
+                    <p className="font-semibold text-gold-dark">
                       🎉 Save 99 PLN!
                     </p>
                   </div>
-                  <button className="w-full rounded-lg bg-forest py-3.5 text-sm font-semibold text-white transition-all hover:bg-forest-light">
+                  <a
+                    href={getWhatsAppLinkWithMessage(
+                      contact.phone,
+                      "Hi! I'm interested in the Premium Package (499 PLN) which includes Dream Plan + Trip Support for 5-10 days. Please provide more information about how to proceed. Thank you!"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-book-btn bg-gold text-white hover:bg-gold-dark"
+                  >
                     Book Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Disclaimer */}
-      <section className="section-sm bg-sand">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-4xl rounded-xl bg-white p-6 text-center shadow-md md:p-8"
-          >
-            <HeadphonesIcon className="text-ocean mx-auto mb-4 h-10 w-10" />
-            <p className="text-gray-dark text-lg leading-relaxed">{t("disclaimer.text")}</p>
-          </motion.div>
         </div>
       </section>
 

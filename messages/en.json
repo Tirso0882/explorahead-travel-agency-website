@@ -23,7 +23,8 @@
     "yes": "Yes",
     "no": "No",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "bookNow": "Book Now"
   },
   "navigation": {
     "home": "Home",
@@ -471,7 +472,8 @@
     },
     "story": {
       "badge": "Our Beginning",
-      "title": "From Chaos to Joy: Why I Built ExplorAhead",
+      "titleLine1": "From Chaos to Joy:",
+      "titleLine2": "Why I Built ExplorAhead",
       "paragraph1": "My journey to creating ExplorAhead led me through master's studies at the University of Wrocław and years of hands-on experience in the travel industry. That's where I gained deep practical knowledge of reservation systems, logistics coordination, and the intricate details that transform a good trip into an extraordinary one.",
       "paragraph2": "I watched countless travelers struggle with the overwhelming complexity of planning—comparing flights, researching hotels, coordinating transfers, finding authentic experiences. I knew there had to be a better way. So I decided to build a space where planning a trip becomes pure joy, not a stressful to-do list.",
       "paragraph3": "Today, I design personalized itineraries for people like you: curious travelers who want to experience unforgettable adventures but don't have the time to piece together complex travel puzzles on their own. You choose the destination—I take care of everything else, from the first booking to your safe return home."
@@ -626,10 +628,10 @@
       "subtitle": "Don't know where to go?",
       "tagline": "Let's discover your perfect destination together!",
       "question": "\"I want to go somewhere, but I don't know where...\"",
-      "answer": "This is the perfect service for you! During a 60-minute consultation, we'll help you find your dream destination.",
+      "answer": "This is the perfect service for you! During a 45-minute consultation, we'll help you find your dream destination.",
       "whatYouGet": "WHAT YOU GET:",
       "features": {
-        "consultation": "60-minute video or phone consultation",
+        "consultation": "45-minute video or phone consultation",
         "conversation": "Discussion about your interests, budget, and expectations",
         "recommendations": "3-5 personalized destination recommendations",
         "descriptions": "Brief description of each place tailored to your preferences",
@@ -648,7 +650,7 @@
       },
       "priceLabel": "Consultation price:",
       "bonusLabel": "BONUS:",
-      "bonusText": "If you order a Dream Plan after the consultation - 149 PLN will be deducted from the price!",
+      "bonusText": "Book the Dream Plan after your consultation and get a 149 PLN discount!",
       "freeNote": "This means the consultation is FREE when ordering a plan!"
     },
     "packages": {
@@ -666,7 +668,8 @@
         "itinerary": "Detailed day-by-day itinerary",
         "flights": "Flight and hotel recommendations",
         "revisions": "2 free revisions before departure",
-        "emailSupport": "Email support for any questions"
+        "emailSupport": "Email support for any questions",
+        "rules": "Price for up to 4 people"
       },
       "priceFor4": "Price for up to 4 people",
       "tiers": {
@@ -676,8 +679,8 @@
       },
       "longerTrips": "*Trips 14+ days: individual quote"
     },
-    "travelCompanion": {
-      "title": "Travel Companion",
+    "tripSupport": {
+      "title": "Trip Support",
       "subtitle": "Real-time support",
       "tagline": "Your personal assistant throughout your entire trip!",
       "popularBadge": "POPULAR",
@@ -691,7 +694,7 @@
       },
       "priceLabel": "Package price:",
       "duration": "Support throughout your trip (up to 14 days)",
-      "payOnce": "Pay once, use without limits",
+      "payOnce": "Pay once, ask unlimited questions during your trip!",
       "noLimits": "No need to worry about extra costs - ask as much as you want!"
     },
     "express": {
@@ -709,12 +712,12 @@
     },
     "premiumPackage": {
       "title": "Premium Package",
-      "subtitle": "Dream Plan + Travel Companion",
+      "subtitle": "Dream Plan + Trip Support",
       "bestValueBadge": "BEST VALUE",
       "whatYouGet": "What You Get",
       "features": {
         "dreamPlan": "Complete Dream Plan (5-10 days)",
-        "companion": "Full Travel Companion support",
+        "companion": "Full Trip Support",
         "priority": "Priority response during your trip"
       },
       "standardPrice": "Standard price",

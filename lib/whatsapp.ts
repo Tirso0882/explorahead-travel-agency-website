@@ -6,3 +6,9 @@ export function getWhatsAppLink(phoneNumber: string): string {
   const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
   return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 }
+
+export function getWhatsAppLinkWithMessage(phoneNumber: string, message: string): string {
+  const whatsappNumber = phoneNumber.replace(/[\s+]/g, "");
+  const encodedMessage = encodeURIComponent(message);
+  return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+}

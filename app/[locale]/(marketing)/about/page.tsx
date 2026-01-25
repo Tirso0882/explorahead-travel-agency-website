@@ -122,7 +122,11 @@ export default function AboutPage() {
               <span className="text-tiny text-gold mb-2 block font-semibold">
                 {t("story.badge")}
               </span>
-              <h2 className="text-ocean mb-6">{t("story.title")}</h2>
+              <h2 className="text-ocean mb-6">
+                {t("story.titleLine1")}
+                <br />
+                {t("story.titleLine2")}
+              </h2>
               <div className="text-gray-dark space-y-4 leading-relaxed">
                 <p>{t("story.paragraph1")}</p>
                 <p>{t("story.paragraph2")}</p>
