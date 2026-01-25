@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== "development") {
   },
 
   // Debug mode in development
-  debug: process.env.NODE_ENV === "development",
+  debug: (process.env.NODE_ENV as string) === "development",
 
   // Environment tag
   environment: process.env.NODE_ENV,
