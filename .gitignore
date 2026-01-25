@@ -64,7 +64,6 @@ logs/
 # Folders
 docs/
 __tests__/
-.github/
 
 # Files
 notes.txt
