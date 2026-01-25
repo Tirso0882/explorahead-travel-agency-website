@@ -1,10 +1,10 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/lib/i18n/routing";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Check } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Globe } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 type Locale = 'en' | 'pl';
 
@@ -18,6 +18,24 @@ export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [pendingLocale, setPendingLocale] = useState<Locale | null>(null);
+
+  useEffect(() => {
+    if (pendingLocale) {
+      // Get basePath from environment or detect from current URL
+      // In production (GitHub Pages), the basePath is /explorahead-travel-agency-website
+      const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+      const basePath = currentPath.startsWith('/explorahead-travel-agency-website') 
+        ? '/explorahead-travel-agency-website' 
+        : '';
+
+      // With localePrefix: 'always', both locales have prefixes: /en and /pl
+      // pathname from usePathname() returns the path WITHOUT locale prefix
+      // We need to construct: {basePath}/{newLocale}{pathname}
+      const targetPath = `${basePath}/${pendingLocale}${pathname === '/' ? '' : pathname}`;
+      window.location.href = targetPath;
+    }
+  }, [pendingLocale, pathname]);
 
   const switchLanguage = (newLocale: Locale) => {
     if (newLocale === locale) {
@@ -26,21 +44,7 @@ export function LanguageSwitcher() {
     }
 
     setIsOpen(false);
-
-    // Get basePath from environment or detect from current URL
-    // In production (GitHub Pages), the basePath is /explorahead-travel-agency-website
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
-    const basePath = currentPath.startsWith('/explorahead-travel-agency-website') 
-      ? '/explorahead-travel-agency-website' 
-      : '';
-
-    // With localePrefix: 'always', both locales have prefixes: /en and /pl
-    // pathname from usePathname() returns the path WITHOUT locale prefix
-    // We need to construct: {basePath}/{newLocale}{pathname}
-    const targetPath = `${basePath}/${newLocale}${pathname === '/' ? '' : pathname}`;
-    
-    // Use window.location for navigation - this works in both dev and static export
-    window.location.href = targetPath;
+    setPendingLocale(newLocale);
   };
 
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];

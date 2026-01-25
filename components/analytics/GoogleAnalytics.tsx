@@ -31,11 +31,15 @@ export function hasAnalyticsConsent(): boolean {
  * Only loads and initializes GA4 after user consent
  */
 export function GoogleAnalytics() {
-  const [hasConsent, setHasConsent] = useState(false);
+  const [hasConsent, setHasConsent] = useState(() => {
+    // Initialize with consent check (only runs once on mount)
+    if (typeof window !== 'undefined') {
+      return hasAnalyticsConsent();
+    }
+    return false;
+  });
 
   useEffect(() => {
-    // Check for existing consent
-    setHasConsent(hasAnalyticsConsent());
 
     // Listen for consent changes
     const handleConsentChange = () => {

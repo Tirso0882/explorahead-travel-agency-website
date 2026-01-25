@@ -27,7 +27,19 @@ export function CookieConsent() {
   const t = useTranslations("cookies.consent");
   const [isVisible, setIsVisible] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
+  const [preferences, setPreferences] = useState<CookiePreferences>(() => {
+    if (typeof window !== 'undefined') {
+      const savedPreferences = localStorage.getItem("cookie-preferences");
+      if (savedPreferences) {
+        try {
+          return JSON.parse(savedPreferences);
+        } catch {
+          return defaultPreferences;
+        }
+      }
+    }
+    return defaultPreferences;
+  });
 
   // Check for existing consent on mount
   useEffect(() => {
@@ -36,16 +48,6 @@ export function CookieConsent() {
       // Small delay for better UX - don't show immediately on page load
       const timer = setTimeout(() => setIsVisible(true), 1500);
       return () => clearTimeout(timer);
-    }
-
-    // Load saved preferences
-    const savedPreferences = localStorage.getItem("cookie-preferences");
-    if (savedPreferences) {
-      try {
-        setPreferences(JSON.parse(savedPreferences));
-      } catch {
-        // Invalid JSON, use defaults
-      }
     }
   }, []);
 
@@ -285,24 +287,27 @@ function CookieToggle({
  * Hook to manage cookie consent
  */
 export function useCookieConsent() {
-  const [consent, setConsent] = useState<ConsentStatus>("pending");
-  const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
-
-  useEffect(() => {
-    const status = localStorage.getItem("cookie-consent") as ConsentStatus | null;
-    const savedPrefs = localStorage.getItem("cookie-preferences");
-
-    if (status) {
-      setConsent(status);
+  const [consent, setConsent] = useState<ConsentStatus>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem("cookie-consent") as ConsentStatus) || "pending";
     }
-
-    if (savedPrefs) {
-      try {
-        setPreferences(JSON.parse(savedPrefs));
-      } catch {
-        // Invalid JSON
+    return "pending";
+  });
+  const [preferences, setPreferences] = useState<CookiePreferences>(() => {
+    if (typeof window !== 'undefined') {
+      const savedPrefs = localStorage.getItem("cookie-preferences");
+      if (savedPrefs) {
+        try {
+          return JSON.parse(savedPrefs);
+        } catch {
+          return defaultPreferences;
+        }
       }
     }
+    return defaultPreferences;
+  });
+
+  useEffect(() => {
 
     const handleChange = () => {
       const newStatus = localStorage.getItem("cookie-consent") as ConsentStatus | null;
