@@ -12,7 +12,6 @@ const cspDirectives = {
   "script-src": [
     "'self'",
     "'unsafe-inline'", // Required for Next.js
-    "'unsafe-eval'", // Required for development
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://*.sentry.io",

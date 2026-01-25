@@ -77,7 +77,7 @@ export const pagesConfig: Record<string, PageConfig> = {
   },
   privacy: {
     slug: "privacy",
-    published: false,
+    published: true,
     order: 10,
     showInNav: false,
     showInFooter: true,
@@ -86,7 +86,7 @@ export const pagesConfig: Record<string, PageConfig> = {
   },
   terms: {
     slug: "terms",
-    published: false,
+    published: true,
     order: 11,
     showInNav: false,
     showInFooter: true,
@@ -95,7 +95,7 @@ export const pagesConfig: Record<string, PageConfig> = {
   },
   cookies: {
     slug: "cookies",
-    published: false,
+    published: true,
     order: 12,
     showInNav: false,
     showInFooter: true,
