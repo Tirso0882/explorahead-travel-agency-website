@@ -74,6 +74,8 @@ jobs:
   e2e-tests:
     name: E2E Tests
     runs-on: ubuntu-latest
+    # Only run E2E tests for main branch, skip for develop
+    if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
