@@ -63,11 +63,7 @@ logs/
 
 # Folders
 docs/
-__tests__/
 
 # Files
 notes.txt
-playwright.config.ts
-vitest.config.ts
 .github/sentry.instructions.md
-DEPLOYMENT.md
