@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Calendar, Heart, Home, Phone, Plane } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Plane, Home, Calendar, Sparkles, Phone, Heart } from "lucide-react";
+import { useRef } from "react";
 
 export function ServicesPreview() {
   const t = useTranslations("marketing.servicesPreview");
@@ -39,6 +39,8 @@ export function ServicesPreview() {
       icon: Phone,
       titleKey: "items.support.title",
       descriptionKey: "items.support.description",
+      descriptionLine2Key: "items.support.descriptionLine2",
+      descriptionLine3Key: "items.support.descriptionLine3",
       color: "bg-ocean-light",
     },
   ];
@@ -84,9 +86,7 @@ export function ServicesPreview() {
                   <h3 className="font-heading text-ocean group-hover:text-gold mb-4 text-2xl transition-colors">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="text-gray-dark text-base leading-relaxed">
-                    {t(service.descriptionKey)}
-                  </p>
+                  <p className="mt-1 text-sm">{t(service.descriptionKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -117,9 +117,15 @@ export function ServicesPreview() {
                   <h3 className="font-heading text-ocean group-hover:text-gold mb-4 text-2xl transition-colors">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="text-gray-dark text-base leading-relaxed">
-                    {t(service.descriptionKey)}
-                  </p>
+                  <div className="mt-1 text-sm">
+                    <p className="!mb-0">{t(service.descriptionKey)}</p>
+                    {service.descriptionLine2Key && (
+                      <p className="!mb-0">{t(service.descriptionLine2Key)}</p>
+                    )}
+                    {service.descriptionLine3Key && (
+                      <p className="!mb-0">{t(service.descriptionLine3Key)}</p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

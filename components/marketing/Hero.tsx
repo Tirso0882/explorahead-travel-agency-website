@@ -114,17 +114,17 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-display mx-auto mb-6 max-w-4xl whitespace-nowrap"
+          className="text-display mx-auto mb-6 max-w-4xl px-4 text-center"
         >
           {t("title")} <span className="text-gold italic">{t("titleHighlight")}</span>
         </motion.h1>
 
-        <div className="mb-10 flex w-full justify-center">
+        <div className="mb-10 flex w-full justify-center px-4">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center text-xl leading-relaxed whitespace-nowrap text-white/80 md:text-2xl"
+            className="max-w-2xl text-center text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl"
           >
             {t("subtitle")} {t("subtitleLine2")}
           </motion.p>
