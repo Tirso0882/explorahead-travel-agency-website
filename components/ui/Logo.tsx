@@ -7,19 +7,18 @@ interface LogoProps {
 
 export function Logo({ className = "", width = 280, height = 80, variant = "default" }: LogoProps) {
   const textColor = variant === "white" ? "#FFFFFF" : "#1B3B5F";
-  const arrowColor = variant === "white" ? "#FFFFFF" : "#D4A574";
 
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 490 160"
+      viewBox="0 0 380 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${className} h-auto max-w-full`}
       aria-label="ExplorAhead Logo"
-      style={{ display: "block" }}
-      preserveAspectRatio="xMinYMid"
+      style={{ display: "block", minWidth: 0 }}
+      preserveAspectRatio="xMinYMid meet"
     >
       <defs>
         <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -32,48 +31,48 @@ export function Logo({ className = "", width = 280, height = 80, variant = "defa
         </linearGradient>
       </defs>
 
-      {/* "Explor" text - using negative x to account for font left side bearing */}
+      {/* "Explor" text - tight spacing for single word "ExplorAhead" */}
       <text
-        x="-3"
-        y="115"
+        x="0"
+        y="72"
         fontFamily="system-ui, -apple-system, 'Segoe UI', sans-serif"
-        fontSize="90"
+        fontSize="60"
         fontWeight="700"
         fill={textColor}
-        letterSpacing="-2"
+        letterSpacing="-0.5"
         textAnchor="start"
       >
         Explor
       </text>
 
-      {/* Compass needle arrow (replacing "A" in "Ahead") */}
-      <g transform="translate(232, 20)">
+      {/* Compass needle arrow (replacing "A" in "ExplorAhead") - tightly positioned */}
+      <g transform="translate(168, 8)">
         {/* Right half - solid gold fill */}
         <path
-          d="M 45 0 L 90 120 L 45 100 Z"
+          d="M 28 0 L 56 78 L 28 65 Z"
           fill="rgba(212, 165, 116, 1)"
           stroke="rgba(212, 165, 116, 1)"
-          strokeWidth="3"
+          strokeWidth="2"
           strokeLinejoin="miter"
           strokeLinecap="butt"
         />
         {/* Left half - empty/hollow (stroke only, no fill) */}
         <path
-          d="M 45 0 L 0 120 L 45 100 Z"
+          d="M 28 0 L 0 78 L 28 65 Z"
           fill="none"
           stroke="rgba(212, 165, 116, 1)"
-          strokeWidth="4"
+          strokeWidth="2.5"
           strokeLinejoin="miter"
           strokeLinecap="butt"
         />
       </g>
 
-      {/* "head" text - positioned right after arrow */}
+      {/* "head" text - positioned immediately after needle for continuous word */}
       <text
-        x="318"
-        y="115"
+        x="222"
+        y="72"
         fontFamily="system-ui, -apple-system, 'Segoe UI', sans-serif"
-        fontSize="90"
+        fontSize="60"
         fontWeight="700"
         fill={textColor}
         letterSpacing="-2"

@@ -30,7 +30,7 @@
     "home": "Strona Główna",
     "destinations": "Destynacje",
     "services": "Usługi",
-    "about": "O Nas",
+    "about": "O mnie",
     "pricing": "Cennik",
     "contact": "Kontakt",
     "chat": "Czat Podróżny",
@@ -146,7 +146,7 @@
       "twitter": "Twitter"
     },
     "links": {
-      "aboutUs": "O Nas",
+      "aboutUs": "O mnie",
       "luxury": "Podróże Luksusowe",
       "adventure": "Wycieczki Przygodowe",
       "honeymoon": "Miesiące Miodowe",
@@ -157,7 +157,7 @@
     },
     "contact": {
       "email": "info@explorahead.com",
-      "phone": "+48 503 801 994",
+      "phone": "+48 690 946 046",
       "address": "Wroclaw, Poland"
     }
   },
@@ -217,11 +217,11 @@
       "items": {
         "transport": {
           "title": "Transport",
-          "description": "Dobieramy loty, pociągi, wynajem auta—z uwzględnieniem komfortu i Twojego budżetu."
+          "description": "Dobieramy loty, pociągi, wynajem auta-z uwzględnieniem komfortu i Twojego budżetu."
         },
         "accommodation": {
           "title": "Zakwaterowanie",
-          "description": "Hotel, apartament, pensjonat z charakterem—dopasowane do Twojego stylu życia."
+          "description": "Hotel, apartament, pensjonat z charakterem-dopasowane do Twojego stylu życia."
         },
         "dailyPlanning": {
           "title": "Plan Dzienny",
@@ -229,11 +229,13 @@
         },
         "experiences": {
           "title": "Atrakcje i Doświadczenia",
-          "description": "Od ukrytych kawiarni po prywatne przewodnictwo—bez pułapek turystycznych, tylko autentyczne chwile."
+          "description": "Od ukrytych kawiarni po prywatne przewodnictwo-bez pułapek turystycznych, tylko autentyczne chwile."
         },
         "support": {
-          "title": "Wsparcie 24/7",
-          "description": "Od pierwszego maila aż do powrotu do domu—jeśli coś się zmieni, jesteśmy tutaj, myśląc o Tobie."
+          "title": "Wsparcie",
+          "description": "Od pierwszego maila aż do powrotu do domu - jeśli coś się zmieni, odpowiemy mailowo w godzinach 9:00 -18:00.",
+          "descriptionLine2": "Chcesz mieć dostęp do wsparcia przez WhatsApp po godzinach pracy?",
+          "descriptionLine3": "Dodaj opcję Wsparcie w podróży - odpowiadam najszybciej jak tylko mogę, nawet po 18:00."
         }
       }
     },
@@ -242,7 +244,7 @@
       "items": {
         "zeroStress": {
           "title": "Zero Stresu",
-          "description": "Zajmuję się wszystkim—obsługuję każdy szczegół. Wystarczy, że przyjdziesz z walizką i będziesz cieszyć się podróżą ze mną."
+          "description": "Zajmuję się wszystkim-obsługuję każdy szczegół. Wystarczy, że przyjdziesz z walizką i będziesz cieszyć się podróżą ze mną."
         },
         "authenticity": {
           "title": "Autentyczność",
@@ -254,7 +256,7 @@
         },
         "personalized": {
           "title": "Spersonalizowana Obsługa 1:1",
-          "description": "Twoja podróż jest dostosowana wyłącznie dla Ciebie—nie dla grupy. Poznaję Twój styl życia i tworzę idealny plan."
+          "description": "Twoja podróż jest dostosowana wyłącznie dla Ciebie-nie dla grupy. Poznaję Twój styl życia i tworzę idealny plan."
         }
       }
     },
@@ -270,18 +272,21 @@
       "steps": {
         "connect": {
           "title": "Napisz do Mnie",
-          "description": "Wyślij szybką wiadomość przez WhatsApp lub zarezerwuj 15-minutową rozmowę. Powiedz mi, dokąd chcesz pojechać.",
-          "detail": "Odpowiedź w minuty • Wybierz preferowany sposób"
+          "description": "Skontaktuj się ze mną przez WhatsApp lub mailowo. Powiedz, dokąd chcesz się wybrać - pomogę zaplanować resztę.",
+          "detail": "Szybka odpowiedź",
+          "detail2": "Wybierz dogodny kanał kontaktu"
         },
         "plan": {
           "title": "Tworzymy Twój Plan",
-          "description": "W ciągu 3-7 dni przygotuję kompletną spersonalizowaną trasę ze wszystkimi szczegółami.",
-          "detail": "Loty • Hotele • Atrakcje • Ukryte perełki"
+          "description": "W ciągu 3-7 dni otrzymasz kompletną, spersonalizowaną trasę dopasowaną do Twoich potrzeb.",
+          "detail": "Loty • Hotele • Atrakcje",
+          "detail2": "Sekretne perełki podróży"
         },
         "travel": {
           "title": "Podróżuj z Pewnością",
-          "description": "Wszystko jest załatwione. Po prostu spakuj walizkę i ciesz się.",
-          "detail": "Wsparcie 24/7 • Zero stresu • Czysta przygoda"
+          "description": "Wszystko jest zorganizowane. Ty pakujesz walizkę i ruszasz w drogę.",
+          "detail": "Wsparcie • Bez stresu",
+          "detail2": "Prawdziwa przygoda"
         }
       },
       "cta": {
@@ -476,7 +481,7 @@
       "titleLine2": "Dlaczego Stworzyłam ExplorAhead",
       "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
       "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
-      "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację—ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
+      "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację-ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
     },
     "stats": {
       "happyTravelers": "Szczęśliwi Podróżnicy",

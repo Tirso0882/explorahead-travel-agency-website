@@ -44,10 +44,10 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="group mb-6 inline-flex items-start">
               <Logo
-                width={240}
-                height={60}
+                width={200}
+                height={50}
                 variant="white"
-                className="transition-opacity group-hover:opacity-80"
+                className="h-auto w-[160px] transition-opacity group-hover:opacity-80 sm:w-[180px] md:w-[200px]"
               />
             </Link>
             <p className="mb-8 max-w-md text-lg leading-relaxed text-white">{t("tagline")}</p>

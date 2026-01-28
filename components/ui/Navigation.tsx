@@ -60,12 +60,12 @@ export function Navigation() {
         <nav className="container-wide">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="group flex items-center">
+            <Link href="/" className="group flex min-w-0 flex-shrink-0 items-center">
               <Logo
-                width={180}
-                height={40}
+                width={160}
+                height={36}
                 variant={isScrolled || !isHomePage ? "default" : "white"}
-                className="transition-opacity group-hover:opacity-80"
+                className="h-auto w-[120px] transition-opacity group-hover:opacity-80 sm:w-[140px] md:w-[160px]"
               />
             </Link>
 

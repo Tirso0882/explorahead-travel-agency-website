@@ -20,21 +20,24 @@ export function HowItWorks() {
       stepNumber: 1,
       titleKey: "steps.connect.title",
       descriptionKey: "steps.connect.description",
-      tags: ["Response in minutes", "Choose your preferred way"],
+      detailKey: "steps.connect.detail",
+      detail2Key: "steps.connect.detail2",
     },
     {
       icon: Map,
       stepNumber: 2,
       titleKey: "steps.plan.title",
       descriptionKey: "steps.plan.description",
-      tags: ["Flights • Hotels • Activities", "Hidden gems"],
+      detailKey: "steps.plan.detail",
+      detail2Key: "steps.plan.detail2",
     },
     {
       icon: Luggage,
       stepNumber: 3,
       titleKey: "steps.travel.title",
       descriptionKey: "steps.travel.description",
-      tags: ["24/7 support • Zero stress", "Pure adventure"],
+      detailKey: "steps.travel.detail",
+      detail2Key: "steps.travel.detail2",
     },
   ];
 
@@ -60,8 +63,8 @@ export function HowItWorks() {
           <h2 className="text-ocean font-heading mb-8 max-w-3xl text-center text-4xl md:text-5xl">
             {t("title")}
           </h2>
-          {/* Subtitle - Centered horizontally and vertically balanced with title, one line */}
-          <p className="text-gray-dark text-center text-sm leading-relaxed whitespace-nowrap sm:text-base md:text-lg lg:text-xl">
+          {/* Subtitle - Centered horizontally and vertically balanced with title */}
+          <p className="text-gray-dark max-w-2xl px-4 text-center text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl">
             {t("subtitle")}
           </p>
         </motion.div>
@@ -112,13 +115,10 @@ export function HowItWorks() {
                   {t(step.descriptionKey)}
                 </p>
 
-                {/* Tags */}
+                {/* Detail Lines */}
                 <div className="text-gold space-y-1 text-sm">
-                  {step.tags.map((tag, tagIndex) => (
-                    <p key={tagIndex} className="font-medium">
-                      {tag}
-                    </p>
-                  ))}
+                  <p className="font-medium">{t(step.detailKey)}</p>
+                  <p className="font-medium">{t(step.detail2Key)}</p>
                 </div>
               </div>
 
@@ -146,8 +146,7 @@ export function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
-          style={{ padding: "20px 40px" }}
+          className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br px-4 py-5 text-center text-white shadow-2xl sm:px-6 md:px-10"
         >
           {/* Title - Centered */}
           <h3 className="font-heading mb-6 text-center text-3xl text-white md:text-4xl">

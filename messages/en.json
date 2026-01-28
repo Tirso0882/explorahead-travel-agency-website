@@ -157,7 +157,7 @@
     },
     "contact": {
       "email": "info@explorahead.com",
-      "phone": "+48 503 801 994",
+      "phone": "+48 690 946 046",
       "address": "Wroclaw, Poland"
     }
   },
@@ -232,8 +232,10 @@
           "description": "From hidden cafes to private guided tours—no tourist traps, only authentic moments."
         },
         "support": {
-          "title": "24/7 Support",
-          "description": "From your first email to your return home—if something changes, we're here thinking of you."
+          "title": "Support",
+          "description": "From your first email to your return home—if something changes, we'll respond by email during 9:00 AM - 6:00 PM.",
+          "descriptionLine2": "Want access to WhatsApp support after working hours?",
+          "descriptionLine3": "Add Trip Support option—I respond as quickly as I can, even after 6:00 PM."
         }
       }
     },
@@ -271,17 +273,20 @@
         "connect": {
           "title": "Message Me",
           "description": "Send a quick message via WhatsApp or book a 15-min call. Tell me where you want to go.",
-          "detail": "Response in minutes • Choose your way"
+          "detail": "Response in minutes",
+          "detail2": "Choose your way"
         },
         "plan": {
           "title": "We Create Your Plan",
           "description": "Within 3-7 days, I'll prepare your complete personalized itinerary with all the details.",
-          "detail": "Flights • Hotels • Activities • Hidden gems"
+          "detail": "Flights • Hotels • Activities",
+          "detail2": "Hidden gems"
         },
         "travel": {
           "title": "Travel With Confidence",
           "description": "Everything is handled. Just pack your bags and enjoy.",
-          "detail": "24/7 support • Zero stress • Pure adventure"
+          "detail": "Support • Zero stress",
+          "detail2": "Pure adventure"
         }
       },
       "cta": {

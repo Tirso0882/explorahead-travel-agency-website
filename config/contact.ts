@@ -1,9 +1,9 @@
 /**
  * Contact Information Configuration
- * 
+ *
  * Centralized contact information for the website.
  * Update this file to change contact details across all legal documents and pages.
- * 
+ *
  * Usage:
  *   import { contact } from '@/config/contact';
  *   <a href={`mailto:${contact.email}`}>{contact.email}</a>
@@ -15,23 +15,23 @@ export const contact = {
    * Primary contact email address
    */
   email: "info@explorahead.com",
-  
+
   /**
    * Primary contact phone number
    * Format: +[country code] [number with spaces]
    */
-  phone: "+48 503 801 994",
-  
+  phone: "+48 690 946 046",
+
   /**
    * Company name
    */
   companyName: "ExplorAhead",
-  
+
   /**
    * Website URL
    */
   website: "www.explorahead.com",
-  
+
   /**
    * Full website URL with protocol
    */
@@ -42,15 +42,15 @@ export const contact = {
  * Helper function to get mailto link
  */
 export function getMailtoLink(subject?: string, body?: string): string {
-  let query = '';
-  
+  let query = "";
+
   if (subject || body) {
     const parts: string[] = [];
     if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
     if (body) parts.push(`body=${encodeURIComponent(body)}`);
-    query = parts.join('&');
+    query = parts.join("&");
   }
-  
+
   return query ? `mailto:${contact.email}?${query}` : `mailto:${contact.email}`;
 }
 
@@ -59,7 +59,6 @@ export function getMailtoLink(subject?: string, body?: string): string {
  */
 export function getTelLink(): string {
   // Remove spaces and special characters for tel: links
-  const phoneNumber = contact.phone.replace(/\s+/g, '');
+  const phoneNumber = contact.phone.replace(/\s+/g, "");
   return `tel:${phoneNumber}`;
 }
-
