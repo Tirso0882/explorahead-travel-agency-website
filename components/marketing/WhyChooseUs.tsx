@@ -45,11 +45,7 @@ export function WhyChooseUs() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="section-header"
-          style={{
-            maxWidth: "64rem",
-            marginBottom: "4rem",
-          }} /* max-w-5xl to match grid below, mb-16 */
+          className="section-header text-center"
         >
           <h2 className="text-ocean font-heading mb-6 text-4xl md:text-5xl">{t("title")}</h2>
         </motion.div>
@@ -63,7 +59,7 @@ export function WhyChooseUs() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group flex gap-6"
+                className="group flex flex-col items-center gap-4 text-center"
               >
                 {/* Icon */}
                 <div className="flex-shrink-0">
@@ -75,11 +71,13 @@ export function WhyChooseUs() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 pt-1">
-                  <h3 className="font-heading text-ocean group-hover:text-gold mb-2 text-xl transition-colors">
+                <div className="flex-1 text-center">
+                  <h3 className="font-heading text-ocean group-hover:text-gold mb-2 text-center text-xl transition-colors">
                     {t(benefit.titleKey)}
                   </h3>
-                  <p className="text-gray-dark leading-relaxed">{t(benefit.descriptionKey)}</p>
+                  <p className="text-gray-dark mx-auto max-w-md text-center leading-relaxed">
+                    {t(benefit.descriptionKey)}
+                  </p>
                 </div>
               </motion.div>
             ))}

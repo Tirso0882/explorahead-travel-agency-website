@@ -266,7 +266,6 @@
       "subtitle": "Bez formularzy. Bez czekania. Bez zobowiązań. Po prostu rozmowa o Twojej wymarzonej podróży.",
       "trust": {
         "noObligation": "Bez zobowiązań",
-        "freeConsultation": "Darmowa konsultacja",
         "instantResponse": "Natychmiastowa odpowiedź"
       },
       "steps": {
@@ -290,11 +289,11 @@
         }
       },
       "cta": {
-        "title": "Gotowy Rozpocząć Planowanie?",
-        "subtitle": "Wybierz preferowany sposób kontaktu—bez formularzy, bez problemów.",
-        "chatNow": "Czat Ze Mną Teraz",
-        "bookCall": "Zarezerwuj Szybką Rozmowę",
-        "socialProof": "Dołącz do 100+ podróżników, którzy zaufali nam swoje wymarzone podróże"
+        "title": "Gotowy Rozpocząć Planowanie Podróży?",
+        "subtitle": "Wybierz wygodny sposób kontaktu - bez formularzy, bez komplikacji.",
+        "chatNow": "Napisz na WhatsApp",
+        "contactUs": "Napisz do mnie e-mail",
+        "socialProof": "Dołącz do 100+ podróżników, którzy powierzyli nam planowanie swoich wymarzonych podróży"
       }
     },
     "servicesPage": {
@@ -473,15 +472,15 @@
     "hero": {
       "badge": "Nasza Historia",
       "title": "O ExplorAhead",
-      "subtitle": "Wierzymy, że każda podróż powinna być tak unikalna jak podróżnik, który ją podejmuje. Od ponad 15 lat tworzymy niezapomniane doświadczenia."
+      "subtitle": "Wierzymy, że każda podróż powinna być tak unikalna jak podróżnik, który ją podejmuje. Od ponad 5 lat tworzymy niezapomniane doświadczenia."
     },
     "story": {
       "badge": "Nasze Początki",
       "titleLine1": "Od Chaosu do Radości:",
       "titleLine2": "Dlaczego Stworzyłam ExplorAhead",
-      "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
-      "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
-      "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację-ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
+      "paragraph1": "Moja droga do stworzenia ExplorAhead prowadziła przez studia magisterskie na Uniwersytecie Wrocławskim oraz lata pracy w branży turystycznej. To właśnie tam zdobyłam praktyczną wiedzę o systemach rezerwacyjnych i zaawansowanej logistyce wyjazdów.",
+      "paragraph2": "Postanowiłam stworzyć przestrzeń, w której planowanie podróży staje się czystą przyjemnością, a nie stresującą listą zadań. Dziś projektuję trasy dla osób takich jak Ty - ciekawych świata, które chcą przeżyć niezapomnianą przygodę, ale nie mają czasu na samodzielne układanie logistycznych puzzli.",
+      "paragraph3": "Ty wybierasz kierunek, ja zajmuję się planowaniem reszty."
     },
     "stats": {
       "happyTravelers": "Szczęśliwi Podróżnicy",
@@ -551,7 +550,7 @@
       "text": "Zaufane przez liderów branży i akredytowane przez"
     },
     "cta": {
-      "title": "Stwórzmy Coś Niesamowitego",
+      "title": "Stwórzmy Coś Niesamowitego!",
       "subtitle": "Gotowy doświadczyć różnicy ExplorAhead?",
       "subtitleLine2": "Zacznij planować swoją następną przygodę już dziś.",
       "startPlanning": "Zacznij Planować",
@@ -626,11 +625,11 @@
     },
     "valueProposition": {
       "title": "Za Co Płacisz",
-      "description": "Cena usługi nie obejmuje kosztu lotów, noclegów ani atrakcji. Moja praca to profesjonalne planowanie i logistyka Twojego czasu—tworzenie idealnego planu podróży, abyś mógł skupić się na cieszeniu się podróżą."
+      "description": "Cena usługi nie obejmuje kosztów lotów, noclegów ani atrakcji. Płacisz za moją wiedzę, doświadczenie oraz profesjonalne planowanie i logistykę Twojego czasu - tak, aby powstał idealny plan podróży, a Ty mógł skupić się wyłącznie na czerpaniu radości z wyjazdu."
     },
     "dreamFinder": {
-      "title": "Dream Finder",
-      "subtitle": "Nie wiesz dokąd pojechać?",
+      "title": "Poszukiwacz Marzeń",
+      "subtitle": "Dla osób, które nie wiedzą jeszcze, dokąd pojechać",
       "tagline": "Odkryjmy razem Twoje idealne miejsce!",
       "question": "\"Chcę gdzieś pojechać, ale nie wiem gdzie...\"",
       "answer": "To idealna usługa dla Ciebie! Podczas 45-minutowej rozmowy pomożemy Ci znaleźć wymarzoną destynację.",
@@ -666,8 +665,8 @@
       "days": "dni"
     },
     "dreamPlan": {
-      "title": "Dream Plan",
-      "subtitle": "Kompleksowe planowanie",
+      "title": "Plan Marzeń",
+      "subtitle": "Dla osób, które chcą gotowy plan bez stresu",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
         "itinerary": "Szczegółowy plan dzień po dniu",
@@ -685,8 +684,8 @@
       "longerTrips": "*Wyjazdy 14+ dni: indywidualna wycena"
     },
     "tripSupport": {
-      "title": "Trip Support",
-      "subtitle": "Wsparcie w czasie rzeczywistym",
+      "title": "Wsparcie w Podróży",
+      "subtitle": "Dla podróżujących, którzy chcą mieć wsparcie na miejscu",
       "tagline": "Twój osobisty asystent podczas całej podróży!",
       "popularBadge": "POPULARNE",
       "whatYouGet": "Co Otrzymujesz",
@@ -703,8 +702,8 @@
       "noLimits": "Nie musisz martwić się o dodatkowe koszty - pytaj ile chcesz!"
     },
     "express": {
-      "title": "Express Service",
-      "subtitle": "Ratunek 24/48h",
+      "title": "Usługa Ekspresowa",
+      "subtitle": "Dla osób, które potrzebują planu „na już” Wyjazd w ciągu 24-48h",
       "urgentBadge": "PILNE",
       "urgentMessage": "Potrzebujesz pomocy teraz? Jesteśmy tu—nawet po 18:00 czasu polskiego!",
       "whatYouGet": "Co Otrzymujesz",
@@ -717,7 +716,8 @@
     },
     "premiumPackage": {
       "title": "Pakiet Premium",
-      "subtitle": "Dream Plan + Trip Support",
+      "combination": "Plan Marzeń + Wsparcie w Podróży",
+      "subtitle": "Dla osób, które oczekują kompleksowej obsługi",
       "bestValueBadge": "NAJLEPSZA OFERTA",
       "whatYouGet": "Co Otrzymujesz",
       "features": {

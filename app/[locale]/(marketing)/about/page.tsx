@@ -94,7 +94,8 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {t("hero.title")}
           </motion.h1>
@@ -215,8 +216,8 @@ export default function AboutPage() {
             style={{ padding: "40px" }}
           >
             <h3
-              className="font-heading text-center text-3xl text-white md:text-4xl"
-              style={{ marginBottom: "0.3em" }}
+              className="font-heading text-center text-3xl md:text-4xl"
+              style={{ marginBottom: "0.3em", color: "#d4a574" }}
             >
               {t("cta.title")}
             </h3>

@@ -163,7 +163,6 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-ocean);
 }
 
 h1 {
@@ -226,12 +225,13 @@ p {
 
 /* Pricing card header - consistent height */
 .pricing-header {
-  padding: 1.5rem 2rem 2rem 2rem; /* top right bottom left - extra top space for badges */
+  padding: 1.5rem 1rem 2rem 1rem; /* top right bottom left - reduced horizontal padding for more text space */
   text-align: center;
   min-height: 140px; /* Increased to match taller cards like Express Service */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden; /* Prevent overflow */
 }
 
 /* Pricing header titles - gold color only for navy/ocean cards */
@@ -240,9 +240,24 @@ p {
   color: #d4a574 !important;
 }
 
-/* Pricing header subtitle - keep on one line */
+/* Pricing header title - allow wrapping for long text */
+.pricing-header h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  white-space: normal !important; /* Override any nowrap */
+  line-height: 1.3; /* Tighter line height for wrapped text */
+}
+
+/* Pricing header subtitle - allow wrapping for long text */
 .pricing-header p {
-  white-space: nowrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  white-space: normal !important; /* Override any nowrap */
+  line-height: 1.4;
 }
 
 /* Pricing card features section */
@@ -484,7 +499,6 @@ button {
   font-family: var(--font-body);
   font-weight: 500;
   transition: all 200ms ease-out;
-  overflow: hidden;
 }
 
 /* ============================================

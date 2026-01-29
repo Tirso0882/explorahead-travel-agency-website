@@ -266,7 +266,6 @@
       "subtitle": "No forms. No waiting. No obligations. Just a conversation about your dream trip.",
       "trust": {
         "noObligation": "No obligation",
-        "freeConsultation": "Free consultation",
         "instantResponse": "Instant response"
       },
       "steps": {
@@ -551,7 +550,7 @@
       "text": "Trusted by industry leaders and accredited by"
     },
     "cta": {
-      "title": "Let's Create Something Amazing",
+      "title": "Let's Create Something Amazing!",
       "subtitle": "Ready to experience the ExplorAhead difference?",
       "subtitleLine2": "Start planning your next adventure today.",
       "startPlanning": "Start Planning",
