@@ -13,7 +13,7 @@ import {
   MessageCircle,
   Plane,
   RefreshCw,
-  Zap
+  Zap,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -96,7 +96,8 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {t("hero.title")}
           </motion.h1>
@@ -105,7 +106,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mb-8 max-w-2xl text-lg text-white/90 md:text-xl whitespace-pre-line"
+            className="mx-auto mb-8 max-w-2xl text-lg whitespace-pre-line text-white/90 md:text-xl"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -180,38 +181,36 @@ export default function PricingPage() {
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Badge Container */}
-              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+              <div className="pricing-badge-container from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
                 <span className="pricing-badge bg-gradient-to-r from-lime-400 to-green-400 text-slate-800">
                   NEW
                 </span>
               </div>
 
               {/* Header */}
-              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
-                <h3 className="font-heading mb-2 text-2xl text-gold">{t("dreamFinder.title")}</h3>
+              <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
+                <h3 className="font-heading text-gold mb-2 text-2xl">{t("dreamFinder.title")}</h3>
                 <p className="text-sm text-white">{t("dreamFinder.subtitle")}</p>
               </div>
 
               {/* Features */}
               <div className="pricing-features flex flex-1 flex-col">
-                <ul className="mb-auto space-y-3 flex-1">
+                <ul className="mb-auto flex-1 space-y-3">
                   {dreamFinderFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <CheckCircle className="text-gold mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span className="text-gray-dark text-sm">{t(key)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Price - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-4 text-center">
-                    <p className="text-4xl font-bold text-gold">149 PLN</p>
+                    <p className="text-gold text-4xl font-bold">149 PLN</p>
                   </div>
-                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
-                    <p className="mb-1 font-semibold text-gold-dark">
-                      💡 Bonus
-                    </p>
+                  <div className="pricing-info-box border-gold/30 bg-gold/10 border">
+                    <p className="text-gold-dark mb-1 font-semibold">💡 Bonus</p>
                     <p className="text-gray-dark">{t("dreamFinder.bonusText")}</p>
                   </div>
                   <a
@@ -223,7 +222,7 @@ export default function PricingPage() {
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    Book Now
+                    {t("common.bookNow")}
                   </a>
                 </div>
               </div>
@@ -241,39 +240,37 @@ export default function PricingPage() {
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Badge Container */}
-              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+              <div className="pricing-badge-container from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
                 <span className="pricing-badge bg-gradient-to-r from-yellow-400 to-amber-400 text-slate-800">
                   POPULAR
                 </span>
               </div>
 
               {/* Header */}
-              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
-                <h3 className="font-heading mb-2 text-2xl text-gold">{t("tripSupport.title")}</h3>
+              <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
+                <h3 className="font-heading text-gold mb-2 text-2xl">{t("tripSupport.title")}</h3>
                 <p className="text-sm text-white">{t("tripSupport.subtitle")}</p>
               </div>
 
               {/* Features */}
               <div className="pricing-features flex flex-1 flex-col">
-                <ul className="mb-auto space-y-3 flex-1">
+                <ul className="mb-auto flex-1 space-y-3">
                   {tripSupportFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <CheckCircle className="text-gold mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Price - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-4 text-center">
-                    <p className="text-4xl font-bold text-gold">199 PLN</p>
+                    <p className="text-gold text-4xl font-bold">199 PLN</p>
                   </div>
-                  <p className="pricing-legend">Support up to 14 days</p>
-                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
-                    <p className="font-medium text-gold-dark">
-                      ⭐ Pay once, ask unlimited questions during your trip!
-                    </p>
+                  <p className="pricing-legend">{t("tripSupport.duration")}</p>
+                  <div className="pricing-info-box border-gold/30 bg-gold/10 border">
+                    <p className="text-gold-dark font-medium">⭐ {t("tripSupport.payOnce")}</p>
                   </div>
                   <a
                     href={getWhatsAppLinkWithMessage(
@@ -284,7 +281,7 @@ export default function PricingPage() {
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    Book Now
+                    {t("common.bookNow")}
                   </a>
                 </div>
               </div>
@@ -302,48 +299,44 @@ export default function PricingPage() {
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Badge Container - invisible placeholder for consistent spacing */}
-              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+              <div className="pricing-badge-container from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
                 <span className="pricing-badge opacity-0">PLACEHOLDER</span>
               </div>
 
               {/* Header */}
-              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
-                <h3 className="font-heading mb-2 text-2xl text-gold">{t("dreamPlan.title")}</h3>
+              <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
+                <h3 className="font-heading text-gold mb-2 text-2xl">{t("dreamPlan.title")}</h3>
                 <p className="text-sm text-white">{t("dreamPlan.subtitle")}</p>
               </div>
 
               {/* Features */}
               <div className="pricing-features flex flex-1 flex-col">
-                <ul className="mb-auto space-y-3 flex-1">
+                <ul className="mb-auto flex-1 space-y-3">
                   {dreamPlanFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <CheckCircle className="text-gold mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Pricing Tiers - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-4">
                     <div className="space-y-1.5">
                       {pricingTiers.map((tier, index) => (
                         <div
                           key={index}
-                          className="flex items-center justify-between rounded-lg bg-sand-light px-3 py-1.5"
+                          className="bg-sand-light flex items-center justify-between rounded-lg px-3 py-1.5"
                         >
-                          <span className="text-gray-dark text-xs">
-                            {tier.duration} days:
-                          </span>
-                          <span className="text-lg font-bold text-gold">{tier.price} PLN</span>
+                          <span className="text-gray-dark text-xs">{tier.duration} days:</span>
+                          <span className="text-gold text-lg font-bold">{tier.price} PLN</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
-                    <p className="font-medium text-gold-dark">
-                      Over 14 days or more people: Price quoted individually - contact us!
-                    </p>
+                  <div className="pricing-info-box border-gold/30 bg-gold/10 border">
+                    <p className="text-gold-dark font-medium">{t("dreamPlan.longerTrips")}</p>
                   </div>
                   <a
                     href={getWhatsAppLinkWithMessage(
@@ -354,7 +347,7 @@ export default function PricingPage() {
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    Book Now
+                    {t("common.bookNow")}
                   </a>
                 </div>
               </div>
@@ -372,36 +365,35 @@ export default function PricingPage() {
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Badge Container */}
-              <div className="pricing-badge-container bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+              <div className="pricing-badge-container from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
                 <span className="pricing-badge bg-gradient-to-r from-red-500 to-orange-500 text-white">
                   URGENT
                 </span>
               </div>
 
               {/* Header */}
-              <div className="pricing-header bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
-                <h3 className="font-heading mb-2 text-2xl text-gold">{t("express.title")}</h3>
+              <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
+                <h3 className="font-heading text-gold mb-2 text-2xl">{t("express.title")}</h3>
                 <p className="text-sm text-white">{t("express.subtitle")}</p>
               </div>
 
               {/* Features */}
               <div className="pricing-features flex flex-1 flex-col">
-                <ul className="mb-auto space-y-3 flex-1">
+                <ul className="mb-auto flex-1 space-y-3">
                   {expressFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <CheckCircle className="text-gold mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span className="text-gray-dark text-sm">{t(feature.key)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Price - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-4 text-center">
-                    <p className="text-4xl font-bold text-gold">299 PLN</p>
+                    <p className="text-gold text-4xl font-bold">299 PLN</p>
                   </div>
-                  <p className="pricing-legend">
-                  </p>
+                  <p className="pricing-legend"></p>
                   <a
                     href={getWhatsAppLinkWithMessage(
                       contact.phone,
@@ -411,7 +403,7 @@ export default function PricingPage() {
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    Book Now
+                    {t("common.bookNow")}
                   </a>
                 </div>
               </div>
@@ -429,42 +421,43 @@ export default function PricingPage() {
               onMouseLeave={() => setHoveredPlan(null)}
             >
               {/* Badge Container */}
-              <div className="pricing-badge-container bg-gradient-to-br from-gold via-gold-dark to-terracotta">
+              <div className="pricing-badge-container from-gold via-gold-dark to-terracotta bg-gradient-to-br">
                 <span className="pricing-badge bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                   BEST VALUE
                 </span>
               </div>
 
               {/* Header */}
-              <div className="pricing-header bg-gradient-to-br from-gold via-gold-dark to-terracotta">
-                <h3 className="font-heading mb-2 text-2xl text-ocean">{t("premiumPackage.title")}</h3>
+              <div className="pricing-header from-gold via-gold-dark to-terracotta bg-gradient-to-br">
+                <p className="text-ocean mb-1 text-xs font-semibold">
+                  {t("premiumPackage.combination")}
+                </p>
+                <h3 className="font-heading text-ocean mb-2 text-2xl">
+                  {t("premiumPackage.title")}
+                </h3>
                 <p className="text-sm text-white/90">{t("premiumPackage.subtitle")}</p>
               </div>
 
               {/* Features */}
               <div className="pricing-features flex flex-1 flex-col">
-                <ul className="mb-auto space-y-3 flex-1">
+                <ul className="mb-auto flex-1 space-y-3">
                   {premiumFeatures.map((key, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      <CheckCircle className="text-gold mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span className="text-gray-dark text-sm">{t(key)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Price - Fixed Height Section */}
-                <div className="border-t border-gray-200 pt-6 mt-6">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-2 text-center">
                     <p className="text-sm text-slate-400 line-through">598 PLN</p>
-                    <p className="text-4xl font-bold text-gold">499 PLN</p>
+                    <p className="text-gold text-4xl font-bold">499 PLN</p>
                   </div>
-                  <p className="pricing-legend">
-                    Package for 5-10 days
-                  </p>
-                  <div className="pricing-info-box border border-gold/30 bg-gold/10">
-                    <p className="font-semibold text-gold-dark">
-                      🎉 Save 99 PLN!
-                    </p>
+                  <p className="pricing-legend">{t("premiumPackage.packagePrice")}</p>
+                  <div className="pricing-info-box border-gold/30 bg-gold/10 border">
+                    <p className="text-gold-dark font-semibold">🎉 {t("premiumPackage.savings")}</p>
                   </div>
                   <a
                     href={getWhatsAppLinkWithMessage(
@@ -473,9 +466,9 @@ export default function PricingPage() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pricing-book-btn bg-gold text-white hover:bg-gold-dark"
+                    className="pricing-book-btn bg-gold hover:bg-gold-dark text-white"
                   >
-                    Book Now
+                    {t("common.bookNow")}
                   </a>
                 </div>
               </div>

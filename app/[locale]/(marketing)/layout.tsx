@@ -9,6 +9,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
   return (
     <>
       <Navigation />
+      <div className="h-20" aria-hidden="true" />
       <main id="main-content">{children}</main>
       <Footer />
     </>

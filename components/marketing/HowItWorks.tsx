@@ -1,9 +1,10 @@
 "use client";
 
 import { contact } from "@/config/contact";
+import { Link } from "@/lib/i18n/routing";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
-import { Luggage, Map, MessageCircle, Phone } from "lucide-react";
+import { Luggage, Mail, Map, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
@@ -41,12 +42,6 @@ export function HowItWorks() {
     },
   ];
 
-  const trustItems = [
-    { key: "trust.noObligation" },
-    { key: "trust.freeConsultation" },
-    { key: "trust.instantResponse" },
-  ];
-
   return (
     <section ref={sectionRef} className="section bg-sand-light">
       <div className="container mx-auto max-w-7xl px-5 py-20">
@@ -67,23 +62,6 @@ export function HowItWorks() {
           <p className="text-gray-dark max-w-2xl px-4 text-center text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl">
             {t("subtitle")}
           </p>
-        </motion.div>
-
-        {/* Trust Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-ocean/5 rounded-2xl px-6 py-4"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {trustItems.map((item) => (
-              <div key={item.key} className="flex items-center gap-2">
-                <span className="bg-gold h-2 w-2 rounded-full" />
-                <span className="text-ocean text-sm font-medium md:text-base">{t(item.key)}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Spacer - Icon extends 40px above card, so need 40px + breathing room */}
@@ -184,15 +162,15 @@ export function HowItWorks() {
               {t("cta.chatNow")}
             </a>
 
-            {/* Book a Quick Call Button */}
-            <a
-              href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+            {/* Contact Us Button */}
+            <Link
+              href="/contact#contact-form"
               className="bg-ocean-light hover:bg-ocean-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-white/30 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
               style={{ padding: "16px 48px" }}
             >
-              <Phone size={40} />
-              {t("cta.bookCall")}
-            </a>
+              <Mail size={40} />
+              {t("cta.contactUs")}
+            </Link>
           </div>
 
           {/* Social Proof - Equidistant from buttons and bottom border */}

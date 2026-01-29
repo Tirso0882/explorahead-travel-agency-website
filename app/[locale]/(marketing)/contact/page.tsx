@@ -123,7 +123,8 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {t("hero.title")}
           </motion.h1>
@@ -145,6 +146,7 @@ export default function ContactPage() {
           <div className="grid gap-16 lg:grid-cols-2">
             {/* Contact Form */}
             <motion.div
+              id="contact-form"
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
