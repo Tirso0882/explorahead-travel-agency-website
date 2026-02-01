@@ -141,18 +141,6 @@ export const heroSlides: HeroSlide[] = [
     testimonialSnippet: "Cuba's soul is something you feel, not just see. — Michael C.",
     focalPoint: "center center",
   },
-  {
-    id: "israel",
-    image: "/images/hero/banners/israel-banner-4.jpg",
-    alt: "Baháʼí Garden Haifa, Israel",
-    destination: "Haifa, Israel",
-    message: "Some journeys quiet the noise and awaken what matters.",
-    tagline: "Find Your Peace",
-    iconColor: "#228B22", // Serene Green
-    whatsappMessage: "The Baháʼí Gardens look stunning—I'd love to visit!",
-    testimonialSnippet: "A place where time slows down beautifully. — Sarah M.",
-    focalPoint: "center center",
-  },
 ];
 
 /**
