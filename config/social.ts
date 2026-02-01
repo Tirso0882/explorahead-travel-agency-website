@@ -1,4 +1,9 @@
 /**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
+/**
  * Social Media Configuration
  * Toggle social media links on/off to control visibility across the site
  */
