@@ -58,7 +58,7 @@ export function HowItWorks() {
           className="mb-12 flex flex-col items-center justify-center"
         >
           <span className="section-badge">{t("badge")}</span>
-          <h2 className="text-ocean font-heading mb-8 max-w-3xl text-center text-4xl md:text-5xl">
+          <h2 className="text-ocean font-heading mx-auto mb-8 text-center text-4xl whitespace-nowrap md:text-5xl">
             {t("title")}
           </h2>
           {/* Subtitle - Centered horizontally and vertically balanced with title */}
@@ -122,7 +122,8 @@ export function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br px-4 py-5 text-center text-white shadow-2xl sm:px-6 md:px-10"
+          className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
+          style={{ padding: "20px" }}
         >
           {/* Title - Centered */}
           <h3 className="font-heading mb-6 text-center text-3xl text-white md:text-4xl">
