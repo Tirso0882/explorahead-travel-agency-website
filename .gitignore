@@ -63,6 +63,8 @@ logs/
 
 # Folders
 docs/
+playwright-report/
+test-results/
 
 # Files
 notes.txt

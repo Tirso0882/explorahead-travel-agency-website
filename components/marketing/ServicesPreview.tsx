@@ -25,12 +25,21 @@ const WhatsAppIcon = ({
   </svg>
 );
 
+interface ServiceItem {
+  icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
+  titleKey: string;
+  descriptionKey: string;
+  color: string;
+  descriptionLine2Key?: string;
+  descriptionLine3Key?: string;
+}
+
 export function ServicesPreview() {
   const t = useTranslations("marketing.servicesPreview");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  const services = [
+  const services: ServiceItem[] = [
     {
       icon: Calendar,
       titleKey: "items.dailyPlanning.title",
