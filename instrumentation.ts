@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 // Next.js Instrumentation file
 // This file is used to initialize monitoring and tracing services
 // Runs once when the Next.js server starts
@@ -7,7 +12,7 @@ export async function register() {
   if (process.env.NODE_ENV === "development") {
     return;
   }
-  
+
   // Initialize Sentry based on runtime environment
   if (process.env.NEXT_RUNTIME === "nodejs") {
     // Server-side Sentry initialization
