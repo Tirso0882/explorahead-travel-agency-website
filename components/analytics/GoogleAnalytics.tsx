@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import Script from "next/script";
@@ -33,14 +38,13 @@ export function hasAnalyticsConsent(): boolean {
 export function GoogleAnalytics() {
   const [hasConsent, setHasConsent] = useState(() => {
     // Initialize with consent check (only runs once on mount)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       return hasAnalyticsConsent();
     }
     return false;
   });
 
   useEffect(() => {
-
     // Listen for consent changes
     const handleConsentChange = () => {
       setHasConsent(hasAnalyticsConsent());
@@ -100,12 +104,7 @@ export function trackPageView(url: string) {
  * @param label - Optional event label
  * @param value - Optional numeric value
  */
-export function trackEvent(
-  action: string,
-  category: string,
-  label?: string,
-  value?: number
-) {
+export function trackEvent(action: string, category: string, label?: string, value?: number) {
   if (!hasAnalyticsConsent() || !GA_MEASUREMENT_ID) return;
 
   window.gtag?.("event", action, {
@@ -122,8 +121,7 @@ export const analytics = {
   // Contact form events
   contactFormStart: () => trackEvent("form_start", "contact", "contact_form"),
   contactFormSubmit: () => trackEvent("form_submit", "contact", "contact_form"),
-  contactFormError: (error: string) =>
-    trackEvent("form_error", "contact", error),
+  contactFormError: (error: string) => trackEvent("form_error", "contact", error),
 
   // CTA events
   ctaClick: (ctaName: string) => trackEvent("cta_click", "engagement", ctaName),
@@ -132,10 +130,8 @@ export const analytics = {
   navClick: (item: string) => trackEvent("navigation_click", "navigation", item),
 
   // Destination events
-  destinationView: (destination: string) =>
-    trackEvent("view_item", "destination", destination),
-  destinationClick: (destination: string) =>
-    trackEvent("select_item", "destination", destination),
+  destinationView: (destination: string) => trackEvent("view_item", "destination", destination),
+  destinationClick: (destination: string) => trackEvent("select_item", "destination", destination),
 
   // Language events
   languageChange: (from: string, to: string) =>

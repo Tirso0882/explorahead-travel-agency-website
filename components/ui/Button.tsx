@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { HTMLMotionProps, motion } from "framer-motion";
@@ -6,7 +11,10 @@ import { ButtonHTMLAttributes, forwardRef, ReactNode, useMemo } from "react";
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "gold";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart"> {
+interface ButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart"
+> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   isLoading?: boolean;
@@ -88,7 +96,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     }, [children, isLoading]);
 
     const textLength = textContent.length;
-    
+
     // Calculate padding as percentage of text length
     // Base padding + (textLength * percentage multiplier)
     // Using 8% of text length for horizontal padding
@@ -102,7 +110,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       const pxValue = Math.max(12, Math.min(40, Math.round(textLength * 0.1)));
       // Vertical padding: 40% of horizontal padding (minimum 6px, maximum 16px)
       const pyValue = Math.max(6, Math.min(16, Math.round(pxValue * 0.4)));
-      
+
       return { pxValue, pyValue };
     }, [textLength]);
 
@@ -119,7 +127,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Get base size classes without padding
     const sizeClasses = sizes[size].replace(/px-[\d\[\]]+|py-[\d\[\].]+/g, "").trim();
-    
+
     return (
       <motion.button
         ref={ref}
@@ -157,19 +165,12 @@ Button.displayName = "Button";
 function LoadingSpinner() {
   return (
     <svg
-      className="animate-spin h-5 w-5"
+      className="h-5 w-5 animate-spin"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
     >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
         fill="currentColor"
@@ -180,4 +181,3 @@ function LoadingSpinner() {
 }
 
 export default Button;
-

@@ -1,4 +1,9 @@
 /**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
+/**
  * Loading skeleton for marketing pages
  * Displays while page content is being loaded
  * Uses shimmer animation from design tokens

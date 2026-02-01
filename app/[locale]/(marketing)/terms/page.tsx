@@ -1,449 +1,476 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
-import { motion } from "framer-motion";
-import { FileText, Mail, Phone, AlertCircle, CheckCircle, XCircle, Scale, Plane, CreditCard } from "lucide-react";
-import Link from "next/link";
-import { useLocale } from "next-intl";
 import { contact, getMailtoLink, getTelLink } from "@/config/contact";
+import { motion } from "framer-motion";
+import {
+  AlertCircle,
+  BookOpen,
+  Clock,
+  Copyright,
+  CreditCard,
+  FileText,
+  List,
+  Lock,
+  Mail,
+  Phone,
+  Scale,
+  Shield,
+} from "lucide-react";
+import { useLocale } from "next-intl";
+import Link from "next/link";
 
 export default function TermsOfServicePage() {
   const locale = useLocale();
-  const isEnglish = locale === 'en';
+  const isEnglish = locale === "en";
 
-  const content = isEnglish ? {
-    hero: {
-      title: "Terms of Service",
-      subtitle: "Terms and conditions for travel services, bookings, and trip organization"
-    },
-    intro: `These Terms of Service set out the rules and conditions for providing travel services by ExplorAhead, including organizing travel packages, intermediation in the sale of airline tickets, hotel reservations, and other tourism-related services. The Terms have been prepared in accordance with the Act on Travel Services and related tourism services and the provisions of the Civil Code.`,
-    sections: [
-      {
-        icon: FileText,
-        title: "1. General Provisions",
-        content: `These Terms set out the rules for providing travel services by:
-
-ExplorAhead
-[ADDRESS TO BE COMPLETED]
+  const content = isEnglish
+    ? {
+        hero: {
+          title: "Terms of Service",
+          subtitle: "Terms and conditions for travel consulting services (Travel Design)",
+        },
+        intro: `These Terms of Service set out the rules and conditions for providing travel consulting services (Travel Design) by ExplorAhead. The Agency declares that it is not a tour operator within the meaning of the Act of November 24, 2017 on tourism events. The Client enters into contracts with suppliers (flights, hotels) in their own name and on their own account.`,
+        sections: [
+          {
+            icon: FileText,
+            title: "§1. General Provisions",
+            content: `The owner of the ExplorAhead online agency is: [YOUR DATA / COMPANY]
 Tax ID (NIP): [TO BE COMPLETED]
-Business ID (REGON): [TO BE COMPLETED]
-Email: ${contact.email}
-Phone: ${contact.phone}
-
-hereinafter referred to as the "Organizer" or "Agency".
-
-The Terms define the rights and obligations of the Organizer and Clients using the services offered by the Agency, including bookings, trip organization, travel packages, and intermediation services in the sale of airline tickets, accommodation, and other tourism-related services.
-
-Use of the Agency's services constitutes acceptance of these Terms.`
-      },
-      {
-        icon: CheckCircle,
-        title: "2. Definitions",
-        content: `Terms used in these Terms mean:
-
-• Organizer/Agency – ExplorAhead, entity providing travel services
-• Client/Participant – natural person, legal person, or organizational unit without legal personality that purchases or intends to purchase a travel service
-• Travel package – combination of at least two types of travel services (transport, accommodation, vehicle rental, other services) for the same trip
-• Travel service – single service (airline ticket, accommodation, transfer, etc.)
-• Booking – Client's declaration of intent to participate in a package or purchase a service
-• Contract – contract concluded between the Organizer and the Client regarding the provision of travel services`
-      },
-      {
-        icon: Plane,
-        title: "3. Booking and Contract Conclusion",
-        content: `3.1. Booking can be made:
-• Online via the form on www.explorahead.com
-• By email to: ${contact.email}
-• By phone: ${contact.phone}
-• Via AI chat on the website
-
-3.2. Booking is confirmed after:
-• Receiving all required Client data
-• Checking service availability
-• Payment of deposit (if applicable)
-
-3.3. The contract is concluded upon the Client receiving booking confirmation at the provided email address.
-
-3.4. The Organizer reserves the right to refuse a booking in justified cases (no availability, incomplete data, etc.).
-
-3.5. After contract conclusion, the Client receives:
-• Booking confirmation
-• Travel package program (if applicable)
-• Payment information
-• Travel documents (tickets, vouchers) – before departure`
-      },
-      {
-        icon: CreditCard,
-        title: "4. Prices and Payments",
-        content: `4.1. Service prices are quoted in Polish zlotys (PLN) and include VAT.
-
-4.2. The price may change before contract conclusion due to changes in:
-• Exchange rates affecting the package price
-• Fuel prices or other transport costs
-• Airport, port, tourist fees
-• Taxes
-
-4.3. After contract conclusion, the price may be increased (maximum 8%) only in cases specified in clause 4.2, no later than 20 days before the start of the package.
-
-4.4. Payment is made by bank transfer to the Agency's account:
-[BANK ACCOUNT NUMBER TO BE COMPLETED]
-
-4.5. Payment terms:
-• Deposit: usually 30% of value – within 3 days of booking confirmation
-• Final payment: remaining amount – 30 days before package start
-(terms may vary depending on service type)
-
-4.6. Failure to pay on time entitles the Organizer to withdraw from the contract and charge cancellation fees.`
-      },
-      {
-        icon: XCircle,
-        title: "5. Cancellation and Withdrawal",
-        content: `5.1. Cancellation by Client:
-The Client may withdraw from the contract at any time before the start of the package, incurring the following withdrawal costs:
-
-• More than 60 days before departure: 10% of package price
-• 60-45 days before departure: 25% of package price
-• 44-30 days before departure: 50% of package price
-• 29-14 days before departure: 75% of package price
-• Less than 14 days before departure: 100% of package price
-
-5.2. For airline tickets, accommodation, and other single services – the terms of the service providers apply.
-
-5.3. The Organizer may withdraw from the contract in case of:
-• Client's failure to pay required amounts on time
-• Insufficient number of participants (minimum will be specified in the offer)
-• Force majeure preventing package fulfillment
-
-5.4. In case of withdrawal by the Organizer for reasons beyond the Client's control, the Client receives a full refund of paid amounts.
-
-5.5. Withdrawal from the contract requires written form (email: ${contact.email}).`
-      },
-      {
-        icon: AlertCircle,
-        title: "6. Booking Changes",
-        content: `6.1. The Client may make changes to the booking (e.g., change of date, participant substitution) for a fee of 200 PLN + any costs related to changes on the part of service providers.
-
-6.2. The Organizer may make changes to the package program in case of:
-• Force majeure circumstances
-• Changes introduced by service providers
-• Other important reasons
-
-6.3. The Client will be immediately informed of any significant changes.
-
-6.4. In case of significant changes lowering the package standard, the Client has the right to:
-• Price reduction corresponding to the difference in standard
-• Proposal of a replacement package
-• Withdrawal from the contract with refund of paid amounts (without contractual penalties)`
-      },
-      {
-        icon: Scale,
-        title: "7. Organizer's Liability",
-        content: `7.1. The Organizer is liable for proper contract performance in accordance with applicable law (Act on Travel Services and related tourism services).
-
-7.2. The Organizer is responsible for the performance of travel services covered by the contract, regardless of whether these services are to be performed by it or by other providers.
-
-7.3. The Organizer is not liable for:
-• Delays and changes in schedules/flights introduced by carriers
-• Refusal to issue a visa by appropriate services
-• Damage resulting from the Client's non-compliance with customs, sanitary, immigration regulations
-• Force majeure circumstances (wars, strikes, natural disasters, epidemics, etc.)
-
-7.4. The Organizer acts as an intermediary in the sale of single travel services (airline tickets, accommodation) – in such cases, the terms of the service providers apply.
-
-7.5. The Organizer's liability is limited to three times the package price, excluding personal injury.`
-      },
-      {
-        icon: FileText,
-        title: "8. Complaints",
-        content: `8.1. Complaints should be submitted:
-• During the package – immediately on-site to the Organizer's representative or directly to the service provider
-• After package completion – in writing (email: ${contact.email}) within 30 days of package completion
-
-8.2. The complaint should contain:
-• Client data and booking number
-• Detailed description of the problem
-• Client's request
-• Any evidence (photos, documents)
-
-8.3. The Organizer considers the complaint within 30 days of receipt.
-
-8.4. Failure to submit a complaint during the package may limit the possibility of effectively pursuing claims.`
-      },
-      {
-        icon: CheckCircle,
-        title: "9. Client Obligations",
-        content: `9.1. The Client is obliged to:
-• Possess valid travel documents (passport, ID card, visas)
-• Possess appropriate travel insurance
-• Comply with customs, sanitary, immigration regulations
-• Provide complete and correct personal data
-• Make payments on time
-• Familiarize with the package program and provided information
-
-9.2. The Client bears full responsibility for damage caused to the Organizer or other persons through their fault.
-
-9.3. The Client is responsible for providing false data that may result in refusal of entry to the destination country.
-
-9.4. We recommend purchasing cancellation insurance.`
-      },
-      {
-        icon: Scale,
-        title: "10. Personal Data Protection",
-        content: `Detailed information on personal data processing is available in the Privacy Policy at: www.explorahead.com/privacy
-
-Data Controller: ExplorAhead
 Email: ${contact.email}
 
-Personal data is processed in accordance with GDPR for contract performance and marketing purposes (with consent).`
-      },
-      {
-        icon: FileText,
-        title: "11. Final Provisions",
-        content: `11.1. Matters not regulated in these Terms are governed by:
-• Act on Travel Services and related tourism services
-• Civil Code
-• Other applicable provisions of Polish law
+The Agency provides travel consulting services (Travel Design). The Agency declares that it is not a tour operator within the meaning of the Act of November 24, 2017 on tourism events.
 
-11.2. Disputes will be resolved amicably, and in case of lack of agreement – by the competent court under the Code of Civil Procedure.
+The Client enters into contracts with suppliers (flights, hotels) in their own name and on their own account.`,
+          },
+          {
+            icon: BookOpen,
+            title: "§2. Definitions",
+            content: `• Client – a natural person using the Agency's Services
+• Agency – ExplorAhead, entity providing travel consulting services
+• Services – services provided by the Agency, according to the Price List available on the Website, including in particular: preparation of Travel Plans
+• Travel Plan (Travel Design) – a digital product (PDF) containing personalized travel recommendations, routes, and booking links
+• Price List – a list of fees for preparing personalized travel plans, available on the Website www.explorahead.com. The Price List defines the Agency's remuneration for the Travel Design Service and is not a component of the price of tickets or reservations made by the Client
+• Website – the Agency's website available at www.explorahead.com
+• Offer – a preliminary trip outline prepared by the Agency, containing approximate costs and proposed solutions. The Offer is for informational purposes only and does not constitute a commercial offer within the meaning of law. The final trip price depends on variable prices of Components from external suppliers
+• Components – individual travel services making up the trip (in particular: airline tickets, accommodation, insurance, transfers, entrance tickets), which the Client books and pays for independently based on the Agency's recommendations
+• Payment – payment of fees for the Agency's Services`,
+          },
+          {
+            icon: List,
+            title: "§3. Types of Services",
+            content: `The Service Provider provides the following services:
 
-11.3. The Organizer reserves the right to change these Terms. Changes take effect upon publication on the website and apply to contracts concluded after the effective date of changes.
+Dream Finder (initial consultation):
+• 60-minute online/phone consultation
+• Analysis of Client's preferences and budget
+• 3–5 destination proposals with descriptions
+• Written summary after consultation
+Price: 149 PLN. If the "Dream Plan" package is ordered within 7 days, the amount is deducted from its price.
 
-11.4. The current Terms are available at: www.explorahead.com/terms
+Dream Plan (complete travel plan):
+• Detailed day-by-day schedule
+• Flight and hotel recommendations
+• Two rounds of revisions before departure
+• Email support
+Prices: up to 4 days – 249 PLN; 5–10 days – 399 PLN; 11–14 days – 549 PLN; over 14 days – individual price. Limit: 4 people.
 
-Effective date: January 2025`
+Travel Companion (support during travel):
+• Access to advisor via WhatsApp/SMS throughout the trip (max. 14 days)
+• Help with sudden plan changes
+Price: 199 PLN. Service available only in combination with the "Dream Plan" package.
+
+Express Service (urgent plan):
+• Plan preparation within max. 3 business days
+• Basic support in the first 24h of departure
+Price: 299 PLN. Available only for trips up to 10 days.
+
+Premium Package (comprehensive package):
+• Combination of "Dream Plan" (5–10 days) and "Travel Companion" services
+Price: 499 PLN.
+
+Detailed scope of Services and the current Price List are available on the Website.`,
+          },
+          {
+            icon: Clock,
+            title: "§4. Service Delivery",
+            content: `The Service consists of preparing a Travel Plan in digital form (PDF).
+
+Preparation time for the initial plan is 72 business hours from the date of payment posting or sending payment confirmation.
+
+The Client has 72 business hours to review the plan.
+
+The service price includes 2 rounds of revisions (change of hotel, flight, or attraction proposals).
+
+Definition of revision rounds:
+• One round of revisions includes one email exchange in which the Client submits all comments regarding the Plan (e.g., change of hotels, attractions, flights, schedule)
+• The Agency implements all comments submitted in that round and sends an updated version of the Plan
+• Each subsequent round of revisions after the first two is billed as a separate service
+
+The Client undertakes to verify the correctness of contact data.
+
+The Agency is not responsible for non-delivery of the plan due to reasons on the Client's side (e.g., incorrect email address).`,
+          },
+          {
+            icon: CreditCard,
+            title: "§5. Payments and Contract Conclusion",
+            content: `Payment methods for Services: BLIK (BLIK phone transfer) or bank transfer to account number.
+
+Agency's bank account number:
+03 1140 2004 0000 3702 7919 9431
+
+The travel consulting service contract is concluded upon the Service Provider receiving full payment of 100% of the service price.
+
+After making a bank transfer payment, the Client should send the Agency payment confirmation. Otherwise, the Agency will commence the Service only after the funds appear in the bank account.
+
+The Service will be performed only after payment.
+
+As the payment title, the Client should include their first and last name.
+
+The remuneration covers only the consulting service. Travel Component costs (tickets, accommodation) are paid by the Client directly to suppliers.
+
+The Client consents to immediate commencement of the service (preparation of a personalized Travel Plan) before the expiry of the 14-day withdrawal period. Therefore, they lose the right to withdraw from the contract once the service is fully performed.`,
+          },
+          {
+            icon: AlertCircle,
+            title: "§6. Liability and Complaints",
+            content: `The Agency declares that it does not accept any funds from the Client intended to pay for travel Components (flights, accommodation, insurance, etc.). All payments for these elements are made by the Client independently and directly to their suppliers. The Agency is not responsible for the payment process between the Client and third parties.
+
+The Agency does not guarantee price stability or availability of offers (flights, hotels) between sending the plan and the Client making the reservation.
+
+The Agency is not responsible for non-performance or improper performance of services by third parties (e.g., airlines, hotels, car rentals). Any complaints regarding the quality of these services, flight cancellations, schedule changes, or accommodation standards should be directed by the Client directly to the supplier of that service.
+
+It is recommended that the Client independently purchase travel insurance and trip cancellation insurance.
+
+The Travel Plan prepared by the Agency is for informational and recommendation purposes only. The Agency provides professional knowledge and proposals, while final decisions regarding trip execution, selection of specific offers, and timing of reservations belong exclusively to the Client.
+
+Pursuant to Art. 38 point 3 of the Consumer Rights Act, the Client is not entitled to withdraw from the contract after the Service has commenced, as the subject of the service is a digital product prepared according to the Client's individualized specification.
+
+If the Client believes that the consulting Service itself (the Plan) was improperly performed (e.g., contains gross logistical errors), they have the right to submit a complaint by email to ${contact.email}
+
+The Agency will process the complaint within 14 days of receipt. The response will be sent to the Client's email address.
+
+In case of non-performance of the Service by the Agency, the Client will receive a refund for unperformed Services within 7 business days.
+
+The Agency undertakes to be responsible for non-performance or improper performance of the Service unless it is caused by:
+• Action or omission of the Client
+• Action or omission of third parties not involved in Agency-Client contact, if such actions/omissions could not have been foreseen/avoided
+• Action or omission of Service Providers
+• Force majeure (random or natural event beyond the Agency's control, for example: war, riots, epidemic, accident, natural disaster, death)
+
+The Agency makes every effort to ensure that the prepared Offer fully complies with the Client's guidelines. However, if the Client's expectations (e.g., budget or timing) are impossible to fulfill due to current market conditions or Component unavailability, the Agency will prepare a proposal closest to the original assumptions or immediately inform the Client of the inability to perform the Service. Such action is considered proper performance of the consulting Service.
+
+If the Client determines that the received Travel Plan is non-compliant with the contract (e.g., contains date errors or locations significantly different from arrangements), the Client has the right to submit a complaint.
+
+Complaints should be sent electronically to email address ${contact.email}
+
+Complaints regarding service defects (e.g., incorrect dates in the Travel Plan, lack of route coherence) should include a description of the non-compliance and an attachment with the Travel Plan. The Agency will process it within 14 days.`,
+          },
+          {
+            icon: Copyright,
+            title: "§7. Copyright",
+            content: `The Travel Plan is a protected work and is intended solely for the Client's private use. Its publication, resale, or sharing with third parties is prohibited.`,
+          },
+          {
+            icon: Lock,
+            title: "§8. Cookies",
+            content: (
+              <>
+                The Agency&apos;s website uses cookies to ensure comfort of using the service and
+                traffic analysis. Detailed information about the purpose of data processing by
+                cookies and the possibility of disabling them can be found in the Privacy Policy at:{" "}
+                <Link
+                  href="/privacy"
+                  className="text-ocean hover:text-gold underline transition-colors"
+                >
+                  www.explorahead.com/privacy
+                </Link>
+              </>
+            ),
+          },
+          {
+            icon: Shield,
+            title: "§9. Personal Data Protection (GDPR)",
+            content: (
+              <>
+                The administrator of Clients&apos; personal data is ExplorAhead Travel Agency.
+                {"\n\n"}
+                Processing of data for marketing purposes (e.g., newsletter sending) takes place
+                only with consent.
+                {"\n\n"}
+                Providing personal data is voluntary, however, its absence will prevent the Agency
+                from preparing an Offer and performing the Service.
+                {"\n\n"}
+                Each Client has the right to access their data, rectification, erasure, restriction
+                of processing, and data portability.
+                {"\n\n"}
+                Detailed information about data processing can be found in the Privacy Policy
+                available at:{" "}
+                <Link
+                  href="/privacy"
+                  className="text-ocean hover:text-gold underline transition-colors"
+                >
+                  www.explorahead.com/privacy
+                </Link>
+              </>
+            ),
+          },
+          {
+            icon: Scale,
+            title: "§10. Final Provisions",
+            content: `Polish law is the governing law for these Terms.
+
+In matters not regulated in these Terms, the following provisions apply:
+• Consumer Rights Act of May 30, 2014 (Journal of Laws 2014, item 827, as amended)
+• Act on Providing Services by Electronic Means of July 18, 2002 (Journal of Laws 2002, No. 144, item 1204, as amended)
+• Act on Out-of-Court Consumer Dispute Resolution of September 23, 2016 (Journal of Laws 2016, item 1823)
+• Civil Code Act of April 23, 1964 (Journal of Laws 1964, No. 16, item 93, as amended)
+• and other applicable provisions of Polish law
+
+Effective date: February 2026`,
+          },
+        ],
+        notice: {
+          title: "Important Information",
+          content: `Use of ExplorAhead services constitutes acceptance of these Terms. Please read them carefully before ordering a service. If you have any questions, we are at your disposal.`,
+        },
+        cta: {
+          title: "Questions about the Terms?",
+          subtitle: "Contact us – we'll be happy to clarify any doubts",
+        },
+        backLink: "← Back to homepage",
       }
-    ],
-    notice: {
-      title: "Important Information",
-      content: `Use of ExplorAhead services constitutes acceptance of these Terms. Please read them carefully before making a booking. If you have any questions, we are at your disposal.`
-    },
-    cta: {
-      title: "Questions about the Terms?",
-      subtitle: "Contact us – we'll be happy to clarify any doubts"
-    },
-    backLink: "← Back to homepage"
-  } : {
-    hero: {
-      title: "Regulamin świadczenia usług",
-      subtitle: "Warunki świadczenia usług turystycznych, rezerwacji i organizacji podróży"
-    },
-    intro: `Niniejszy Regulamin określa zasady i warunki świadczenia usług turystycznych przez ExplorAhead, w tym organizacji imprez turystycznych, pośrednictwa w sprzedaży biletów lotniczych, rezerwacji noclegów oraz innych usług związanych z turystyką. Regulamin został przygotowany zgodnie z ustawą o imprezach turystycznych i powiązanych usługach turystycznych oraz przepisami Kodeksu cywilnego.`,
-    sections: [
-      {
-        icon: FileText,
-        title: "1. Postanowienia ogólne",
-        content: `Niniejszy Regulamin określa zasady świadczenia usług turystycznych przez:
-
-ExplorAhead
-[ADRES DO UZUPEŁNIENIA]
+    : {
+        hero: {
+          title: "Regulamin świadczenia usług",
+          subtitle: "Warunki świadczenia usług doradztwa podróżniczego (Travel Design)",
+        },
+        intro: `Niniejszy Regulamin określa zasady i warunki świadczenia usług doradztwa podróżniczego (Travel Design) przez ExplorAhead. Biuro oświadcza, że nie jest organizatorem turystyki w rozumieniu ustawy z dnia 24 listopada 2017 r. o imprezach turystycznych. Klient zawiera umowy z dostawcami (loty, hotele) we własnym imieniu i na własny rachunek.`,
+        sections: [
+          {
+            icon: FileText,
+            title: "§1. Postanowienia ogólne",
+            content: `Właścicielem biura internetowego ExplorAhead jest: [TWOJE DANE / FIRMA]
 NIP: [DO UZUPEŁNIENIA]
-REGON: [DO UZUPEŁNIENIA]
-E-mail: ${contact.email}
-Telefon: ${contact.phone}
-
-zwany dalej „Organizatorem" lub „Biurem".
-
-Regulamin określa prawa i obowiązki Organizatora oraz Klientów korzystających z usług oferowanych przez Biuro, w tym rezerwacji, organizacji podróży, imprez turystycznych oraz usług pośrednictwa w sprzedaży biletów lotniczych, noclegów i innych świadczeń związanych z turystyką.
-
-Korzystanie z usług Biura oznacza akceptację niniejszego Regulaminu.`
-      },
-      {
-        icon: CheckCircle,
-        title: "2. Definicje",
-        content: `Użyte w Regulaminie pojęcia oznaczają:
-
-• Organizator/Biuro – ExplorAhead, podmiot świadczący usługi turystyczne
-• Klient/Uczestnik – osoba fizyczna, prawna lub jednostka organizacyjna nieposiadająca osobowości prawnej, która nabywa lub zamierza nabyć usługę turystyczną
-• Impreza turystyczna – kombinacja co najmniej dwóch rodzajów usług turystycznych (transport, zakwaterowanie, wynajem pojazdu, inne usługi) na rzecz tej samej podróży
-• Usługa turystyczna – pojedyncza usługa (bilet lotniczy, nocleg, transfer, itp.)
-• Rezerwacja – zgłoszenie przez Klienta zamiaru uczestnictwa w imprezie lub zakupu usługi
-• Umowa – umowa zawarta między Organizatorem a Klientem dotycząca świadczenia usług turystycznych`
-      },
-      {
-        icon: Plane,
-        title: "3. Rezerwacja i zawarcie umowy",
-        content: `3.1. Rezerwacja może być dokonana:
-• Online poprzez formularz na stronie www.explorahead.com
-• E-mailem na adres: ${contact.email}
-• Telefonicznie: ${contact.phone}
-• Poprzez czat AI na stronie internetowej
-
-3.2. Rezerwacja zostaje potwierdzona po:
-• Otrzymaniu wszystkich wymaganych danych Klienta
-• Sprawdzeniu dostępności usług
-• Wpłacie zaliczki (jeśli dotyczy)
-
-3.3. Umowa zostaje zawarta z chwilą otrzymania przez Klienta potwierdzenia rezerwacji na podany adres e-mail.
-
-3.4. Organizator zastrzega sobie prawo do odmowy przyjęcia rezerwacji w uzasadnionych przypadkach (brak miejsc, niepełne dane, etc.).
-
-3.5. Po zawarciu umowy Klient otrzymuje:
-• Potwierdzenie rezerwacji
-• Program imprezy turystycznej (jeśli dotyczy)
-• Informacje o płatnościach
-• Dokumenty podróży (bilety, vouchery) – przed wyjazdem`
-      },
-      {
-        icon: CreditCard,
-        title: "4. Ceny i płatności",
-        content: `4.1. Ceny usług podawane są w złotych polskich (PLN) i zawierają podatek VAT.
-
-4.2. Cena może ulec zmianie przed zawarciem umowy ze względu na zmiany:
-• Kursu walut wpływających na cenę imprezy
-• Cen paliwa lub innych kosztów przewozu
-• Opłat lotniskowych, portowych, turystycznych
-• Podatków
-
-4.3. Po zawarciu umowy cena może zostać zwiększona (maksymalnie o 8%) tylko w przypadkach określonych w ust. 4.2, nie później niż 20 dni przed rozpoczęciem imprezy.
-
-4.4. Płatność następuje przelewem na rachunek bankowy Biura:
-[NUMER KONTA DO UZUPEŁNIENIA]
-
-4.5. Terminy płatności:
-• Zaliczka: zazwyczaj 30% wartości – w ciągu 3 dni od potwierdzenia rezerwacji
-• Dopłata: pozostała kwota – na 30 dni przed rozpoczęciem imprezy
-(terminy mogą się różnić w zależności od rodzaju usługi)
-
-4.6. Brak wpłaty w terminie uprawnia Organizatora do odstąpienia od umowy i naliczenia opłat rezygnacyjnych.`
-      },
-      {
-        icon: XCircle,
-        title: "5. Rezygnacja i odstąpienie od umowy",
-        content: `5.1. Rezygnacja przez Klienta:
-Klient może odstąpić od umowy w każdym czasie przed rozpoczęciem imprezy, ponosząc następujące koszty odstąpienia:
-
-• Powyżej 60 dni przed wyjazdem: 10% ceny imprezy
-• 60-45 dni przed wyjazdem: 25% ceny imprezy
-• 44-30 dni przed wyjazdem: 50% ceny imprezy
-• 29-14 dni przed wyjazdem: 75% ceny imprezy
-• Poniżej 14 dni przed wyjazdem: 100% ceny imprezy
-
-5.2. W przypadku rezerwacji biletów lotniczych, noclegów i innych usług pojedynczych – obowiązują regulaminy dostawców tych usług.
-
-5.3. Organizator może odstąpić od umowy w przypadku:
-• Niewpłacenia przez Klienta wymaganych należności w terminie
-• Zbyt małej liczby uczestników (minimum zostanie określone w ofercie)
-• Siły wyższej uniemożliwiającej realizację imprezy
-
-5.4. W przypadku odstąpienia przez Organizatora z przyczyn niezależnych od Klienta, Klient otrzymuje pełny zwrot wpłaconych środków.
-
-5.5. Odstąpienie od umowy wymaga formy pisemnej (e-mail: ${contact.email}).`
-      },
-      {
-        icon: AlertCircle,
-        title: "6. Zmiana rezerwacji",
-        content: `6.1. Klient może dokonać zmian w rezerwacji (np. zmiana terminu, zamiast uczestnika) za opłatą 200 PLN + ewentualne koszty związane ze zmianą po stronie dostawców usług.
-
-6.2. Organizator może dokonać zmian w programie imprezy w przypadku:
-• Okoliczności siły wyższej
-• Zmian wprowadzonych przez dostawców usług
-• Innych ważnych przyczyn
-
-6.3. Klient zostanie niezwłocznie poinformowany o wszelkich istotnych zmianach.
-
-6.4. W przypadku istotnych zmian obniżających standard imprezy, Klient ma prawo do:
-• Obniżki ceny odpowiadającej różnicy w standardzie
-• Zaproponowania imprezy zastępczej
-• Odstąpienia od umowy ze zwrotem wpłaconych środków (bez kar umownych)`
-      },
-      {
-        icon: Scale,
-        title: "7. Odpowiedzialność Organizatora",
-        content: `7.1. Organizator odpowiada za należyte wykonanie umowy zgodnie z obowiązującymi przepisami prawa (ustawa o imprezach turystycznych i powiązanych usługach turystycznych).
-
-7.2. Organizator jest odpowiedzialny za wykonanie usług turystycznych objętych umową, niezależnie od tego, czy usługi te mają być wykonane przez niego, czy przez innych dostawców.
-
-7.3. Organizator nie ponosi odpowiedzialności za:
-• Opóźnienia i zmiany w rozkładach jazdy/lotów wprowadzone przez przewoźników
-• Odmowę wydania wizy przez odpowiednie służby
-• Szkody wynikłe z nieprzestrzegania przez Klienta przepisów celnych, sanitarnych, imigracyjnych
-• Okoliczności siły wyższej (wojny, strajki, klęski żywiołowe, epidemie, etc.)
-
-7.4. Organizator działa jako pośrednik przy sprzedaży pojedynczych usług turystycznych (bilety lotnicze, noclegi) – w takim przypadku obowiązują regulaminy dostawców tych usług.
-
-7.5. Odpowiedzialność Organizatora jest ograniczona do trzykrotności ceny imprezy, z wyłączeniem szkód na osobie.`
-      },
-      {
-        icon: FileText,
-        title: "8. Reklamacje",
-        content: `8.1. Reklamacje należy składać:
-• W trakcie imprezy – niezwłocznie na miejscu do przedstawiciela Organizatora lub bezpośrednio do dostawcy usługi
-• Po zakończeniu imprezy – w formie pisemnej (e-mail: ${contact.email}) w ciągu 30 dni od zakończenia imprezy
-
-8.2. Reklamacja powinna zawierać:
-• Dane Klienta i numer rezerwacji
-• Dokładny opis problemu
-• Żądanie Klienta
-• Ewentualne dowody (zdjęcia, dokumenty)
-
-8.3. Organizator rozpatruje reklamację w ciągu 30 dni od jej otrzymania.
-
-8.4. Niestawienie reklamacji w trakcie trwania imprezy może ograniczyć możliwość skutecznego dochodzenia roszczeń.`
-      },
-      {
-        icon: CheckCircle,
-        title: "9. Obowiązki Klienta",
-        content: `9.1. Klient zobowiązany jest do:
-• Posiadania ważnych dokumentów podróży (paszport, dowód osobisty, wizy)
-• Posiadania odpowiedniego ubezpieczenia podróżnego
-• Przestrzegania przepisów celnych, sanitarnych, imigracyjnych
-• Dostarczenia pełnych i prawidłowych danych osobowych
-• Terminowego dokonywania płatności
-• Zapoznania się z programem imprezy i przekazanymi informacjami
-
-9.2. Klient ponosi pełną odpowiedzialność za szkody wyrządzone Organizatorowi lub innym osobom z własnej winy.
-
-9.3. Klient ponosi odpowiedzialność za podanie nieprawdziwych danych, które mogą skutkować odmową wjazdu do kraju docelowego.
-
-9.4. Zalecamy wykupienie ubezpieczenia od kosztów rezygnacji z imprezy.`
-      },
-      {
-        icon: Scale,
-        title: "10. Ochrona danych osobowych",
-        content: `Szczegółowe informacje dotyczące przetwarzania danych osobowych znajdują się w Polityce Prywatności dostępnej na stronie: www.explorahead.com/privacy
-
-Administrator danych: ExplorAhead
 E-mail: ${contact.email}
 
-Dane osobowe przetwarzane są zgodnie z RODO w celu realizacji umowy oraz w celach marketingowych (za zgodą).`
-      },
-      {
-        icon: FileText,
-        title: "11. Postanowienia końcowe",
-        content: `11.1. W sprawach nieuregulowanych w niniejszym Regulaminie mają zastosowanie przepisy:
-• Ustawy o imprezach turystycznych i powiązanych usługach turystycznych
-• Kodeksu cywilnego
-• Innych obowiązujących przepisów prawa polskiego
+Biuro świadczy usługi doradztwa podróżniczego (Travel Design). Biuro oświadcza, że nie jest organizatorem turystyki w rozumieniu ustawy z dnia 24 listopada 2017 r. o imprezach turystycznych.
 
-11.2. Spory będą rozwiązywane polubownie, a w przypadku braku porozumienia – przez sąd właściwy według przepisów Kodeksu postępowania cywilnego.
+Klient zawiera umowy z dostawcami (loty, hotele) we własnym imieniu i na własny rachunek.`,
+          },
+          {
+            icon: BookOpen,
+            title: "§2. Definicje",
+            content: `• Klient – osoba fizyczna korzystająca z Usług Biura
+• Biuro – ExplorAhead, podmiot świadczący usługi doradztwa podróżniczego
+• Usługi – usługi świadczone przez Biuro, zgodnie z Cennikiem dostępnym na Stronie internetowej, obejmujące w szczególności: sporządzanie Planu podróży
+• Plan Podróży (Travel Design) – produkt cyfrowy (PDF) zawierający spersonalizowane rekomendacje turystyczne, trasy oraz linki do rezerwacji
+• Cennik – zestawienie opłat za przygotowanie spersonalizowanych planów podróży, dostępne na Stronie internetowej www.explorahead.com. Cennik określa wynagrodzenie Biura za świadczoną Usługę Travel Designu i nie stanowi składowej ceny biletów ani rezerwacji dokonywanych przez Klienta
+• Strona internetowa – strona internetowa Biura dostępna pod adresem www.explorahead.com
+• Oferta – przygotowanie przez Biuro wstępny zarys podróży, zawierające przybliżone koszty i propozycje rozwiązań. Oferta ma charakter wyłącznie informacyjny i nie stanowi oferty handlowej w rozumieniu przepisów prawa. Finalna cena wyjazdu jest zależna od zmiennych cen Składników u dostawców zewnętrznych
+• Składniki – poszczególne usługi turystyczne tworzące podróż (w szczególności: bilety lotnicze, zakwaterowanie, ubezpieczenie, transfery, bilety wstępu), które Klient rezerwuje i opłaca samodzielnie na podstawie rekomendacji Biura
+• Płatność – uiszczenie należności za Usługi Biura`,
+          },
+          {
+            icon: List,
+            title: "§3. Rodzaje usług",
+            content: `Usługodawca świadczy następujące usługi:
 
-11.3. Organizator zastrzega sobie prawo do zmiany Regulaminu. Zmiany wchodzą w życie z chwilą opublikowania na stronie internetowej i obowiązują wobec umów zawartych po dacie wejścia w życie zmian.
+Dream Finder (konsultacja wstępna):
+• 60-minutowa konsultacja online/telefoniczna
+• Analiza preferencji i budżetu Klienta
+• 3–5 propozycji miejsc docelowych z opisem
+• Podsumowanie pisemne po konsultacji
+Cena: 149 PLN. W przypadku zamówienia pakietu „Dream Plan" w ciągu 7 dni, kwota zostaje potrącona z jego ceny.
 
-11.4. Aktualny Regulamin jest dostępny na stronie: www.explorahead.com/terms
+Dream Plan (kompletny plan podróży):
+• Szczegółowy harmonogram dnia po dniu
+• Rekomendacje lotów i hoteli
+• Dwie tury poprawek przed wyjazdem
+• Wsparcie e-mailowe
+Ceny: do 4 dni – 249 PLN; 5–10 dni – 399 PLN; 11–14 dni – 549 PLN; powyżej 14 dni – cena indywidualna. Limit: 4 osoby.
 
-Data wejścia w życie: Styczeń 2025`
-      }
-    ],
-    notice: {
-      title: "Ważna informacja",
-      content: `Korzystanie z usług ExplorAhead oznacza akceptację niniejszego Regulaminu. Prosimy o uważne zapoznanie się z jego treścią przed dokonaniem rezerwacji. W razie pytań jesteśmy do Państwa dyspozycji.`
-    },
-    cta: {
-      title: "Pytania dotyczące Regulaminu?",
-      subtitle: "Skontaktuj się z nami – chętnie wyjaśnimy wszelkie wątpliwości"
-    },
-    backLink: "← Powrót do strony głównej"
-  };
+Travel Companion (wsparcie w trakcie podróży):
+• Dostęp do doradcy przez WhatsApp/SMS przez cały czas podróży (max. 14 dni)
+• Pomoc w nagłych zmianach planu
+Cena: 199 PLN. Usługa dostępna wyłącznie w połączeniu z pakietem „Dream Plan".
+
+Express Service (pilny plan):
+• Przygotowanie planu w ciągu max. 3 dni roboczych
+• Podstawowe wsparcie w pierwszych 24h wyjazdu
+Cena: 299 PLN. Dostępne tylko dla podróży do 10 dni.
+
+Premium Package (pakiet kompleksowy):
+• Połączenie usług „Dream Plan" (5–10 dni) i „Travel Companion"
+Cena: 499 PLN.
+
+Szczegółowy zakres Usług oraz aktualny Cennik są dostępne na Stronie.`,
+          },
+          {
+            icon: Clock,
+            title: "§4. Realizacja usługi",
+            content: `Usługa polega na przygotowaniu Planu Podróży w formie cyfrowej (PDF).
+
+Czas przygotowania wstępnego planu wynosi 72 godziny robocze od dnia zaksięgowania wpłaty bądź wysłania potwierdzenia płatności.
+
+Klient ma 72 godziny robocze na zapoznanie się z planem.
+
+W cenie usługi Klientowi przysługują 2 tury poprawek (zmiana propozycji hoteli, lotów lub atrakcji).
+
+Definicja tur poprawek:
+• Jedna tura poprawek obejmuje jedną wymianę wiadomości e-mail w której klient zgłasza wszystkie uwagi dotyczące Planu (np. zmiana hoteli, atrakcji, lotów, harmonogramu)
+• Biuro realizuje wszystkie uwagi zgłoszone w danej turze i przesyła zaktualizowaną wersję Planu
+• Każda kolejna tura poprawek po dwóch pierwszych rozliczana jako usługa
+
+Klient zobowiązuje się do sprawdzenia poprawności danych kontaktowych.
+
+Biuro nie ponosi odpowiedzialności za brak dostarczenia planu z przyczyn leżących po stronie Klienta (np. błędny adres e-mail).`,
+          },
+          {
+            icon: CreditCard,
+            title: "§5. Płatności i zawarcie umowy",
+            content: `Metody płatności za Usługi to: BLIK (przelew na telefon BLIK) lub przelew bankowy na numer konta.
+
+Numer konta bankowego Biura:
+03 1140 2004 0000 3702 7919 9431
+
+Umowa o świadczenie usługi doradztwa podróżniczego zostaje zawarta z chwilą otrzymania przez Usługodawcę pełnej zapłaty w wysokości 100% ceny usługi.
+
+Po dokonaniu Płatności przelewem na numer konta, Klient powinien wysłać Biuru potwierdzenie przelewu. W innym przypadku Biuro przystąpi do wykonania Usługi dopiero po pojawieniu się należności na koncie bankowym.
+
+Usługa zostanie wykonana dopiero po jej opłaceniu.
+
+Jako tytuł płatności Klient powinien umieścić swoje imię i nazwisko.
+
+Wynagrodzenie obejmuje wyłącznie usługę doradczą. Koszty Składników Podróży (bilety, noclegi) są płatne przez Klienta bezpośrednio u dostawców.
+
+Klient wyraża zgodę na natychmiastowe rozpoczęcie świadczenia usługi (przygotowanie spersonalizowanego Planu Podróży) przed upływem 14-dniowego terminu do odstąpienia od umowy. W związku z tym traci prawo do odstąpienia od umowy od chwili pełnego wykonania usługi.`,
+          },
+          {
+            icon: AlertCircle,
+            title: "§6. Odpowiedzialność i reklamacje",
+            content: `Biuro oświadcza, że nie przyjmuje od Klienta żadnych środków pieniężnych przeznaczonych na opłacenie Składników podróży (lotów, noclegów, ubezpieczeń itp.). Wszystkie płatności za te elementy Klient wykonuje samodzielnie i bezpośrednio u ich dostawców. Biuro nie ponosi odpowiedzialności za proces płatności pomiędzy Klientem a podmiotami trzecimi.
+
+Biuro nie gwarantuje niezmienności cen oraz dostępności ofert (lotów, hoteli) pomiędzy momentem wysłania planu a dokonaniem rezerwacji przez Klienta.
+
+Biuro nie ponosi odpowiedzialności za niewykonane lub nienależyte wykonanie usług przez podmioty trzecie (np. linie lotnicze, hotele, wypożyczalnie aut). Wszelkie reklamacje dotyczące jakości tych usług, odwołania lotów, zmian terminów czy standardu zakwaterowania Klient powinien kierować bezpośrednio do dostawcy danej Usługi.
+
+Zaleca się, aby Klient we własnym zakresie wykupił ubezpieczenie turystyczne oraz ubezpieczenie od kosztów rezygnacji.
+
+Przygotowany przez Biuro Plan podróży ma charakter wyłącznie informacyjny oraz rekomendacyjny. Biuro dostarcza profesjonalną wiedzę i propozycje, natomiast ostateczne decyzje dotyczące realizacji wyjazdu, wyboru konkretnych ofert oraz momentu dokonania rezerwacji należą wyłącznie do Klienta.
+
+Zgodnie z art. 38 pkt 3 Ustawy o prawach konsumenta, Klientowi nie przysługuje prawo do odstąpienia od umowy po rozpoczęciu świadczenia Usługi, gdyż przedmiotem świadczenia jest produkt cyfrowy przygotowany według zindywidualizowanej specyfikacji Klienta.
+
+Jeśli Klient uważa, że sama Usługa doradcza (Plan) została wykonana nienależycie (np. zawiera rażące błędy logistyczne), ma prawo złożyć reklamację drogą mailową na adres ${contact.email}
+
+Biuro rozpatrzy reklamację w terminie 14 dni od jej otrzymania. Odpowiedź zostanie przesłana na adres e-mail Klienta.
+
+W przypadku niewykonania Usługi przez Biuro, Klient otrzyma zwrot pieniędzy za niewykonane Usługi do 7 dni roboczych.
+
+Biuro zobowiązuje się odpowiadać za niewykonanie lub nienależyte wykonanie Usługi chyba, że jest ono spowodowane:
+• Działaniem lub zaniechaniem Klienta
+• Działaniem lub zaniechaniem osób trzecich, nieuczestniczących w kontakcie Biuro - Klient, jeżeli tych działań/zaniechań nie można było przewidzieć/uniknąć
+• Działaniem lub zaniechaniem Usługodawców
+• Siłą wyższą (zdarzenie o charakterze przypadkowym lub naturalnym/żywiołowym, na które Biuro nie ma wpływu, na przykład: wojna, zamieszki, epidemia, wypadek, katastrofa naturalna, śmierć)
+
+Biuro dokłada wszelkich starań, aby przygotowana Oferta była w pełni zgodna z wytycznymi Klienta. Jeżeli jednak oczekiwania Klienta (np. budżetowe lub terminowe) są niemożliwe do zrealizowania ze względu na aktualną sytuację rynkową lub brak dostępności Składników, Biuro przygotuje propozycję najbardziej zbliżoną do pierwotnych założeń lub niezwłocznie poinformuje Klienta o braku możliwości wykonania Usługi. Takie działanie uznaje się za należyte wykonanie Usługi doradczej.
+
+W przypadku stwierdzenia przez Klienta, że otrzymany Plan Podróży jest niezgodny z umową (np. zawiera błędy w datach lub lokalizacjach rażąco odbiegających od ustaleń), Klientowi przysługuje prawo do złożenia reklamacji.
+
+Reklamacje należy przesłać drogą elektroniczną na adres email ${contact.email}
+
+Reklamacja dotycząca wad usługi (np. błędne daty w Planie Podróży, brak spójności trasy) powinna zawierać opis niezgodności oraz załącznik z Planem Podróży. Biuro rozpatrzy ją w ciągu 14 dni.`,
+          },
+          {
+            icon: Copyright,
+            title: "§7. Prawa autorskie",
+            content: `Plan Podróży jest utworem chronionym i jest przeznaczony wyłącznie do prywatnego użytku Klienta. Zakazuje się jego publikowania, odsprzedaży lub udostępniania osobom trzecim.`,
+          },
+          {
+            icon: Lock,
+            title: "§8. Pliki cookies",
+            content: (
+              <>
+                Strona internetowa Biura wykorzystuje pliki cookies w celu zapewnienia komfortu
+                korzystania z usługi oraz analizy ruchu. Szczegółowe informacje o celu przetwarzania
+                danych przez cookies oraz możliwość ich wyłączenia znajdziesz w Polityce Prywatności
+                pod adresem:{" "}
+                <Link
+                  href="/privacy"
+                  className="text-ocean hover:text-gold underline transition-colors"
+                >
+                  www.explorahead.com/privacy
+                </Link>
+              </>
+            ),
+          },
+          {
+            icon: Shield,
+            title: "§9. Ochrona danych osobowych (RODO)",
+            content: (
+              <>
+                Administratorem danych osobowych Klientów jest Biuro Podróży ExplorAhead.
+                {"\n\n"}
+                Przetwarzanie danych w celach marketingowych (np. wysyłka newslettera) odbywa się
+                wyłącznie za zgodą.
+                {"\n\n"}
+                Podanie danych osobowych jest dobrowolne, jednakże ich brak uniemożliwi Biuru
+                przygotowanie Oferty oraz realizację Usługi.
+                {"\n\n"}
+                Każdemu Klientowi przysługuje prawo dostępu do swoich danych, ich sprostowania,
+                usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych.
+                {"\n\n"}
+                Szczegółowe informacje o przetwarzaniu danych znajdziesz w Polityce Prywatności
+                dostępnej pod adresem:{" "}
+                <Link
+                  href="/privacy"
+                  className="text-ocean hover:text-gold underline transition-colors"
+                >
+                  www.explorahead.com/privacy
+                </Link>
+              </>
+            ),
+          },
+          {
+            icon: Scale,
+            title: "§10. Postanowienia końcowe",
+            content: `Prawem właściwym dla niniejszego Regulaminu jest prawo polskie.
+
+W sprawach nieuregulowanych w niniejszym Regulaminie mają zastosowanie przepisy:
+• Ustawy o prawach konsumenta z dnia 30 maja 2014 r. (Dz.U. 2014 poz. 827 z późn. zm.)
+• Ustawy o świadczeniu usług drogą elektroniczną z dnia 18 lipca 2002 r. (Dz.U. 2002 nr 144 poz. 1204 z późn. zm.)
+• Ustawy o pozasądowym rozwiązywaniu sporów konsumenckich z dnia 23 września 2016 r. (Dz.U. 2016 poz. 1823)
+• Ustawy Kodeksu Cywilnego z dnia 23 kwietnia 1964 r. (Dz.U. 1964 nr 16 poz. 93 z późn. zm.)
+• Oraz inne właściwe przepisy prawa polskiego
+
+Data wejścia w życie: Luty 2026`,
+          },
+        ],
+        notice: {
+          title: "Ważna informacja",
+          content: `Korzystanie z usług ExplorAhead oznacza akceptację niniejszego Regulaminu. Prosimy o uważne zapoznanie się z jego treścią przed zamówieniem usługi. W razie pytań jesteśmy do Państwa dyspozycji.`,
+        },
+        cta: {
+          title: "Pytania dotyczące Regulaminu?",
+          subtitle: "Skontaktuj się z nami – chętnie wyjaśnimy wszelkie wątpliwości",
+        },
+        backLink: "← Powrót do strony głównej",
+      };
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-ocean via-ocean-dark to-ocean">
+      <section className="from-ocean via-ocean-dark to-ocean relative bg-gradient-to-br pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="container text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gold/20 backdrop-blur-sm mb-6"
+            className="bg-gold/20 mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl backdrop-blur-sm"
           >
             <Scale size={40} className="text-gold" />
           </motion.div>
@@ -452,7 +479,8 @@ Data wejścia w życie: Styczeń 2025`
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-white text-4xl md:text-5xl lg:text-6xl font-heading mb-6"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {content.hero.title}
           </motion.h1>
@@ -461,7 +489,7 @@ Data wejścia w życie: Styczeń 2025`
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl text-lg text-white/80 md:text-xl"
           >
             {content.hero.subtitle}
           </motion.p>
@@ -471,10 +499,8 @@ Data wejścia w życie: Styczeń 2025`
       {/* Content Section */}
       <section className="section">
         <div className="container max-w-4xl">
-          <div className="bg-sand-light/30 rounded-2xl p-8 mb-12">
-            <p className="text-gray-dark leading-relaxed">
-              {content.intro}
-            </p>
+          <div className="bg-sand-light/30 mb-12 rounded-2xl p-8">
+            <p className="text-gray-dark leading-relaxed">{content.intro}</p>
           </div>
 
           <div className="space-y-12">
@@ -485,18 +511,19 @@ Data wejścia w życie: Styczeń 2025`
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
-                style={{ padding: '3rem' }}
+                className="rounded-2xl bg-white shadow-md transition-shadow hover:shadow-lg"
+                style={{ padding: "3rem" }}
               >
-                <div className="flex items-start gap-4" style={{ marginBottom: '2rem' }}>
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-ocean flex items-center justify-center">
+                <div className="flex items-start gap-4" style={{ marginBottom: "2rem" }}>
+                  <div className="bg-ocean flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
                     <section.icon size={24} className="text-gold" />
                   </div>
-                  <h2 className="text-2xl font-heading text-ocean mt-1">
-                    {section.title}
-                  </h2>
+                  <h2 className="font-heading text-ocean mt-1 text-2xl">{section.title}</h2>
                 </div>
-                <div className="text-gray-dark whitespace-pre-line" style={{ marginLeft: '4rem', paddingRight: '2rem', lineHeight: '1.8' }}>
+                <div
+                  className="text-gray-dark whitespace-pre-line"
+                  style={{ marginLeft: "4rem", paddingRight: "2rem", lineHeight: "1.8" }}
+                >
                   {section.content}
                 </div>
               </motion.div>
@@ -509,15 +536,13 @@ Data wejścia w życie: Styczeń 2025`
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16 bg-gold/10 border-l-4 border-gold rounded-xl p-6"
+            className="bg-gold/10 border-gold mt-16 rounded-xl border-l-4 p-6"
           >
             <div className="flex items-start gap-3">
-              <AlertCircle size={24} className="text-gold flex-shrink-0 mt-1" />
+              <AlertCircle size={24} className="text-gold mt-1 flex-shrink-0" />
               <div>
-                <h3 className="text-lg font-heading text-ocean mb-2">{content.notice.title}</h3>
-                <p className="text-gray-dark">
-                  {content.notice.content}
-                </p>
+                <h3 className="font-heading text-ocean mb-2 text-lg">{content.notice.title}</h3>
+                <p className="text-gray-dark">{content.notice.content}</p>
               </div>
             </div>
           </motion.div>
@@ -528,23 +553,21 @@ Data wejścia w życie: Styczeń 2025`
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-12 bg-gradient-to-br from-ocean to-ocean-dark rounded-2xl p-8 text-center text-white"
+            className="cookie-cta-section from-ocean to-ocean-dark mt-12 rounded-2xl bg-gradient-to-br text-center text-white"
           >
-            <h3 className="text-2xl font-heading mb-4">{content.cta.title}</h3>
-            <p className="text-white/80 mb-6">
-              {content.cta.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <h3 className="font-heading mb-4 text-2xl">{content.cta.title}</h3>
+            <p className="mb-6 text-white/80">{content.cta.subtitle}</p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={getMailtoLink()}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-ocean font-semibold rounded-xl transition-colors"
+                className="cookie-cta-btn bg-gold hover:bg-gold-dark text-ocean"
               >
                 <Mail size={20} />
                 {contact.email}
               </a>
               <a
                 href={getTelLink()}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl transition-colors"
+                className="cookie-cta-btn bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
               >
                 <Phone size={20} />
                 {contact.phone}
@@ -556,7 +579,7 @@ Data wejścia w życie: Styczeń 2025`
           <div className="mt-12 text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-ocean hover:text-gold transition-colors font-medium"
+              className="text-ocean hover:text-gold inline-flex items-center gap-2 font-medium transition-colors"
             >
               {content.backLink}
             </Link>

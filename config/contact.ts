@@ -1,4 +1,9 @@
 /**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
+/**
  * Contact Information Configuration
  *
  * Centralized contact information for the website.
@@ -14,7 +19,7 @@ export const contact = {
   /**
    * Primary contact email address
    */
-  email: "info@explorahead.com",
+  email: "contact@explorahead.com",
 
   /**
    * Primary contact phone number

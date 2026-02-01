@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -28,7 +33,7 @@ export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const savedPreferences = localStorage.getItem("cookie-preferences");
       if (savedPreferences) {
         try {
@@ -91,61 +96,61 @@ export function CookieConsent() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+        className="fixed right-0 bottom-0 left-0 z-50 p-4 md:p-6"
         role="dialog"
         aria-labelledby="cookie-consent-title"
         aria-describedby="cookie-consent-description"
       >
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-white rounded-2xl shadow-2xl border border-sand-200 overflow-hidden">
+          <div className="border-sand-200 overflow-hidden rounded-2xl border bg-white shadow-2xl">
             {/* Main Banner */}
             {!showPreferences && (
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-ocean/10 rounded-xl flex items-center justify-center">
-                    <Cookie className="w-6 h-6 text-ocean" />
+                  <div className="bg-ocean/10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl">
+                    <Cookie className="text-ocean h-6 w-6" />
                   </div>
                   <div className="flex-1">
                     <h2
                       id="cookie-consent-title"
-                      className="text-lg font-heading font-semibold text-ocean mb-2"
+                      className="font-heading text-ocean mb-2 text-lg font-semibold"
                     >
                       {t("title")}
                     </h2>
                     <p
                       id="cookie-consent-description"
-                      className="text-sand-700 text-sm md:text-base mb-4"
+                      className="text-sand-700 mb-4 text-sm md:text-base"
                     >
                       {t("description")}
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <button
                         onClick={handleAcceptAll}
-                        className="px-6 py-2.5 bg-ocean text-white rounded-lg font-medium hover:bg-ocean-600 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2"
+                        className="bg-ocean hover:bg-ocean-600 focus:ring-ocean rounded-lg px-6 py-2.5 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                       >
                         {t("acceptAll")}
                       </button>
                       <button
                         onClick={handleDeclineAll}
-                        className="px-6 py-2.5 bg-sand-100 text-sand-700 rounded-lg font-medium hover:bg-sand-200 transition-colors focus:outline-none focus:ring-2 focus:ring-sand-400 focus:ring-offset-2"
+                        className="bg-sand-100 text-sand-700 hover:bg-sand-200 focus:ring-sand-400 rounded-lg px-6 py-2.5 font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                       >
                         {t("declineAll")}
                       </button>
                       <button
                         onClick={() => setShowPreferences(true)}
-                        className="px-6 py-2.5 text-ocean hover:text-ocean-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 rounded-lg flex items-center gap-2"
+                        className="text-ocean hover:text-ocean-600 focus:ring-ocean flex items-center gap-2 rounded-lg px-6 py-2.5 font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                       >
-                        <Settings className="w-4 h-4" />
+                        <Settings className="h-4 w-4" />
                         {t("customize")}
                       </button>
                     </div>
                   </div>
                   <button
                     onClick={handleDeclineAll}
-                    className="flex-shrink-0 p-2 text-sand-400 hover:text-sand-600 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-sand-400"
+                    className="text-sand-400 hover:text-sand-600 focus:ring-sand-400 flex-shrink-0 rounded-lg p-2 transition-colors focus:ring-2 focus:outline-none"
                     aria-label={t("close")}
                   >
-                    <X className="w-5 h-5" />
+                    <X className="h-5 w-5" />
                   </button>
                 </div>
               </div>
@@ -159,20 +164,20 @@ export function CookieConsent() {
                 exit={{ opacity: 0, height: 0 }}
                 className="p-6 md:p-8"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-heading font-semibold text-ocean">
+                <div className="mb-6 flex items-center justify-between">
+                  <h3 className="font-heading text-ocean text-lg font-semibold">
                     {t("preferences.title")}
                   </h3>
                   <button
                     onClick={() => setShowPreferences(false)}
-                    className="p-2 text-sand-400 hover:text-sand-600 transition-colors rounded-lg"
+                    className="text-sand-400 hover:text-sand-600 rounded-lg p-2 transition-colors"
                     aria-label={t("back")}
                   >
-                    <X className="w-5 h-5" />
+                    <X className="h-5 w-5" />
                   </button>
                 </div>
 
-                <div className="space-y-4 mb-6">
+                <div className="mb-6 space-y-4">
                   {/* Necessary Cookies - Always enabled */}
                   <CookieToggle
                     id="necessary"
@@ -209,14 +214,14 @@ export function CookieConsent() {
                 <div className="flex gap-3">
                   <button
                     onClick={handleSavePreferences}
-                    className="px-6 py-2.5 bg-ocean text-white rounded-lg font-medium hover:bg-ocean-600 transition-colors focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 flex items-center gap-2"
+                    className="bg-ocean hover:bg-ocean-600 focus:ring-ocean flex items-center gap-2 rounded-lg px-6 py-2.5 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                   >
-                    <Check className="w-4 h-4" />
+                    <Check className="h-4 w-4" />
                     {t("savePreferences")}
                   </button>
                   <button
                     onClick={handleAcceptAll}
-                    className="px-6 py-2.5 bg-sand-100 text-sand-700 rounded-lg font-medium hover:bg-sand-200 transition-colors focus:outline-none focus:ring-2 focus:ring-sand-400 focus:ring-offset-2"
+                    className="bg-sand-100 text-sand-700 hover:bg-sand-200 focus:ring-sand-400 rounded-lg px-6 py-2.5 font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                   >
                     {t("acceptAll")}
                   </button>
@@ -248,15 +253,12 @@ function CookieToggle({
   onChange,
 }: CookieToggleProps) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-sand-50 rounded-xl">
+    <div className="bg-sand-50 flex items-start gap-4 rounded-xl p-4">
       <div className="flex-1">
-        <label
-          htmlFor={`cookie-${id}`}
-          className="font-medium text-ocean cursor-pointer"
-        >
+        <label htmlFor={`cookie-${id}`} className="text-ocean cursor-pointer font-medium">
           {title}
         </label>
-        <p className="text-sm text-sand-600 mt-1">{description}</p>
+        <p className="text-sand-600 mt-1 text-sm">{description}</p>
       </div>
       <button
         id={`cookie-${id}`}
@@ -264,19 +266,10 @@ function CookieToggle({
         aria-checked={enabled}
         disabled={disabled}
         onClick={() => !disabled && onChange(!enabled)}
-        className={`
-          relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent 
-          transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2
-          ${enabled ? "bg-ocean" : "bg-sand-300"}
-          ${disabled ? "opacity-70 cursor-not-allowed" : ""}
-        `}
+        className={`focus:ring-ocean relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-offset-2 focus:outline-none ${enabled ? "bg-ocean" : "bg-sand-300"} ${disabled ? "cursor-not-allowed opacity-70" : ""} `}
       >
         <span
-          className={`
-            pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 
-            transition duration-200 ease-in-out
-            ${enabled ? "translate-x-5" : "translate-x-0"}
-          `}
+          className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${enabled ? "translate-x-5" : "translate-x-0"} `}
         />
       </button>
     </div>
@@ -288,13 +281,13 @@ function CookieToggle({
  */
 export function useCookieConsent() {
   const [consent, setConsent] = useState<ConsentStatus>(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       return (localStorage.getItem("cookie-consent") as ConsentStatus) || "pending";
     }
     return "pending";
   });
   const [preferences, setPreferences] = useState<CookiePreferences>(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const savedPrefs = localStorage.getItem("cookie-preferences");
       if (savedPrefs) {
         try {
@@ -308,7 +301,6 @@ export function useCookieConsent() {
   });
 
   useEffect(() => {
-
     const handleChange = () => {
       const newStatus = localStorage.getItem("cookie-consent") as ConsentStatus | null;
       const newPrefs = localStorage.getItem("cookie-preferences");

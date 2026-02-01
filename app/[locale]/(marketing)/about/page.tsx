@@ -1,10 +1,15 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact } from "@/config/contact";
 import { isFeatureEnabled } from "@/config/features";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
-import { Globe, Heart, Mail, RefreshCw, Shield, Star, Users } from "lucide-react";
+import { Heart, Mail, RefreshCw, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRef } from "react";
@@ -25,29 +30,14 @@ export default function AboutPage() {
       descriptionKey: "values.items.passion.description",
     },
     {
-      icon: Globe,
-      titleKey: "values.items.expertise.title",
-      descriptionKey: "values.items.expertise.description",
-    },
-    {
       icon: Users,
       titleKey: "values.items.personal.title",
       descriptionKey: "values.items.personal.description",
     },
     {
-      icon: Shield,
-      titleKey: "values.items.trust.title",
-      descriptionKey: "values.items.trust.description",
-    },
-    {
       icon: RefreshCw,
       titleKey: "values.items.flexibility.title",
       descriptionKey: "values.items.flexibility.description",
-    },
-    {
-      icon: Star,
-      titleKey: "values.items.value.title",
-      descriptionKey: "values.items.value.description",
     },
   ];
 
@@ -94,7 +84,8 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {t("hero.title")}
           </motion.h1>
@@ -215,8 +206,8 @@ export default function AboutPage() {
             style={{ padding: "40px" }}
           >
             <h3
-              className="font-heading text-center text-3xl text-white md:text-4xl"
-              style={{ marginBottom: "0.3em" }}
+              className="font-heading text-center text-3xl md:text-4xl"
+              style={{ marginBottom: "0.3em", color: "#d4a574" }}
             >
               {t("cta.title")}
             </h3>

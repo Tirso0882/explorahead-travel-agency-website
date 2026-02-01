@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 export { Button } from "./Button";
 export { Card, CardContent, CardDescription, CardImage, CardTitle } from "./Card";
 export { CookieConsent, useCookieConsent } from "./CookieConsent";

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 import { GoogleAnalytics } from "@/components/analytics";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { routing } from "@/lib/i18n/routing";
@@ -115,7 +120,7 @@ export default async function LocaleLayout({
       "@type": "ContactPoint",
       telephone: "+48-503-801-994",
       contactType: "customer service",
-      email: "info@explorahead.com",
+      email: "contact@explorahead.com",
       availableLanguage: ["English", "Polish"],
     },
     priceRange: "$$",

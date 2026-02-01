@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 import { defineConfig, devices } from "@playwright/test";
 
 /**
@@ -10,11 +15,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [
-    ["list"],
-    ["html", { outputFolder: "playwright-report" }],
-  ],
-  
+  reporter: [["list"], ["html", { outputFolder: "playwright-report" }]],
+
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",

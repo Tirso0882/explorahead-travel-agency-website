@@ -1,9 +1,15 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact } from "@/config/contact";
+import { Link } from "@/lib/i18n/routing";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
-import { Luggage, Map, MessageCircle, Phone } from "lucide-react";
+import { Luggage, Mail, Map, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
@@ -41,12 +47,6 @@ export function HowItWorks() {
     },
   ];
 
-  const trustItems = [
-    { key: "trust.noObligation" },
-    { key: "trust.freeConsultation" },
-    { key: "trust.instantResponse" },
-  ];
-
   return (
     <section ref={sectionRef} className="section bg-sand-light">
       <div className="container mx-auto max-w-7xl px-5 py-20">
@@ -57,81 +57,57 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="mb-12 flex flex-col items-center justify-center"
         >
-          <span className="text-gold mb-6 inline-block px-6 py-2.5 text-center text-sm font-medium tracking-wider uppercase">
-            {t("badge")}
-          </span>
+          <span className="section-badge">{t("badge")}</span>
           <h2 className="text-ocean font-heading mb-8 max-w-3xl text-center text-4xl md:text-5xl">
             {t("title")}
           </h2>
           {/* Subtitle - Centered horizontally and vertically balanced with title */}
-          <p className="text-gray-dark max-w-2xl px-4 text-center text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl">
-            {t("subtitle")}
-          </p>
+          <p className="section-subtitle px-4 text-center">{t("subtitle")}</p>
         </motion.div>
 
-        {/* Trust Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-ocean/5 rounded-2xl px-6 py-4"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {trustItems.map((item) => (
-              <div key={item.key} className="flex items-center gap-2">
-                <span className="bg-gold h-2 w-2 rounded-full" />
-                <span className="text-ocean text-sm font-medium md:text-base">{t(item.key)}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Spacer - Small gap before cards, badge extends slightly above */}
+        <div className="h-4 md:h-6" />
 
-        {/* Spacer - Icon extends 40px above card, so need 40px + breathing room */}
-        <div style={{ height: "80px" }} />
-
-        {/* Step Cards - With icons peeking from top edge */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {/* Step Cards Container
+            Mobile: Horizontal scroll-snap carousel with pt-4 for badge visibility
+            Desktop: Grid layout */}
+        <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pt-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pt-6 md:pb-0 lg:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.titleKey}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              className="relative flex flex-col items-center"
+              className="relative w-[85vw] flex-shrink-0 snap-center md:w-auto md:flex-shrink"
             >
-              {/* Card Container - Icon center is at card top edge (0px). Icon is 80px tall, so:
-                  - Icon top: -40px (above card)
-                  - Icon bottom: 40px (inside card, 40px overlap)
-                  - Card padding-top: 72px (40px overlap + 32px clear space) */}
-              <div
-                className="w-full min-w-0 rounded-2xl bg-white px-4 pb-8 text-center shadow-md"
-                style={{ paddingTop: "72px" }}
-              >
-                {/* Title - with clear spacing below icon, no overlap */}
-                <h3 className="font-heading text-ocean mb-4 font-semibold">{t(step.titleKey)}</h3>
+              {/* Card Container - Icon is inside, no overflow issues */}
+              <div className="relative w-full rounded-2xl bg-white px-4 pt-8 pb-6 shadow-md sm:px-6 md:pt-10 md:pb-8">
+                {/* Step Number Badge - Inside card, top left corner */}
+                <div className="bg-gold absolute top-3 left-3 z-10 flex h-8 w-8 items-center justify-center rounded-full shadow-lg md:top-4 md:left-4 md:h-10 md:w-10">
+                  <span className="text-sm font-bold text-white md:text-base">
+                    {step.stepNumber}
+                  </span>
+                </div>
+
+                {/* Icon - Inside the card, centered */}
+                <div className="mb-4 flex justify-center">
+                  <div className="bg-ocean flex h-14 w-14 items-center justify-center rounded-full shadow-md md:h-16 md:w-16">
+                    <step.icon className="h-6 w-6 text-white md:h-8 md:w-8" strokeWidth={1.5} />
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="card-title text-center">{t(step.titleKey)}</h3>
 
                 {/* Description */}
-                <p className="text-gray-dark mb-5 text-base leading-relaxed">
+                <p className="card-description mx-auto mb-4 text-center">
                   {t(step.descriptionKey)}
                 </p>
 
                 {/* Detail Lines */}
-                <div className="text-gold space-y-1 text-sm">
+                <div className="text-gold space-y-1 text-center text-sm">
                   <p className="font-medium">{t(step.detailKey)}</p>
                   <p className="font-medium">{t(step.detail2Key)}</p>
-                </div>
-              </div>
-
-              {/* Icon - positioned so center aligns with card top edge (half in, half out) */}
-              <div className="absolute top-0 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative">
-                  <div className="bg-ocean flex h-20 w-20 items-center justify-center rounded-full shadow-lg">
-                    <step.icon size={36} className="text-white" strokeWidth={1.5} />
-                  </div>
-                  {/* Step Number Badge */}
-                  <div className="bg-gold absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full shadow-md">
-                    <span className="text-sm font-bold text-white">{step.stepNumber}</span>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -155,7 +131,9 @@ export function HowItWorks() {
 
           {/* Subtitle - Centered with respect to title */}
           <div className="mb-12 flex justify-center">
-            <p className="max-w-xl text-center text-lg text-white/80">{t("cta.subtitle")}</p>
+            <p className="max-w-xl text-center text-base leading-relaxed text-white/80 md:text-lg">
+              {t("cta.subtitle")}
+            </p>
           </div>
 
           {/* Buttons - Centered with spacing */}
@@ -184,15 +162,15 @@ export function HowItWorks() {
               {t("cta.chatNow")}
             </a>
 
-            {/* Book a Quick Call Button */}
-            <a
-              href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+            {/* Contact Us Button */}
+            <Link
+              href="/contact#contact-form"
               className="bg-ocean-light hover:bg-ocean-dark inline-flex w-full items-center justify-center gap-4 rounded-full border-2 border-white/30 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto lg:text-xl"
               style={{ padding: "16px 48px" }}
             >
-              <Phone size={40} />
-              {t("cta.bookCall")}
-            </a>
+              <Mail size={40} />
+              {t("cta.contactUs")}
+            </Link>
           </div>
 
           {/* Social Proof - Equidistant from buttons and bottom border */}

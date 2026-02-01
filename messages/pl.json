@@ -24,7 +24,8 @@
     "no": "Nie",
     "error": "Błąd",
     "success": "Sukces",
-    "bookNow": "Zarezerwuj Teraz"
+    "bookNow": "Zarezerwuj Teraz",
+    "days": "dni"
   },
   "navigation": {
     "home": "Strona Główna",
@@ -38,19 +39,53 @@
     "logout": "Wyloguj",
     "toggleMenu": "Przełącz menu"
   },
+  "whatsapp": {
+    "defaultMessage": "Cześć, jestem zainteresowany zaplanowaniem mojej podróży marzeń. Czy możesz mi w tym pomóc?",
+    "ariaLabel": "Porozmawiaj z nami na WhatsApp"
+  },
   "hero": {
     "badge": "Twoja Podróż Zaczyna Się Tutaj",
     "title": "Odkryj Świat,",
     "titleHighlight": "Na Swój Sposób",
-    "subtitle": "Marzysz o bezproblemowym doświadczeniu podróżniczym?",
-    "subtitleLine2": "Podziel się swoją wizją, a my zajmiemy się szczegółami.",
-    "ctaPrimary": "Zacznij Planować",
     "ctaSecondary": "Odkryj Destynacje",
     "stats": {
       "destinations": "Destynacje",
       "experience": "Lat Doświadczenia",
       "support": "Wsparcie"
-    }
+    },
+    "slides": {
+      "madagascar": {
+        "message": "Odkrywaj miejsca, w których natura wciąż tworzy cuda.",
+        "tagline": "Dzika Natura",
+        "whatsappMessage": "Marzę o zobaczeniu baobabów na Madagaskarze — pomożesz mi zaplanować wyjazd?"
+      },
+      "philippines": {
+        "message": "Doświadczaj chwil, w których raj staje się rzeczywistością.",
+        "tagline": "Czysty Raj",
+        "whatsappMessage": "Palawan wygląda niesamowicie - pomożesz mi zaplanować taki wyjazd?"
+      },
+      "utah": {
+        "message": "Podążaj tam, gdzie horyzonty otwierają nowe historie.",
+        "tagline": "Bez Granic",
+        "whatsappMessage": "Chcę zobaczyć kaniony Utah - pomożesz mi zaplanować podróż?"
+      },
+      "colombia": {
+        "message": "Zanurz się w świecie pełnym kolorów.",
+        "tagline": "Świat Kolorów",
+        "whatsappMessage": "Marzy mi się Guatapé i jego kolory - pomożesz mi zaplanować wyjazd?"
+      },
+      "cuba": {
+        "message": "Poczuj rytm miejsc, które żyją własnym tempem.",
+        "tagline": "Poczuj Rytm",
+        "whatsappMessage": "Marzą mi się uliczki Hawany - pomożesz mi zaplanować podróż?"
+      },
+      "israel": {
+        "message": "Odnajdź spokój w podróżach, które naprawdę poruszają.",
+        "tagline": "Chwila Spokoju",
+        "whatsappMessage": "Chciałbym odwiedzić Ogrody Bahaitów - pomożesz mi zaplanować wyjazd?"
+      }
+    },
+    "journeyComplete": "Odkryłem wszystkie Wasze destynacje — jestem gotowy zaplanować podróż marzeń!"
   },
   "auth": {
     "login": {
@@ -156,7 +191,7 @@
       "cookies": "Polityka Cookies"
     },
     "contact": {
-      "email": "info@explorahead.com",
+      "email": "contact@explorahead.com",
       "phone": "+48 690 946 046",
       "address": "Wroclaw, Poland"
     }
@@ -231,32 +266,35 @@
           "title": "Atrakcje i Doświadczenia",
           "description": "Od ukrytych kawiarni po prywatne przewodnictwo-bez pułapek turystycznych, tylko autentyczne chwile."
         },
-        "support": {
-          "title": "Wsparcie",
-          "description": "Od pierwszego maila aż do powrotu do domu - jeśli coś się zmieni, odpowiemy mailowo w godzinach 9:00 -18:00.",
-          "descriptionLine2": "Chcesz mieć dostęp do wsparcia przez WhatsApp po godzinach pracy?",
-          "descriptionLine3": "Dodaj opcję Wsparcie w podróży - odpowiadam najszybciej jak tylko mogę, nawet po 18:00."
+        "emailSupport": {
+          "title": "Wsparcie E-mail",
+          "description": "Pytania przed lub podczas podróży? Jesteśmy tu, aby pomóc mailem w godzinach 9:00 - 18:00."
+        },
+        "whatsappSupport": {
+          "title": "WhatsApp 24/7",
+          "description": "Potrzebujesz pomocy po godzinach? Dodaj Wsparcie w Podróży dla dostępu przez WhatsApp w każdej chwili.",
+          "descriptionLine3": "Odpowiadam najszybciej jak tylko mogę, nawet po 18:00."
         }
       }
     },
     "whyChooseUs": {
-      "title": "Dlaczego Podróżować Ze Mną Zamiast Z Kimś Innym?",
+      "title": "Dlaczego warto zaplanować podróż ze mną?",
       "items": {
         "zeroStress": {
           "title": "Zero Stresu",
-          "description": "Zajmuję się wszystkim-obsługuję każdy szczegół. Wystarczy, że przyjdziesz z walizką i będziesz cieszyć się podróżą ze mną."
+          "description": "Zajmuję się każdym detalem - od planu po logistykę. Ty skupiasz się tylko na przeżywaniu podróży."
         },
         "authenticity": {
-          "title": "Autentyczność",
-          "description": "Unikam pułapek turystycznych; znajduję prawdziwe miejsca i doświadczenia, które zostaną z Tobą na zawsze."
+          "title": "Świadome Podróżowanie",
+          "description": "Pomagam odkrywać miejsca w sposób dopasowany do Ciebie - bez zbędnych rozczarowań i nierealnych oczekiwań."
         },
         "supportReturn": {
           "title": "Wsparcie Po Powrocie",
-          "description": "Jestem tutaj dla Ciebie od momentu rezerwacji aż do bezpiecznego powrotu do domu."
+          "description": "Jestem z Tobą od momentu planowania aż do zakończenia podróży - tak, abyś czuł się pewnie i spokojnie."
         },
         "personalized": {
           "title": "Spersonalizowana Obsługa 1:1",
-          "description": "Twoja podróż jest dostosowana wyłącznie dla Ciebie-nie dla grupy. Poznaję Twój styl życia i tworzę idealny plan."
+          "description": "Każdy plan tworzę indywidualnie - dla Ciebie, pary lub grupy - z uwzględnieniem wspólnych potrzeb i oczekiwań."
         }
       }
     },
@@ -266,7 +304,6 @@
       "subtitle": "Bez formularzy. Bez czekania. Bez zobowiązań. Po prostu rozmowa o Twojej wymarzonej podróży.",
       "trust": {
         "noObligation": "Bez zobowiązań",
-        "freeConsultation": "Darmowa konsultacja",
         "instantResponse": "Natychmiastowa odpowiedź"
       },
       "steps": {
@@ -290,11 +327,11 @@
         }
       },
       "cta": {
-        "title": "Gotowy Rozpocząć Planowanie?",
-        "subtitle": "Wybierz preferowany sposób kontaktu—bez formularzy, bez problemów.",
-        "chatNow": "Czat Ze Mną Teraz",
-        "bookCall": "Zarezerwuj Szybką Rozmowę",
-        "socialProof": "Dołącz do 100+ podróżników, którzy zaufali nam swoje wymarzone podróże"
+        "title": "Gotowy Rozpocząć Planowanie Podróży?",
+        "subtitle": "Wybierz wygodny sposób kontaktu - bez formularzy, bez komplikacji.",
+        "chatNow": "Napisz na WhatsApp",
+        "contactUs": "Napisz do mnie e-mail",
+        "socialProof": "Dołącz do 100+ podróżników, którzy powierzyli nam planowanie swoich wymarzonych podróży"
       }
     },
     "servicesPage": {
@@ -473,15 +510,15 @@
     "hero": {
       "badge": "Nasza Historia",
       "title": "O ExplorAhead",
-      "subtitle": "Wierzymy, że każda podróż powinna być tak unikalna jak podróżnik, który ją podejmuje. Od ponad 15 lat tworzymy niezapomniane doświadczenia."
+      "subtitle": "Wierzymy, że każda podróż powinna być tak unikalna jak podróżnik, który ją podejmuje. Od ponad 5 lat tworzymy niezapomniane doświadczenia."
     },
     "story": {
       "badge": "Nasze Początki",
       "titleLine1": "Od Chaosu do Radości:",
       "titleLine2": "Dlaczego Stworzyłam ExplorAhead",
-      "paragraph1": "Moja droga do stworzenia ExplorAhead poprowadziła mnie przez studia magisterskie na Uniwersytecie Wrocławskim i lata praktycznego doświadczenia w branży turystycznej. Tam zdobyłam głęboką praktyczną wiedzę o systemach rezerwacyjnych, koordynacji logistyki i skomplikowanych szczegółach, które przekształcają dobrą podróż w niezwykłą.",
-      "paragraph2": "Obserwowałam niezliczonych podróżników zmagających się z przytłaczającą złożonością planowania—porównywaniem lotów, szukaniem hoteli, koordynacją transferów, znajdowaniem autentycznych doświadczeń. Wiedziałam, że musi istnieć lepszy sposób. Zdecydowałam więc stworzyć przestrzeń, w której planowanie podróży staje się czystą radością, a nie stresującą listą zadań.",
-      "paragraph3": "Dziś projektuję spersonalizowane itineraria dla ludzi takich jak Ty: ciekawych podróżników, którzy chcą doświadczyć niezapomnianych przygód, ale nie mają czasu na samodzielne składanie złożonych puzzli podróżniczych. Ty wybierasz destynację-ja zajmuję się wszystkim innym, od pierwszej rezerwacji do Twojego bezpiecznego powrotu do domu."
+      "paragraph1": "Moja droga do stworzenia ExplorAhead prowadziła przez studia magisterskie na Uniwersytecie Wrocławskim oraz lata pracy w branży turystycznej. To właśnie tam zdobyłam praktyczną wiedzę o systemach rezerwacyjnych, logistyce wyjazdów i drobnych szczegółach, które zmieniają zwykłą podróż w niezapomniane doświadczenie.",
+      "paragraph2": "Obserwując podróżnych zmagających się z porównywaniem lotów, wyszukiwaniem hoteli i planowaniem tras, wiedziałam, że musi istnieć prostszy i przyjemniejszy sposób przygotowania wyjazdów. Postanowiłam stworzyć przestrzeń, w której planowanie podróży staje się radością, a nie stresem.",
+      "paragraph3": "Dziś tworzę spersonalizowane plany podróży, w których uwzględniam rekomendacje lotów, hoteli i atrakcji - tak, aby każdy wyjazd był maksymalnie dopasowany do Twoich potrzeb i marzeń. Ty wybierasz kierunek, ja przygotowuję cały plan - gotowy do realizacji."
     },
     "stats": {
       "happyTravelers": "Szczęśliwi Podróżnicy",
@@ -496,27 +533,15 @@
       "items": {
         "passion": {
           "title": "Pasja do Podróży",
-          "description": "Każda destynacja opowiada historię. Dzięki latom osobistych podróży i doświadczenia w branży, przekształcamy miejsca w znaczące doświadczenia, które pozostaną z Tobą na długo po powrocie do domu."
-        },
-        "expertise": {
-          "title": "Globalna Ekspertyza",
-          "description": "Od nawigacji po złożonych systemach rezerwacyjnych po odkrywanie ukrytych perł, nasza głęboka wiedza branżowa i światowe koneksje zapewniają płynne, autentyczne podróże dopasowane do Ciebie."
+          "description": "Każda podróż opowiada inną historię. Dzięki własnym doświadczeniom i latom pracy w branży tworzymy wyjazdy, które zostają w pamięci na długo - nie tylko na zdjęciach."
         },
         "personal": {
           "title": "Osobiste Podejście",
-          "description": "Czy luksusowe, przygodowe czy przyjazne budżetowi, tworzymy itineraria dla wszystkich podróżników i preferencji, idealnie dostosowane do Twojego stylu życia."
-        },
-        "trust": {
-          "title": "Zaufanie i Bezpieczeństwo",
-          "description": "Twoje dobro jest naszym priorytetem. Współpracujemy tylko ze zweryfikowanymi dostawcami i zapewniamy wsparcie 24/7."
+          "description": "Nie wierzymy w gotowe schematy. Każdy plan powstaje w oparciu o Twój styl podróżowania, potrzeby i budżet - tak, aby wyjazd naprawdę był „Twój”."
         },
         "flexibility": {
           "title": "Elastyczne Planowanie",
-          "description": "Plany się zmieniają, a my się dostosowujemy. Czy potrzebujesz zmian w ostatniej chwili, czy chcesz spontanicznie odkrywać, sprawiamy, że wszystko działa płynnie."
-        },
-        "value": {
-          "title": "Wartość dla Każdego Budżetu",
-          "description": "Od przygód przyjaznych budżetowi po luksusowe wypady, maksymalizujemy wartość w każdym przedziale cenowym bez kompromisów w jakości."
+          "description": "Plany czasem się zmieniają - i to jest w porządku. Reagujemy, dopasowujemy i pomagamy znaleźć najlepsze rozwiązania, nawet gdy pojawi się potrzeba zmian."
         }
       }
     },
@@ -551,7 +576,7 @@
       "text": "Zaufane przez liderów branży i akredytowane przez"
     },
     "cta": {
-      "title": "Stwórzmy Coś Niesamowitego",
+      "title": "Stwórzmy Coś Niesamowitego!",
       "subtitle": "Gotowy doświadczyć różnicy ExplorAhead?",
       "subtitleLine2": "Zacznij planować swoją następną przygodę już dziś.",
       "startPlanning": "Zacznij Planować",
@@ -626,22 +651,19 @@
     },
     "valueProposition": {
       "title": "Za Co Płacisz",
-      "description": "Cena usługi nie obejmuje kosztu lotów, noclegów ani atrakcji. Moja praca to profesjonalne planowanie i logistyka Twojego czasu—tworzenie idealnego planu podróży, abyś mógł skupić się na cieszeniu się podróżą."
+      "description": "Cena usługi nie obejmuje kosztów lotów, noclegów ani atrakcji. Płacisz za moją wiedzę, doświadczenie oraz profesjonalne planowanie i logistykę Twojego czasu - tak, aby powstał idealny plan podróży, a Ty mógł skupić się wyłącznie na czerpaniu radości z wyjazdu."
     },
     "dreamFinder": {
-      "title": "Dream Finder",
-      "subtitle": "Nie wiesz dokąd pojechać?",
+      "title": "Poszukiwacz Marzeń",
+      "subtitle": "Dla osób, które nie wiedzą jeszcze, dokąd pojechać",
       "tagline": "Odkryjmy razem Twoje idealne miejsce!",
       "question": "\"Chcę gdzieś pojechać, ale nie wiem gdzie...\"",
       "answer": "To idealna usługa dla Ciebie! Podczas 45-minutowej rozmowy pomożemy Ci znaleźć wymarzoną destynację.",
       "whatYouGet": "CO OTRZYMUJESZ:",
       "features": {
-        "consultation": "45-minutową konsultację wideo lub telefoniczną",
-        "conversation": "Rozmowę o Twoich zainteresowaniach, budżecie i oczekiwaniach",
-        "recommendations": "3-5 spersonalizowanych rekomendacji destynacji",
-        "descriptions": "Krótki opis każdego miejsca z uwzględnieniem Twoich preferencji",
-        "selection": "Pomoc w wyborze najlepszej opcji na koniec rozmowy",
-        "summary": "Pisemne podsumowanie po rozmowie"
+        "consultation": "45-minutowa konsultacja online",
+        "conversation": "Rozmowa o preferencjach, budżecie i oczekiwaniach",
+        "recommendations": "Do 5 dopasowanych rekomendacji z konkretnymi wskazówkami (mailem w ciągu 24h/48h po rozmowie)"
       },
       "topicsTitle": "Co omówimy:",
       "topics": {
@@ -660,21 +682,23 @@
     },
     "packages": {
       "badge": "Wybierz Swój Plan",
-      "title": "Nasze Pakiety Usług"
+      "title": "Nasze Pakiety Usług",
+      "swipeHint": "Przesuń, aby zobaczyć więcej"
     },
     "common": {
       "days": "dni"
     },
     "dreamPlan": {
-      "title": "Dream Plan",
-      "subtitle": "Kompleksowe planowanie",
+      "title": "Plan Marzeń",
+      "subtitle": "Dla osób, które chcą gotowy plan bez stresu",
+      "priceLabel": "Cena za plan (do 4 osób):",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
         "itinerary": "Szczegółowy plan dzień po dniu",
-        "flights": "Rekomendacje lotów i hoteli",
+        "flights": "2-3 rekomendacje lotów",
+        "hotels": "2-3 rekomendacje hoteli",
         "revisions": "2 bezpłatne poprawki przed wyjazdem",
-        "emailSupport": "Wsparcie mailowe na każde pytanie",
-        "rules": "Cena dla maksymalnie 4 osób"
+        "emailSupport": "Wsparcie mailowe przed, podczas i po wyjeździe"
       },
       "priceFor4": "Cena dla maksymalnie 4 osób",
       "tiers": {
@@ -682,20 +706,21 @@
         "standard": "Standardowy wyjazd",
         "long": "Długi wyjazd"
       },
-      "longerTrips": "*Wyjazdy 14+ dni: indywidualna wycena"
+      "longerTrips": "*Wyjazdy 14+ dni lub 5+ osób - wycena indywidualna",
+      "emailHours": "**Odpowiedzi na maile zazwyczaj w godz. 9:00-18:00 (pon-pt), 10:00-16:00 (sb)"
     },
     "tripSupport": {
-      "title": "Trip Support",
-      "subtitle": "Wsparcie w czasie rzeczywistym",
+      "title": "Wsparcie w Podróży",
+      "subtitle": "Dla podróżujących, którzy chcą mieć wsparcie na miejscu",
+      "requirement": "⚠️ Wymaga wcześniejszego zakupu Planu Marzeń",
       "tagline": "Twój osobisty asystent podczas całej podróży!",
       "popularBadge": "POPULARNE",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
-        "whatsapp": "Dostęp do eksperta przez WhatsApp/SMS podczas podróży",
-        "changes": "Pomoc w nagłych zmianach planów",
+        "whatsapp": "Dostęp do eksperta przez WhatsApp/SMS podczas podróży (odpowiedź zazwyczaj do 2h)",
+        "changes": "Pomoc w nagłych zmianach planów/nieprzewidzianych sytuacjach",
         "recommendations": "Rekomendacje restauracji i atrakcji \"na miejscu\"",
-        "emergencies": "Szybka reakcja na nieprzewidziane sytuacje",
-        "basicPlan": "Podstawowy plan podróży w zestawie"
+        "basicPlan": "Kontynuacja wsparcia z Twojego Planu Marzeń"
       },
       "priceLabel": "Cena pakietu:",
       "duration": "Wsparcie przez cały wyjazd (do 14 dni)",
@@ -703,27 +728,28 @@
       "noLimits": "Nie musisz martwić się o dodatkowe koszty - pytaj ile chcesz!"
     },
     "express": {
-      "title": "Express Service",
-      "subtitle": "Ratunek 24/48h",
+      "title": "Usługa Ekspresowa",
+      "subtitle": "Dla osób, które potrzebują planu „na już”",
+      "subtitle2": "Wyjazd w ciągu 24-48h",
       "urgentBadge": "PILNE",
       "urgentMessage": "Potrzebujesz pomocy teraz? Jesteśmy tu—nawet po 18:00 czasu polskiego!",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
-        "quickPlan": "Szybki plan 1-3 dni w trybie pilnym",
-        "recommendations": "Rekomendacje noclegów i transportu \"na już\"",
-        "support": "Wsparcie SMS/WhatsApp przez pierwsze 24h podróży"
+        "quickPlan": "Szybki plan dla wyjazdu 1-3 dniowego",
+        "recommendations": "Rekomendacje noclegów i transportu z natychmiastową dostępnością",
+        "support": "Wsparcie WhatsApp przez pierwsze 24h podróży (odpowiedź zazwyczaj do 2h)"
       },
       "priceLabel": "Cena:"
     },
     "premiumPackage": {
       "title": "Pakiet Premium",
-      "subtitle": "Dream Plan + Trip Support",
+      "combination": "Plan Marzeń + Wsparcie w Podróży",
+      "subtitle": "Dla osób, które oczekują kompleksowej obsługi",
       "bestValueBadge": "NAJLEPSZA OFERTA",
       "whatYouGet": "Co Otrzymujesz",
       "features": {
-        "dreamPlan": "Kompletny Dream Plan (5-10 dni)",
-        "companion": "Pełne wsparcie Trip Support",
-        "priority": "Priorytetowa odpowiedź podczas podróży"
+        "dreamPlan": "Kompletny Plan Marzeń (5-10 dni)",
+        "companion": "Pełne wsparcie w podróży przez WhatsApp"
       },
       "standardPrice": "Standardowa cena",
       "packagePrice": "Cena pakietu (5-10 dni)",

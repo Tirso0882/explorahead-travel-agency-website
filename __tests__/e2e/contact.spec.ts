@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 import { expect, test } from "@playwright/test";
 
 test.describe("Contact Form", () => {
@@ -10,7 +15,7 @@ test.describe("Contact Form", () => {
     await expect(page.getByLabel(/name/i)).toBeVisible();
     await expect(page.getByLabel(/email/i)).toBeVisible();
     await expect(page.getByLabel(/message/i)).toBeVisible();
-    
+
     // Check submit button
     await expect(page.getByRole("button", { name: /send|submit/i })).toBeVisible();
   });
@@ -30,22 +35,18 @@ test.describe("Contact Form", () => {
 
   test("accepts valid email format", async ({ page }) => {
     const emailField = page.getByLabel(/email/i);
-    
+
     // Enter invalid email
     await emailField.fill("invalid-email");
     await emailField.blur();
-    
+
     // Should show validation error
-    const isInvalid = await emailField.evaluate(
-      (el: HTMLInputElement) => !el.checkValidity()
-    );
+    const isInvalid = await emailField.evaluate((el: HTMLInputElement) => !el.checkValidity());
     expect(isInvalid).toBe(true);
 
     // Enter valid email
     await emailField.fill("valid@email.com");
-    const isValid = await emailField.evaluate(
-      (el: HTMLInputElement) => el.checkValidity()
-    );
+    const isValid = await emailField.evaluate((el: HTMLInputElement) => el.checkValidity());
     expect(isValid).toBe(true);
   });
 
@@ -63,7 +64,7 @@ test.describe("Contact Form", () => {
 
   test("displays contact information", async ({ page }) => {
     // Check contact details are visible
-    await expect(page.getByText(/info@explorahead.com/i)).toBeVisible();
+    await expect(page.getByText(/contact@explorahead.com/i)).toBeVisible();
     await expect(page.getByText(/\+48/)).toBeVisible();
   });
 });
@@ -79,13 +80,13 @@ test.describe("Contact Form Accessibility", () => {
     for (let i = 0; i < count; i++) {
       const input = inputs.nth(i);
       const id = await input.getAttribute("id");
-      
+
       if (id) {
         // Check for associated label
         const label = page.locator(`label[for="${id}"]`);
-        const hasLabel = await label.count() > 0;
+        const hasLabel = (await label.count()) > 0;
         const hasAriaLabel = await input.getAttribute("aria-label");
-        
+
         expect(hasLabel || hasAriaLabel).toBeTruthy();
       }
     }
@@ -115,7 +116,7 @@ test.describe("Contact Page Responsive", () => {
     // Fields should be full width on mobile
     const nameField = page.getByLabel(/name/i);
     const boundingBox = await nameField.boundingBox();
-    
+
     // Field should be reasonably wide on mobile (accounting for padding)
     expect(boundingBox?.width).toBeGreaterThan(280);
   });

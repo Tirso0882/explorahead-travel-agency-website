@@ -1,8 +1,23 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact, getMailtoLink, getTelLink } from "@/config/contact";
 import { motion } from "framer-motion";
-import { Database, Eye, FileText, Lock, Mail, Phone, Shield, UserCheck } from "lucide-react";
+import {
+  Clock,
+  Database,
+  FileText,
+  Lock,
+  Mail,
+  Phone,
+  RefreshCw,
+  Shield,
+  Users,
+} from "lucide-react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 
@@ -15,127 +30,91 @@ export default function PrivacyPolicyPage() {
         hero: {
           title: "Privacy Policy",
           subtitle:
-            "We respect your privacy and protect your personal data in accordance with GDPR",
+            "We respect your privacy and place special emphasis on the security of your personal data",
         },
-        intro: `This Privacy Policy sets out the rules for processing and protecting personal data of users of the website explorahead.com. The document has been prepared in accordance with the requirements of Regulation (EU) 2016/679 (GDPR) and applicable Polish law.`,
+        intro: `At ExplorAhead Travel Agency, we respect your privacy and place special emphasis on the security of your personal data. This Privacy Policy explains how we collect, use, and protect your information, in accordance with the requirements of the General Data Protection Regulation (GDPR).`,
         sections: [
           {
             icon: Database,
-            title: "1. Data Controller",
-            content: `The controller of personal data collected through the website is:
+            title: "1. Who is the Controller of Your Personal Data?",
+            content: `The Controller, i.e., the entity that decides how your personal data will be used, is EXPLORAHEAD Travel Agency.
 
-ExplorAhead
-[ADDRESS TO BE COMPLETED]
-Tax ID (NIP): [TO BE COMPLETED]
-Business ID (REGON): [TO BE COMPLETED]
 Email: ${contact.email}
-Phone: ${contact.phone}
-
-For matters regarding personal data protection, you can contact the Controller via email: ${contact.email}`,
+Tax ID (NIP): [TO BE COMPLETED]
+Business ID (REGON): [TO BE COMPLETED]`,
           },
           {
             icon: FileText,
-            title: "2. Legal Basis for Processing",
-            content: `Personal data processing is carried out on the basis of:
+            title: "2. What Data Do We Collect and Why?",
+            content: `We only collect data that is necessary to provide our services. Your data is processed for the following purposes:
 
-• Art. 6(1)(a) GDPR – consent of the data subject
-• Art. 6(1)(b) GDPR – necessity for the performance of a contract
-• Art. 6(1)(c) GDPR – legal obligation incumbent on the controller
-• Art. 6(1)(f) GDPR – legitimate interest of the controller
+Travel Consulting Services:
+• Data type: First name and last name, email address, phone number, date of birth, travel preferences (destination, dates, accommodation, attractions).
+• Purpose: Preparation of offers, travel plans, and flight and accommodation proposals.
+• Legal basis: Performance of a contract or pre-contractual actions (Art. 6(1)(b) GDPR).
 
-In the case of consent to personal data processing, you have the right to withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal.`,
+Handling Complaints and Claims:
+• Data type: First name and last name, email address, service-related data.
+• Purpose: Processing complaints and defense against potential claims.
+• Legal basis: Legal obligation (Art. 6(1)(c) GDPR) and legitimate interest of the Controller (Art. 6(1)(f) GDPR).
+
+Contact and Ongoing Support:
+• Data type: Email address, phone number.
+• Purpose: Responding to inquiries and providing service information.
+• Legal basis: Legitimate interest of the Controller (Art. 6(1)(f) GDPR).
+
+Marketing Purposes:
+• Data type: Email address.
+• Purpose: Sending newsletters and travel opportunity information.
+• Legal basis: Your voluntary consent (Art. 6(1)(a) GDPR). You can withdraw your consent at any time.`,
           },
           {
-            icon: Lock,
-            title: "3. Purposes and Scope of Data Processing",
-            content: `Personal data is processed for the following purposes:
+            icon: Clock,
+            title: "3. How Long Do We Store Your Data?",
+            content: `We store your data only for the time necessary to fulfill specific purposes:
 
-a) Handling inquiries and providing travel services
-Data: first name, last name, email address, phone number, travel information
-Legal basis: contract performance, legitimate interest
-
-b) Marketing and newsletter
-Data: first name, email address
-Legal basis: consent (can be withdrawn at any time)
-
-c) Booking and purchase of services
-Data: first name, last name, address, contact details, identity document data (for flight/hotel bookings)
-Legal basis: contract performance, legal obligation
-
-d) Security and fraud prevention
-Data: IP address, system logs
-Legal basis: legitimate interest
-
-e) Legal obligations (accounting, tax)
-Data: data from invoices and contracts
-Legal basis: legal obligation`,
+• Travel and consulting services: Data related to the service is stored for 2 years from the end of cooperation, unless a legal obligation (e.g., accounting) requires a longer period (5 years for settlement documents).
+• Legal obligations (taxes, accounting): For 5 years, counting from the end of the calendar year in which the tax payment deadline expired.
+• Defense against claims: Until the statute of limitations for potential claims arising from the contract expires (in accordance with the Civil Code).
+• Marketing: Until you withdraw your consent or object.`,
           },
           {
-            icon: UserCheck,
-            title: "4. Data Recipients",
-            content: `Personal data may be transferred to the following categories of recipients:
+            icon: Users,
+            title: "4. Who May We Share Your Data With?",
+            content: `Your data is safe with us. We do not sell, rent, or exchange your personal data with third parties for their own marketing purposes.
 
-• IT and hosting service providers
-• Booking systems and travel aggregators (Amadeus, Booking.com, etc.)
-• Carriers and hotels for booking fulfillment
-• Payment service providers
-• State authorities in cases provided for by law
-• Website traffic analysis tool providers (in accordance with Cookie Policy)
+Your data may only be shared to the necessary extent with the following categories of recipients:
 
-All recipients operate under data processing agreements and are obliged to ensure appropriate security measures.`,
-          },
-          {
-            icon: Eye,
-            title: "5. Data Retention Period",
-            content: `Personal data is stored for the following periods:
-
-• Contract-related data: for the duration of the contract and for the period required by law (e.g., accounting obligations – 5 years)
-• Marketing data: until consent is withdrawn or objection is raised
-• Complaint-related data: for the limitation period of claims
-• System logs: maximum 12 months`,
+• Data processors acting on our behalf: Trusted IT service providers, hosting companies, and accounting firms that support our ongoing operations under data processing agreements.
+• Government authorities or other authorized entities: Only in cases where the obligation to share data arises directly from legal provisions (e.g., border controls, tax offices).`,
           },
           {
             icon: Shield,
-            title: "6. Rights of Data Subjects",
-            content: `In accordance with GDPR, you have the following rights:
+            title: "5. Your Rights Related to Personal Data",
+            content: `In accordance with GDPR provisions, you have the following rights regarding your personal data:
 
-• Right of access to data – confirmation of whether we process data and obtaining a copy
-• Right to rectification – correction of incorrect or completion of incomplete data
-• Right to erasure ("right to be forgotten") – in specific cases
-• Right to restriction of processing – in specific cases
-• Right to data portability – receiving data in a structured, commonly used format
-• Right to object to processing
-• Right to withdraw consent at any time (if processing is based on consent)
+• Right of access to data: You have the right to obtain information about whether we process your personal data and, if so, to what extent.
+• Right to rectification: If your data is incorrect or incomplete, you have the right to request its correction or completion.
+• Right to erasure: You have the right to request the deletion of your data if there is no longer a legal basis for its processing.
+• Right to restriction of processing: In certain situations, you have the right to request that we limit the use of your data to storage only.
+• Right to data portability: You have the right to receive your data in a structured, commonly used format and to transfer it to another controller.
+• Right to object: You have the right to object to the processing of your data if we do so based on our legitimate interest (e.g., for analytical purposes).
+• Right to withdraw consent: If we process data based on your consent (e.g., newsletter), you can withdraw it at any time. This does not affect the lawfulness of processing carried out before the withdrawal.
+• Right to lodge a complaint: If you believe that we are processing your data in violation of regulations, you have the right to lodge a complaint with the supervisory authority – the President of the Personal Data Protection Office (UODO).
 
-To exercise the above rights, please contact: ${contact.email}
-
-You also have the right to lodge a complaint with the supervisory authority:
-Personal Data Protection Office
-ul. Stawki 2, 00-193 Warsaw, Poland
-www.uodo.gov.pl`,
+How can you exercise your rights? Simply contact us at: ${contact.email}`,
           },
           {
             icon: Lock,
-            title: "7. Data Security",
-            content: `The Controller applies appropriate technical and organizational measures to ensure the protection of processed personal data, in particular:
-
-• Connection encryption (SSL/TLS)
-• Server and database security
-• Access control to data
-• Regular backups
-• Staff training in personal data protection
-
-Personal data is not processed in an automated manner (including profiling) in a way that produces legal effects or similarly significantly affects your situation.`,
+            title: "6. Data Security",
+            content: `We ensure that your data is completely secure. We have implemented modern technical measures and organizational procedures that protect information from accidental loss, unauthorized access, or modification. We continuously monitor our IT infrastructure for potential threats to provide you with the highest level of digital protection.`,
           },
           {
-            icon: Mail,
-            title: "8. Contact",
-            content: `If you have questions regarding personal data processing or wish to exercise your rights, please contact:
+            icon: RefreshCw,
+            title: "7. Changes to the Privacy Policy",
+            content: `We reserve the right to update this Privacy Policy to ensure it always complies with applicable regulations. Each new version will be published on our website with the date of the last change. In the event of key amendments, we will inform you directly by email.
 
-Email: ${contact.email}
-Phone: ${contact.phone}
-
-Last updated: January 2025`,
+Last updated: February 2026`,
           },
         ],
         cta: {
@@ -147,127 +126,92 @@ Last updated: January 2025`,
     : {
         hero: {
           title: "Polityka Prywatności",
-          subtitle: "Szanujemy Twoją prywatność i chronimy Twoje dane osobowe zgodnie z RODO",
+          subtitle:
+            "Szanujemy Twoją prywatność i kładziemy szczególny nacisk na bezpieczeństwo Twoich danych osobowych",
         },
-        intro: `Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników strony internetowej explorahead.com. Dokument został przygotowany zgodnie z wymogami Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) oraz obowiązującymi przepisami prawa polskiego.`,
+        intro: `W Biurze Podróży ExplorAhead szanujemy Twoją prywatność i kładziemy szczególny nacisk na bezpieczeństwo Twoich danych osobowych. Niniejsza Polityka prywatności wyjaśnia, w jaki sposób zbieramy, wykorzystujemy i chronimy Twoje informacje, zgodnie z wymogami Rozporządzenia Ogólnego o Ochronie Danych (RODO).`,
         sections: [
           {
             icon: Database,
-            title: "1. Administrator danych osobowych",
-            content: `Administratorem danych osobowych zbieranych za pośrednictwem strony internetowej jest:
+            title: "1. Kto jest administratorem Twoich danych osobowych?",
+            content: `Administratorem, czyli podmiotem decydującym o tym, jak będą wykorzystywane Twoje dane osobowe, jest biuro Podróży EXPLORAHEAD.
 
-ExplorAhead
-[ADRES DO UZUPEŁNIENIA]
-NIP: [DO UZUPEŁNIENIA]
-REGON: [DO UZUPEŁNIENIA]
 E-mail: ${contact.email}
-Telefon: ${contact.phone}
-
-W sprawach dotyczących ochrony danych osobowych można kontaktować się z Administratorem za pośrednictwem e-mail: ${contact.email}`,
+NIP: [DO UZUPEŁNIENIA]
+REGON: [DO UZUPEŁNIENIA]`,
           },
           {
             icon: FileText,
-            title: "2. Podstawy prawne przetwarzania",
-            content: `Przetwarzanie danych osobowych odbywa się na podstawie:
-      
-• Art. 6 ust. 1 lit. a RODO – zgoda osoby, której dane dotyczą
-• Art. 6 ust. 1 lit. b RODO – niezbędność do wykonania umowy
-• Art. 6 ust. 1 lit. c RODO – obowiązek prawny ciążący na administratorze
-• Art. 6 ust. 1 lit. f RODO – prawnie uzasadniony interes administratora
+            title: "2. Jakie dane zbieramy i dlaczego?",
+            content: `Zbieramy tylko te dane, które są niezbędne do świadczenia naszych usług. Twoje dane przetwarzane są w następujących celach:
 
-W przypadku wyrażenia zgody na przetwarzanie danych osobowych, przysługuje Państwu prawo do cofnięcia zgody w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.`,
+Świadczenie usług doradztwa podróżniczego:
+• Rodzaj danych: Imię i nazwisko, adres e-mail, numer telefonu, data urodzenia, preferencje podróżne (destynacja, daty, zakwaterowanie, atrakcje).
+• Cel: Przygotowanie ofert, planów podróży oraz propozycje lotów i zakwaterowania.
+• Podstawa prawna: Wykonanie umowy lub działania przed jej zawarciem (art. 6 ust. 1 lit. b RODO).
+
+Obsługa reklamacji i roszczeń:
+• Rodzaj danych: Imię i nazwisko, adres e-mail, dane dotyczące usługi.
+• Cel: Rozpatrywanie reklamacji oraz obrona przed ewentualnymi roszczeniami.
+• Podstawa prawna: Obowiązek prawny (art. 6 ust. 1 lit. c RODO) oraz uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO).
+
+Kontakt i bieżąca obsługa:
+• Rodzaj danych: Adres e-mail, numer telefonu.
+• Cel: Odpowiadanie na zapytania i przekazywanie informacji o usługach.
+• Podstawa prawna: Uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO).
+
+Cele marketingowe:
+• Rodzaj danych: Adres e-mail.
+• Cel: Wysyłanie newslettera i informacji o okazjach podróżniczych.
+• Podstawa prawna: Twoja dobrowolna zgoda (art. 6 ust. 1 lit. a RODO). W każdej chwili możesz wycofać swoją zgodę.`,
           },
           {
-            icon: Lock,
-            title: "3. Cele i zakres przetwarzania danych",
-            content: `Dane osobowe przetwarzane są w następujących celach:
+            icon: Clock,
+            title: "3. Jak długo przechowujemy Twoje dane?",
+            content: `Twoje dane przechowujemy tylko przez czas niezbędny do realizacji konkretnych celów:
 
-a) Obsługa zapytań i świadczenie usług turystycznych
-Dane: imię, nazwisko, adres e-mail, numer telefonu, informacje o podróży
-Podstawa prawna: wykonanie umowy, prawnie uzasadniony interes
-
-b) Marketing i newsletter
-Dane: imię, adres e-mail
-Podstawa prawna: zgoda (można ją w każdej chwili wycofać)
-
-c) Realizacja rezerwacji i zakupu usług
-Dane: imię, nazwisko, adres, dane kontaktowe, dane dokumentów tożsamości (w przypadku rezerwacji lotów/hoteli)
-Podstawa prawna: wykonanie umowy, obowiązek prawny
-
-d) Zapewnienie bezpieczeństwa i ochrona przed nadużyciami
-Dane: adres IP, logi systemowe
-Podstawa prawna: prawnie uzasadniony interes
-
-e) Realizacja obowiązków prawnych (księgowość, podatkowe)
-Dane: dane z faktur i umów
-Podstawa prawna: obowiązek prawny`,
+• Realizacja podróży i doradztwa: Dane związane z usługą przechowujemy przez 2 lata od zakończenia współpracy, chyba że obowiązek prawny (np. księgowy) wymaga dłuższego okresu (5 lat dla dokumentów rozliczeniowych).
+• Obowiązki prawne (podatki, księgowość): Przez okres 5 lat, licząc od końca roku kalendarzowego, w którym upłynął termin płatności podatku.
+• Obrona przed roszczeniami: Do czasu przedawnienia ewentualnych roszczeń wynikających z umowy (zgodnie z przepisami Kodeksu Cywilnego).
+• Marketing: Do momentu, w którym wycofasz swoją zgodę lub zgłosisz sprzeciw.`,
           },
           {
-            icon: UserCheck,
-            title: "4. Odbiorcy danych",
-            content: `Dane osobowe mogą być przekazywane następującym kategoriom odbiorców:
+            icon: Users,
+            title: "4. Komu możemy udostępnić Twoje dane?",
+            content: `Twoje dane są u nas bezpieczne. Nie sprzedajemy, nie wynajmujemy ani nie wymieniamy Twoich danych osobowych z podmiotami trzecimi w ich własnych celach marketingowych.
 
-• Dostawcy usług IT i hostingowych
-• Systemy rezerwacyjne i agregatory turystyczne (Amadeus, Booking.com, itp.)
-• Przewoźnicy i hotele w celu realizacji rezerwacji
-• Dostawcy usług płatniczych
-• Organy państwowe w przypadkach przewidzianych prawem
-• Dostawcy narzędzi do analizy ruchu na stronie (zgodnie z Polityką Cookies)
+Twoje dane mogą być udostępniane wyłącznie w niezbędnym zakresie następującym kategoriom odbiorców:
 
-Wszyscy odbiorcy działają na podstawie umów powierzenia przetwarzania danych i są zobowiązani do zapewnienia odpowiednich środków bezpieczeństwa.`,
-          },
-          {
-            icon: Eye,
-            title: "5. Okres przechowywania danych",
-            content: `Dane osobowe przechowywane są przez okres:
-
-• Dane związane z umową: przez czas trwania umowy oraz przez okres wymagany przepisami prawa (np. obowiązki rachunkowe – 5 lat)
-• Dane marketingowe: do momentu wycofania zgody lub wniesienia sprzeciwu
-• Dane dotyczące reklamacji: przez okres przedawnienia roszczeń
-• Logi systemowe: maksymalnie 12 miesięcy`,
+• Podmioty przetwarzające dane w naszym imieniu: Zaufani dostawcy usług IT, firmy hostingowe oraz biura księgowe, które wspierają nas w bieżącej działalności na podstawie umów powierzenia przetwarzania danych.
+• Organy państwowe lub inne uprawnione podmioty: Wyłącznie w przypadkach, gdy obowiązek udostępnienia danych wynika bezpośrednio z przepisów prawa (np. kontrole graniczne, urzędy skarbowe).`,
           },
           {
             icon: Shield,
-            title: "6. Prawa osób, których dane dotyczą",
-            content: `Zgodnie z RODO, przysługują Państwu następujące prawa:
+            title: "5. Twoje prawa związane z danymi osobowymi",
+            content: `Zgodnie z przepisami RODO, przysługują Ci następujące prawa w odniesieniu do Twoich danych osobowych:
 
-• Prawo dostępu do danych – potwierdzenie, czy przetwarzamy dane oraz uzyskanie ich kopii
-• Prawo do sprostowania danych – poprawienie nieprawidłowych lub uzupełnienie niekompletnych danych
-• Prawo do usunięcia danych („prawo do bycia zapomnianym") – w określonych przypadkach
-• Prawo do ograniczenia przetwarzania – w określonych przypadkach
-• Prawo do przenoszenia danych – otrzymanie danych w ustrukturyzowanym, powszechnie używanym formacie
-• Prawo do sprzeciwu wobec przetwarzania danych
-• Prawo do cofnięcia zgody w dowolnym momencie (jeśli przetwarzanie odbywa się na podstawie zgody)
+• Prawo dostępu do danych: Masz prawo uzyskać informację, czy przetwarzamy Twoje dane osobowe, a jeśli tak, to w jakim zakresie.
+• Prawo do sprostowania danych: Jeśli Twoje dane są nieprawidłowe lub niekompletne, masz prawo żądać ich poprawienia lub uzupełnienia.
+• Prawo do usunięcia danych: Masz prawo żądać usunięcia swoich danych, jeśli nie ma już podstawy prawnej do ich przetwarzania.
+• Prawo do ograniczenia przetwarzania: W określonych sytuacjach masz prawo żądać, abyśmy ograniczyli wykorzystanie Twoich danych wyłącznie do ich przechowywania.
+• Prawo do przenoszenia danych: Masz prawo otrzymać swoje dane w ustrukturyzowanym, powszechnie używanym formacie oraz przesłać je innemu administratorowi.
+• Prawo do wniesienia sprzeciwu: Masz prawo wnieść sprzeciw wobec przetwarzania Twoich danych, jeśli robimy to na podstawie naszego uzasadnionego interesu (np. w celach analitycznych).
+• Prawo do wycofania zgody: Jeśli przetwarzamy dane na podstawie Twojej zgody (np. newsletter), możesz ją wycofać w każdej chwili. Nie wpływa to na zgodność z prawem działań podjętych przed jej wycofaniem.
+• Prawo wniesienia skargi: Jeśli uznasz, że przetwarzamy Twoje dane niezgodnie z przepisami, masz prawo wnieść skargę do organu nadzorczego – Prezesa Urzędu Ochrony Danych Osobowych (UODO).
 
-W celu skorzystania z powyższych praw, prosimy o kontakt: ${contact.email}
-
-Przysługuje również prawo do wniesienia skargi do organu nadzorczego:
-Urząd Ochrony Danych Osobowych
-ul. Stawki 2, 00-193 Warszawa
-www.uodo.gov.pl`,
+Jak możesz skorzystać ze swoich praw? Wystarczy, że skontaktujesz się z nami pod adresem e-mail: ${contact.email}`,
           },
           {
             icon: Lock,
-            title: "7. Bezpieczeństwo danych",
-            content: `Administrator stosuje odpowiednie środki techniczne i organizacyjne zapewniające ochronę przetwarzanych danych osobowych, w szczególności:
-
-• Szyfrowanie połączeń (SSL/TLS)
-• Zabezpieczenia serwerów i baz danych
-• Kontrola dostępu do danych
-• Regularne kopie zapasowe
-• Szkolenia pracowników w zakresie ochrony danych osobowych
-
-Dane osobowe nie są przetwarzane w sposób zautomatyzowany (w tym poprzez profilowanie) w sposób wywołujący wobec Państwa skutki prawne lub w podobny sposób istotnie wpływający na Państwa sytuację.`,
+            title: "6. Bezpieczeństwo danych",
+            content: `Dbamy o to, aby Twoje dane były w pełni bezpieczne. Wdrożyliśmy nowoczesne środki techniczne oraz procedury organizacyjne, które chronią informacje przed przypadkową utratą, nieuprawnionym dostępem lub zmianą. Stale monitorujemy naszą infrastrukturę IT pod kątem potencjalnych zagrożeń, aby zapewnić Ci najwyższy poziom ochrony cyfrowej.`,
           },
           {
-            icon: Mail,
-            title: "8. Kontakt",
-            content: `W razie pytań dotyczących przetwarzania danych osobowych lub chęci skorzystania z przysługujących praw, prosimy o kontakt:
+            icon: RefreshCw,
+            title: "7. Zmiany w Polityce Prywatności",
+            content: `Zastrzegamy sobie prawo do aktualizacji niniejszej Polityki prywatności, aby zawsze była zgodna z obowiązującymi przepisami. Każda nowa wersja zostanie opublikowana na naszej stronie internetowej wraz z datą ostatniej zmiany. W przypadku wprowadzenia kluczowych poprawek, poinformujemy Cię o nich bezpośrednio drogą mailową.
 
-E-mail: ${contact.email}
-Telefon: +48 690 946 046
-
-Data ostatniej aktualizacji: Styczeń 2025`,
+Data ostatniej aktualizacji: Luty 2026`,
           },
         ],
         cta: {
@@ -295,7 +239,8 @@ Data ostatniej aktualizacji: Styczeń 2025`,
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading mb-6 text-4xl text-white md:text-5xl lg:text-6xl"
+            className="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl"
+            style={{ color: "#d4a574" }}
           >
             {content.hero.title}
           </motion.h1>
@@ -351,21 +296,21 @@ Data ostatniej aktualizacji: Styczeń 2025`,
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="from-ocean to-ocean-dark mt-16 rounded-2xl bg-gradient-to-br p-8 text-center text-white"
+            className="cookie-cta-section from-ocean to-ocean-dark mt-16 rounded-2xl bg-gradient-to-br text-center text-white"
           >
             <h3 className="font-heading mb-4 text-2xl">{content.cta.title}</h3>
             <p className="mb-6 text-white/80">{content.cta.subtitle}</p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={getMailtoLink()}
-                className="bg-gold hover:bg-gold-dark text-ocean inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold transition-colors"
+                className="cookie-cta-btn bg-gold hover:bg-gold-dark text-ocean"
               >
                 <Mail size={20} />
                 {contact.email}
               </a>
               <a
                 href={getTelLink()}
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                className="cookie-cta-btn bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
               >
                 <Phone size={20} />
                 {contact.phone}

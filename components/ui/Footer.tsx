@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { getFooterPages } from "@/config/pages";
@@ -50,7 +55,9 @@ export function Footer() {
                 className="h-auto w-[160px] transition-opacity group-hover:opacity-80 sm:w-[180px] md:w-[200px]"
               />
             </Link>
-            <p className="mb-8 max-w-md text-lg leading-relaxed text-white">{t("tagline")}</p>
+            <p className="mb-8 max-w-md text-lg leading-relaxed whitespace-pre-line text-white">
+              {t("tagline")}
+            </p>
 
             {/* Social Media */}
             <div>
@@ -143,7 +150,7 @@ export function Footer() {
               <p className="text-sm text-white/80">
                 © {currentYear} {tCommon("appName")}. {t("rights")}
               </p>
-              <span className="hidden text-sm text-white/40 sm:inline">|</span>
+              {/* <span className="hidden text-sm text-white/40 sm:inline">|</span>
               <p className="text-sm text-white/60">
                 {t("developedBy")}{" "}
                 <a
@@ -154,7 +161,7 @@ export function Footer() {
                 >
                   RedKraken
                 </a>
-              </p>
+              </p> */}
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               {footerLinks.legal.map((link) => (
