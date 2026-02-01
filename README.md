@@ -1,259 +1,409 @@
-# ExplorAhead - Travel Agency Marketing Website
+<div align="center">
 
-A modern, responsive marketing website for a travel agency, built with Next.js 16, TypeScript, and Tailwind CSS.
+# 🌍 ExplorAhead — Travel Agency Website
 
-## 🎨 Features
+### A production-ready, fully deployed marketing website showcasing modern web development practices
 
-### Design & User Experience
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-explorahead.com-blue?style=for-the-badge)](https://explorahead.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?style=for-the-badge&logo=vercel)](https://vercel.com/)
 
-- **Immersive Hero Section** - Full-screen video/image backgrounds with smooth animations
-- **Featured Destinations** - Interactive gallery showcasing travel destinations
-- **Responsive Design** - Fully optimized for mobile, tablet, and desktop
-- **Smooth Animations** - Powered by Framer Motion for elegant transitions
+</div>
 
-### Pages
+---
 
-- **Home** - Hero section, featured destinations, services preview, testimonials
-- **Destinations** - Searchable destination gallery (feature-flagged)
-- **About** - Company story and team information
-- **Contact** - Contact form with Formspree integration
-- **Legal** - Privacy policy, terms of service, cookies policy
+## 👋 About This Project
+
+This is a **real, production website** that I designed and developed from scratch for a travel agency business. It demonstrates my ability to deliver complete, production-grade web applications—from concept to deployment—even outside my primary domain of AI/ML engineering.
+
+> **Why this matters:** As an AI Engineer, I believe in being a **versatile developer** who can tackle any technical challenge. This project showcases full-stack web development skills, production deployment workflows, observability integration, and modern frontend practices.
+
+### ✨ Live Website
+
+**[Visit ExplorAhead →](https://explorahead.com)**
+
+---
+
+## 🎯 Key Highlights
+
+| Category | What It Demonstrates |
+|----------|---------------------|
+| **Production Deployment** | Full CI/CD pipeline with Vercel, automated deployments from GitHub Actions |
+| **Observability & Monitoring** | Sentry integration for error tracking, performance monitoring, and session replay |
+| **Analytics** | GDPR-compliant Google Analytics with cookie consent management |
+| **Internationalization** | Multi-language support (EN/PL) with `next-intl`, automatic locale detection |
+| **Testing** | Comprehensive test suite with Vitest (unit) + Playwright (E2E) |
+| **Modern Stack** | Next.js 16, React 19, TypeScript 5, Tailwind CSS 4, Turbopack |
+| **Developer Experience** | Husky + lint-staged pre-commit hooks, ESLint, Prettier, strict TypeScript |
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Framework
+- **[Next.js 16](https://nextjs.org/)** — React framework with App Router, RSC, and Turbopack
+- **[React 19](https://react.dev/)** — Latest React with Server Components
+- **[TypeScript 5](https://www.typescriptlang.org/)** — Strict type checking throughout
+
+### Styling & UI
+- **[Tailwind CSS 4](https://tailwindcss.com/)** — Utility-first CSS with custom design system
+- **[Framer Motion](https://www.framer.com/motion/)** — Fluid animations and page transitions
+- **[Lucide React](https://lucide.dev/)** — Modern icon library
+
+### Observability & Analytics
+- **[Sentry](https://sentry.io/)** — Error tracking, performance monitoring, session replay
+- **[Google Analytics 4](https://analytics.google.com/)** — User analytics with GDPR consent handling
 
 ### Internationalization
+- **[next-intl](https://next-intl-docs.vercel.app/)** — Type-safe i18n with automatic locale routing
 
-- **Multi-language Support** - English and Polish translations with next-intl
-- **Locale Routing** - Automatic locale detection and routing
-- **Easy to Extend** - Add more languages by creating translation files
+### Testing
+- **[Vitest](https://vitest.dev/)** — Fast unit testing with React Testing Library
+- **[Playwright](https://playwright.dev/)** — Cross-browser E2E testing (Chrome, Firefox, Safari, Mobile)
 
-## 🚀 Tech Stack
+### Infrastructure
+- **[Vercel](https://vercel.com/)** — Deployment, edge functions, image optimization
+- **[GitHub Actions](https://github.com/features/actions)** — CI/CD pipeline for automated deployments
+- **[Formspree](https://formspree.io/)** — Form handling without backend
 
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **Animations**: Framer Motion
-- **Internationalization**: next-intl
-- **Icons**: Lucide React
-- **Forms**: Formspree (contact form submission)
-- **Notifications**: React Hot Toast
+---
 
-## 📦 Installation
+## 📊 Observability Architecture
+
+One of the project's standout features is its **production-grade observability stack**:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        CLIENT SIDE                          │
+├─────────────────────────────────────────────────────────────┤
+│  Sentry Browser SDK                                         │
+│  ├── Error Tracking (automatic + manual capture)           │
+│  ├── Performance Monitoring (Web Vitals, transactions)     │
+│  ├── Session Replay (100% on error, 10% sampling)          │
+│  └── Console Logging Integration                           │
+│                                                             │
+│  Google Analytics 4 (GDPR-compliant)                       │
+│  └── Cookie consent banner with granular preferences       │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                        SERVER SIDE                          │
+├─────────────────────────────────────────────────────────────┤
+│  Sentry Node SDK                                            │
+│  ├── API Route error tracking                              │
+│  ├── Server-side performance tracing                       │
+│  └── Source map uploads for readable stack traces          │
+│                                                             │
+│  Edge Runtime Support                                       │
+│  └── Sentry Edge SDK for middleware monitoring             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Features
+
+### User Experience
+- **Interactive Hero Carousel** — Multi-destination slideshow with swipe gestures, dynamic messaging per destination, and smooth slide transitions
+- **Smart WhatsApp Integration** — Floating CTA with heartbeat animation, destination-specific pre-filled messages, and journey completion celebration when all slides are visited
+- **Responsive Design** — Optimized for mobile (horizontal scroll carousel), tablet (2-column grid), and desktop (full grid) viewports
+- **Smooth Animations** — GPU-accelerated transitions with Framer Motion, animated particles, and CSS keyframe animations
+- **Accessibility** — Semantic HTML, proper ARIA labels, keyboard navigation, live regions for dynamic content
+
+### Pages & Content
+- **Home** — Hero carousel, services preview, how it works, call-to-action sections
+- **About** — Company story and team information
+- **Contact** — Form with validation and spam protection
+- **Pricing** — Mobile-first carousel with scroll-snap, responsive grid on desktop
+- **Legal** — Privacy policy, terms of service, cookie policy (GDPR-compliant)
+
+### Technical Features
+- **Centralized Media Config** — Single source of truth for all images, videos, and campaign assets (`config/media.ts`)
+- **Hero Slides System** — Configurable slides with destination, message, tagline, icon color, focal point, and WhatsApp message
+- **Feature Flags** — Toggle features on/off without code changes
+- **SEO Optimized** — JSON-LD structured data, OpenGraph, sitemap, robots.txt
+- **Image Optimization** — Next.js Image with AVIF/WebP, responsive sizes, configurable focal points
+- **Error Boundaries** — Graceful error handling with custom error pages
+
+---
+
+## 🏗️ Project Structure
+
+```
+explorahead-travel-agency-website/
+├── app/
+│   ├── [locale]/              # Internationalized routes
+│   │   ├── (marketing)/       # Marketing pages (home, about, contact)
+│   │   ├── layout.tsx         # Locale layout with providers
+│   │   └── not-found.tsx      # Custom 404 page
+│   ├── error.tsx              # Global error boundary
+│   ├── global-error.tsx       # Root error boundary
+│   ├── robots.ts              # Dynamic robots.txt
+│   └── sitemap.ts             # Dynamic sitemap
+├── components/
+│   ├── analytics/             # Google Analytics with consent
+│   ├── marketing/             # Marketing components (Hero, WhatsAppHeroCTA, CTASection, etc.)
+│   └── ui/                    # Reusable UI components (Button, Footer, Navigation, etc.)
+├── config/
+│   ├── contact.ts             # Contact information (phone, email)
+│   ├── features.ts            # Feature flags
+│   └── media.ts               # Hero slides, media assets, campaigns
+├── lib/
+│   ├── whatsapp.ts            # WhatsApp link utilities
+│   └── i18n/                  # Internationalization setup
+├── messages/
+│   ├── en.json                # English translations
+│   └── pl.json                # Polish translations
+├── __tests__/
+│   ├── components/            # Unit tests (Vitest)
+│   └── e2e/                   # E2E tests (Playwright)
+├── public/
+│   └── images/
+│       ├── flags/             # Language switcher flag SVGs (gb.svg, pl.svg)
+│       └── hero/banners/      # Hero carousel destination banners
+├── instrumentation-client.ts  # Sentry client initialization
+├── sentry.server.config.ts    # Sentry server initialization
+└── sentry.edge.config.ts      # Sentry edge initialization
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
+- Node.js 18+ (recommended: 24.x)
+- npm, yarn, or pnpm
 
-- Node.js 18+ (recommended: 24.1.0)
-- npm or yarn
-
-### Setup
-
-**1. Clone the repository:**
+### Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/Tirso0882/explorahead-travel-agency-website.git
-cd travel-agent-site
-```
+cd explorahead-travel-agency-website
 
-**2. Install dependencies:**
-
-```bash
+# Install dependencies
 npm install
-```
 
-**3. Set up environment variables:**
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your values
 
-```bash
-# Create .env.local file
-NEXT_PUBLIC_APP_NAME=<app_name>
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
-```
-
-**4. Get a Formspree endpoint:**
-
-- Sign up at [https://formspree.io](https://formspree.io) (free tier available)
-- Create a new form
-- Copy your form ID and add it to `.env.local`
-
-**5. Run the development server:**
-
-```bash
+# Start development server
 npm run dev
 ```
 
-**6. Open your browser:**
+### Environment Variables
 
-Visit [http://localhost:3000](http://localhost:3000)
+```env
+# Application
+NEXT_PUBLIC_APP_NAME=ExplorAhead
 
-## 🔧 Development
+# Contact Form
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
+
+# Analytics (optional)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Sentry (optional but recommended)
+NEXT_PUBLIC_SENTRY_DSN=your_sentry_dsn
+SENTRY_DSN=your_sentry_dsn
+SENTRY_ORG=your_org
+SENTRY_PROJECT=your_project
+```
 
 ### Available Scripts
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production (static export)
-npm run start    # Start production server
-npm run lint     # Run ESLint
+npm run dev          # Start development server (Turbopack)
+npm run build        # Production build
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint issues
+npm run format       # Format code with Prettier
+npm run typecheck    # Run TypeScript type checking
+npm run test         # Run unit tests
+npm run test:ui      # Run tests with UI
+npm run test:e2e     # Run E2E tests
+npm run test:e2e:ui  # Run E2E tests with UI
 ```
 
-### Static Export
+---
 
-This project is configured for static export, making it perfect for hosting on GitHub Pages, Netlify, or Vercel:
+## 🧪 Testing Strategy
+
+### Unit Tests (Vitest + React Testing Library)
+- Component rendering and behavior
+- Hook testing
+- Utility function testing
+- Coverage reporting
+
+### E2E Tests (Playwright)
+- Cross-browser testing (Chrome, Firefox, Safari)
+- Mobile viewport testing (Pixel 5, iPhone 12)
+- User journey validation
+- Visual regression prevention
 
 ```bash
-npm run build
+# Run all tests
+npm run test && npm run test:e2e
+
+# With coverage
+npm run test:coverage
 ```
 
-The static files will be in the `out/` directory.
+---
 
-## 📂 Project Structure
+## 📦 Deployment
 
-```
-travel-agent-site/
-├── app/
-│   ├── [locale]/              # Internationalized routes
-│   │   ├── (marketing)/       # Marketing pages
-│   │   │   ├── page.tsx       # Homepage
-│   │   │   ├── destinations/
-│   │   │   ├── about/
-│   │   │   └── contact/
-│   │   └── layout.tsx
-│   ├── globals.css            # Global styles + design system
-│   └── layout.tsx
-├── components/
-│   ├── marketing/             # Marketing page components
-│   │   ├── Hero.tsx
-│   │   ├── FeaturedDestinations.tsx
-│   │   ├── HowItWorks.tsx
-│   │   └── ...
-│   └── ui/                    # Reusable UI components
-│       ├── Navigation.tsx
-│       ├── Footer.tsx
-│       ├── Button.tsx
-│       └── ...
-├── config/
-│   ├── features.ts            # Feature flags
-│   └── media.ts              # Media configuration
-├── lib/
-│   └── i18n/                  # Internationalization config
-├── messages/
-│   ├── en.json               # English translations
-│   └── pl.json               # Polish translations
-├── public/
-│   ├── images/               # Static images
-│   └── videos/               # Static videos
-└── middleware.ts             # Next.js middleware (i18n)
-```
+The project is deployed on **Vercel** with automatic deployments triggered by pushes to the `main` branch.
+
+### Deployment Pipeline
+1. **Push to GitHub** → GitHub Actions triggered
+2. **Vercel Build** → Next.js build with optimizations
+3. **Sentry Source Maps** → Uploaded for error tracking
+4. **Production Deploy** → Edge network distribution
+
+### Branch Strategy
+- `main` → Production (explorahead.com)
+- `feature/*` → Preview deployments with unique URLs
+
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for detailed deployment documentation.
+
+---
 
 ## 🎨 Design System
 
 ### Color Palette
-
-- **Sand** (`#F5E6D3`) - Warm backgrounds
-- **Ocean** (`#1A365D`) - Primary text and accents
-- **Gold** (`#D4A574`) - Highlights and CTAs
-- **Terracotta** (`#C4785A`) - Secondary accents
-- **Forest** (`#2D5A45`) - Success states
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Sand | `#F5E6D3` | Warm backgrounds |
+| Ocean | `#1A365D` | Primary text, accents |
+| Gold | `#D4A574` | CTAs, highlights |
+| Terracotta | `#C4785A` | Secondary accents |
+| Forest | `#2D5A45` | Success states |
 
 ### Typography
-
 - **Headings**: Playfair Display (serif)
 - **Body**: DM Sans (sans-serif)
+- **Standardized Classes**: `.card-title`, `.card-description`, `.section-subtitle` for consistent sizing
+- **Body Text**: Minimum 16px with 1.625 line-height for optimal readability
+- **Responsive**: Scales from mobile (16px) to desktop (20px) automatically
 
-### Custom CSS Variables
-
-See `app/globals.css` for the complete design system including spacing, colors, and utility classes.
-
-## 🌐 Deployment
-
-### GitHub Pages
-
-This repository includes a GitHub Actions workflow for automatic deployment to GitHub Pages.
-
-**Setup:**
-
-1. Go to your GitHub repository settings
-2. Navigate to Pages
-3. Set Source to "GitHub Actions"
-4. Push to `main` branch to trigger deployment
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
-
-### Vercel (Alternative)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-1. Connect your GitHub repository
-2. Add environment variables (if needed)
-3. Deploy
-
-### Netlify (Alternative)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
-
-1. Connect your GitHub repository
-2. Build command: `npm run build`
-3. Publish directory: `out`
-4. Add environment variables (if needed)
-
-## ⚙️ Configuration
-
-### Feature Flags
-
-Enable/disable features in `config/features.ts`:
-
-```typescript
-export const features = {
-  destinations: true,  // Enable destinations page
-  // Add more features here
-};
-```
-
-### Media Configuration
-
-Configure hero images/videos in `config/media.ts`.
-
-### Internationalization
-
-Add new languages:
-
-1. Create a new file in `messages/` (e.g., `es.json`)
-2. Copy structure from `en.json` and translate
-3. Update `lib/i18n/request.ts` to include the new locale
-
-## 🔒 Environment Variables
-
-Create a `.env.local` file:
-
-```env
-# App Name
-NEXT_PUBLIC_APP_NAME=ExplorAhead
-
-# Contact Form (Formspree)
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
-```
-
-## 📈 Performance
-
-- **Static Export**: Pre-rendered pages for instant loading
-- **Image Optimization**: Uses Next.js Image component where possible
-- **Code Splitting**: Automatic route-based code splitting
-- **Animations**: GPU-accelerated with Framer Motion
-- **Lighthouse Score**: Target 90+ for all metrics
-
-## 🤝 Contributing
-
-This is a private project. For questions or issues, contact the development team.
-
-## 📄 License
-
-All rights reserved.
-
-## 🔗 Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Framer Motion Documentation](https://www.framer.com/motion/)
-- [next-intl Documentation](https://next-intl-docs.vercel.app/)
-- [Formspree Documentation](https://help.formspree.io/)
+### CSS Animations
+- **Heartbeat Pulse** — WhatsApp button attention-grabbing animation
+- **Compass Spin** — Slow rotation for interactive elements
+- **Swipe Hint** — Mobile carousel scroll indicator
+- **Gradient Overlays** — Hero section cinematic gradients
+- **Particle Float** — Ambient floating particles on hero
 
 ---
 
-**Built with ❤️ by RedKraken Tech**
+## 🔧 Configuration
+
+### Feature Flags
+Toggle features without code changes:
+
+```typescript
+// config/features.ts
+export const featureFlags = {
+  destinations: false,  // Coming soon
+  testimonials: false,  // Coming soon
+};
+```
+
+### Hero Slides Configuration
+Add or modify hero carousel slides in `config/media.ts`:
+
+```typescript
+export const heroSlides: HeroSlide[] = [
+  {
+    id: "madagascar",           // Unique ID (matches translation key)
+    image: "/images/hero/banners/madagascar-banner.jpg",
+    alt: "Baobab, Madagascar",
+    destination: "Madagascar", // Displayed destination name
+    message: "Seek the places where wonder still grows wild.",
+    tagline: "Wonder Grows Wild",
+    iconColor: "#FFB347",       // Accent color for slide
+    whatsappMessage: "Madagascar's baobabs are calling me!",
+    focalPoint: "center center", // CSS object-position for image cropping
+  },
+  // Add more slides...
+];
+```
+
+**Note:** Add corresponding translations in `messages/[locale].json` under `hero.slides.[id]`.
+
+### WhatsApp Integration
+Configure WhatsApp messaging in `lib/whatsapp.ts`:
+
+```typescript
+import { getWhatsAppLinkForDestination } from "@/lib/whatsapp";
+import { heroSlides } from "@/config/media";
+
+// Get destination-specific WhatsApp link
+const link = getWhatsAppLinkForDestination("+48690946046", heroSlides[0]);
+
+// Get journey completion WhatsApp link
+const journeyLink = getWhatsAppLinkJourneyComplete("+48690946046");
+```
+
+The WhatsApp CTA button:
+- Appears after user interaction (dwell time, slide navigation)
+- Shows heartbeat pulse animation to draw attention
+- Pre-fills message based on current destination slide
+- Celebrates when user has viewed all destination slides
+
+### Adding a New Language
+1. Create `messages/[locale].json` with translations
+2. Add locale to `lib/i18n/routing.ts`
+3. Add flag SVG to `public/images/flags/[locale].svg`
+4. Deploy — automatic locale detection handles the rest
+
+---
+
+## 👨‍💻 About the Developer
+
+I'm an **AI Engineer** with a passion for building intelligent systems. This project demonstrates that my skills extend beyond ML/AI into full-stack web development:
+
+- **Primary Focus**: AI/ML Engineering, LLMs, RAG systems, MLOps
+- **This Project Shows**: Frontend development, modern React, DevOps, observability
+
+> I believe the best AI engineers are versatile developers who can integrate AI capabilities into real products—from model to deployment.
+
+### Let's Connect
+- **GitHub**: [@Tirso0882](https://github.com/Tirso0882)
+   **Email**: [tirso.gomez@RedKraken.tech](tirso.gomez@redkraken.tech)
+- **Project**: [explorahead-travel-agency-website](https://github.com/Tirso0882/explorahead-travel-agency-website)
+
+---
+
+## 📄 License
+
+This project is **proprietary software** owned by ExplorAhead. All rights reserved.
+
+While this repository is publicly visible on GitHub for portfolio and demonstration purposes, **no license is granted** to use, copy, modify, or distribute the code beyond what is permitted by [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (viewing and forking).
+
+See the [LICENSE](LICENSE) file for full terms.
+
+### Third-Party Software
+
+This project uses open source libraries that are subject to their own licenses (primarily MIT, ISC, Apache-2.0, and BSD-2-Clause). See the [NOTICE](NOTICE) file for the complete list of third-party components and their licenses.
+
+---
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) for the amazing React framework
+- [Vercel](https://vercel.com/) for seamless deployment
+- [Sentry](https://sentry.io/) for production-grade observability
+- [Tailwind CSS](https://tailwindcss.com/) for rapid UI development
+
+---
+
+<div align="center">
+
+**Built with ❤️ by RedKraken 🐙**
+
+</div>

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 /// <reference types="vitest" />
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -15,12 +20,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: [
-        "node_modules/",
-        "__tests__/",
-        "*.config.*",
-        ".next/",
-      ],
+      exclude: ["node_modules/", "__tests__/", "*.config.*", ".next/"],
     },
     // Mock CSS modules and static assets
     css: {
