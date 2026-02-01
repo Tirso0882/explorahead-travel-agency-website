@@ -32,6 +32,7 @@ This is a **real, production website** that I designed and developed from scratc
 |----------|---------------------|
 | **Production Deployment** | Full CI/CD pipeline with Vercel, automated deployments from GitHub Actions |
 | **Observability & Monitoring** | Sentry integration for error tracking, performance monitoring, and session replay |
+| **Database & Email** | Serverless Postgres (Neon) with transactional emails (Resend) |
 | **Analytics** | GDPR-compliant Google Analytics with cookie consent management |
 | **Internationalization** | Multi-language support (EN/PL) with `next-intl`, automatic locale detection |
 | **Testing** | Comprehensive test suite with Vitest (unit) + Playwright (E2E) |
@@ -63,10 +64,13 @@ This is a **real, production website** that I designed and developed from scratc
 - **[Vitest](https://vitest.dev/)** — Fast unit testing with React Testing Library
 - **[Playwright](https://playwright.dev/)** — Cross-browser E2E testing (Chrome, Firefox, Safari, Mobile)
 
+### Database & Backend
+- **[Neon](https://neon.tech/)** — Serverless Postgres with branching, autoscaling
+- **[Resend](https://resend.com/)** — Modern email API for transactional emails
+
 ### Infrastructure
 - **[Vercel](https://vercel.com/)** — Deployment, edge functions, image optimization
 - **[GitHub Actions](https://github.com/features/actions)** — CI/CD pipeline for automated deployments
-- **[Formspree](https://formspree.io/)** — Form handling without backend
 
 ---
 
@@ -115,7 +119,7 @@ One of the project's standout features is its **production-grade observability s
 ### Pages & Content
 - **Home** — Hero carousel, services preview, how it works, call-to-action sections
 - **About** — Company story and team information
-- **Contact** — Form with validation and spam protection
+- **Contact** — Contact information display with social media links (form temporarily disabled pending corporate email setup)
 - **Pricing** — Mobile-first carousel with scroll-snap, responsive grid on desktop
 - **Legal** — Privacy policy, terms of service, cookie policy (GDPR-compliant)
 
@@ -149,10 +153,19 @@ explorahead-travel-agency-website/
 ├── config/
 │   ├── contact.ts             # Contact information (phone, email)
 │   ├── features.ts            # Feature flags
-│   └── media.ts               # Hero slides, media assets, campaigns
+│   ├── media.ts               # Hero slides, media assets, campaigns
+│   ├── pages.ts               # Page metadata
+│   └── social.ts              # Social media links
 ├── lib/
+│   ├── db.ts                  # Neon database client
+│   ├── email.ts               # Resend email service
 │   ├── whatsapp.ts            # WhatsApp link utilities
 │   └── i18n/                  # Internationalization setup
+├── scripts/
+│   ├── setup-database.ts      # Database schema setup
+│   ├── check-contacts.ts      # View recent contacts
+│   ├── test-resend.ts         # Test email functionality
+│   └── test-contact-api.sh    # Test contact API endpoint
 ├── messages/
 │   ├── en.json                # English translations
 │   └── pl.json                # Polish translations
@@ -200,8 +213,13 @@ npm run dev
 # Application
 NEXT_PUBLIC_APP_NAME=ExplorAhead
 
-# Contact Form
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
+# Database (Neon Postgres)
+DATABASE_URL=postgresql://user:password@host/database
+
+# Email Service (Resend)
+RESEND_API_KEY=re_xxxxxxxxxxxx
+RESEND_FROM_EMAIL=noreply@explorahead.com
+ADMIN_EMAIL=explorahead@gmail.com
 
 # Analytics (optional)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -212,6 +230,29 @@ SENTRY_DSN=your_sentry_dsn
 SENTRY_ORG=your_org
 SENTRY_PROJECT=your_project
 ```
+
+### Database Setup
+
+The project uses **Neon Serverless Postgres** for the contact form database:
+
+```bash
+# Run database setup script (creates contacts table)
+npx tsx scripts/setup-database.ts
+
+# Check recent contacts
+npx tsx scripts/check-contacts.ts
+
+# Test email functionality
+npx tsx scripts/test-resend.ts
+
+# Test contact API endpoint
+./scripts/test-contact-api.sh
+```
+
+**Note:** The contact form is currently disabled on the live site. To reactivate:
+1. Open `app/[locale]/(marketing)/contact/page.tsx`
+2. Uncomment the form section (look for `========== CONTACT FORM - TEMPORARILY HIDDEN ==========`)
+3. Change grid from `lg:grid-cols-1` to `lg:grid-cols-2`
 
 ### Available Scripts
 
