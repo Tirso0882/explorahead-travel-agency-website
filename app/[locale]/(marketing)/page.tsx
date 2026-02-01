@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 import { Hero } from "@/components/marketing/Hero";
 import { FeaturedDestinations } from "@/components/marketing/FeaturedDestinations";
 import { ServicesPreview } from "@/components/marketing/ServicesPreview";
@@ -18,4 +23,3 @@ export default function HomePage() {
     </>
   );
 }
-

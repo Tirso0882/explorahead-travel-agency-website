@@ -1,10 +1,15 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact } from "@/config/contact";
 import { isFeatureEnabled } from "@/config/features";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
-import { Globe, Heart, Mail, RefreshCw, Shield, Star, Users } from "lucide-react";
+import { Heart, Mail, RefreshCw, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRef } from "react";
@@ -25,29 +30,14 @@ export default function AboutPage() {
       descriptionKey: "values.items.passion.description",
     },
     {
-      icon: Globe,
-      titleKey: "values.items.expertise.title",
-      descriptionKey: "values.items.expertise.description",
-    },
-    {
       icon: Users,
       titleKey: "values.items.personal.title",
       descriptionKey: "values.items.personal.description",
     },
     {
-      icon: Shield,
-      titleKey: "values.items.trust.title",
-      descriptionKey: "values.items.trust.description",
-    },
-    {
       icon: RefreshCw,
       titleKey: "values.items.flexibility.title",
       descriptionKey: "values.items.flexibility.description",
-    },
-    {
-      icon: Star,
-      titleKey: "values.items.value.title",
-      descriptionKey: "values.items.value.description",
     },
   ];
 

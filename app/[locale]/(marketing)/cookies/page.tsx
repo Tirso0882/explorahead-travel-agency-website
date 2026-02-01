@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact, getMailtoLink, getTelLink } from "@/config/contact";
@@ -16,12 +21,12 @@ export default function CookiePolicyPage() {
           title: "Cookie Policy",
           subtitle: "Learn how we use cookies on our website",
         },
-        intro: `This Cookie Policy explains what cookies are, how we use them on explorahead.com, and how you can manage your cookie preferences. The document has been prepared in accordance with GDPR requirements and the Act on Electronic Services.`,
+        intro: `At ExplorAhead Travel Agency, we care about your privacy. This Cookie Policy explains what cookies are, how we use them on explorahead.com, and how you can manage your preferences. This document has been prepared in accordance with GDPR requirements and the Act on Electronic Services.`,
         sections: [
           {
             icon: Cookie,
             title: "1. What are cookies?",
-            content: `Cookies are small text files stored on your device (computer, tablet, smartphone) when browsing websites. Cookies enable device recognition and customization of website content to individual user preferences.
+            content: `Cookies are small text files stored on your device (computer, tablet, smartphone) when browsing websites. Cookies enable device recognition and customization of website content to your individual preferences.
 
 Cookies do not damage your device or allow identification of a specific person – they mainly serve to improve website quality and analyze traffic.`,
           },
@@ -32,57 +37,55 @@ Cookies do not damage your device or allow identification of a specific person �
 
 a) Essential cookies (technical)
 Necessary for proper website functioning. They enable navigation and use of basic functions (e.g., session memory, language preferences).
-Storage period: session / up to 12 months
-Legal basis: legitimate interest of the controller (Art. 6(1)(f) GDPR)
+• Storage period: session / up to 12 months
+• Legal basis: legitimate interest of the controller (Art. 6(1)(f) GDPR)
 
 b) Functional cookies
-Enable remembering user choices (e.g., language, region, preferred currency). They improve website comfort.
-Storage period: up to 12 months
-Legal basis: user consent (Art. 6(1)(a) GDPR)
+Enable remembering your choices (e.g., language, region). They improve website comfort.
+• Storage period: up to 12 months
+• Legal basis: your consent (Art. 6(1)(a) GDPR)
 
-c) Analytical cookies
-Serve to analyze website usage (e.g., number of visits, traffic sources, popular pages). They allow website optimization. We use tools such as Google Analytics.
-Storage period: up to 24 months
-Legal basis: user consent (Art. 6(1)(a) GDPR)
+c) Analytical cookies (Google Analytics)
+Serve to analyze website usage (e.g., number of visits, traffic sources, popular pages). They help us understand how users interact with our website and optimize its performance.
+• Storage period: up to 24 months
+• Legal basis: your consent (Art. 6(1)(a) GDPR)
 
-d) Marketing cookies
-Serve to display personalized ads and measure advertising campaign effectiveness. They may be used by advertising partners (e.g., Google Ads, Meta Pixel).
-Storage period: up to 24 months
-Legal basis: user consent (Art. 6(1)(a) GDPR)`,
+We do not use marketing or advertising cookies. We do not display personalized ads.`,
           },
           {
             icon: BarChart,
-            title: "3. Third-party providers",
-            content: `Within our website, we use services of third parties that may also use cookies:
+            title: "3. Google Analytics",
+            content: `Our website uses Google Analytics – a web analytics tool provided by Google LLC.
 
-• Google Analytics – website traffic analysis
-  Privacy Policy: https://policies.google.com/privacy
+Google Analytics collects anonymous information about:
+• Number of visits to the website
+• Traffic sources (where you came from)
+• Time spent on the website
+• Pages viewed
+• Device type and browser
 
-• Google Ads – advertising campaigns
-  Privacy Policy: https://policies.google.com/privacy
+This data helps us understand how users interact with our website and how we can improve it.
 
-• Meta Pixel (Facebook/Instagram) – remarketing and analysis
-  Privacy Policy: https://www.facebook.com/privacy/policy
+More information about how Google processes data:
+https://policies.google.com/privacy
 
-• YouTube – video content display
-  Privacy Policy: https://policies.google.com/privacy
-
-Data collected by third-party providers is processed in accordance with their privacy policies. We recommend familiarizing yourself with the documents of the mentioned providers.`,
+You can block Google Analytics by installing the browser add-on:
+https://tools.google.com/dlpage/gaoptout`,
           },
           {
             icon: Shield,
             title: "4. Cookie management",
             content: `4.1. Consent to cookies
-During your first visit to the website, a banner is displayed informing about cookie use. The user can:
+During your first visit to the website, we display a banner informing about cookie use. You can:
 • Accept all cookies
 • Choose only specific cookie categories (via settings)
 • Reject all optional cookies
 
 4.2. Withdrawal of consent
-Consent to cookie use can be withdrawn at any time by:
+You can withdraw consent to cookie use at any time by:
 • Changing cookie settings in the banner (available in the footer)
-• Deleting cookies from the browser
-• Changing browser settings (see below)
+• Deleting cookies from your browser
+• Changing browser settings
 
 4.3. Browser settings
 Most browsers accept cookies by default. However, you can change settings to:
@@ -101,54 +104,49 @@ NOTE: Blocking cookies may affect website functionality – some features may no
           },
           {
             icon: ExternalLink,
-            title: "5. Tracking technologies",
-            content: `In addition to cookies, our website may use other tracking technologies:
+            title: "5. Other technologies",
+            content: `In addition to cookies, our website may use:
 
-• Local Storage and Session Storage – locally stored data in the browser
-• Web Beacons (tracking pixels) – invisible images tracking user interactions
-• Fingerprinting – device identification based on its configuration
+• Local Storage and Session Storage – locally stored data in the browser that allows remembering your preferences
 
-These technologies serve to improve website functionality and analyze traffic, and their operation is subject to the same rules as cookies.`,
-          },
-          {
-            icon: Settings,
-            title: "6. Third-party cookies",
-            content: `Our website may contain embedded content from external partners (e.g., YouTube videos, Google maps, social media plugins). Providers of this content may set their own cookies, over which we have no control.
-
-To learn more about third-party cookies, please familiarize yourself with the privacy policies of individual providers (links in section 3).`,
+These technologies serve only to improve website functionality and are subject to the same rules as cookies.`,
           },
           {
             icon: Shield,
-            title: "7. Personal data protection",
-            content: `Data collected through cookies may be considered personal data under GDPR. We process it in accordance with our Privacy Policy, available here: www.explorahead.com/privacy
+            title: "6. Personal data protection",
+            content: `Data collected through cookies may be considered personal data under GDPR. We process it in accordance with our Privacy Policy.
 
 Data Controller:
-ExplorAhead
-[ADDRESS TO BE COMPLETED]
+EXPLORAHEAD Travel Agency
+Email: ${contact.email}
 Tax ID (NIP): [TO BE COMPLETED]
 Business ID (REGON): [TO BE COMPLETED]
-Email: ${contact.email}
 
-Users have rights specified in GDPR, including the right to access, rectify, delete data, and object to processing.`,
+You have all rights specified in GDPR, including:
+• Right of access to data
+• Right to rectification
+• Right to erasure
+• Right to restriction of processing
+• Right to object
+
+Detailed information can be found in our Privacy Policy: www.explorahead.com/privacy`,
           },
           {
             icon: Mail,
-            title: "8. Changes to Cookie Policy",
-            content: `We reserve the right to make changes to this Cookie Policy to adapt it to changes in law or website operation.
-
-Users will be informed of any significant changes via a message on the website.
+            title: "7. Changes to Cookie Policy",
+            content: `We reserve the right to update this Cookie Policy to ensure it always complies with applicable regulations. Each new version will be published on our website with the date of the last change.
 
 The current version of the Cookie Policy is always available at: www.explorahead.com/cookies`,
           },
           {
             icon: Phone,
-            title: "9. Contact",
-            content: `If you have questions regarding cookie use on our website, please contact:
+            title: "8. Contact",
+            content: `Have questions about cookies? Contact us:
 
 Email: ${contact.email}
 Phone: ${contact.phone}
 
-Last updated: January 2025`,
+Last updated: February 2026`,
           },
         ],
         table: {
@@ -164,24 +162,17 @@ Last updated: January 2025`,
             },
             {
               category: "Functional cookies",
-              examples: "currency_pref, theme_mode",
-              purpose: "Remembering user settings (currency, dark mode)",
+              examples: "locale, theme_mode",
+              purpose: "Remembering user settings (language, display mode)",
               duration: "Up to 12 months",
               provider: "ExplorAhead",
             },
             {
               category: "Analytical cookies",
-              examples: "_ga, _gid, _gat",
+              examples: "_ga, _gid",
               purpose: "Website traffic analysis (Google Analytics)",
               duration: "Up to 24 months",
               provider: "Google",
-            },
-            {
-              category: "Marketing cookies",
-              examples: "_fbp, IDE, test_cookie",
-              purpose: "Remarketing, advertising campaigns",
-              duration: "Up to 24 months",
-              provider: "Google, Meta",
             },
           ],
         },
@@ -203,14 +194,14 @@ Last updated: January 2025`,
           title: "Polityka plików cookies",
           subtitle: "Dowiedz się, jak wykorzystujemy pliki cookies na naszej stronie",
         },
-        intro: `Niniejsza Polityka Cookies wyjaśnia, czym są pliki cookies, w jaki sposób ich używamy na stronie explorahead.com oraz jak możesz zarządzać swoimi preferencjami dotyczącymi cookies. Dokument został przygotowany zgodnie z wymogami RODO oraz ustawy o świadczeniu usług drogą elektroniczną.`,
+        intro: `W Biurze Podróży ExplorAhead dbamy o Twoją prywatność. Niniejsza Polityka Cookies wyjaśnia, czym są pliki cookies, w jaki sposób ich używamy na stronie explorahead.com oraz jak możesz zarządzać swoimi preferencjami. Dokument został przygotowany zgodnie z wymogami Rozporządzenia Ogólnego o Ochronie Danych (RODO) oraz ustawy o świadczeniu usług drogą elektroniczną.`,
         sections: [
           {
             icon: Cookie,
             title: "1. Czym są pliki cookies?",
-            content: `Pliki cookies (ciasteczka) to małe pliki tekstowe zapisywane na urządzeniu użytkownika (komputer, tablet, smartfon) podczas przeglądania stron internetowych. Cookies umożliwiają rozpoznanie urządzenia oraz dostosowanie zawartości strony do indywidualnych preferencji użytkownika.
+            content: `Pliki cookies (ciasteczka) to małe pliki tekstowe zapisywane na Twoim urządzeniu (komputer, tablet, smartfon) podczas przeglądania stron internetowych. Cookies umożliwiają rozpoznanie urządzenia oraz dostosowanie zawartości strony do Twoich indywidualnych preferencji.
 
-Pliki cookies nie uszkadzają urządzenia ani nie pozwalają na identyfikację konkretnej osoby – służą głównie do poprawy jakości korzystania ze strony oraz analizy ruchu.`,
+Pliki cookies nie uszkadzają Twojego urządzenia ani nie pozwalają na identyfikację konkretnej osoby – służą głównie do poprawy jakości korzystania ze strony oraz analizy ruchu.`,
           },
           {
             icon: Settings,
@@ -219,57 +210,55 @@ Pliki cookies nie uszkadzają urządzenia ani nie pozwalają na identyfikację k
 
 a) Cookies niezbędne (techniczne)
 Niezbędne do prawidłowego funkcjonowania strony. Umożliwiają poruszanie się po stronie i korzystanie z jej podstawowych funkcji (np. zapamiętanie sesji, preferencji językowych).
-Czas przechowywania: sesja / do 12 miesięcy
-Podstawa prawna: prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO)
+• Czas przechowywania: sesja / do 12 miesięcy
+• Podstawa prawna: prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO)
 
 b) Cookies funkcjonalne
-Umożliwiają zapamiętanie wyborów użytkownika (np. język, region, preferowana waluta). Poprawiają komfort korzystania ze strony.
-Czas przechowywania: do 12 miesięcy
-Podstawa prawna: zgoda użytkownika (art. 6 ust. 1 lit. a RODO)
+Umożliwiają zapamiętanie Twoich wyborów (np. język, region). Poprawiają komfort korzystania ze strony.
+• Czas przechowywania: do 12 miesięcy
+• Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO)
 
-c) Cookies analityczne
-Służą do analizy sposobu korzystania ze strony (np. liczba odwiedzin, źródła ruchu, popularne podstrony). Pozwalają na optymalizację działania witryny. Wykorzystujemy narzędzia takie jak Google Analytics.
-Czas przechowywania: do 24 miesięcy
-Podstawa prawna: zgoda użytkownika (art. 6 ust. 1 lit. a RODO)
+c) Cookies analityczne (Google Analytics)
+Służą do analizy sposobu korzystania ze strony (np. liczba odwiedzin, źródła ruchu, popularne podstrony). Pozwalają nam lepiej zrozumieć, jak użytkownicy korzystają z naszej strony i optymalizować jej działanie.
+• Czas przechowywania: do 24 miesięcy
+• Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO)
 
-d) Cookies marketingowe
-Służą do wyświetlania spersonalizowanych reklam oraz mierzenia skuteczności kampanii reklamowych. Mogą być wykorzystywane przez partnerów reklamowych (np. Google Ads, Meta Pixel).
-Czas przechowywania: do 24 miesięcy
-Podstawa prawna: zgoda użytkownika (art. 6 ust. 1 lit. a RODO)`,
+Nie wykorzystujemy cookies marketingowych ani reklamowych. Nie wyświetlamy spersonalizowanych reklam.`,
           },
           {
             icon: BarChart,
-            title: "3. Dostawcy zewnętrzni",
-            content: `W ramach naszej strony korzystamy z usług podmiotów trzecich, które również mogą wykorzystywać pliki cookies:
+            title: "3. Google Analytics",
+            content: `Na naszej stronie korzystamy z Google Analytics – narzędzia do analizy ruchu internetowego dostarczanego przez Google LLC.
 
-• Google Analytics – analiza ruchu na stronie
-  Polityka prywatności: https://policies.google.com/privacy
+Google Analytics zbiera anonimowe informacje o:
+• Liczbie odwiedzin na stronie
+• Źródłach ruchu (skąd trafiasz na naszą stronę)
+• Czasie spędzonym na stronie
+• Przeglądanych podstronach
+• Typie urządzenia i przeglądarki
 
-• Google Ads – kampanie reklamowe
-  Polityka prywatności: https://policies.google.com/privacy
+Dane te pomagają nam zrozumieć, jak użytkownicy korzystają z naszej strony i jak możemy ją ulepszyć.
 
-• Meta Pixel (Facebook/Instagram) – remarketing i analiza
-  Polityka prywatności: https://www.facebook.com/privacy/policy
+Więcej informacji o tym, jak Google przetwarza dane:
+https://policies.google.com/privacy
 
-• YouTube – wyświetlanie materiałów wideo
-  Polityka prywatności: https://policies.google.com/privacy
-
-Dane zbierane przez dostawców zewnętrznych są przetwarzane zgodnie z ich politykami prywatności. Zalecamy zapoznanie się z dokumentami wymienionych dostawców.`,
+Możesz zablokować Google Analytics, instalując dodatek do przeglądarki:
+https://tools.google.com/dlpage/gaoptout`,
           },
           {
             icon: Shield,
             title: "4. Zarządzanie plikami cookies",
             content: `4.1. Zgoda na pliki cookies
-Podczas pierwszej wizyty na stronie wyświetlany jest banner informujący o wykorzystaniu plików cookies. Użytkownik może:
+Podczas pierwszej wizyty na stronie wyświetlamy banner informujący o wykorzystaniu plików cookies. Możesz:
 • Zaakceptować wszystkie pliki cookies
 • Wybrać tylko określone kategorie cookies (poprzez ustawienia)
 • Odrzucić wszystkie opcjonalne pliki cookies
 
 4.2. Cofnięcie zgody
-Zgodę na wykorzystanie plików cookies można w każdej chwili cofnąć poprzez:
+Zgodę na wykorzystanie plików cookies możesz w każdej chwili cofnąć poprzez:
 • Zmianę ustawień cookies w bannerze (dostępnym w stopce strony)
 • Usunięcie plików cookies z przeglądarki
-• Zmianę ustawień przeglądarki (patrz poniżej)
+• Zmianę ustawień przeglądarki
 
 4.3. Ustawienia przeglądarki
 Większość przeglądarek domyślnie akceptuje pliki cookies. Możesz jednak zmienić ustawienia, aby:
@@ -288,54 +277,49 @@ UWAGA: Zablokowanie plików cookies może wpłynąć na funkcjonalność strony 
           },
           {
             icon: ExternalLink,
-            title: "5. Technologie śledzenia",
-            content: `Oprócz plików cookies, nasza strona może wykorzystywać inne technologie śledzenia:
+            title: "5. Inne technologie",
+            content: `Oprócz plików cookies, nasza strona może wykorzystywać:
 
-• Local Storage i Session Storage – lokalnie przechowywane dane w przeglądarce
-• Web Beacons (piksele śledzące) – niewidoczne obrazki śledzące interakcje użytkowników
-• Fingerprinting – identyfikacja urządzenia na podstawie jego konfiguracji
+• Local Storage i Session Storage – lokalnie przechowywane dane w przeglądarce, które umożliwiają zapamiętanie Twoich preferencji
 
-Technologie te służą do poprawy funkcjonalności strony oraz analizy ruchu, a ich działanie podlega takim samym zasadom jak pliki cookies.`,
-          },
-          {
-            icon: Settings,
-            title: "6. Cookies stron trzecich (Third-Party Cookies)",
-            content: `Nasza strona może zawierać treści osadzone od partnerów zewnętrznych (np. filmy z YouTube, mapy Google, wtyczki mediów społecznościowych). Dostawcy tych treści mogą ustawiać własne pliki cookies, nad którymi nie mamy kontroli.
-
-Aby dowiedzieć się więcej o cookies stron trzecich, prosimy o zapoznanie się z politykami prywatności poszczególnych dostawców (linki w sekcji 3).`,
+Technologie te służą wyłącznie do poprawy funkcjonalności strony i są objęte takimi samymi zasadami jak pliki cookies.`,
           },
           {
             icon: Shield,
-            title: "7. Ochrona danych osobowych",
-            content: `Dane zbierane za pomocą plików cookies mogą być uznane za dane osobowe w rozumieniu RODO. Przetwarzamy je zgodnie z naszą Polityką Prywatności, dostępną tutaj: www.explorahead.com/privacy
+            title: "6. Ochrona danych osobowych",
+            content: `Dane zbierane za pomocą plików cookies mogą być uznane za dane osobowe w rozumieniu RODO. Przetwarzamy je zgodnie z naszą Polityką Prywatności.
 
 Administrator danych:
-ExplorAhead
-[ADRES DO UZUPEŁNIENIA]
+Biuro Podróży EXPLORAHEAD
+E-mail: ${contact.email}
 NIP: [DO UZUPEŁNIENIA]
 REGON: [DO UZUPEŁNIENIA]
-E-mail: ${contact.email}
 
-Użytkownikom przysługują prawa określone w RODO, w tym prawo dostępu do danych, ich sprostowania, usunięcia oraz wniesienia sprzeciwu wobec przetwarzania.`,
+Przysługują Ci wszystkie prawa określone w RODO, w tym:
+• Prawo dostępu do danych
+• Prawo do sprostowania danych
+• Prawo do usunięcia danych
+• Prawo do ograniczenia przetwarzania
+• Prawo do wniesienia sprzeciwu
+
+Szczegółowe informacje znajdziesz w Polityce Prywatności: www.explorahead.com/privacy`,
           },
           {
             icon: Mail,
-            title: "8. Zmiany w Polityce Cookies",
-            content: `Zastrzegamy sobie prawo do wprowadzania zmian w niniejszej Polityce Cookies w celu dostosowania jej do zmian przepisów prawa lub sposobu działania strony.
-
-O wszelkich istotnych zmianach użytkownicy zostaną poinformowani poprzez komunikat na stronie internetowej.
+            title: "7. Zmiany w Polityce Cookies",
+            content: `Zastrzegamy sobie prawo do aktualizacji niniejszej Polityki Cookies, aby zawsze była zgodna z obowiązującymi przepisami. Każda nowa wersja zostanie opublikowana na naszej stronie internetowej wraz z datą ostatniej zmiany.
 
 Aktualna wersja Polityki Cookies jest zawsze dostępna pod adresem: www.explorahead.com/cookies`,
           },
           {
             icon: Phone,
-            title: "9. Kontakt",
-            content: `W razie pytań dotyczących wykorzystania plików cookies na naszej stronie, prosimy o kontakt:
+            title: "8. Kontakt",
+            content: `Masz pytania dotyczące plików cookies? Skontaktuj się z nami:
 
 E-mail: ${contact.email}
 Telefon: ${contact.phone}
 
-Data ostatniej aktualizacji: Styczeń 2025`,
+Data ostatniej aktualizacji: Luty 2026`,
           },
         ],
         table: {
@@ -351,24 +335,17 @@ Data ostatniej aktualizacji: Styczeń 2025`,
             },
             {
               category: "Cookies funkcjonalne",
-              examples: "currency_pref, theme_mode",
-              purpose: "Zapamiętanie ustawień użytkownika (waluta, tryb ciemny)",
+              examples: "locale, theme_mode",
+              purpose: "Zapamiętanie ustawień użytkownika (język, tryb wyświetlania)",
               duration: "Do 12 miesięcy",
               provider: "ExplorAhead",
             },
             {
               category: "Cookies analityczne",
-              examples: "_ga, _gid, _gat",
+              examples: "_ga, _gid",
               purpose: "Analiza ruchu na stronie (Google Analytics)",
               duration: "Do 24 miesięcy",
               provider: "Google",
-            },
-            {
-              category: "Cookies marketingowe",
-              examples: "_fbp, IDE, test_cookie",
-              purpose: "Remarketing, kampanie reklamowe",
-              duration: "Do 24 miesięcy",
-              provider: "Google, Meta",
             },
           ],
         },
@@ -469,7 +446,7 @@ Data ostatniej aktualizacji: Styczeń 2025`,
                 <thead className="bg-ocean text-white">
                   <tr>
                     {content.table.headers.map((header, index) => (
-                      <th key={index} className="px-6 py-4 text-left font-semibold">
+                      <th key={index} className="cookie-table-header">
                         {header}
                       </th>
                     ))}
@@ -478,11 +455,17 @@ Data ostatniej aktualizacji: Styczeń 2025`,
                 <tbody>
                   {content.table.rows.map((row, index) => (
                     <tr key={index} className={index % 2 === 0 ? "bg-sand-light/30" : ""}>
-                      <td className="text-ocean px-6 py-4 font-medium">{row.category}</td>
-                      <td className="text-gray-dark px-6 py-4 font-mono text-sm">{row.examples}</td>
-                      <td className="text-gray-dark px-6 py-4 text-sm">{row.purpose}</td>
-                      <td className="text-gray-dark px-6 py-4 text-sm">{row.duration}</td>
-                      <td className="text-gray-dark px-6 py-4 text-sm">{row.provider}</td>
+                      <td className="cookie-table-cell text-ocean font-medium">{row.category}</td>
+                      <td className="cookie-table-cell text-gray-dark font-mono">
+                        <span className="cookie-pill bg-sand-light/60">{row.examples}</span>
+                      </td>
+                      <td className="cookie-table-cell text-gray-dark">{row.purpose}</td>
+                      <td className="cookie-table-cell text-gray-dark">
+                        <span className="cookie-pill bg-ocean/10">{row.duration}</span>
+                      </td>
+                      <td className="cookie-table-cell text-gray-dark">
+                        <span className="cookie-pill bg-gold/20">{row.provider}</span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -496,22 +479,24 @@ Data ostatniej aktualizacji: Styczeń 2025`,
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-gold/10 border-gold mt-12 rounded-xl border-l-4 p-6"
+            className="cookie-settings-section bg-gold/10 border-gold mt-12 rounded-xl border-l-4"
           >
             <div className="flex items-start gap-3">
               <Settings size={24} className="text-gold mt-1 flex-shrink-0" />
-              <div>
+              <div className="flex-1">
                 <h3 className="font-heading text-ocean mb-2 text-lg">{content.settings.title}</h3>
-                <p className="text-gray-dark mb-4">{content.settings.description}</p>
-                <button
-                  onClick={() => {
-                    alert(content.settings.alert);
-                  }}
-                  className="bg-ocean hover:bg-ocean-dark inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white transition-colors"
-                >
-                  <Settings size={18} />
-                  {content.settings.button}
-                </button>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-gray-dark flex-1">{content.settings.description}</p>
+                  <button
+                    onClick={() => {
+                      alert(content.settings.alert);
+                    }}
+                    className="cookie-btn bg-ocean hover:bg-ocean-dark flex-shrink-0 text-white"
+                  >
+                    <Settings size={18} />
+                    {content.settings.button}
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -522,21 +507,21 @@ Data ostatniej aktualizacji: Styczeń 2025`,
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="from-ocean to-ocean-dark mt-12 rounded-2xl bg-gradient-to-br p-8 text-center text-white"
+            className="cookie-cta-section from-ocean to-ocean-dark mt-12 rounded-2xl bg-gradient-to-br text-center text-white"
           >
             <h3 className="font-heading mb-4 text-2xl">{content.cta.title}</h3>
             <p className="mb-6 text-white/80">{content.cta.subtitle}</p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={getMailtoLink()}
-                className="bg-gold hover:bg-gold-dark text-ocean inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold transition-colors"
+                className="cookie-cta-btn bg-gold hover:bg-gold-dark text-ocean"
               >
                 <Mail size={20} />
                 {contact.email}
               </a>
               <a
                 href={getTelLink()}
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                className="cookie-cta-btn bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
               >
                 <Phone size={20} />
                 {contact.phone}

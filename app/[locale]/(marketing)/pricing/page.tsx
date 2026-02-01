@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { contact } from "@/config/contact";
@@ -5,6 +10,8 @@ import { getWhatsAppLink, getWhatsAppLinkWithMessage } from "@/lib/whatsapp";
 import { motion, useInView } from "framer-motion";
 import {
   CheckCircle,
+  ChevronLeft,
+  ChevronRight,
   FileText,
   HeadphonesIcon,
   Hotel,
@@ -15,36 +22,59 @@ import {
   RefreshCw,
   Zap,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
 export default function PricingPage() {
   const t = useTranslations("pricing");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
   const pricingRef = useRef<HTMLElement>(null);
   const isPricingInView = useInView(pricingRef, { once: true, margin: "-100px" });
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
 
   const whatsappLink = getWhatsAppLink(contact.phone);
 
+  // WhatsApp messages based on locale
+  const whatsappMessages = {
+    dreamFinder:
+      locale === "pl"
+        ? "Cześć! Jestem zainteresowany pakietem Poszukiwacz Marzeń (149 PLN). Proszę o więcej informacji o tym, jak kontynuować. Dziękuję!"
+        : "Hi! I'm interested in the Dream Finder package (149 PLN). Please provide more information about how to proceed. Thank you!",
+    tripSupport:
+      locale === "pl"
+        ? "Cześć! Jestem zainteresowany pakietem Wsparcie w Podróży (199 PLN) dla wsparcia w czasie rzeczywistym podczas podróży. Proszę o więcej informacji o tym, jak kontynuować. Dziękuję!"
+        : "Hi! I'm interested in the Trip Support package (199 PLN) for real-time travel support. Please provide more information about how to proceed. Thank you!",
+    dreamPlan:
+      locale === "pl"
+        ? "Cześć! Jestem zainteresowany pakietem Plan Marzeń. Proszę o więcej informacji o tym, jak kontynuować. Dziękuję!"
+        : "Hi! I'm interested in the Dream Plan package. Please provide more information about how to proceed. Thank you!",
+    express:
+      locale === "pl"
+        ? "Cześć! Potrzebuję PILNEJ pomocy z planami podróży! Jestem zainteresowany pakietem Usługa Ekspresowa (299 PLN) dla szybkiej pomocy 24-48h. Proszę odpowiedzieć jak najszybciej. Dziękuję!"
+        : "Hi! I need URGENT help with my travel plans! I'm interested in the Express Service package (299 PLN) for quick 24-48h assistance. Please respond as soon as possible. Thank you!",
+    premium:
+      locale === "pl"
+        ? "Cześć! Jestem zainteresowany Pakietem Premium (Plan Marzeń + Wsparcie w Podróży) dla kompleksowej obsługi. Proszę o więcej informacji. Dziękuję!"
+        : "Hi! I'm interested in the Premium Package (Dream Plan + Trip Support) for complete service. Please provide more information. Thank you!",
+  };
+
   const dreamFinderFeatures = [
     "dreamFinder.features.consultation",
     "dreamFinder.features.conversation",
     "dreamFinder.features.recommendations",
-    "dreamFinder.features.descriptions",
-    "dreamFinder.features.selection",
-    "dreamFinder.features.summary",
   ];
 
   const premiumFeatures = [
     "premiumPackage.features.dreamPlan",
     "premiumPackage.features.companion",
-    "premiumPackage.features.priority",
   ];
 
   const dreamPlanFeatures = [
     { icon: FileText, key: "dreamPlan.features.itinerary" },
     { icon: Plane, key: "dreamPlan.features.flights" },
+    { icon: Hotel, key: "dreamPlan.features.hotels" },
     { icon: RefreshCw, key: "dreamPlan.features.revisions" },
     { icon: Mail, key: "dreamPlan.features.emailSupport" },
   ];
@@ -53,7 +83,6 @@ export default function PricingPage() {
     { icon: HeadphonesIcon, key: "tripSupport.features.whatsapp" },
     { icon: RefreshCw, key: "tripSupport.features.changes" },
     { icon: MapPin, key: "tripSupport.features.recommendations" },
-    { icon: Zap, key: "tripSupport.features.emergencies" },
     { icon: FileText, key: "tripSupport.features.basicPlan" },
   ];
 
@@ -134,7 +163,7 @@ export default function PricingPage() {
       </section>
 
       {/* Value Proposition */}
-      <section className="section bg-sand-light">
+      <section className="section-sm bg-sand-light">
         <div className="container flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +183,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards Section */}
-      <section ref={pricingRef} className="section bg-cream">
+      <section ref={pricingRef} className="section-sm bg-cream">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -214,15 +243,12 @@ export default function PricingPage() {
                     <p className="text-gray-dark">{t("dreamFinder.bonusText")}</p>
                   </div>
                   <a
-                    href={getWhatsAppLinkWithMessage(
-                      contact.phone,
-                      "Hi! I'm interested in the Dream Finder package (149 PLN). Please provide more information about how to proceed. Thank you!"
-                    )}
+                    href={getWhatsAppLinkWithMessage(contact.phone, whatsappMessages.dreamFinder)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    {t("common.bookNow")}
+                    {tCommon("bookNow")}
                   </a>
                 </div>
               </div>
@@ -250,6 +276,7 @@ export default function PricingPage() {
               <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
                 <h3 className="font-heading text-gold mb-2 text-2xl">{t("tripSupport.title")}</h3>
                 <p className="text-sm text-white">{t("tripSupport.subtitle")}</p>
+                <p className="text-gold mt-2 text-xs">{t("tripSupport.requirement")}</p>
               </div>
 
               {/* Features */}
@@ -273,15 +300,12 @@ export default function PricingPage() {
                     <p className="text-gold-dark font-medium">⭐ {t("tripSupport.payOnce")}</p>
                   </div>
                   <a
-                    href={getWhatsAppLinkWithMessage(
-                      contact.phone,
-                      "Hi! I'm interested in the Trip Support package (199 PLN) for real-time travel support. Please provide more information about how to proceed. Thank you!"
-                    )}
+                    href={getWhatsAppLinkWithMessage(contact.phone, whatsappMessages.tripSupport)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    {t("common.bookNow")}
+                    {tCommon("bookNow")}
                   </a>
                 </div>
               </div>
@@ -323,13 +347,18 @@ export default function PricingPage() {
                 {/* Pricing Tiers - Fixed Height Section */}
                 <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="mb-4">
+                    <p className="text-gray-dark mb-3 text-center text-sm font-medium">
+                      {t("dreamPlan.priceLabel")}
+                    </p>
                     <div className="space-y-1.5">
                       {pricingTiers.map((tier, index) => (
                         <div
                           key={index}
                           className="bg-sand-light flex items-center justify-between rounded-lg px-3 py-1.5"
                         >
-                          <span className="text-gray-dark text-xs">{tier.duration} days:</span>
+                          <span className="text-gray-dark text-xs">
+                            {tier.duration} {t("common.days")}:
+                          </span>
                           <span className="text-gold text-lg font-bold">{tier.price} PLN</span>
                         </div>
                       ))}
@@ -337,17 +366,15 @@ export default function PricingPage() {
                   </div>
                   <div className="pricing-info-box border-gold/30 bg-gold/10 border">
                     <p className="text-gold-dark font-medium">{t("dreamPlan.longerTrips")}</p>
+                    <p className="text-gold-dark mt-2 font-medium">{t("dreamPlan.emailHours")}</p>
                   </div>
                   <a
-                    href={getWhatsAppLinkWithMessage(
-                      contact.phone,
-                      "Hi! I'm interested in the Dream Plan package. Please provide more information about how to proceed. Thank you!"
-                    )}
+                    href={getWhatsAppLinkWithMessage(contact.phone, whatsappMessages.dreamPlan)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    {t("common.bookNow")}
+                    {tCommon("bookNow")}
                   </a>
                 </div>
               </div>
@@ -373,8 +400,9 @@ export default function PricingPage() {
 
               {/* Header */}
               <div className="pricing-header from-ocean via-ocean-dark to-ocean bg-gradient-to-br">
-                <h3 className="font-heading text-gold mb-2 text-2xl">{t("express.title")}</h3>
+                <h3 className="font-heading text-gold">{t("express.title")}</h3>
                 <p className="text-sm text-white">{t("express.subtitle")}</p>
+                <p className="text-sm leading-tight text-white">{t("express.subtitle2")}</p>
               </div>
 
               {/* Features */}
@@ -395,15 +423,12 @@ export default function PricingPage() {
                   </div>
                   <p className="pricing-legend"></p>
                   <a
-                    href={getWhatsAppLinkWithMessage(
-                      contact.phone,
-                      "Hi! I need URGENT help with my travel plans! I'm interested in the Express Service package (299 PLN) for quick 24-48h assistance. Please respond as soon as possible. Thank you!"
-                    )}
+                    href={getWhatsAppLinkWithMessage(contact.phone, whatsappMessages.express)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-ocean text-gold hover:bg-ocean-dark"
                   >
-                    {t("common.bookNow")}
+                    {tCommon("bookNow")}
                   </a>
                 </div>
               </div>
@@ -460,25 +485,29 @@ export default function PricingPage() {
                     <p className="text-gold-dark font-semibold">🎉 {t("premiumPackage.savings")}</p>
                   </div>
                   <a
-                    href={getWhatsAppLinkWithMessage(
-                      contact.phone,
-                      "Hi! I'm interested in the Premium Package (499 PLN) which includes Dream Plan + Trip Support for 5-10 days. Please provide more information about how to proceed. Thank you!"
-                    )}
+                    href={getWhatsAppLinkWithMessage(contact.phone, whatsappMessages.premium)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pricing-book-btn bg-gold hover:bg-gold-dark text-white"
                   >
-                    {t("common.bookNow")}
+                    {tCommon("bookNow")}
                   </a>
                 </div>
               </div>
             </motion.div>
           </div>
+
+          {/* Mobile scroll indicator */}
+          <div className="pricing-scroll-indicator">
+            <ChevronLeft className="h-4 w-4" />
+            <span>{t("packages.swipeHint")}</span>
+            <ChevronRight className="h-4 w-4" />
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-sand-light">
+      <section className="section-sm bg-sand-light">
         <div className="container mx-auto max-w-7xl px-5 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -518,7 +547,14 @@ export default function PricingPage() {
                   e.currentTarget.style.backgroundColor = "#25D366";
                 }}
               >
-                <MessageCircle className="h-10 w-10" />
+                <svg
+                  className="h-10 w-10"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
                 {t("cta.whatsapp")}
               </a>
 
