@@ -19,7 +19,7 @@ export const contact = {
   /**
    * Primary contact email address
    */
-  email: "contact@explorahead.com",
+  email: "explorahead@gmail.com",
 
   /**
    * Primary contact phone number
