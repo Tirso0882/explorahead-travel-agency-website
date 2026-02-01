@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { ReactNode } from "react";
@@ -36,13 +41,7 @@ export function Card({
     <motion.div
       whileHover={hover ? { y: -4, boxShadow: "var(--shadow-xl)" } : undefined}
       transition={{ duration: 0.2 }}
-      className={`
-        rounded-xl overflow-hidden
-        ${cardVariants[variant]}
-        ${paddingSizes[padding]}
-        ${hover ? "cursor-pointer transition-shadow" : ""}
-        ${className}
-      `}
+      className={`overflow-hidden rounded-xl ${cardVariants[variant]} ${paddingSizes[padding]} ${hover ? "cursor-pointer transition-shadow" : ""} ${className} `}
       {...props}
     >
       {children}
@@ -77,14 +76,12 @@ export function CardImage({
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-ocean/70 via-ocean/20 to-transparent" />
+        <div className="from-ocean/70 via-ocean/20 absolute inset-0 bg-gradient-to-t to-transparent" />
       )}
-      {children && (
-        <div className="absolute inset-0 flex items-end p-4">{children}</div>
-      )}
+      {children && <div className="absolute inset-0 flex items-end p-4">{children}</div>}
     </div>
   );
 }
@@ -105,9 +102,7 @@ interface CardTitleProps {
 }
 
 export function CardTitle({ children, as: Tag = "h3", className = "" }: CardTitleProps) {
-  return (
-    <Tag className={`font-heading text-ocean mb-2 ${className}`}>{children}</Tag>
-  );
+  return <Tag className={`font-heading text-ocean mb-2 ${className}`}>{children}</Tag>;
 }
 
 interface CardDescriptionProps {
@@ -116,12 +111,7 @@ interface CardDescriptionProps {
 }
 
 export function CardDescription({ children, className = "" }: CardDescriptionProps) {
-  return (
-    <p className={`text-gray-dark text-sm leading-relaxed ${className}`}>
-      {children}
-    </p>
-  );
+  return <p className={`text-gray-dark text-sm leading-relaxed ${className}`}>{children}</p>;
 }
 
 export default Card;
-

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { ReactNode, useEffect, useCallback } from "react";
@@ -60,7 +65,7 @@ export function Modal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-ocean/60 backdrop-blur-sm"
+            className="bg-ocean/60 absolute inset-0 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -70,22 +75,16 @@ export function Modal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`
-              relative w-full ${sizeClasses[size]} mx-4
-              bg-white rounded-2xl shadow-xl
-              max-h-[90vh] overflow-hidden
-            `}
+            className={`relative w-full ${sizeClasses[size]} mx-4 max-h-[90vh] overflow-hidden rounded-2xl bg-white shadow-xl`}
           >
             {/* Header */}
             {(title || showCloseButton) && (
-              <div className="flex items-center justify-between p-6 border-b border-gray-lighter">
-                {title && (
-                  <h2 className="text-xl font-heading text-ocean">{title}</h2>
-                )}
+              <div className="border-gray-lighter flex items-center justify-between border-b p-6">
+                {title && <h2 className="font-heading text-ocean text-xl">{title}</h2>}
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-2 rounded-lg text-gray hover:text-ocean hover:bg-sand-light transition-colors"
+                    className="text-gray hover:text-ocean hover:bg-sand-light rounded-lg p-2 transition-colors"
                     aria-label="Close modal"
                   >
                     <X size={20} />
@@ -95,9 +94,7 @@ export function Modal({
             )}
 
             {/* Body */}
-            <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
-              {children}
-            </div>
+            <div className="max-h-[calc(90vh-80px)] overflow-y-auto">{children}</div>
           </motion.div>
         </div>
       )}
@@ -122,7 +119,7 @@ interface ModalFooterProps {
 export function ModalFooter({ children, className = "" }: ModalFooterProps) {
   return (
     <div
-      className={`flex items-center justify-end gap-3 p-6 border-t border-gray-lighter bg-sand-light ${className}`}
+      className={`border-gray-lighter bg-sand-light flex items-center justify-end gap-3 border-t p-6 ${className}`}
     >
       {children}
     </div>
@@ -130,4 +127,3 @@ export function ModalFooter({ children, className = "" }: ModalFooterProps) {
 }
 
 export default Modal;
-
