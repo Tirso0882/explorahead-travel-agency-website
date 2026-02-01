@@ -203,7 +203,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
-            style={{ padding: "40px" }}
+            style={{ padding: "20px" }}
           >
             <h3
               className="font-heading text-center text-3xl md:text-4xl"

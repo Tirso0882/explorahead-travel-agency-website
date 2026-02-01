@@ -41,7 +41,7 @@ export const socialMediaConfig: Record<string, SocialMediaConfig> = {
     name: "Facebook",
     url: "https://www.facebook.com/share/16ZTZYYuyR/?mibextid=wwXIfr",
     handle: "ExplorAhead",
-    enabled: false,
+    enabled: true,
     order: 2,
   },
   tiktok: {

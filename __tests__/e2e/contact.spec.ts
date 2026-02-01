@@ -64,7 +64,7 @@ test.describe("Contact Form", () => {
 
   test("displays contact information", async ({ page }) => {
     // Check contact details are visible
-    await expect(page.getByText(/contact@explorahead.com/i)).toBeVisible();
+    await expect(page.getByText(/explorahead@gmail.com/i)).toBeVisible();
     await expect(page.getByText(/\+48/)).toBeVisible();
   });
 });

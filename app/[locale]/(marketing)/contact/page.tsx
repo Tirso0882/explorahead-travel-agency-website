@@ -5,11 +5,9 @@
 
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { Input, Select, Textarea } from "@/components/ui/Input";
 import { SocialIcons } from "@/components/ui/SocialIcons";
 import { motion, useInView } from "framer-motion";
-import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -64,22 +62,30 @@ export default function ContactPage() {
     try {
       const formData = new FormData(e.target as HTMLFormElement);
 
-      // Use Formspree for form submission (free tier)
-      // Replace YOUR_FORM_ID with your actual Formspree form ID
-      // Sign up at https://formspree.io and create a form to get your ID
-      const FORMSPREE_ENDPOINT =
-        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/YOUR_FORM_ID";
+      // Prepare JSON payload for our API
+      const payload = {
+        requestType: formData.get("requestType") as string,
+        companyName: formData.get("companyName") as string,
+        firstName: formData.get("firstName") as string,
+        lastName: formData.get("lastName") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        message: formData.get("message") as string,
+        source: "contact_form",
+      };
 
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to send message");
       }
 
       setIsSubmitted(true);
@@ -92,8 +98,10 @@ export default function ContactPage() {
 
       // Reset success state after delay
       setTimeout(() => setIsSubmitted(false), 5000);
-    } catch {
-      toast.error("Failed to send message. Please try again.");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Failed to send message. Please try again.";
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -148,9 +156,12 @@ export default function ContactPage() {
       {/* Contact Section */}
       <section ref={sectionRef} className="section">
         <div className="container">
-          <div className="grid gap-16 lg:grid-cols-2">
-            {/* Contact Form */}
-            <motion.div
+          <div className="grid gap-16 lg:grid-cols-1">
+            {/* ========== CONTACT FORM - TEMPORARILY HIDDEN ==========
+                TO REACTIVATE: Uncomment from here down to the closing </motion.div> tag
+                and change lg:grid-cols-1 to lg:grid-cols-2 in the grid div above
+            */}
+            {/* <motion.div
               id="contact-form"
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -233,7 +244,8 @@ export default function ContactPage() {
                   </Button>
                 </form>
               )}
-            </motion.div>
+            </motion.div> */}
+            {/* ========== END CONTACT FORM ========== */}
 
             {/* Contact Info */}
             <motion.div

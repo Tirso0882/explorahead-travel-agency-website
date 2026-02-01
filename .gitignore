@@ -65,6 +65,8 @@ logs/
 docs/
 playwright-report/
 test-results/
+.agents/
+.cursor/
 
 # Files
 notes.txt

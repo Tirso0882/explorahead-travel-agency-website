@@ -191,7 +191,7 @@
       "cookies": "Polityka Cookies"
     },
     "contact": {
-      "email": "contact@explorahead.com",
+      "email": "explorahead@gmail.com",
       "phone": "+48 690 946 046",
       "address": "Wroclaw, Poland"
     }
@@ -247,16 +247,16 @@
     "servicesPreview": {
       "badge": "Co Oferujemy",
       "title": "Jak Dokładnie Możemy Ci Pomóc?",
-      "subtitle": "Zajmujemy się każdym szczegółem Twojej podróży—od lotów po zakwaterowanie, plany dnia po wsparcie 24/7—abyś mógł skupić się na tworzeniu niezapomnianych wspomnień.",
+      "subtitle": "Zajmujemy się każdym szczegółem Twojej podróży - od lotów po zakwaterowanie, plany dnia po wsparcie - abyś mógł skupić się na tworzeniu niezapomnianych wspomnień.",
       "exploreAll": "Odkryj Wszystkie Usługi",
       "items": {
         "transport": {
           "title": "Transport",
-          "description": "Dobieramy loty, pociągi, wynajem auta-z uwzględnieniem komfortu i Twojego budżetu."
+          "description": "Dobieramy loty, pociągi, wynajem auta - z uwzględnieniem komfortu i Twojego budżetu."
         },
         "accommodation": {
           "title": "Zakwaterowanie",
-          "description": "Hotel, apartament, pensjonat z charakterem-dopasowane do Twojego stylu życia."
+          "description": "Hotel, apartament, pensjonat z charakterem - dopasowane do Twojego stylu życia."
         },
         "dailyPlanning": {
           "title": "Plan Dzienny",
@@ -264,14 +264,14 @@
         },
         "experiences": {
           "title": "Atrakcje i Doświadczenia",
-          "description": "Od ukrytych kawiarni po prywatne przewodnictwo-bez pułapek turystycznych, tylko autentyczne chwile."
+          "description": "Od ukrytych kawiarni po prywatne przewodnictwo - bez pułapek turystycznych, tylko autentyczne chwile."
         },
         "emailSupport": {
           "title": "Wsparcie E-mail",
           "description": "Pytania przed lub podczas podróży? Jesteśmy tu, aby pomóc mailem w godzinach 9:00 - 18:00."
         },
         "whatsappSupport": {
-          "title": "WhatsApp 24/7",
+          "title": "WhatsApp Wsparcie",
           "description": "Potrzebujesz pomocy po godzinach? Dodaj Wsparcie w Podróży dla dostępu przez WhatsApp w każdej chwili.",
           "descriptionLine3": "Odpowiadam najszybciej jak tylko mogę, nawet po 18:00."
         }
@@ -527,7 +527,7 @@
       "destinations": "Destynacje"
     },
     "values": {
-      "badge": "Za Czym Się Opowiadamy",
+      "badge": "To, co jest dla nas ważne",
       "title": "Nasze Wartości",
       "subtitle": "Te zasady kierują wszystkim, co robimy, od destynacji, które polecamy, po doświadczenia, które tworzymy.",
       "items": {

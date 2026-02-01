@@ -515,7 +515,7 @@ export default function PricingPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="from-ocean via-ocean to-ocean-dark rounded-3xl bg-gradient-to-br text-center text-white shadow-2xl"
-            style={{ padding: "20px 40px" }}
+            style={{ padding: "20px" }}
           >
             {/* Title */}
             <h2 className="font-heading mb-6 text-center text-3xl text-white md:text-4xl lg:text-5xl">
@@ -524,7 +524,9 @@ export default function PricingPage() {
 
             {/* Subtitle */}
             <div className="mb-12 flex justify-center">
-              <p className="max-w-xl text-center text-lg text-white/80">{t("cta.subtitle")}</p>
+              <p className="max-w-xl text-center text-lg whitespace-nowrap text-white/80">
+                {t("cta.subtitle")}
+              </p>
             </div>
 
             {/* Buttons */}
