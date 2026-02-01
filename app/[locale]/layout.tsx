@@ -120,7 +120,7 @@ export default async function LocaleLayout({
       "@type": "ContactPoint",
       telephone: "+48-503-801-994",
       contactType: "customer service",
-      email: "contact@explorahead.com",
+      email: "explorahead@gmail.com",
       availableLanguage: ["English", "Polish"],
     },
     priceRange: "$$",
