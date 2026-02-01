@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { Button } from "@/components/ui/Button";
@@ -72,7 +77,7 @@ export function CTASection() {
             {t("title")} <span className="text-gold">{t("titleHighlight")}</span>
           </h2>
 
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80 md:text-xl">
+          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
             {t("subtitle")}
           </p>
 

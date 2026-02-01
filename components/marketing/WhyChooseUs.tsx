@@ -1,9 +1,14 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Compass, HeartHandshake, Shield, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Shield, Compass, HeartHandshake, User } from "lucide-react";
+import { useRef } from "react";
 
 export function WhyChooseUs() {
   const t = useTranslations("marketing.whyChooseUs");
@@ -72,10 +77,10 @@ export function WhyChooseUs() {
 
                 {/* Content */}
                 <div className="flex-1 text-center">
-                  <h3 className="font-heading text-ocean group-hover:text-gold mb-2 text-center text-xl transition-colors">
+                  <h3 className="card-title group-hover:text-gold text-center transition-colors">
                     {t(benefit.titleKey)}
                   </h3>
-                  <p className="text-gray-dark mx-auto max-w-md text-center leading-relaxed">
+                  <p className="card-description mx-auto text-center">
                     {t(benefit.descriptionKey)}
                   </p>
                 </div>

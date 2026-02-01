@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
 import { Button } from "@/components/ui/Button";
@@ -90,11 +95,9 @@ export function FeaturedDestinations() {
           className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <span className="text-tiny text-gold mb-2 block font-semibold">
-              Featured Destinations
-            </span>
+            <span className="section-badge">Featured Destinations</span>
             <h2 className="text-ocean mb-4">Explore Our Top Picks</h2>
-            <p className="text-gray-dark max-w-xl">
+            <p className="card-description max-w-xl">
               Hand-selected destinations that promise unforgettable experiences. From tropical
               paradises to cultural treasures.
             </p>

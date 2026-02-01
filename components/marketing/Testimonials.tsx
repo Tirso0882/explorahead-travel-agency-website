@@ -1,9 +1,17 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 "use client";
 
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView, type PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
+
+// Swipe threshold for navigation (in pixels)
+const SWIPE_THRESHOLD = 50;
 
 const testimonials = [
   {
@@ -50,15 +58,57 @@ const testimonials = [
 
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  const next = () => {
+  const next = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, []);
 
-  const prev = () => {
+  const prev = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  const goToIndex = useCallback(
+    (index: number) => {
+      setDirection(index > currentIndex ? 1 : -1);
+      setCurrentIndex(index);
+    },
+    [currentIndex]
+  );
+
+  // Swipe gesture handler
+  const handleDragEnd = useCallback(
+    (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const { offset, velocity } = info;
+
+      // Check if swipe exceeds threshold or has enough velocity
+      if (offset.x < -SWIPE_THRESHOLD || velocity.x < -500) {
+        next();
+      } else if (offset.x > SWIPE_THRESHOLD || velocity.x > 500) {
+        prev();
+      }
+    },
+    [next, prev]
+  );
+
+  // Slide animation variants
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 100 : -100,
+      opacity: 0,
+    }),
   };
 
   const currentTestimonial = testimonials[currentIndex];
@@ -72,7 +122,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <span className="text-tiny text-gold mb-2 block font-semibold">Testimonials</span>
+          <span className="section-badge">Testimonials</span>
           <h2 className="mb-4 text-white">Stories From Our Travelers</h2>
         </motion.div>
 
@@ -88,48 +138,74 @@ export function Testimonials() {
               <Quote size={80} className="text-gold" />
             </div>
 
-            {/* Testimonial Content */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial.id}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.4 }}
-                className="bg-ocean-light/50 rounded-3xl p-8 backdrop-blur-sm md:p-12"
-              >
-                {/* Rating */}
-                <div className="mb-6 flex gap-1">
-                  {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <Star key={i} size={20} className="text-gold fill-gold" />
-                  ))}
-                </div>
-
-                {/* Text */}
-                <p className="mb-8 text-xl leading-relaxed font-light text-white/90 italic md:text-2xl">
-                  &ldquo;{currentTestimonial.text}&rdquo;
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="relative h-16 w-16">
-                    <Image
-                      src={currentTestimonial.avatar}
-                      alt={currentTestimonial.name}
-                      fill
-                      className="border-gold rounded-full border-2 object-cover"
-                      sizes="64px"
-                    />
+            {/* Testimonial Content with Swipe Support */}
+            <motion.div
+              className="touch-pan-y"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
+            >
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={currentTestimonial.id}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4 }}
+                  className="bg-ocean-light/50 rounded-3xl p-8 backdrop-blur-sm md:p-12"
+                >
+                  {/* Rating */}
+                  <div className="mb-6 flex gap-1">
+                    {[...Array(currentTestimonial.rating)].map((_, i) => (
+                      <Star key={i} size={20} className="text-gold fill-gold" />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-white">{currentTestimonial.name}</h4>
-                    <p className="text-white/60">
-                      {currentTestimonial.role} • {currentTestimonial.destination}
-                    </p>
+
+                  {/* Text */}
+                  <p className="mb-8 text-lg leading-relaxed font-light text-white/90 italic md:text-xl">
+                    &ldquo;{currentTestimonial.text}&rdquo;
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-16 w-16">
+                      <Image
+                        src={currentTestimonial.avatar}
+                        alt={currentTestimonial.name}
+                        fill
+                        className="border-gold rounded-full border-2 object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white">
+                        {currentTestimonial.name}
+                      </h4>
+                      <p className="text-white/60">
+                        {currentTestimonial.role} • {currentTestimonial.destination}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Swipe Hint (mobile only) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-4 flex justify-center md:hidden"
+            >
+              <p className="flex items-center gap-2 text-xs text-white/40">
+                <ChevronLeft size={12} />
+                Swipe to navigate
+                <ChevronRight size={12} />
+              </p>
+            </motion.div>
 
             {/* Navigation */}
             <div className="mt-8 flex items-center justify-center gap-4">
@@ -146,7 +222,7 @@ export function Testimonials() {
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentIndex(index)}
+                    onClick={() => goToIndex(index)}
                     className={`h-2 w-2 rounded-full transition-all ${
                       index === currentIndex ? "bg-gold w-8" : "bg-white/30 hover:bg-white/50"
                     }`}
