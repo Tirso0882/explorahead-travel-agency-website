@@ -1,5 +1,10 @@
-import { getRequestConfig } from 'next-intl/server';
-import { routing } from './routing';
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
+import { getRequestConfig } from "next-intl/server";
+import { routing } from "./routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
@@ -15,4 +20,3 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });
-

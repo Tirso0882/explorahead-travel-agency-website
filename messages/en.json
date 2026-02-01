@@ -24,7 +24,8 @@
     "no": "No",
     "error": "Error",
     "success": "Success",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "days": "days"
   },
   "navigation": {
     "home": "Home",
@@ -38,19 +39,53 @@
     "logout": "Sign Out",
     "toggleMenu": "Toggle menu"
   },
+  "whatsapp": {
+    "defaultMessage": "Hi! I'm interested in planning my dream trip. Can you help me?",
+    "ariaLabel": "Chat with us on WhatsApp"
+  },
   "hero": {
     "badge": "Your Journey Begins Here",
     "title": "Discover the World,",
     "titleHighlight": "Your Way",
-    "subtitle": "Craving a seamless travel experience?",
-    "subtitleLine2": "Share your vision, and leave the details to us.",
-    "ctaPrimary": "Start Planning",
     "ctaSecondary": "Explore Destinations",
     "stats": {
       "destinations": "Destinations",
       "experience": "Years Experience",
       "support": "Support"
-    }
+    },
+    "slides": {
+      "madagascar": {
+        "message": "Seek the places where wonder still grows wild.",
+        "tagline": "Wonder Grows Wild",
+        "whatsappMessage": "Madagascar's baobabs are calling me—let's make it happen!"
+      },
+      "philippines": {
+        "message": "Paradise isn't a place—it's the moment you stop searching.",
+        "tagline": "Arrive in Paradise",
+        "whatsappMessage": "Palawan looks like heaven—help me plan my escape!"
+      },
+      "utah": {
+        "message": "Where every horizon tells a story—your adventure awaits.",
+        "tagline": "Adventure Awaits",
+        "whatsappMessage": "The Utah canyon views look incredible—help me explore!"
+      },
+      "colombia": {
+        "message": "Life was meant to be lived in color—find yours.",
+        "tagline": "Live in Color",
+        "whatsappMessage": "Guatapé's colors have me hooked—let's plan my trip!"
+      },
+      "cuba": {
+        "message": "Feel the rhythm of places that haven't forgotten how to live.",
+        "tagline": "Feel the Rhythm",
+        "whatsappMessage": "I'm dreaming of Havana's streets—tell me more!"
+      },
+      "israel": {
+        "message": "Some journeys quiet the noise and awaken what matters.",
+        "tagline": "Find Your Peace",
+        "whatsappMessage": "The Baháʼí Gardens look stunning—I'd love to visit!"
+      }
+    },
+    "journeyComplete": "I explored all your destinations—I'm ready to start planning my dream trip!"
   },
   "auth": {
     "login": {
@@ -133,7 +168,7 @@
     "error": "Failed to save settings"
   },
   "footer": {
-    "tagline": "Crafting unforgettable journeys tailored to your dreams. Let us guide you to the world's most extraordinary destinations.",
+    "tagline": "Crafting unforgettable journeys tailored to your\ndreams. Let us guide you to the world's most\nextraordinary destinations.",
     "explore": "Explore",
     "services": "Services",
     "contactUs": "Contact Us",
@@ -156,7 +191,7 @@
       "cookies": "Cookie Policy"
     },
     "contact": {
-      "email": "info@explorahead.com",
+      "email": "contact@explorahead.com",
       "phone": "+48 690 946 046",
       "address": "Wroclaw, Poland"
     }
@@ -212,7 +247,7 @@
     "servicesPreview": {
       "badge": "What We Offer",
       "title": "How Exactly Can We Help You?",
-      "subtitle": "We handle every detail of your journey—from flights to accommodations, daily plans to 24/7 support—so you can focus on creating unforgettable memories.",
+      "subtitle": "We handle every detail of your journey—flights, accommodations, daily plans, and support—\nso you can focus on creating unforgettable memories.",
       "exploreAll": "Explore All Services",
       "items": {
         "transport": {
@@ -231,11 +266,14 @@
           "title": "Attractions & Experiences",
           "description": "From hidden cafes to private guided tours—no tourist traps, only authentic moments."
         },
-        "support": {
-          "title": "Support",
-          "description": "From your first email to your return home—if something changes, we'll respond by email during 9:00 AM - 6:00 PM.",
-          "descriptionLine2": "Want access to WhatsApp support after working hours?",
-          "descriptionLine3": "Add Trip Support option—I respond as quickly as I can, even after 6:00 PM."
+        "emailSupport": {
+          "title": "Email Support",
+          "description": "Questions before or during your trip? We're here to help by email 9:00 AM - 6:00 PM."
+        },
+        "whatsappSupport": {
+          "title": "WhatsApp Support",
+          "description": "Need help after hours? Add Trip Support for WhatsApp access anytime.",
+          "descriptionLine3": "I respond as quickly as I can, even after 6:00 PM."
         }
       }
     },
@@ -271,7 +309,7 @@
       "steps": {
         "connect": {
           "title": "Message Me",
-          "description": "Send a quick message via WhatsApp or book a 15-min call. Tell me where you want to go.",
+          "description": "Contact me via WhatsApp or email. Tell me where you'd like to go — I'll help plan the rest.",
           "detail": "Response in minutes",
           "detail2": "Choose your way"
         },
@@ -292,6 +330,7 @@
         "title": "Ready to Start Planning?",
         "subtitle": "Choose your preferred way to connect—no forms, no hassle.",
         "chatNow": "Chat With Me Now",
+        "contactUs": "Contact Us",
         "bookCall": "Book a Quick Call",
         "socialProof": "Join 100+ travelers who trusted us with their dream trips"
       }
@@ -321,7 +360,7 @@
           },
           "experience": {
             "title": "Experience",
-            "description": "Embark on your journey with 24/7 support along the way."
+            "description": "Embark on your journey with 24/ support along the way."
           }
         }
       },
@@ -495,27 +534,15 @@
       "items": {
         "passion": {
           "title": "Passion for Travel",
-          "description": "Every destination tells a story. With years of personal travel and industry expertise, we transform locations into meaningful experiences that stay with you long after you return home."
-        },
-        "expertise": {
-          "title": "Global Expertise",
-          "description": "From navigating complex booking systems to uncovering hidden gems, our deep industry knowledge and worldwide connections ensure seamless, authentic journeys tailored to you."
+          "description": "Every journey tells a different story. Drawing on our own experiences and years in the industry, we create trips that stay in your memory long after - not just in photos."
         },
         "personal": {
           "title": "Personal Touch",
-          "description": "Whether luxury, adventure, or budget-friendly, we craft itineraries for all travelers and preferences, perfectly tailored to your unique lifestyle."
-        },
-        "trust": {
-          "title": "Trust & Safety",
-          "description": "Your well-being is our priority. We partner only with vetted suppliers and provide 24/7 support."
+          "description": "We don't believe in one-size-fits-all templates. Each plan is built around your travel style, needs, and budget - so your trip is truly \"yours.\""
         },
         "flexibility": {
           "title": "Flexible Planning",
-          "description": "Plans change, and we adapt. Whether you need last-minute adjustments or want to explore spontaneously, we make it work seamlessly."
-        },
-        "value": {
-          "title": "Value for Every Budget",
-          "description": "From budget-friendly adventures to luxury escapes, we maximize value at every price point without compromising on quality."
+          "description": "Plans sometimes change - and that's okay. We adapt, adjust, and help find the best solutions, even when unexpected changes arise."
         }
       }
     },
@@ -629,7 +656,7 @@
     },
     "dreamFinder": {
       "title": "Dream Finder",
-      "subtitle": "Don't know where to go?",
+      "subtitle": "For those who are not sure where to go yet",
       "tagline": "Let's discover your perfect destination together!",
       "question": "\"I want to go somewhere, but I don't know where...\"",
       "answer": "This is the perfect service for you! During a 45-minute consultation, we'll help you find your dream destination.",
@@ -637,10 +664,7 @@
       "features": {
         "consultation": "45-minute video or phone consultation",
         "conversation": "Discussion about your interests, budget, and expectations",
-        "recommendations": "3-5 personalized destination recommendations",
-        "descriptions": "Brief description of each place tailored to your preferences",
-        "selection": "Help choosing the best option at the end of the call",
-        "summary": "Written summary after the consultation"
+        "recommendations": "Up to 5 matched recommendations with specific tips (by email within 24h/48h after the call)"
       },
       "topicsTitle": "What we'll discuss:",
       "topics": {
@@ -659,21 +683,23 @@
     },
     "packages": {
       "badge": "Choose Your Plan",
-      "title": "Our Service Packages"
+      "title": "Our Service Packages",
+      "swipeHint": "Swipe to see more"
     },
     "common": {
       "days": "days"
     },
     "dreamPlan": {
       "title": "Dream Plan",
-      "subtitle": "Complete travel planning",
+      "subtitle": "For those who want a ready-made plan without the stress",
+      "priceLabel": "Price per plan (up to 4 people):",
       "whatYouGet": "What You Get",
       "features": {
         "itinerary": "Detailed day-by-day itinerary",
-        "flights": "Flight and hotel recommendations",
+        "flights": "2-3 flight recommendations",
+        "hotels": "2-3 hotel recommendations",
         "revisions": "2 free revisions before departure",
-        "emailSupport": "Email support for any questions",
-        "rules": "Price for up to 4 people"
+        "emailSupport": "Email support before, during, and after your trip"
       },
       "priceFor4": "Price for up to 4 people",
       "tiers": {
@@ -681,20 +707,21 @@
         "standard": "Standard trip",
         "long": "Long trip"
       },
-      "longerTrips": "*Trips 14+ days: individual quote"
+      "longerTrips": "*Trips 14+ days or 5+ people - individual quote",
+      "emailHours": "**Email responses typically during 9:00-18:00 (Mon-Fri), 10:00-16:00 (Sat)"
     },
     "tripSupport": {
       "title": "Trip Support",
-      "subtitle": "Real-time support",
+      "subtitle": "For travelers who want on-the-spot assistance",
+      "requirement": "⚠️ Requires prior purchase of Dream Plan",
       "tagline": "Your personal assistant throughout your entire trip!",
       "popularBadge": "POPULAR",
       "whatYouGet": "What You Get",
       "features": {
-        "whatsapp": "Access to expert via WhatsApp/SMS during your trip",
-        "changes": "Help with sudden plan changes",
+        "whatsapp": "Access to expert via WhatsApp/SMS during your trip (usually within 2h)",
+        "changes": "Help with sudden plan changes/unexpected situations",
         "recommendations": "Restaurant and attraction recommendations \"on the spot\"",
-        "emergencies": "Quick response to unexpected situations",
-        "basicPlan": "Basic travel plan included"
+        "basicPlan": "Continuation of support from your Dream Plan"
       },
       "priceLabel": "Package price:",
       "duration": "Support throughout your trip (up to 14 days)",
@@ -703,20 +730,22 @@
     },
     "express": {
       "title": "Express Service",
-      "subtitle": "Rescue 24/48h",
+      "subtitle": "For those who need a plan \"right away\"",
+      "subtitle2": "Trip within 24–48 hours",
       "urgentBadge": "URGENT",
       "urgentMessage": "Need help right now? We're here—even after 6 PM Polish time!",
       "whatYouGet": "What You Get",
       "features": {
-        "quickPlan": "Quick 1-3 day plan in urgent mode",
-        "recommendations": "Accommodation and transport recommendations \"right now\"",
-        "support": "SMS/WhatsApp support for the first 24h of your trip"
+        "quickPlan": "Quick plan for a 1-3 day trip",
+        "recommendations": "Accommodation and transport recommendations with immediate availability",
+        "support": "WhatsApp support for the first 24h of your trip (usually within 2h)"
       },
       "priceLabel": "Price:"
     },
     "premiumPackage": {
       "title": "Premium Package",
-      "subtitle": "Dream Plan + Trip Support",
+      "combination": "Dream Plan + Trip Support",
+      "subtitle": "For those who expect full-service and comprehensive support",
       "bestValueBadge": "BEST VALUE",
       "whatYouGet": "What You Get",
       "features": {

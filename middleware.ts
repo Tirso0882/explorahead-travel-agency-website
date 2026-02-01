@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2024-2026 ExplorAhead. All rights reserved.
+ * This file is part of proprietary software. See LICENSE for terms.
+ */
+
 import { getUnpublishedSlugs } from "@/config/pages";
 import { routing } from "@/lib/i18n/routing";
 import createIntlMiddleware from "next-intl/middleware";
