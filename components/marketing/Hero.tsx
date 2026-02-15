@@ -283,7 +283,7 @@ export function Hero() {
                 className="h-2 w-2 rounded-full"
                 style={{ backgroundColor: currentSlideData.iconColor }}
               />
-              {currentSlideData.destination}
+              {t(`slides.${currentSlideData.id}.destination`)}
             </span>
           </motion.div>
         </AnimatePresence>
@@ -359,6 +359,7 @@ export function Hero() {
         journeyComplete={journeyComplete}
         whatsappMessage={t(`slides.${currentSlideData.id}.whatsappMessage`)}
         journeyCompleteMessage={t("journeyComplete")}
+        destinationName={t(`slides.${currentSlideData.id}.destination`)}
       />
 
       {/* Swipe Hint (mobile only, first-time) */}
