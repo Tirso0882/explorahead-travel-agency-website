@@ -37,6 +37,8 @@ type WhatsAppHeroCTAProps = {
   whatsappMessage: string;
   /** Translated journey complete message */
   journeyCompleteMessage: string;
+  /** Translated destination name */
+  destinationName: string;
 };
 
 /**
@@ -56,6 +58,7 @@ export function WhatsAppHeroCTA({
   journeyComplete,
   whatsappMessage,
   journeyCompleteMessage,
+  destinationName,
 }: WhatsAppHeroCTAProps) {
   // Determine the WhatsApp link based on journey state
   const whatsappLink = journeyComplete
@@ -97,7 +100,7 @@ export function WhatsAppHeroCTA({
           aria-label={
             journeyComplete
               ? "Chat on WhatsApp - You've explored all destinations!"
-              : `Chat on WhatsApp about ${currentSlide.destination}`
+              : `Chat on WhatsApp about ${destinationName}`
           }
         >
           <WhatsAppIcon size={28} />

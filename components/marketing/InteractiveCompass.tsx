@@ -13,6 +13,8 @@ type InteractiveCompassProps = {
   currentSlide: HeroSlide;
   onInteraction?: () => void;
   showTestimonial?: boolean;
+  /** Translated destination name */
+  destinationName?: string;
 };
 
 /**
@@ -27,6 +29,7 @@ export function InteractiveCompass({
   currentSlide,
   onInteraction,
   showTestimonial = true,
+  destinationName,
 }: InteractiveCompassProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -50,7 +53,7 @@ export function InteractiveCompass({
           >
             <div className="rounded-xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm">
               <p className="font-heading text-ocean text-center text-sm font-semibold">
-                {currentSlide.destination}
+                {destinationName || currentSlide.destination}
               </p>
               {showTestimonial && currentSlide.testimonialSnippet && (
                 <p className="text-ocean/70 mt-1 max-w-[200px] text-center text-xs italic">
@@ -76,7 +79,7 @@ export function InteractiveCompass({
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
         className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20 focus:ring-2 focus:ring-white/50 focus:outline-none"
-        aria-label={`Discover ${currentSlide.destination}. ${currentSlide.testimonialSnippet || ""}`}
+        aria-label={`Discover ${destinationName || currentSlide.destination}. ${currentSlide.testimonialSnippet || ""}`}
       >
         {/* Outer Ring - Animated */}
         <motion.div

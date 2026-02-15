@@ -55,31 +55,37 @@
     },
     "slides": {
       "madagascar": {
+        "destination": "Madagascar",
         "message": "Seek the places where wonder still grows wild.",
         "tagline": "Wonder Grows Wild",
         "whatsappMessage": "Madagascar's baobabs are calling me—let's make it happen!"
       },
       "philippines": {
+        "destination": "Palawan, Philippines",
         "message": "Paradise isn't a place—it's the moment you stop searching.",
         "tagline": "Arrive in Paradise",
         "whatsappMessage": "Palawan looks like heaven—help me plan my escape!"
       },
       "utah": {
+        "destination": "Utah, USA",
         "message": "Where every horizon tells a story—your adventure awaits.",
         "tagline": "Adventure Awaits",
         "whatsappMessage": "The Utah canyon views look incredible—help me explore!"
       },
       "colombia": {
+        "destination": "Guatapé, Colombia",
         "message": "Life was meant to be lived in color—find yours.",
         "tagline": "Live in Color",
         "whatsappMessage": "Guatapé's colors have me hooked—let's plan my trip!"
       },
       "cuba": {
+        "destination": "Havana, Cuba",
         "message": "Feel the rhythm of places that haven't forgotten how to live.",
         "tagline": "Feel the Rhythm",
         "whatsappMessage": "I'm dreaming of Havana's streets—tell me more!"
       },
       "israel": {
+        "destination": "Haifa, Israel",
         "message": "Some journeys quiet the noise and awaken what matters.",
         "tagline": "Find Your Peace",
         "whatsappMessage": "The Baháʼí Gardens look stunning—I'd love to visit!"
