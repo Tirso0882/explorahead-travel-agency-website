@@ -6,6 +6,7 @@
 import { GoogleAnalytics } from "@/components/analytics";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { routing } from "@/lib/i18n/routing";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -146,6 +147,7 @@ export default async function LocaleLayout({
           {children}
           <CookieConsent />
           <GoogleAnalytics />
+          <Analytics />
           <Toaster
             position="bottom-right"
             toastOptions={{
